@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 //状态树集
 import user from './modules/user'
-import posts from './modules/posts'
+import config from './modules/config'
 
 
 //插件
@@ -15,7 +15,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     modules:{
         user,
-        posts
+        config
     },
     plugins: [ Plugin("测试") ]
 })

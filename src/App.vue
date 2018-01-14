@@ -28,6 +28,9 @@ export default {
 }
 </script>
 
+<style lang="less">
+@import '~vux/src/styles/reset.less';
+</style>
 <style lang="scss">
 @import "~assets/scss/app"
 </style>

@@ -3,12 +3,13 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const vuxLoader = require('vux-loader')
 
 function resolve (dir) {
     return path.join(__dirname, '..', dir)
 }
 
-module.exports = {
+const webpackConfig = {
     entry: {
         app: './src/main.js'
     },
@@ -29,6 +30,7 @@ module.exports = {
         ],
         alias: {
             'vue$': 'vue/dist/vue.common.js',
+            '@': resolve('src'),
             'assets': resolve('src/assets'),
             'components': resolve('src/components'),
             'utils': resolve('src/utils'),
@@ -56,7 +58,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: utils.assetsPath('images/[name].[ext]')
+                    name: utils.assetsPath('img/[name].[ext]')
                 }
             },
             {
@@ -78,3 +80,8 @@ module.exports = {
         ]
     }
 }
+
+
+module.exports = vuxLoader.merge(webpackConfig, {
+    plugins: ['vux-ui', 'progress-bar', 'duplicate-style']
+})

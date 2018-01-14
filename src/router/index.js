@@ -15,10 +15,13 @@ const VueRouter = new Router({
             children: [// 二级路由。对应App.vue
                 {
                     path: '',
-                    redirect: '/home'
+                    redirect: '/operator/home'
                 }, {
-                    path: '/home',
-                    component: r => require.ensure([], () => r(require('page/home').default), 'home')
+                    path: '/operator/home',
+                    component: r => require.ensure([], () => r(require('page/operator/home').default), 'home')
+                },{
+                    path: '/operator/login',
+                    component: r => require.ensure([], () => r(require('page/operator/login').default), 'login')
                 }
             ]
         }

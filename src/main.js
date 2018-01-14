@@ -6,14 +6,10 @@ import Vue from 'vue'
 import router from 'router'
 import store from 'store'
 import plugins from 'plugins/component'
+// FastClick.attach(document.body)
 
 Vue.use(plugins)
 
-if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function () {
-        FastClick.attach(document.body)
-    }, false)
-}
 
 // 关闭生产模式下给出的提示
 Vue.config.productionTip = false

@@ -1,3 +1,16 @@
+//阿里图标库
+.icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.16em;
+   fill: currentColor;
+   overflow: hidden;
+}
+
+* {
+    //标记
+    color: red;
+}
+
 html{
     font-size:32px;
 }
@@ -19,3 +32,37 @@ html{
 .letter-spacing{
     letter-spacing: 4px;
 }
+
+
+
+//强制一行
+.text-nowrap{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    // width:100%;
+}
+
+//竖文字
+.wmr{
+    writing-mode: vertical-rl;
+}
+
+
+.base-menu-icon{
+  width: 100%;
+  height: 100%;
+}
+
+//强制二行
+.text-nowrap-three{
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+

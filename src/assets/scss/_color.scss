@@ -11,6 +11,7 @@ $color9:#0699e1;
 $color10:#d8aa5e;
 $color11:#fd622e;
 $color12:#141b73;
+$color13:#29d6bf;
 
 .color0 {
     color: $color0!important;
@@ -50,6 +51,9 @@ $color12:#141b73;
 }
 .color12 {
     color: $color12!important;
+}
+.color13 {
+    color: $color13!important;
 }
 .bg-none{
     background:none;
@@ -96,4 +100,11 @@ $color12:#141b73;
 .bg-ddd{
     background-color:#ddd!important;
 }
+.bg-green{
+    background-color: #50bd42!important;
+}
+.bg-29d6bf{
+    background-color: #29d6bf!important;
+}
+
 
