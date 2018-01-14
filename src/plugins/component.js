@@ -6,7 +6,10 @@ import {
     Group,
     XInput,
     XButton,
-    ToastPlugin
+    Divider,
+    ToastPlugin,
+    Swiper,
+    SwiperItem
 } from 'vux'
 import TabBar from 'components/base/TabBar.vue'
 import BaseAvatar from 'components/base/BaseAvatar.vue'
@@ -14,6 +17,7 @@ import BaseDataThree from 'components/base/BaseDataThree.vue'
 import BaseTiele from 'components/base/BaseTiele.vue'
 import BaseActivityList from 'components/base/BaseActivityList.vue'
 import BaseManTemplate from 'components/base/BaseManTemplate.vue'
+import BaseActivitySwiper from 'components/base/BaseActivitySwiper.vue'
 
 
 
@@ -29,6 +33,8 @@ export default {
       Vue.component('base-tiele', BaseTiele)
       Vue.component('base-activity-list', BaseActivityList)
       Vue.component('base-man-template', BaseManTemplate)
+      Vue.component('base-activity-swiper', BaseActivitySwiper)
+
 
 
 
@@ -46,6 +52,9 @@ export default {
     Vue.component('Group',Group)
     Vue.component('XInput',XInput)
       Vue.component('XButton', XButton)
+      Vue.component('Divider', Divider)
+      Vue.component('Swiper', Swiper)
+      Vue.component('SwiperItem', SwiperItem)
       Vue.use(ToastPlugin)
 
 

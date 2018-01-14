@@ -1,6 +1,6 @@
 <template>
     <div class="plr30 ptb20 flex-wrp bg-white">
-        <base-avatar icon="icon-qushi" size="smallsmall" class="bg-29d6bf"/>
+        <base-avatar :icon="icon" size="smallsmall" class="bg-29d6bf"/>
         <div class="size26 pl10 color2">{{title}}</div>
     </div>
 </template>
@@ -12,6 +12,10 @@ export default {
       default: "请输入标题",
       type: String,
       required: false
+    },
+    icon:{
+        type: String,
+        default: 'icon-qushi',
     }
   },
   data() {

@@ -1,7 +1,7 @@
 <template>
   <div class="base-data-three flex-wrp flex-around" >
     <div class="text-center" v-for="(item, index) in data" :key="index">
-        <slot name="number" :number="item.number">{{item.number}}</slot>
+        <slot name="number" :number="(+item.number).toFixed(2)">{{item.number}}</slot>
         <slot name="title" :title="item.text">{{item.text}}</slot>
     </div>
   </div>
@@ -13,29 +13,7 @@ export default {
     // 检测类型 + 其他验证
     data: {
       type: Array,
-      default: [
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        }
-      ],
-      required: false
-    },
-    icon: {
-      type: String,
-      required: false
-    },
-    src: {
-      type: String,
-      required: false
+      required: true,
     }
   },
   data() {
