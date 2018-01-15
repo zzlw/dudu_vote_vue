@@ -32,6 +32,7 @@
 
 <script>
 import chunk from 'lodash/chunk'
+import api from '@/api'
 export default {
     data () {
         return {
@@ -121,7 +122,12 @@ export default {
 
     components: {},
 
-    methods: {}
+    methods: {
+        async fetchData () {
+            const {data} = await api.get('operator_activities')
+            this.activities = data.data
+        }
+    }
 }
 </script>
 

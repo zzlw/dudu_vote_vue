@@ -9,14 +9,14 @@ import {
     SwiperItem,
     XDialog
 } from 'vux'
-import TabBar from 'components/base/TabBar.vue'
-import BaseAvatar from 'components/base/BaseAvatar.vue'
-import BaseDataThree from 'components/base/BaseDataThree.vue'
-import BaseTiele from 'components/base/BaseTiele.vue'
-import BaseActivityList from 'components/base/BaseActivityList.vue'
-import BaseManTemplate from 'components/base/BaseManTemplate.vue'
-import BaseActivitySwiper from 'components/base/BaseActivitySwiper.vue'
-import HomeInfo from 'components/home/HomeInfo.vue'
+import TabBar from 'components/operator/base/TabBar.vue'
+import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
+import BaseDataThree from 'components/operator/base/BaseDataThree.vue'
+import BaseTiele from 'components/operator/base/BaseTiele.vue'
+import BaseActivityList from 'components/operator/base/BaseActivityList.vue'
+import BaseManTemplate from 'components/operator/base/BaseManTemplate.vue'
+import BaseActivitySwiper from 'components/operator/base/BaseActivitySwiper.vue'
+import HomeInfo from 'components/operator/home/HomeInfo.vue'
 
 export default {
     install (Vue, options) {
