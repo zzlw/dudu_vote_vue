@@ -40,13 +40,10 @@ export default {
         Vue.component('SwiperItem', SwiperItem)
         Vue.component('XDialog', XDialog)
 
-
         Vue.use(ToastPlugin)
         Vue.use(Toast)
 
-
-
-        //复制到剪切板
+        // 复制到剪切板
         Vue.use(VueClipboard)
 
         Vue.prototype.moment = moment

@@ -7,6 +7,8 @@ import router from 'router'
 import store from 'store'
 import plugins from 'plugins/component'
 
+import App from './App'
+
 FastClick.attach(document.body)
 
 Vue.use(plugins)
@@ -17,7 +19,10 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
+    components: {
+        App
+    },
     router,
     store,
-    template: '<router-view></router-view>'
+    template: '<App />'
 })
