@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import BaseAvatar from 'components/base/BaseAvatar.vue'
 export default {
   props: {
     title: {
@@ -47,7 +46,6 @@ export default {
   mounted() {},
 
   components: {
-      BaseAvatar
   },
 
   methods: {}

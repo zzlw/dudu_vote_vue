@@ -26,17 +26,12 @@
         <base-tiele title="我的活动" class="border-b"/>
         <base-man-template :src="templateSrc" :number="number" />
         <divider>我是有底线的</divider>
+        <x-dialog class="d"></x-dialog>
     </div>
 </template>
 
 <script>
 import chunk from "lodash/chunk";
-import BaseDataThree from 'components/base/BaseDataThree.vue'
-import BaseTiele from 'components/base/BaseTiele.vue'
-import BaseActivityList from 'components/base/BaseActivityList.vue'
-import BaseManTemplate from 'components/base/BaseManTemplate.vue'
-import BaseActivitySwiper from 'components/base/BaseActivitySwiper.vue'
-import HomeInfo from 'components/home/HomeInfo.vue'
 export default {
   data() {
     return {
@@ -125,11 +120,6 @@ export default {
   },
 
   components: {
-    BaseDataThree,
-    BaseTiele,
-    BaseActivityList,
-    BaseManTemplate,
-    BaseActivitySwiper,
   },
 
   methods: {

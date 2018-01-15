@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import BaseAvatar from 'components/base/BaseAvatar.vue'
 export default {
   data() {
     return {
@@ -32,7 +31,6 @@ export default {
   mounted() {},
 
   components: {
-      BaseAvatar
   },
 
   methods: {

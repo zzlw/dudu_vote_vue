@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import moment from 'moment'
-// import MintUI from 'mint-ui'
-// import 'mint-ui/lib/style.css'
 import {
     Group,
     XInput,
@@ -9,39 +7,32 @@ import {
     Divider,
     ToastPlugin,
     Swiper,
-    SwiperItem
+    SwiperItem,
+    XDialog
 } from 'vux'
-// import TabBar from 'components/base/TabBar.vue'
-// import BaseAvatar from 'components/base/BaseAvatar.vue'
-// import BaseDataThree from 'components/base/BaseDataThree.vue'
-// import BaseTiele from 'components/base/BaseTiele.vue'
-// import BaseActivityList from 'components/base/BaseActivityList.vue'
-// import BaseManTemplate from 'components/base/BaseManTemplate.vue'
-// import BaseActivitySwiper from 'components/base/BaseActivitySwiper.vue'
-
-
-
-
-// import HomeInfo from 'components/home/HomeInfo.vue'
-
+import TabBar from 'components/base/TabBar.vue'
+import BaseAvatar from 'components/base/BaseAvatar.vue'
+import BaseDataThree from 'components/base/BaseDataThree.vue'
+import BaseTiele from 'components/base/BaseTiele.vue'
+import BaseActivityList from 'components/base/BaseActivityList.vue'
+import BaseManTemplate from 'components/base/BaseManTemplate.vue'
+import BaseActivitySwiper from 'components/base/BaseActivitySwiper.vue'
+import HomeInfo from 'components/home/HomeInfo.vue'
 
 export default {
   install(Vue, options) {
-    // Vue.component('base-tab-bar', TabBar)
-    // Vue.component('base-avatar', BaseAvatar)
-    //   Vue.component('base-data-three', BaseDataThree)
-    //   Vue.component('base-tiele', BaseTiele)
-    //   Vue.component('base-activity-list', BaseActivityList)
-    //   Vue.component('base-man-template', BaseManTemplate)
-    //   Vue.component('base-activity-swiper', BaseActivitySwiper)
+    Vue.component('base-tab-bar', TabBar)
+    Vue.component('base-avatar', BaseAvatar)
+      Vue.component('base-data-three', BaseDataThree)
+      Vue.component('base-tiele', BaseTiele)
+      Vue.component('base-activity-list', BaseActivityList)
+      Vue.component('base-man-template', BaseManTemplate)
+      Vue.component('base-activity-swiper', BaseActivitySwiper)
 
 
 
 
-
-
-
-    //   Vue.component('home-info', HomeInfo)
+      Vue.component('home-info', HomeInfo)
 
 
 
@@ -55,6 +46,8 @@ export default {
       Vue.component('Divider', Divider)
       Vue.component('Swiper', Swiper)
       Vue.component('SwiperItem', SwiperItem)
+      Vue.component('XDialog', XDialog)
+
       Vue.use(ToastPlugin)
 
 
