@@ -36,7 +36,7 @@ const webpackConfig = {
             'utils': resolve('src/utils'),
             'plugins': resolve('src/plugins'),
             'api': resolve('src/api'),
-            'page': resolve('src/page'),
+            'pages': resolve('src/pages'),
             'store': resolve('src/store'),
             'router': resolve('src/router')
         }
@@ -80,7 +80,6 @@ const webpackConfig = {
         ]
     }
 }
-
 
 module.exports = vuxLoader.merge(webpackConfig, {
     plugins: ['vux-ui', 'progress-bar', 'duplicate-style']

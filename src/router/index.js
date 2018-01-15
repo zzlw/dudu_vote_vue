@@ -1,50 +1,50 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import App from '../App'
-import config from 'utils/config'
+
+import OperatorLogin from '@/pages/operator/login'
+import OperatorJoin from '@/pages/operator/join'
+import OperatorJoinForm from '@/pages/operator/join/form'
+
+import Operator from '@/pages/operator/index'
+import OperatorHome from '@/pages/operator/home'
+import OperatorActivityCreate from '@/pages/operator/activity/create'
 
 Vue.use(Router)
 
-// const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
-
-const VueRouter = new Router({
+let router = new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',
-            component: App, // 顶层路由，对应index.html
-            children: [// 二级路由。对应App.vue
+            redirect: '/operator'
+        },
+        {
+            path: '/operator',
+            component: Operator,
+            children: [
                 {
                     path: '',
-                    redirect: '/operator/home'
-                }, {
-                    path: '/operator',
-                    component: r => require.ensure([], () => r(require('page/operator/home').default), 'home'),
-                    children:[
-                        {
-                            path: '/operator/home',
-                            component: r => require.ensure([], () => r(require('page/operator/home').default), 'home')
-                        },
-                        {
-                            path: '/operator/login',
-                            component: r => require.ensure([], () => r(require('page/operator/login').default), 'login')
-                        }
-                    ]
-
+                    component: OperatorHome
+                },
+                {
+                    path: 'join',
+                    component: OperatorJoin
+                },
+                {
+                    path: 'join-form',
+                    component: OperatorJoinForm
+                },
+                {
+                    path: 'activity-create',
+                    component: OperatorActivityCreate
                 }
             ]
+        },
+        {
+            path: '/operator-login',
+            component: OperatorLogin
         }
-    ],
-    mode: config.mode,
-    strict: process.env.NODE_ENV !== 'production', // 在非生产环境下，使用严格模式
-    scrollBehavior (to, from, savedPosition) {
-    // to 和 from 都是 路由信息对象
-        return { x: 0, y: 0 }
-    }
+    ]
 })
 
-// 全局守卫
-VueRouter.beforeEach((to, from, next) => {
-    next()
-})
-
-export default VueRouter
+export default router

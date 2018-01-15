@@ -58,7 +58,8 @@
 </template>
 
 <script>
-import chunk from "lodash/chunk";
+import chunk from 'lodash/chunk'
+import api from '@/api'
 export default {
   data() {
     return {
@@ -157,7 +158,7 @@ export default {
   components: {},
 
   methods: {
-    doCopy () {
+    async doCopy () {
       this.$copyText(this.ewmLink).then(
         (e)=>{
           this.$vux.toast.show({
@@ -173,10 +174,16 @@ export default {
               position: 'middle'
           })
         }
-      );
+      )
+    },
+    async fetchData () {
+            const {data} = await api.get('operator_activities')
+            this.activities = data.data
+        }
+
     }
-  }
-};
+
+}
 </script>
 
 <style lang="scss" scoped>
