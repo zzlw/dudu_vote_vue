@@ -9,40 +9,40 @@
 
 <script>
 export default {
-  props: {
+    props: {
     // 检测类型
-    shape: {
-      type: String,
-      default: "circle",
-      required: false,
-      validator: function(value) {
-        return /^circle|square$/.test(value);
-      }
+        shape: {
+            type: String,
+            default: 'circle',
+            required: false,
+            validator: function (value) {
+                return /^circle|square$/.test(value)
+            }
+        },
+        // 检测类型 + 其他验证
+        size: {
+            type: String,
+            default: 'default',
+            required: false,
+            validator: function (value) {
+                return /^large|small|smallsmall|default$/.test(value)
+            }
+        },
+        icon: {
+            type: String,
+            required: false
+        },
+        src: {
+            type: String,
+            required: false
+        }
     },
-    // 检测类型 + 其他验证
-    size: {
-      type: String,
-      default: "default",
-      required: false,
-      validator: function(value) {
-        return /^large|small|smallsmall|default$/.test(value);
-      }
+    data () {
+        return {}
     },
-    icon: {
-      type: String,
-      required: false
-    },
-    src: {
-      type: String,
-      required: false
-    }
-  },
-  data() {
-    return {};
-  },
-  mounted() {},
-  components: {}
-};
+    mounted () {},
+    components: {}
+}
 </script>
 
 <style lang="scss" scoped>

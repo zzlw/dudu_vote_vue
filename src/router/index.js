@@ -19,7 +19,7 @@ const VueRouter = new Router({
                 }, {
                     path: '/home',
                     component: r => require.ensure([], () => r(require('page/home').default), 'home')
-                },{
+                }, {
                     path: '/login',
                     component: r => require.ensure([], () => r(require('page/login').default), 'login')
                 }
@@ -27,15 +27,14 @@ const VueRouter = new Router({
         }
     ],
     mode: config.mode,
-    strict: process.env.NODE_ENV !== 'production',  //在非生产环境下，使用严格模式
+    strict: process.env.NODE_ENV !== 'production', // 在非生产环境下，使用严格模式
     scrollBehavior (to, from, savedPosition) {
     // to 和 from 都是 路由信息对象
 
     }
 })
 
-
-//全局守卫
+// 全局守卫
 VueRouter.beforeEach((to, from, next) => {
     next()
 })

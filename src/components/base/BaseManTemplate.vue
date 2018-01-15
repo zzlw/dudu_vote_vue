@@ -15,28 +15,28 @@
 
 <script>
 export default {
-  props: {
-      number: {
-          type: [String,Number],
-          required: true
-      },
-      src: {
-          type: [String],
-          required: false
-      }
-  },
-  data() {
-    return {
-      status: false
-    };
-  },
+    props: {
+        number: {
+            type: [String, Number],
+            required: true
+        },
+        src: {
+            type: [String],
+            required: false
+        }
+    },
+    data () {
+        return {
+            status: false
+        }
+    },
 
-  mounted() {},
+    mounted () {},
 
-  components: {},
+    components: {},
 
-  methods: {}
-};
+    methods: {}
+}
 </script>
 
 <style lang="scss" scoped>

@@ -15,26 +15,26 @@
 
 <script>
 export default {
-  props: {
-    data: {
-      type: Array,
-      required: true
-    }
-  },
-  data() {
-      return {
+    props: {
+        data: {
+            type: Array,
+            required: true
+        }
+    },
+    data () {
+        return {
 
-      }
-  },
+        }
+    },
 
-  mounted() {},
+    mounted () {},
 
-  computed: {},
+    computed: {},
 
-  components: {},
+    components: {},
 
-  methods: {}
-};
+    methods: {}
+}
 </script>
 
 <style lang="scss" scoped>

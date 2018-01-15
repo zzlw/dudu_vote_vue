@@ -19,40 +19,39 @@
 
 <script>
 export default {
-  data() {
-    return {
-      status: false,
-      phone: '',
-      password:'',
-      showPassword: false
-    };
-  },
-
-  mounted() {},
-
-  components: {
-  },
-
-  methods: {
-      onSubmit(){
-        let text=this.isEmpty([this.validateTel(this.phone),this.validatePass(this.password)])
-        if(text) {
-            this.$vux.toast.show({
-                width: '8rem',
-                type: "warn",
-                text
-            })
-            return
+    data () {
+        return {
+            status: false,
+            phone: '',
+            password: '',
+            showPassword: false
         }
+    },
 
-        this.$vux.toast.show({
-            type: 'success',
-            text: 'Loading'
-        })
+    mounted () {},
 
-      }
-  }
-};
+    components: {
+    },
+
+    methods: {
+        onSubmit () {
+            let text = this.isEmpty([this.validateTel(this.phone), this.validatePass(this.password)])
+            if (text) {
+                this.$vux.toast.show({
+                    width: '8rem',
+                    type: 'warn',
+                    text
+                })
+                return
+            }
+
+            this.$vux.toast.show({
+                type: 'success',
+                text: 'Loading'
+            })
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>

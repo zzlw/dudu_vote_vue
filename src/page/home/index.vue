@@ -26,106 +26,103 @@
         <base-tiele title="我的活动" class="border-b"/>
         <base-man-template :src="templateSrc" :number="number" />
         <divider>我是有底线的</divider>
-        <x-dialog class="d"></x-dialog>
+        <x-dialog class="d" :hide-on-blur="true"></x-dialog>
     </div>
 </template>
 
 <script>
-import chunk from "lodash/chunk";
+import chunk from 'lodash/chunk'
 export default {
-  data() {
-    return {
-      amount: 8888.8888,
+    data () {
+        return {
+            amount: 8888.8888,
 
-      //home-info start
-      infoSrc:'11',
-      infoTitle: "王尼玛王尼玛王尼玛",
-      infoText: "个人中心",
-      infoNumber: "f234dsf",
+            // home-info start
+            infoSrc: '11',
+            infoTitle: '王尼玛王尼玛王尼玛',
+            infoText: '个人中心',
+            infoNumber: 'f234dsf',
 
-      //base-activity-list start
-      activityTitle: "今日数据今日数据今日数据今日数据今日数据今日数据今日数据",
-      activityNumber: [888, 6688, 888], //数组顺序：浏览量、礼物数量、访客人数,
-      activitySrc: "",
-      activityTo: "/",
-      activitySetUp: {
-        ewm: '/', //二维码
-        edit: "/", //编辑
-        _delete: "/", //删除
-        more: "/" //更多设置
-      },
+            // base-activity-list start
+            activityTitle: '今日数据今日数据今日数据今日数据今日数据今日数据今日数据',
+            activityNumber: [888, 6688, 888], // 数组顺序：浏览量、礼物数量、访客人数,
+            activitySrc: '',
+            activityTo: '/',
+            activitySetUp: {
+                ewm: '/', // 二维码
+                edit: '/', // 编辑
+                _delete: '/', // 删除
+                more: '/' // 更多设置
+            },
 
-      //base-activity-swiper start
-      //to  请按 router 中的 to 使用
-      swiperList: [
-        { to: "/operator/login", title: "今日数据今日数" },
-        { to: "/", title: "测试1测试1测试" },
-        { to: "/", title: "王尼玛" }
-      ],
+            // base-activity-swiper start
+            // to  请按 router 中的 to 使用
+            swiperList: [
+                { to: '/operator/login', title: '今日数据今日数' },
+                { to: '/', title: '测试1测试1测试' },
+                { to: '/', title: '王尼玛' }
+            ],
 
-      //base-data-three start
-      data: [
-        {
-          number: 167.5222,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
+            // base-data-three start
+            data: [
+                {
+                    number: 167.5222,
+                    text: '总交易额'
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额'
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额'
+                }
+            ],
+            twoDate: [
+                {
+                    number: 167.5,
+                    text: '总交易额'
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额'
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额'
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额'
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额'
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额'
+                }
+            ],
+
+            // base-man-template start
+            number: 6666.11,
+            templateSrc: ''
         }
-      ],
-      twoDate: [
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
+    },
+
+    mounted () {},
+
+    computed: {
+        cateGroup () {
+            return chunk(this.twoDate, 3)
         }
-      ],
+    },
 
-      //base-man-template start
-      number: 6666.11,
-      templateSrc: '',
-    };
-  },
+    components: {},
 
-  mounted() {},
-
-  computed: {
-    cateGroup() {
-      return chunk(this.twoDate, 3);
-    }
-  },
-
-  components: {
-  },
-
-  methods: {
-
-  }
-};
+    methods: {}
+}
 </script>
 
 <style lang="scss" scoped>

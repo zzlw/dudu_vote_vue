@@ -7,28 +7,28 @@
 
 <script>
 export default {
-  props: {
-    title: {
-      default: "请输入标题",
-      type: String,
-      required: false
+    props: {
+        title: {
+            default: '请输入标题',
+            type: String,
+            required: false
+        },
+        icon: {
+            type: String,
+            default: 'icon-qushi'
+        }
     },
-    icon:{
-        type: String,
-        default: 'icon-qushi',
-    }
-  },
-  data() {
-    return {};
-  },
+    data () {
+        return {}
+    },
 
-  mounted() {},
+    mounted () {},
 
-  components: {
-  },
+    components: {
+    },
 
-  methods: {}
-};
+    methods: {}
+}
 </script>
 
 <style lang="scss" scoped>

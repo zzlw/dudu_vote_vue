@@ -32,45 +32,45 @@
 
 <script>
 export default {
-  props: {
-    title: {
-        type: String,
-        require: true
+    props: {
+        title: {
+            type: String,
+            require: true
+        },
+        src: {
+            type: String,
+            require: false
+        },
+        numbers: {
+            type: [Array],
+            require: true
+        },
+        to: {
+            type: [Object, String],
+            default: '/'
+        },
+        setUp: {
+            type: Object,
+            required: true
+        }
     },
-    src: {
-        type: String,
-        require: false
+    data () {
+        return {
+            status: false,
+            icons: ['icon-yanjing', 'icon-liwu', 'icon-renshutongji']
+        }
     },
-    numbers: {
-      type: [Array],
-      require: true
-    },
-    to: {
-        type: [Object,String],
-        default: "/"
-    },
-    setUp: {
-        type: Object,
-        required: true
+
+    mounted () {},
+
+    components: {},
+
+    methods: {
+        sdfd () {
+            console.log(23432)
+        }
     }
-  },
-  data() {
-    return {
-      status: false,
-      icons: ["icon-yanjing", "icon-liwu", "icon-renshutongji"],
-    };
-  },
-
-  mounted() {},
-
-  components: {},
-
-  methods: {
-    sdfd() {
-      console.log(23432);
-    }
-  }
-};
+}
 </script>
 
 <style lang="scss" scoped>

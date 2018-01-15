@@ -1,5 +1,4 @@
 
-
 let mode = 'hash'
 let apiHost = 'http://dev.mp.duduapp.net'
 
@@ -12,9 +11,7 @@ if (process.env.NODE_ENV === 'development') {
 
 export default {
     apiHost,
-    apiUrl: "",
+    apiUrl: '',
     base: '',
-    mode,
+    mode
 }
-
-

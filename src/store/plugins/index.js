@@ -1,4 +1,4 @@
- export function Plugin(socket) {
+export function Plugin (socket) {
     return store => {
         // socket.on('data', data => {
         //     store.commit('receiveData', data)
@@ -10,4 +10,3 @@
         })
     }
 }
-

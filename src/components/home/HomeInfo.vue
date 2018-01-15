@@ -18,38 +18,38 @@
 
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-      required: true
+    props: {
+        title: {
+            type: String,
+            required: true
+        },
+        src: {
+            type: String,
+            required: false
+        },
+        text: {
+            type: String,
+            required: true
+        },
+        number: {
+            type: [String, Number],
+            required: true
+        }
     },
-    src: {
-      type: String,
-      required: false
+
+    data () {
+        return {
+            status: false
+        }
     },
-    text:{
-        type: String,
-        required: true
+
+    mounted () {},
+
+    components: {
     },
-    number: {
-        type: [String,Number],
-        required: true
-    }
-  },
 
-  data() {
-    return {
-      status: false
-    };
-  },
-
-  mounted() {},
-
-  components: {
-  },
-
-  methods: {}
-};
+    methods: {}
+}
 </script>
 
 <style lang="scss" scoped>
