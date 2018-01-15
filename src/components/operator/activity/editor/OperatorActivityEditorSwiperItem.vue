@@ -4,23 +4,10 @@
         <!-- <div class="" >
             轮播图Item
         </div> -->
-
-        <!-- <div class="add-img-button bg-alpha pd10" :style="{width: rem(170)}" v-if="!preview" @click="upload()">
-            <div class="flex-wrp flex-center" :style="{height: rem(70)}">
-                <svg class="icon base-menu-icon" aria-hidden="true">
-                    <use :xlink:href="`#icon-jia`"></use>
-                </svg>
-            </div>
-            <div class="flex-wrp flex-middle color1 size16">上传图片</div>
-            <div class="flex-wrp flex-middle color1 size16">(1000*6000PX)</div>
-        </div> -->
         <div class="flex-wrp flex-between" :style="{height: rem(156)}">
             <activity-button :upload="upload" v-if="!preview" ></activity-button>
-
             <activity-delete v-if="!preview && remove" :remove="remove" />
         </div>
-
-
         <input v-if="!preview" class="w100 bg-alpha pd10 color1 size16" :style="{border:'none'}" ref="url" type="text" placeholder="跳转链接（以http://开头）" @change="input" :value="value.url">
     </div>
 

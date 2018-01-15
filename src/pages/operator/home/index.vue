@@ -6,7 +6,7 @@
                 <div class="border border-radius5 ptb5 plr20 ml20 color1 size16">立即提现</div>
             </div>
             <base-data-three :data="data">
-                <div slot="number" slot-scope="{ number }" class="bold size26 color1 lh200">{{number}}</div>
+                <div slot="number" slot-scope="{ number }" class="bold size26 color1 lh200">{{(+number).toFixed(2)}}</div>
                 <div slot="title" slot-scope="{ title }" class="size22 color4">{{title}}</div>
             </base-data-three>
             <div class="plr40 ptb20">
@@ -16,7 +16,7 @@
         <base-tiele icon="icon-qushi" title="今日数据" class="border-b"/>
         <div class="ptb15 bg-white">
             <base-data-three :data="item" v-for="(item, index) in cateGroup" :key="index" class="ptb5" >
-                <div slot="number" slot-scope="{ number }" class="size26 color2 lh200">{{number}}</div>
+                <div slot="number" slot-scope="{ number }" class="size26 color2 lh200">{{(+number).toFixed(2)}}</div>
                 <div slot="title" slot-scope="{ title }" class="size22 color4">{{title}}</div>
             </base-data-three>
         </div>

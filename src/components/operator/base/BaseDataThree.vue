@@ -1,7 +1,7 @@
 <template>
   <div class="base-data-three flex-wrp flex-around" >
     <div class="text-center" v-for="(item, index) in data" :key="index">
-        <slot name="number" :number="(+item.number).toFixed(2)">{{item.number}}</slot>
+        <slot name="number" :number="item.number">{{item.number}}</slot>
         <slot name="title" :title="item.text">{{item.text}}</slot>
     </div>
   </div>
