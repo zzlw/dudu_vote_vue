@@ -1,5 +1,5 @@
 .btn-main{
-    @extend .bg-main;
+    @extend .bg-29d6bf;
     @extend .color1;
 }
 .fixed-button{
@@ -9,10 +9,11 @@
 .link-btn-main{
     @extend .block;
     @extend .btn-main;
-    @extend .size32;
-    @extend .ptb20;
+    @extend .size22;
+    @extend .ptb5;
+    @extend .plr30;
     @extend .text-center;
-    @extend .border-radius10;
+    @extend .border-radius5;
 }
 .link-btn-main-plain{
     @extend .link-btn-main;

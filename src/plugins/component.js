@@ -1,4 +1,5 @@
 import moment from 'moment'
+import VueClipboard from 'vue-clipboard2'
 import {
     Group,
     XInput,
@@ -7,7 +8,8 @@ import {
     ToastPlugin,
     Swiper,
     SwiperItem,
-    XDialog
+    XDialog,
+    Toast
 } from 'vux'
 import TabBar from 'components/operator/base/TabBar.vue'
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -38,7 +40,14 @@ export default {
         Vue.component('SwiperItem', SwiperItem)
         Vue.component('XDialog', XDialog)
 
+
         Vue.use(ToastPlugin)
+        Vue.use(Toast)
+
+
+
+        //复制到剪切板
+        Vue.use(VueClipboard)
 
         Vue.prototype.moment = moment
 
