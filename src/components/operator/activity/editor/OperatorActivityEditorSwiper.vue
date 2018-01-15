@@ -1,13 +1,24 @@
 <template>
 
-    <div class="swiper">
-        <div v-for="(item, index) in items" :key="index">
-            <OperatorActivityEditorSwiperItem v-model="items[index]" :remove="() => remove(index)" :preview="preview"/>
-        </div>
+    <swiper>
 
-        <OperatorActivityEditorSwiperItem v-model="newItem" :preview="preview"/>
+        <swiper-item
+            v-for="(item, index) in items"
+            :key="index"
+        >
 
-    </div>
+            <OperatorActivityEditorSwiperItem
+                v-model="items[index]"
+                :remove="() => remove(index)"
+                :preview="preview"/>
+
+        </swiper-item>
+
+        <swiper-item>
+            <OperatorActivityEditorSwiperItem v-model="newItem" :preview="preview"/>
+        </swiper-item>
+
+    </swiper>
 
 </template>
 

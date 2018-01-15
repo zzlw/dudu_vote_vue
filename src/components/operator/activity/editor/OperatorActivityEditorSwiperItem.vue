@@ -1,5 +1,6 @@
 <template>
 
+
     <div class="swiper-item pd10 flex-wrp flex-between flex-cell" :style="divStyle">
         <!-- <div class="" >
             轮播图Item
@@ -15,7 +16,7 @@
             <div class="flex-wrp flex-middle color1 size16">(1000*6000PX)</div>
         </div> -->
         <div class="flex-wrp flex-between" :style="{height: rem(156)}">
-            <activity-button :upload="upload" v-if="!preview" ></activity-button>
+            <activity-button :upload="upload" v-if="!preview"/>
 
             <activity-delete v-if="!preview && remove" :remove="remove" />
         </div>
@@ -23,6 +24,7 @@
 
         <input v-if="!preview" class="w100 bg-alpha pd10 color1 size16" :style="{border:'none'}" ref="url" type="text" placeholder="跳转链接（以http://开头）" @change="input" :value="value.url">
     </div>
+
 
 </template>
 

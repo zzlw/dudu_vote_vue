@@ -16,12 +16,9 @@
         data () {
             return {}
         },
-        computed: {
-        },
-        methods: {
-        },
-        components:{
-        }
+        computed: {},
+        methods: {},
+        components: {}
     }
 </script>
 
