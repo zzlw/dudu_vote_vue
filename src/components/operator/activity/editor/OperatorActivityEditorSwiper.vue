@@ -1,6 +1,6 @@
 <template>
 
-    <swiper>
+    <swiper v-model="currentIndex">
 
         <swiper-item
             v-for="(item, index) in items"
@@ -35,6 +35,7 @@
         ],
         data () {
             return {
+                currentIndex: 0,
                 items: this.value,
                 newItem: {
                     img: '',
