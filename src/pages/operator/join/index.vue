@@ -23,6 +23,10 @@
         async created () {
             const {data} = await api.get('operator')
             this.operator = data.data
+
+            if (this.operator && this.operator.status === 2) {
+                this.$router.push('/operator')
+            }
         },
         data () {
             return {
