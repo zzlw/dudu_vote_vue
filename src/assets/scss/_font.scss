@@ -65,4 +65,23 @@ html{
     -webkit-box-orient: vertical;
 }
 
+//强制三行
+.text-nowrap-three{
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+
+//强制换行
+.break-word{
+    word-wrap: break-word;
+}
+
+
+
+
 

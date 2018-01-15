@@ -6,7 +6,7 @@ import Vue from 'vue'
 import router from 'router'
 import store from 'store'
 import plugins from 'plugins/component'
-FastClick.attach(document.body)
+// FastClick.attach(document.body)
 
 Vue.use(plugins)
 
