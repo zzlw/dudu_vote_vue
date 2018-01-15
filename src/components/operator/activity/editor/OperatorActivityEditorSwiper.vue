@@ -1,7 +1,7 @@
 <template>
 
     <div class="swiper">
-        <div v-for="(item, index) in items">
+        <div v-for="(item, index) in items" :key="index">
             <OperatorActivityEditorSwiperItem v-model="items[index]" :remove="() => remove(index)" :preview="preview"/>
         </div>
 
@@ -55,11 +55,7 @@
         }
     }
 </script>
+<style lang="scss" scoped>
 
-<style scoped>
-    .swiper {
-        border: 3px gray dashed;
-        padding: 10px;
-        margin: 10px;
-    }
 </style>
+

@@ -1,7 +1,7 @@
 <template>
 
     <div class="swiper">
-        <div v-for="(item, index) in items">
+        <div v-for="(item, index) in items" :key="index">
 
             <OperatorActivityEditorContentText
                 v-if="item.text"
@@ -93,10 +93,6 @@
     }
 </script>
 
-<style scoped>
-    .swiper {
-        border: 3px gray dashed;
-        padding: 10px;
-        margin: 10px;
-    }
+<style lang="sass" scoped>
+
 </style>

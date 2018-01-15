@@ -18,7 +18,11 @@ import BaseTiele from 'components/operator/base/BaseTiele.vue'
 import BaseActivityList from 'components/operator/base/BaseActivityList.vue'
 import BaseManTemplate from 'components/operator/base/BaseManTemplate.vue'
 import BaseActivitySwiper from 'components/operator/base/BaseActivitySwiper.vue'
+
 import HomeInfo from 'components/operator/home/HomeInfo.vue'
+
+import ActivityButton from 'components/operator/activity/button/ActivityButton.vue'
+import ActivityDelete from 'components/operator/activity/button/ActivityDelete.vue'
 
 export default {
     install (Vue, options) {
@@ -31,6 +35,11 @@ export default {
         Vue.component('base-activity-swiper', BaseActivitySwiper)
 
         Vue.component('home-info', HomeInfo)
+
+        Vue.component('ActivityButton', ActivityButton)
+        Vue.component('ActivityDelete', ActivityDelete)
+
+
 
         Vue.component('Group', Group)
         Vue.component('XInput', XInput)
