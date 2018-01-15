@@ -10,7 +10,7 @@
                 <div slot="title" slot-scope="{ title }" class="size22 color4">{{title}}</div>
             </base-data-three>
             <div class="plr40 ptb20">
-                <home-info :title="infoTitle" :text="infoText" :number="infoNumber" />
+                <home-info :src="infoSrc" :title="infoTitle" :text="infoText" :number="infoNumber" />
             </div>
         </div>
         <base-tiele icon="icon-qushi" title="今日数据" class="border-b"/>
@@ -24,19 +24,26 @@
         <base-tiele icon="icon-qushi" class="mt20 border-b" title="今日数据"/>
         <base-activity-list :title="activityTitle" :src="activitySrc" :setUp="activitySetUp" :numbers="activityNumber" :to="activityTo" class="mb20"/>
         <base-tiele title="我的活动" class="border-b"/>
-        <base-man-template :number="number" />
+        <base-man-template :src="templateSrc" :number="number" />
         <divider>我是有底线的</divider>
     </div>
 </template>
 
 <script>
 import chunk from "lodash/chunk";
+import BaseDataThree from 'components/base/BaseDataThree.vue'
+import BaseTiele from 'components/base/BaseTiele.vue'
+import BaseActivityList from 'components/base/BaseActivityList.vue'
+import BaseManTemplate from 'components/base/BaseManTemplate.vue'
+import BaseActivitySwiper from 'components/base/BaseActivitySwiper.vue'
+import HomeInfo from 'components/home/HomeInfo.vue'
 export default {
   data() {
     return {
       amount: 8888.8888,
 
       //home-info start
+      infoSrc:'11',
       infoTitle: "王尼玛王尼玛王尼玛",
       infoText: "个人中心",
       infoNumber: "f234dsf",
@@ -47,7 +54,7 @@ export default {
       activitySrc: "",
       activityTo: "/",
       activitySetUp: {
-        ewm: "/", //二维码
+        ewm: '/', //二维码
         edit: "/", //编辑
         _delete: "/", //删除
         more: "/" //更多设置
@@ -104,7 +111,8 @@ export default {
       ],
 
       //base-man-template start
-      number: 6666.11
+      number: 6666.11,
+      templateSrc: '',
     };
   },
 
@@ -116,9 +124,17 @@ export default {
     }
   },
 
-  components: {},
+  components: {
+    BaseDataThree,
+    BaseTiele,
+    BaseActivityList,
+    BaseManTemplate,
+    BaseActivitySwiper,
+  },
 
-  methods: {}
+  methods: {
+
+  }
 };
 </script>
 

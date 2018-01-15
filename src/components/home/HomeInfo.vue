@@ -1,7 +1,7 @@
 <template>
     <div class="flex-wrp flex-between overflow-hidden bg-alpha" :style="{'border-radius': '50px','border-top-right-radius':'10px','border-bottom-right-radius':'10px'}">
         <div class="flex-wrp">
-            <base-avatar icon="icon-weixin" size="small"/>
+            <base-avatar :src="src" size="small"/>
             <div class="color1 pl5 flex-wrp flex-cell flex-middle overflow-hidden" :style="{width: rem(150)}">
                 <div class="size22 color1 text-nowrap">{{title}}</div>
                 <div class="size16 color1 text-nowrap">{{text}}</div>
@@ -17,11 +17,16 @@
 </template>
 
 <script>
+import BaseAvatar from 'components/base/BaseAvatar.vue'
 export default {
   props: {
     title: {
       type: String,
       required: true
+    },
+    src: {
+      type: String,
+      required: false
     },
     text:{
         type: String,
@@ -41,7 +46,9 @@ export default {
 
   mounted() {},
 
-  components: {},
+  components: {
+      BaseAvatar
+  },
 
   methods: {}
 };

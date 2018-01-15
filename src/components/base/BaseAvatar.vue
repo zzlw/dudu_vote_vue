@@ -1,6 +1,6 @@
 <template>
   <div class="my-avatar flex-wrp flex-center overflow-hidden" :class="[size, shape]">
-    <img v-if="src" :src="src" width="100%" height="100%" />
+    <img v-if="src" width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${src})`}" />
     <svg v-if="icon&&!src" class="icon base-menu-icon" aria-hidden="true">
         <use :xlink:href="`#${icon}`"></use>
     </svg>
