@@ -15,13 +15,21 @@ const VueRouter = new Router({
             children: [// 二级路由。对应App.vue
                 {
                     path: '',
-                    redirect: '/home'
+                    redirect: '/operator/home'
                 }, {
-                    path: '/home',
-                    component: r => require.ensure([], () => r(require('page/home').default), 'home')
-                }, {
-                    path: '/login',
-                    component: r => require.ensure([], () => r(require('page/login').default), 'login')
+                    path: '/operator',
+                    component: r => require.ensure([], () => r(require('page/operator/home').default), 'home'),
+                    children:[
+                        {
+                            path: '/operator/home',
+                            component: r => require.ensure([], () => r(require('page/operator/home').default), 'home')
+                        },
+                        {
+                            path: '/operator/login',
+                            component: r => require.ensure([], () => r(require('page/operator/login').default), 'login')
+                        }
+                    ]
+
                 }
             ]
         }
@@ -30,7 +38,7 @@ const VueRouter = new Router({
     strict: process.env.NODE_ENV !== 'production', // 在非生产环境下，使用严格模式
     scrollBehavior (to, from, savedPosition) {
     // to 和 from 都是 路由信息对象
-
+        return { x: 0, y: 0 }
     }
 })
 
