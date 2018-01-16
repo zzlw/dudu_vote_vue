@@ -1,18 +1,26 @@
 <template>
 
-    <div class="swiper">
-        <div v-for="(item, index) in items" :key="index">
-            <OperatorActivityEditorSwiperItem v-model="items[index]" :remove="() => remove(index)" :preview="preview"/>
-        </div>
+    <swiper :height="rem(300)" :show-dots="false">
 
-        <OperatorActivityEditorSwiperItem v-model="newItem" :preview="preview"/>
-        <base-data-three :data="data" class="border-b">
+        <swiper-item
+            v-for="(item, index) in items"
+            :key="index"
+        >
 
-                <div slot="number" slot-scope="{ number }" class="bold size26 color5 lh200">{{number}}</div>
-                <div slot="title" slot-scope="{ title }" class="size22 color5">{{title}}</div>
+            <OperatorActivityEditorSwiperItem
+                v-model="items[index]"
+                :remove="() => remove(index)"
+                :preview="preview"/>
 
-        </base-data-three>
-    </div>
+        </swiper-item>
+
+        <swiper-item>
+            <OperatorActivityEditorSwiperItem v-model="newItem" :preview="preview"/>
+        </swiper-item>
+
+    </swiper>
+
+
 
 </template>
 
@@ -30,22 +38,7 @@ export default {
       newItem: {
         img: "",
         url: ""
-      },
-      // base-data-three start
-      data: [
-        {
-          number: 167,
-          text: "参与选手"
-        },
-        {
-          number: 167,
-          text: "累计投票"
-        },
-        {
-          number: 167,
-          text: "访问量"
-        }
-      ]
+      }
     };
   },
   watch: {

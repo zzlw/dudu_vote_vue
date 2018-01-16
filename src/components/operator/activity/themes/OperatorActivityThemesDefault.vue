@@ -8,6 +8,13 @@
 
         <OperatorActivityEditorSwiper v-model="activity.swiper" :preview="preview"/>
 
+        <div class="base-data-three flex-wrp flex-around bg-white ptb10" >
+            <div :class="['text-center plr60',{'border-l': index==1,'border-r': index==1}]" v-for="(item, index) in data" :key="index">
+                <div class="bold size26 color5 lh150">{{item.number}}</div>
+                <div class="size22 color5 lh150">{{item.text}}</div>
+            </div>
+        </div>
+
         <!--活动标题-->
         <OperatorActivityEditorText v-model="activity.title" :preview="preview"/>
 
@@ -33,34 +40,46 @@
 </template>
 
 <script>
-    import OperatorActivityEditorText from '@/components/operator/activity/editor/OperatorActivityEditorText'
-    import OperatorActivityEditorSwiper from '@/components/operator/activity/editor/OperatorActivityEditorSwiper'
-    import OperatorActivityEditorContent from '@/components/operator/activity/editor/OperatorActivityEditorContent'
+import OperatorActivityEditorText from "@/components/operator/activity/editor/OperatorActivityEditorText";
+import OperatorActivityEditorSwiper from "@/components/operator/activity/editor/OperatorActivityEditorSwiper";
+import OperatorActivityEditorContent from "@/components/operator/activity/editor/OperatorActivityEditorContent";
 
-    export default {
-        props: [
-            'activity',
-            'publish',
-            'preview'
-        ],
-        components: {
-            OperatorActivityEditorText,
-            OperatorActivityEditorSwiper,
-            OperatorActivityEditorContent
+export default {
+  props: ["activity", "publish", "preview"],
+  components: {
+    OperatorActivityEditorText,
+    OperatorActivityEditorSwiper,
+    OperatorActivityEditorContent
+  },
+  name: "add",
+  data() {
+    return {
+      // base-data-three start
+      data: [
+        {
+          number: 167,
+          text: "参与选手"
         },
-        name: 'add',
-        data () {
-            return {}
+        {
+          number: 167,
+          text: "累计投票"
+        },
+        {
+          number: 167,
+          text: "访问量"
         }
-    }
+      ]
+    };
+  }
+};
 </script>
 
 <style scoped>
-    button {
-        border: 1px solid;
-    }
+button {
+  border: 1px solid;
+}
 
-    input {
-        border: 1px solid;
-    }
+input {
+  border: 1px solid;
+}
 </style>
