@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <ActivityThemeDefault :preview="preview" :activity="activity" :publish="publish"/>
+        <ActivityThemeDefault :activity="activity" :publish="publish"/>
 
     </div>
 </template>
@@ -33,8 +33,7 @@
                     voteType: '',
                     nextVoteTime: 0,
                     limitedExchangeCount: 0
-                },
-                preview: false
+                }
             }
         },
         methods: {

@@ -110,105 +110,107 @@
 </template>
 
 <script>
-import OperatorActivityContentTitle from "@/components/operator/activity/editor/OperatorActivityContentTitle";
-import OperatorActivityEditorText from "@/components/operator/activity/editor/OperatorActivityEditorText";
-import OperatorActivityEditorSwiper from "@/components/operator/activity/editor/OperatorActivityEditorSwiper";
-import OperatorActivityEditorContent from "@/components/operator/activity/editor/OperatorActivityEditorContent";
-import { timeDiffArray, timeDiffObj } from "@/utils";
-import moment from "moment";
-import chunk from "lodash/chunk";
-export default {
-  props: ["activity", "publish", "preview"],
-  components: {
-    OperatorActivityContentTitle,
-    OperatorActivityEditorText,
-    OperatorActivityEditorSwiper,
-    OperatorActivityEditorContent
-  },
-  name: "add",
-  data() {
-    return {
-      // base-data-three start
-      data: [
-        {
-          number: 167,
-          text: "参与选手"
+    import OperatorActivityContentTitle from '@/components/operator/activity/editor/OperatorActivityContentTitle'
+    import OperatorActivityEditorText from '@/components/operator/activity/editor/OperatorActivityEditorText'
+    import OperatorActivityEditorSwiper from '@/components/operator/activity/editor/OperatorActivityEditorSwiper'
+    import OperatorActivityEditorContent from '@/components/operator/activity/editor/OperatorActivityEditorContent'
+    import { timeDiffArray, timeDiffObj } from '@/utils'
+    import moment from 'moment'
+    import chunk from 'lodash/chunk'
+
+    export default {
+        props: ['activity', 'publish'],
+        components: {
+            OperatorActivityContentTitle,
+            OperatorActivityEditorText,
+            OperatorActivityEditorSwiper,
+            OperatorActivityEditorContent
         },
-        {
-          number: 167,
-          text: "累计投票"
+        name: 'add',
+        data () {
+            return {
+                preview: false,
+                // base-data-three start
+                data: [
+                    {
+                        number: 167,
+                        text: '参与选手'
+                    },
+                    {
+                        number: 167,
+                        text: '累计投票'
+                    },
+                    {
+                        number: 167,
+                        text: '访问量'
+                    }
+                ],
+                buying: {
+                    time_start: 1516099695649,
+                    time_end: 1516199695649
+                },
+                srcImg: '',
+                timer: null,
+                timeValue: '',
+                now: moment(),
+                list3: ['最热选手', '排行选手', '最新选手'],
+                demo3: '最热选手',
+                twoDate: [
+                    {
+                        srcImg: '',
+                        number: 1,
+                        vote: 1,
+                        liwu: 2
+                    },
+                    {
+                        srcImg: '',
+                        number: 1,
+                        vote: 1,
+                        liwu: 2
+                    },
+                    {
+                        srcImg: '',
+                        number: 1,
+                        vote: 1,
+                        liwu: 2
+                    },
+                    {
+                        srcImg: '',
+                        number: 1,
+                        vote: 1,
+                        liwu: 2
+                    },
+                    {
+                        srcImg: '',
+                        number: 1,
+                        vote: 1,
+                        liwu: 2
+                    }
+                ]
+            }
         },
-        {
-          number: 167,
-          text: "访问量"
+        methods: {
+            timeUpdate () {
+                this.timeValue = timeDiffObj(
+                    moment().isBefore(this.buying.time_start)
+                        ? this.buying.time_start
+                        : this.buying.time_end,
+                    this.now
+                )
+            }
+        },
+        mounted () {
+            this.timer = setInterval(this.timeUpdate, 1000)
+        },
+        computed: {
+            cateGroup () {
+                return chunk(this.twoDate, 2)
+            }
+        },
+        beforeDestroy () {
+            this.timer && clearInterval(this.timer)
         }
-      ],
-      buying: {
-        time_start: 1516099695649,
-        time_end: 1516199695649
-      },
-      srcImg: "",
-      timer: null,
-      timeValue: "",
-      now: moment(),
-      list3: ["最热选手", "排行选手", "最新选手"],
-      demo3: "最热选手",
-      twoDate: [
-        {
-          srcImg: "",
-          number: 1,
-          vote: 1,
-          liwu: 2
-        },
-        {
-          srcImg: "",
-          number: 1,
-          vote: 1,
-          liwu: 2
-        },
-        {
-          srcImg: "",
-          number: 1,
-          vote: 1,
-          liwu: 2
-        },
-        {
-          srcImg: "",
-          number: 1,
-          vote: 1,
-          liwu: 2
-        },
-        {
-          srcImg: "",
-          number: 1,
-          vote: 1,
-          liwu: 2
-        }
-      ]
-    };
-  },
-  methods: {
-    timeUpdate() {
-      this.timeValue = timeDiffObj(
-        moment().isBefore(this.buying.time_start)
-          ? this.buying.time_start
-          : this.buying.time_end,
-        this.now
-      );
     }
-  },
-  mounted() {
-    this.timer = setInterval(this.timeUpdate, 1000);
-  },
-  computed: {
-    cateGroup() {
-      return chunk(this.twoDate, 2);
-    }
-  },
-  beforeDestroy() {
-    this.timer && clearInterval(this.timer);
-  }
-};
 </script>
 
 <style lang="scss" scoped>
