@@ -31,8 +31,8 @@
                     endTime: '',
                     signUpManner: '',
                     voteType: '',
-                    nextVoteTime: '',
-                    limitedExchangeCount: ''
+                    nextVoteTime: 0,
+                    limitedExchangeCount: 0
                 },
                 preview: false
             }

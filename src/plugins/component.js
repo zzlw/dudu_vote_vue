@@ -9,7 +9,13 @@ import {
     Swiper,
     SwiperItem,
     XDialog,
-    Toast
+    Toast,
+    TabItem,
+    Tab,
+    Datetime,
+    XSwitch,
+    Cell,
+    XNumber
 } from 'vux'
 import TabBar from 'components/operator/base/TabBar.vue'
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -22,7 +28,7 @@ import BaseActivitySwiper from 'components/operator/base/BaseActivitySwiper.vue'
 import HomeInfo from 'components/operator/home/HomeInfo.vue'
 
 import ActivityButton from 'components/operator/activity/button/ActivityButton.vue'
-import ActivityDelete from 'components/operator/activity/button/ActivityDelete.vue'
+import CustomButton from 'components/operator/activity/button/CustomButton.vue'
 
 export default {
     install (Vue, options) {
@@ -37,7 +43,7 @@ export default {
         Vue.component('home-info', HomeInfo)
 
         Vue.component('ActivityButton', ActivityButton)
-        Vue.component('ActivityDelete', ActivityDelete)
+        Vue.component('CustomButton', CustomButton)
 
 
 
@@ -48,6 +54,12 @@ export default {
         Vue.component('Swiper', Swiper)
         Vue.component('SwiperItem', SwiperItem)
         Vue.component('XDialog', XDialog)
+        Vue.component('TabItem', TabItem)
+        Vue.component('Tab', Tab)
+        Vue.component('Datetime', Datetime)
+        Vue.component('XSwitch', XSwitch)
+        Vue.component('Cell', Cell)
+        Vue.component('XNumber', XNumber)
 
         Vue.use(ToastPlugin)
         Vue.use(Toast)

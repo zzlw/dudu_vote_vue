@@ -1,17 +1,16 @@
 <template>
-    <div class="flex-wrp flex-align-center flex-between bg-white h100">
-        <slot name="icon"/>
-
+    <div class="flex-wrp flex-center pd10">
+        <div class="size16 color2">——</div>
         <div
             ref="details"
-            class="w100 h100 color2 size16"
-            :class="[{'editable':!preview}]"
+            class="mlr20 color2 plr10 ptb5 size26"
+            :class="{'editable':!preview}"
             :contenteditable="!preview"
             @input="input()"
         >
-            <div class="color2 size16 h100">{{ innerText }}</div>
-            <slot name="button"/>
+            {{ innerText }}
         </div>
+        <div class="size16 color2">——</div>
     </div>
 </template>
 
@@ -34,6 +33,5 @@ export default {
 <style scoped>
 .editable {
   border: thin dashed #ef184d;
-  outline: none;
 }
 </style>

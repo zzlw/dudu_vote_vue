@@ -1,15 +1,17 @@
 <template>
 
 
-    <div class="swiper-item pd10 flex-wrp flex-between flex-cell" :style="divStyle">
+    <div class="swiper-item flex-wrp flex-between flex-cell h100" :style="divStyle">
         <!-- <div class="" >
             轮播图Item
         </div> -->
-        <div class="flex-wrp flex-between" :style="{height: rem(156)}">
-            <activity-button :upload="upload" v-if="!preview"/>
-            <activity-delete v-if="!preview && remove" :remove="remove" />
-        </div>
-        <input v-if="!preview" class="w100 bg-alpha pd10 color1 size16" :style="{border:'none'}" ref="url" type="text" placeholder="跳转链接（以http://开头）" @change="input" :value="value.url">
+
+            <div class="flex-wrp flex-between" :style="{height: rem(156)}">
+                <activity-button :upload="upload" v-if="!preview"/>
+                <custom-button v-if="!preview && remove" :onclick="remove" thatText="删除" thatIcon="icon-guanbi" />
+            </div>
+            <input v-if="!preview" class="w100 bg-alpha pd10 color1 size16" :style="{border:'none'}" ref="url" type="text" placeholder="跳转链接（以http://开头）" @change="input" :value="value.url">
+
     </div>
 
 
@@ -29,8 +31,7 @@
             divStyle () {
                 return {
                     'backgroundImage': 'url(' +
-                    (this.value.img || 'http://pic.xshapp.com/201710/056917bb_533_400.jpg') + ')',
-                    'height': '100%'
+                    (this.value.img || 'http://pic.xshapp.com/201710/056917bb_533_400.jpg') + ')'
                 }
             }
         },

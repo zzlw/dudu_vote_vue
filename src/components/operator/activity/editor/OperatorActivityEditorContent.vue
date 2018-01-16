@@ -1,31 +1,55 @@
 <template>
 
-    <div class="swiper">
+    <div>
         <div v-for="(item, index) in items" :key="index">
 
-            <OperatorActivityEditorContentText
-                v-if="item.text"
-                v-model="items[index]"
-                :preview="preview"
-                :remove="()=>remove(index)"
-                :moveup="()=>moveUp(index)"
-                :movedown="()=>moveDown(index)"
-            />
+            <div class="plr10 ptb5" v-if="item.text" :style="{height: rem(300)}">
+                <OperatorActivityEditorContentText
 
-            <OperatorActivityEditorContentImage
-                v-if="item.image"
-                v-model="items[index]"
-                :preview="preview"
-                :remove="()=>remove(index)"
-                :moveup="()=>moveUp(index)"
-                :movedown="()=>moveDown(index)"
-            />
+                    v-model="items[index]"
+                    :preview="preview"
+                    :remove="()=>remove(index)"
+                    :moveup="()=>moveUp(index)"
+                    :movedown="()=>moveDown(index)"
+                />
+            </div>
+
+
+            <div class="plr10 ptb5" :style="{height: rem(300)}" v-if="item.image">
+                <OperatorActivityEditorContentImage
+                    v-model="items[index]"
+                    :preview="preview"
+                    :remove="()=>remove(index)"
+                    :moveup="()=>moveUp(index)"
+                    :movedown="()=>moveDown(index)"
+                />
+            </div>
+
 
         </div>
-
-        <button v-if="!preview" @click="addText">添加文本</button>
-        <button v-if="!preview" @click="addImage">添加图片</button>
-
+        <div class="plr10 pt5 pb30">
+            <div class="ptb5">
+                <div class="flex-wrp flex-center size22 border border-radius5 ptb15 bg-white" v-if="!preview" @click="addImage">
+                    <div class="flex-wrp flex-center" :style="{height: rem(30),width: rem(40)}">
+                        <svg class="icon base-menu-icon" aria-hidden="true">
+                            <use :xlink:href="`#icon-jia1`"></use>
+                        </svg>
+                    </div>
+                    <div class="color4 lh100">添加图片</div>
+                </div>
+            </div>
+            <div class="ptb5">
+                <div class="flex-wrp flex-center size22 border border-radius5 ptb15 color4 bg-white" v-if="!preview" @click="addText">
+                    <div class="flex-wrp flex-center" :style="{height: rem(30),width: rem(40)}">
+                        <svg class="icon base-menu-icon" aria-hidden="true">
+                            <use :xlink:href="`#icon-jia1`"></use>
+                        </svg>
+                    </div>
+                    <div class="color4 lh100">添加文本</div>
+                </div>
+            </div>
+        </div>
+        <slot/>
     </div>
 
 </template>
