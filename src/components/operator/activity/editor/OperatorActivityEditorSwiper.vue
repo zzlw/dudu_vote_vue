@@ -1,6 +1,6 @@
 <template>
 
-    <swiper :height="rem(300)" :show-dots="false">
+    <swiper v-model="currentIndex" :height="rem(300)" :show-dots="false">
 
         <swiper-item
             v-for="(item, index) in items"
@@ -34,6 +34,7 @@ export default {
   props: ["value", "preview"],
   data() {
     return {
+      currentIndex: 0,
       items: this.value,
       newItem: {
         img: "",
