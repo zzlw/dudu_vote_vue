@@ -68,8 +68,8 @@
                             <img width="100%" height="100%" src="~/assets/img/s.gif" class="block bg-cover" :style="{backgroundImage:`url(${t.srcImg})`}"/>
                             <div class="numberImg border border-radius50 bg-alpha color1 plr30 size16 ptb5">{{`${t.number}号`}}</div>
                         </div>
-                        <div class="bg-white" :style="{ height: rem(80)}">
-                            <div class="w100 h100 flex-wrp flex-between pd10 flex-align-center">
+                        <div class="bg-white flex-wrp flex-middle flex-cell" :style="{ height: rem(80)}">
+                            <div class="flex-wrp flex-between pd10 flex-align-center">
                                 <div class="color5 size22">XXX</div>
                                 <div class="size16 color3">{{`${t.vote}票`}}</div>
                                 <div class="size16 color3">{{`${t.liwu}礼物`}}</div>
