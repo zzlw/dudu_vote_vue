@@ -2,6 +2,7 @@
     <div>
 
         <ActivityThemeDefault :activity="activity" :publish="publish"/>
+        <divider>我是有底线的</divider>
 
     </div>
 </template>

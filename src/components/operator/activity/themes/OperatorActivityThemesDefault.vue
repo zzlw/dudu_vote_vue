@@ -102,10 +102,6 @@
                 <div v-if="preview" @click="preview=false" :style="{flex:1}" class="text-center color2 ptb20 size26">编辑</div>
                 <div @click="publish(activity)" :style="{flex:1}" class="text-center color2 ptb20 size26">发布</div>
             </div>
-
-
-
-
     </div>
 </template>
 
