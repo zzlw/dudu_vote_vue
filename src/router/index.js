@@ -9,6 +9,12 @@ import Operator from '@/pages/operator/index'
 import OperatorHome from '@/pages/operator/home'
 import OperatorActivityCreate from '@/pages/operator/activity/create'
 
+import OperatorUpData from '@/pages/operator/upData'
+import OperatorUpTel from '@/pages/operator/upData/tel'
+import OperatorUpPass from '@/pages/operator/upData/upPass'
+
+import OperatorMoreSetting from '@/pages/operator/moreSetting'
+
 Vue.use(Router)
 
 let router = new Router({
@@ -35,8 +41,24 @@ let router = new Router({
                     component: OperatorJoinForm
                 },
                 {
+                    path: 'up-data',
+                    component: OperatorUpData
+                },
+                {
+                    path: 'up-tel',
+                    component: OperatorUpTel
+                },
+                {
+                    path: 'up-pass',
+                    component: OperatorUpPass
+                },
+                {
                     path: 'activity-create',
                     component: OperatorActivityCreate
+                },
+                {
+                    path: 'more-setting',
+                    component: OperatorMoreSetting
                 }
             ]
         },

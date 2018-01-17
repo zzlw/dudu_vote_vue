@@ -1,13 +1,23 @@
 <template>
     <div class="plr20">
-        <div class="flex-wrp flex-middle ptb40">
-            <img src="~assets/img/web/login-head.jpg" :style="{width: '110px',height:'110px'}"
-                 class="border-radius5 overflow-hidden"/>
+        <div class="head flex-wrp flex-between bg-284860 plr20 ptb20">
+            <div class="flex-wrp flex-align-center" :style="{flex:1}">
+                <div class="leftIcon" :style="{width: rem(40), height: rem(40)}">
+                    <svg class="icon base-menu-icon" aria-hidden="true">
+                        <use :xlink:href="`#icon-zuojiantou`"></use>
+                    </svg>
+                </div>
+                <div class="size26 color1 pl5">返回</div>
+            </div>
+            <div class="color1 size26 text-center"  :style="{flex:3}">
+                修改资料
+            </div>
+            <div class=""  :style="{flex:1}"></div>
         </div>
         <group label-width="4em" label-margin-right="2em" label-align="left">
-            <x-input placeholder="请输入手机号" required v-model="mobile" :is-type="()=>validateTel(this.mobile)"/>
+            <x-input title="手机号码" placeholder="请输入手机号" required v-model="mobile" :is-type="()=>validateTel(this.mobile)"/>
 
-            <x-input placeholder="请输入登录密码"
+            <x-input title="密码" placeholder="4-10位数组或字母"
                      :type="showPassword?'text':'password'"
                      required v-model="password"
                      :is-type="()=>validatePass(this.password)">
@@ -17,14 +27,13 @@
                     mini
                     :text="showPassword?'隐藏密码':'显示密码'"
                     slot='right'
+                    class="bg-29d6bf nbr"
                     @click.native="showPassword=!showPassword"/>
             </x-input>
         </group>
-        <x-button action-type="button" type="primary" size="large" class="mt60" text="确认登录" @click.native="onSubmit"/>
-        <div  @click="loginWithWechat" class="flex-wrp flex-middle pt60">
-            <base-avatar icon="icon-weixin" class="bg-white" size="large"/>
+        <div class="plr20 ptb50">
+            <div class="link-btn-main size26 ptb15"  @click.native="onSubmit">确认修改</div>
         </div>
-        <div class="flex-wrp flex-middle pt10 size32 color2">微信登录</div>
         <divider>我是有底线的</divider>
     </div>
 </template>
@@ -52,11 +61,6 @@
                     })
                     return
                 }
-                // this.$vux.toast.show({
-                //     type: 'success',
-                //     text: 'Loading'
-                // })
-
                 const {data} = await api.post('operator_login', {
                     mobile: this.mobile,
                     password: this.password

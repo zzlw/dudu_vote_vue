@@ -9,7 +9,7 @@ import plugins from 'plugins/component'
 
 import App from './App'
 
-FastClick.attach(document.body)
+// FastClick.attach(document.body)
 
 Vue.use(plugins)
 

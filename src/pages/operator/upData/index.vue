@@ -1,0 +1,95 @@
+<template>
+    <div class="pb60">
+        <div class="head flex-wrp flex-between bg-284860 plr20 ptb20">
+            <div class="flex-wrp flex-align-center" :style="{flex:1}">
+                <div class="leftIcon" :style="{width: rem(40), height: rem(40)}">
+                    <svg class="icon base-menu-icon" aria-hidden="true">
+                        <use :xlink:href="`#icon-zuojiantou`"></use>
+                    </svg>
+                </div>
+                <div class="size26 color1 pl5">返回</div>
+            </div>
+            <div class="color1 size26 text-center"  :style="{flex:3}">
+                绑定手机账号
+            </div>
+            <div class=""  :style="{flex:1}"></div>
+        </div>
+        <group label-width="4em" label-margin-right="2em" label-align="left">
+            <x-input title="手机号码" placeholder="请输入手机号码" type='tel' required v-model="mobile" />
+
+            <x-input
+                    title="验证码"
+                    placeholder="请输入验证码"
+                    type='number'
+                     required v-model="code">
+                    <!-- <div class="bg-29d6bf color1 lh100 border-radius5 size16 ptb10 plr10" slot='right' >发送验证码</div> -->
+                    <x-button
+                    action-type="button"
+                    type="primary"
+                    mini
+                    :disabled="disabled"
+                    :text="`${showCode}`"
+                    slot='right'
+                    class="bg-29d6bf nbr"
+                    @click.native="setTime"/>
+            </x-input>
+        </group>
+        <div class="plr20 ptb50">
+            <div class="link-btn-main size26 ptb15" >提交</div>
+        </div>
+    </div>
+</template>
+
+<script>
+import api from "@/api";
+import { timeDiffArray, timeDiffObj } from "@/utils";
+import moment from "moment";
+export default {
+  data() {
+    return {
+        disabled: false,
+      mobile: "",
+      code: "",
+      showCode: "发送验证码",
+      time_start: null,
+      timeValue: null,
+      now: moment()
+    };
+  },
+  async created() {},
+
+  methods: {
+    timeUpdate(time) {
+        if(moment().isBefore(this.time_start)){
+            this.timeValue = timeDiffObj(this.time_start, time)
+            this.showCode= this.timeValue.seconds+' s'
+        }else{
+            this.timer && clearInterval(this.timer)
+            this.showCode='发送验证码'
+            this.disabled=false
+        }
+    },
+    setTime() {
+        let tel= this.validateTel(this.mobile)
+
+        if(!tel.valid) {
+            this.$vux.toast.text(tel.msg, 'middle')
+            return
+        }
+        this.$vux.toast.text('发送成功', 'middle')
+        let time= moment();
+        this.time_start = time + 60000
+        this.disabled=true
+        this.timer = setInterval(this.timeUpdate, 1000, time)
+    }
+  },
+
+  beforeDestroy() {
+    this.timer && clearInterval(this.timer);
+  }
+};
+</script>
+
+<style scoped>
+
+</style>

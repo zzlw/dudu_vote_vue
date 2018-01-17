@@ -3,6 +3,9 @@
 }
 .nbr{
     border:none!important;
+    &::after{       // 针对 vux 表框
+        border:none!important;
+    }
 }
 .border,
 .border-b{
