@@ -20,6 +20,14 @@ import OperatorPrizeAdd from '@/pages/operator/prize/add'
 
 import OperatorPlayer from '@/pages/operator/player'
 import OperatorPlayerAdd from '@/pages/operator/player/add'
+import OperatorPlayerAdmin from '@/pages/operator/player/admin'
+import OperatorPlayerLimit from '@/pages/operator/player/limit'
+import OperatorPlayerLimitNumber from '@/pages/operator/player/limitNumber'
+
+import OperatorShare from '@/pages/operator/share'
+import OperatorFollow from '@/pages/operator/moreSetting/follow'
+
+
 
 
 
@@ -80,10 +88,29 @@ let router = new Router({
                     path: 'player',
                     component: OperatorPlayer
                 },
-                ,
                 {
                     path: 'player-add',
                     component: OperatorPlayerAdd
+                },
+                {
+                    path: 'player-admin',
+                    component: OperatorPlayerAdmin
+                },
+                {
+                    path: 'player-limit',
+                    component: OperatorPlayerLimit
+                },
+                {
+                    path: 'player-limit-number',
+                    component: OperatorPlayerLimitNumber
+                },
+                {
+                    path: 'share',
+                    component: OperatorShare
+                },
+                {
+                    path: 'follow',
+                    component: OperatorFollow
                 }
             ]
         },
@@ -93,5 +120,4 @@ let router = new Router({
         }
     ]
 })
-
 export default router
