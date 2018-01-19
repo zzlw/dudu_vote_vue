@@ -17,15 +17,6 @@
             </div>
         </div>
         <div class="flex-wrp flex-cell flex-middle plr30" >
-            <!-- <div class="border ptb5 plr10 border-radius5 text-center color1 size22 overflow-hidden color13" :style="{'border-color':'#29d6bf'}"  >设置</div>
-            <div class="relative">
-                <div v-show="status" class="border border-radius5 overflow-hidden size22 bg-white" :style="{width: '100px', position: 'absolute', top: '2px', right: '0px'}">
-                    <div class="color4 border-b text-center ptb10" @click.stop="$router.push(setUp.ewm)">活动二维码</div>
-                    <div class="color4 border-b text-center ptb10" @click.stop="$router.push(setUp.edit)">编辑</div>
-                    <div class="color4 border-b text-center ptb10" @click.stop="$router.push(setUp._delete)">删除</div>
-                    <div class="color4 text-center ptb10" @click.stop="$router.push(setUp.more)">更多设置</div>
-                </div>
-            </div> -->
             <slot name="setUp" :v-show="setUpStatus" />
             <slot/>
         </div>

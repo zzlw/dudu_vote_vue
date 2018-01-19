@@ -16,7 +16,8 @@ import {
     XSwitch,
     Cell,
     XNumber,
-    XAddress
+    XAddress,
+    XTextarea
 } from 'vux'
 import TabBar from 'components/operator/base/TabBar.vue'
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -62,6 +63,9 @@ export default {
         Vue.component('Cell', Cell)
         Vue.component('XNumber', XNumber)
         Vue.component('XAddress', XAddress)
+        Vue.component('XTextarea', XTextarea)
+
+
 
         Vue.use(ToastPlugin)
         Vue.use(Toast)

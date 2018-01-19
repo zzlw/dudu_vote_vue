@@ -14,7 +14,7 @@
             </div>
             <div class=""  :style="{flex:1}"></div>
         </div>
-        <group label-width="4em" label-margin-right="2em" label-align="left">
+        <group label-width="2rem" label-margin-right="2em" label-align="left">
             <cell :value="mobile" is-link value-align="right">
                 <div slot="icon" class="flex-wrp flex-align-center" >
                     <div class="leftIcon" :style="{width: rem(36), height: rem(36)}">

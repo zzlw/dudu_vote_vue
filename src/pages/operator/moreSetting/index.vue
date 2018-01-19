@@ -26,7 +26,7 @@
                 </div>
             </cell>
         </group>
-        <group label-width="4em" label-margin-right="2em" label-align="left">
+        <group label-width="2rem" label-margin-right="2em" label-align="left">
             <cell is-link value-align="right" link='/'>
                 <div slot="icon" class="flex-wrp flex-align-center" >
                     <div class="leftIcon" :style="{width: rem(36), height: rem(36)}">

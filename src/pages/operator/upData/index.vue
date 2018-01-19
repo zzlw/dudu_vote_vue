@@ -14,9 +14,8 @@
             </div>
             <div class=""  :style="{flex:1}"></div>
         </div>
-        <group label-width="4em" label-margin-right="2em" label-align="left">
+        <group label-width="2rem" label-margin-right="2em" label-align="left">
             <x-input title="手机号码" placeholder="请输入手机号码" type='tel' required v-model="mobile" />
-
             <x-input
                     title="验证码"
                     placeholder="请输入验证码"

@@ -87,21 +87,21 @@
 
         <!--内容-->
         <OperatorActivityEditorContent class="bg-white" v-model="activity.content" :preview="preview"/>
-            <group>
-                <cell title="基础设置" ></cell>
-                <datetime class="color2" v-model="activity.startTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`开始时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
-                <datetime class="color2" v-model="activity.endTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`结束时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
-                <x-switch class="color2" :title="`开始报名`" inline-desc="用户是否可以自主报名" :value-map="['0', '1']" v-model="activity.signUpManner"></x-switch>
-                <x-switch class="color2" :title="`投票类型`" inline-desc="一票制还是多票制（亮点为多票制）一票制：设置时间内只有一票；多票制：设置时间内对每个选手" :value-map="['0', '1']" v-model="activity.voteType"></x-switch>
-                <x-number title="多久重新投票" v-model="activity.nextVoteTime" button-style="round" :min="0" :max="12"></x-number>
-                <x-number title="奖品兑换数量" v-model="activity.limitedExchangeCount" button-style="round" :min="0" :max="5"></x-number>
-                <cell :inline-desc="`提示:奖品在发布完成“我的活动“投票设置“奖品管理”进行添加`" ></cell>
-            </group>
-            <div class="flex-wrp bg-white">
-                <div v-if="!preview" @click="preview=true" :style="{flex:1}" class="text-center color2 ptb20 size26">预览</div>
-                <div v-if="preview" @click="preview=false" :style="{flex:1}" class="text-center color2 ptb20 size26">编辑</div>
-                <div @click="publish(activity)" :style="{flex:1}" class="text-center color2 ptb20 size26">发布</div>
-            </div>
+        <group label-width="3rem" label-margin-right="2em" label-align="left">
+            <cell title="基础设置" ></cell>
+            <datetime class="color2" v-model="activity.startTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`开始时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
+            <datetime class="color2" v-model="activity.endTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`结束时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
+            <x-switch class="color2" :title="`开始报名`" inline-desc="用户是否可以自主报名" :value-map="['0', '1']" v-model="activity.signUpManner"></x-switch>
+            <x-switch class="color2" :title="`投票类型`" inline-desc="一票制还是多票制（亮点为多票制）一票制：设置时间内只有一票；多票制：设置时间内对每个选手" :value-map="['0', '1']" v-model="activity.voteType"></x-switch>
+            <x-number title="多久重新投票" v-model="activity.nextVoteTime" button-style="round" :min="0" :max="12"></x-number>
+            <x-number title="奖品兑换数量" v-model="activity.limitedExchangeCount" button-style="round" :min="0" :max="5"></x-number>
+            <cell :inline-desc="`提示:奖品在发布完成“我的活动“投票设置“奖品管理”进行添加`" ></cell>
+        </group>
+        <div class="flex-wrp bg-white">
+            <div v-if="!preview" @click="preview=true" :style="{flex:1}" class="text-center color2 ptb20 size26">预览</div>
+            <div v-if="preview" @click="preview=false" :style="{flex:1}" class="text-center color2 ptb20 size26">编辑</div>
+            <div @click="publish(activity)" :style="{flex:1}" class="text-center color2 ptb20 size26">发布</div>
+        </div>
     </div>
 </template>
 

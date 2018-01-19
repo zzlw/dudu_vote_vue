@@ -49,9 +49,18 @@ html{
   width: 100%;
   height: 100%;
 }
+//强制一行
+.text-nowrap-one{
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
 
 //强制二行
-.text-nowrap-three{
+.text-nowrap-two{
     text-overflow: -o-ellipsis-lastline;
     overflow: hidden;
     text-overflow: ellipsis;
