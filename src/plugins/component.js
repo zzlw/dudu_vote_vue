@@ -17,7 +17,8 @@ import {
     Cell,
     XNumber,
     XAddress,
-    XTextarea
+    XTextarea,
+    FormPreview
 } from 'vux'
 import TabBar from 'components/operator/base/TabBar.vue'
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -64,6 +65,7 @@ export default {
         Vue.component('XNumber', XNumber)
         Vue.component('XAddress', XAddress)
         Vue.component('XTextarea', XTextarea)
+        Vue.component('FormPreview', FormPreview)
 
 
 

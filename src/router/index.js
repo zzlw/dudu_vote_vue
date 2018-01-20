@@ -27,9 +27,9 @@ import OperatorPlayerLimitNumber from '@/pages/operator/player/limitNumber'
 import OperatorShare from '@/pages/operator/share'
 import OperatorFollow from '@/pages/operator/moreSetting/follow'
 
-
-
-
+import OperatorWithdrawals from '@/pages/operator/withdrawals'
+import OperatorWithdrawalsLog from '@/pages/operator/withdrawals/log'
+import OperatorWithdrawalsTotal from '@/pages/operator/withdrawals/Total'
 
 Vue.use(Router)
 
@@ -111,6 +111,18 @@ let router = new Router({
                 {
                     path: 'follow',
                     component: OperatorFollow
+                },
+                {
+                    path: 'withdrawals',
+                    component: OperatorWithdrawals
+                },
+                {
+                    path: 'withdrawals-log',
+                    component: OperatorWithdrawalsLog
+                },
+                {
+                    path: 'withdrawals-total',
+                    component: OperatorWithdrawalsTotal
                 }
             ]
         },
