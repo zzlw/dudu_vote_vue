@@ -3,8 +3,8 @@
   <div class="swiper-item flex-wrp flex-between flex-cell h100 " :class="{editing: !preview}" :style="divStyle">
 
     <div class="flex-wrp flex-between" :style="{height: rem(156)}">
-      <activity-button :upload="upload" v-if="!preview"/>
-      <custom-button v-if="!preview && remove" :onclick="remove" thatText="删除" thatIcon="icon-guanbi"/>
+      <button-upload :upload="upload" v-if="!preview"/>
+      <button-custom v-if="!preview && remove" :onclick="remove" thatText="删除" thatIcon="icon-guanbi"/>
     </div>
     <input v-if="!preview" class="w100 bg-alpha pd10 color1 size16" :style="{border:'none'}" ref="url" type="text"
            placeholder="跳转链接（以http://开头）" @change="input" :value="value.url">
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import api from '@/api'
+  import api from '@/api/index'
   import wx from '@/sdk/wx'
 
   export default {

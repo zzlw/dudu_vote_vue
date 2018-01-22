@@ -8,15 +8,15 @@
 </template>
 
 <script>
-    import ActivityEditorText from '@/components/operator/activity/editor/OperatorActivityEditorText'
-    import ActivityEditorSwiper from '@/components/operator/activity/editor/OperatorActivityEditorSwiper'
-    import ActivityEditorContent from '@/components/operator/activity/editor/OperatorActivityEditorContent'
+    import InputText from '@/components/input/InputText'
+    import ActivityEditorSwiper from '@/components/input/swiper/InputSwiper'
+    import ActivityEditorContent from '@/components/input/rich-text/InputRichText'
     import ActivityThemeDefault from '@/components/operator/activity/themes/OperatorActivityThemesDefault'
     import api from '@/api'
 
     export default {
       components: {
-        ActivityEditorText,
+        InputText,
         ActivityEditorSwiper,
         ActivityEditorContent,
         ActivityThemeDefault

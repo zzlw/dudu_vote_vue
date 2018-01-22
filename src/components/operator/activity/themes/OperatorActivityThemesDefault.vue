@@ -13,15 +13,15 @@
 
         <!--活动标题-->
 
-        <OperatorActivityEditorText v-model="activity.title" :preview="preview"  class="pr10" >
-            <div slot="icon" class="" :style="{width: rem(40),height: rem(40)}" >
-                <svg class="icon base-menu-icon" aria-hidden="true">
-                    <use :xlink:href="`#icon-yinliang`"></use>
-                </svg>
-            </div>
-        </OperatorActivityEditorText>
+        <div class="flex-wrp flex-align-center flex-between bg-white h100 pt10">
+          <div :style="{width: rem(40),height: rem(40)}" >
+            <svg class="icon base-menu-icon" aria-hidden="true">
+              <use :xlink:href="`#icon-yinliang`"></use>
+            </svg>
+          </div>
 
-
+          <InputText v-model="activity.title" :preview="preview"  class="mr10 w100" />
+        </div>
 
         <div class="flex-wrp flex-middle bg-white pt20" >
             <template v-if="moment().isBefore(buying.time_start)">
@@ -79,10 +79,16 @@
         </div>
 
         <!--内容标题-->
-        <OperatorActivityContentTitle class="bg-white" v-model="activity.contentTitle" :preview="preview"/>
+
+        <div class="flex-wrp flex-center pd10  bg-white">
+          <div class="size16 color2">——</div>
+          <InputText v-model="activity.contentTitle" :preview="preview" class="mlr20 color2 plr10 ptb5 size26"/>
+          <div class="size16 color2">——</div>
+        </div>
 
         <!--内容-->
-        <OperatorActivityEditorContent class="bg-white" v-model="activity.content" :preview="preview"/>
+        <InputRichText class="bg-white" v-model="activity.content" :preview="preview"/>
+
 
         <group v-if="!preview" label-width="3rem" label-margin-right="2em" label-align="left">
             <cell title="基础设置" ></cell>
@@ -105,21 +111,19 @@
 </template>
 
 <script>
-    import OperatorActivityContentTitle from '@/components/operator/activity/editor/OperatorActivityContentTitle'
-    import OperatorActivityEditorText from '@/components/operator/activity/editor/OperatorActivityEditorText'
-    import OperatorActivityEditorSwiper from '@/components/operator/activity/editor/OperatorActivityEditorSwiper'
-    import OperatorActivityEditorContent from '@/components/operator/activity/editor/OperatorActivityEditorContent'
-    import { timeDiffArray, timeDiffObj } from '@/utils'
+    import InputText from '@/components/input/InputText'
+    import OperatorActivityEditorSwiper from '@/components/input/swiper/InputSwiper'
+    import InputRichText from '@/components/input/rich-text/InputRichText'
+    import { timeDiffObj } from '@/utils'
     import moment from 'moment'
     import chunk from 'lodash/chunk'
 
     export default {
       props: ['activity', 'publish'],
       components: {
-        OperatorActivityContentTitle,
-        OperatorActivityEditorText,
+        InputText,
         OperatorActivityEditorSwiper,
-        OperatorActivityEditorContent
+        InputRichText
       },
       name: 'add',
       data () {

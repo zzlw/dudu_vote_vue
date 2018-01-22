@@ -14,8 +14,8 @@ import BaseActivitySwiper from 'components/operator/base/BaseActivitySwiper.vue'
 
 import HomeInfo from 'components/operator/home/HomeInfo.vue'
 
-import ActivityButton from 'components/operator/activity/button/ActivityButton.vue'
-import CustomButton from 'components/operator/activity/button/CustomButton.vue'
+import ButtonUpload from 'components/button/ButtonUpload.vue'
+import ButtonCustom from 'components/button/ButtonCustom.vue'
 
 export default {
   install (Vue, options) {
@@ -29,8 +29,8 @@ export default {
 
     Vue.component('home-info', HomeInfo)
 
-    Vue.component('ActivityButton', ActivityButton)
-    Vue.component('CustomButton', CustomButton)
+    Vue.component('ButtonUpload', ButtonUpload)
+    Vue.component('ButtonCustom', ButtonCustom)
 
     Vue.component('Group', Group)
     Vue.component('XInput', XInput)

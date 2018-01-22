@@ -15,26 +15,28 @@
             <div class=""  :style="{flex:1}"></div>
         </div>
         <div class="flex-wrp flex-around bg-white ptb20 mt20">
-            <div class="flex-wrp flex-between flex-align-center size26 plr20 ptb5 border-radius5" :style="{height: rem(40),border:'1px solid #29d6bf'}">
-                <div class="h100" :style="{width: rem(30)}">
-                    <svg class="icon base-menu-icon" aria-hidden="true">
-                        <use :xlink:href="`#icon-jia1-copy`"></use>
-                    </svg>
-                </div>
-                <div class="color13 lh100 pl10">添加排名奖</div>
-            </div>
 
-            <router-link to="prize-add">
-
+          <router-link to="prize-add?type=0">
             <div class="flex-wrp flex-between flex-align-center size26 plr20 ptb5 border-radius5" :style="{height: rem(40),border:'1px solid #29d6bf'}">
-                <div class="h100" :style="{width: rem(30)}">
-                    <svg class="icon base-menu-icon" aria-hidden="true">
-                        <use :xlink:href="`#icon-jia1-copy`"></use>
-                    </svg>
-                </div>
-                <div class="color13 lh100 pl10">添加鼓励奖</div>
+              <div class="h100" :style="{width: rem(30)}">
+                <svg class="icon base-menu-icon" aria-hidden="true">
+                  <use :xlink:href="`#icon-jia1-copy`"></use>
+                </svg>
+              </div>
+              <div class="color13 lh100 pl10">添加排名奖</div>
             </div>
-            </router-link>
+          </router-link>
+
+          <router-link to="prize-add?type=1">
+            <div class="flex-wrp flex-between flex-align-center size26 plr20 ptb5 border-radius5" :style="{height: rem(40),border:'1px solid #29d6bf'}">
+              <div class="h100" :style="{width: rem(30)}">
+                <svg class="icon base-menu-icon" aria-hidden="true">
+                    <use :xlink:href="`#icon-jia1-copy`"></use>
+                </svg>
+              </div>
+              <div class="color13 lh100 pl10">添加鼓励奖</div>
+            </div>
+          </router-link>
 
         </div>
         <div class="pd20">
@@ -56,10 +58,7 @@
 </template>
 
 <script>
-import api from '@/api/index'
-import { timeDiffArray, timeDiffObj } from '@/utils/index'
-import moment from 'moment'
-export default {
+  export default {
   data () {
     return {
       srcImg: ''

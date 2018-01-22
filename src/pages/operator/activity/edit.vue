@@ -8,22 +8,16 @@
 </template>
 
 <script>
-  import ActivityEditorText from '@/components/operator/activity/editor/OperatorActivityEditorText'
-  import ActivityEditorSwiper from '@/components/operator/activity/editor/OperatorActivityEditorSwiper'
-  import ActivityEditorContent from '@/components/operator/activity/editor/OperatorActivityEditorContent'
   import ActivityThemeDefault from '@/components/operator/activity/themes/OperatorActivityThemesDefault'
   import api from '@/api'
 
   export default {
     components: {
-      ActivityEditorText,
-      ActivityEditorSwiper,
-      ActivityEditorContent,
-      ActivityThemeDefault
+      ActivityThemeDefault,
     },
     data () {
       return {
-        activity: null
+        activity: null,
       }
     },
     created () {
@@ -43,7 +37,7 @@
           'sign_up_manner': activity.signUpManner,
           'vote_type': activity.voteType,
           'next_vote_time': activity.nextVoteTime,
-          'limited_exchange_count': activity.limitedExchangeCount
+          'limited_exchange_count': activity.limitedExchangeCount,
         }
 
         const {data} = await api.post('operator_activity_update', requestData)
@@ -75,8 +69,8 @@
         this.activity.voteType = data.data.vote_type
         this.activity.nextVoteTime = data.data.next_vote_time
         this.activity.limitedExchangeCount = data.data.limited_exchange_count
-      }
-    }
+      },
+    },
   }
 </script>
 

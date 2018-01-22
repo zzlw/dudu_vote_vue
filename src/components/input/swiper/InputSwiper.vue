@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import OperatorActivityEditorSwiperItem from '@/components/operator/activity/editor/OperatorActivityEditorSwiperItem'
+  import OperatorActivityEditorSwiperItem from '@/components/input/swiper/InputSwiperItem'
 
   export default {
     components: {
