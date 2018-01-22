@@ -31,6 +31,13 @@ import OperatorWithdrawals from '@/pages/operator/withdrawals'
 import OperatorWithdrawalsLog from '@/pages/operator/withdrawals/log'
 import OperatorWithdrawalsTotal from '@/pages/operator/withdrawals/Total'
 
+import OperatorData from '@/pages/operator/data'
+import OperatorDataChildren from '@/pages/operator/data/children'
+import OperatorDataChildrenAdmin from '@/pages/operator/data/children/admin'
+import OperatorDataChildrenLog from '@/pages/operator/data/children/log'
+
+
+
 Vue.use(Router)
 
 let router = new Router({
@@ -123,6 +130,31 @@ let router = new Router({
                 {
                     path: 'withdrawals-total',
                     component: OperatorWithdrawalsTotal
+                },
+                {
+                    path: 'data',
+                    component: OperatorData,
+                    children:[
+                        {
+                            path: '',
+                            redirect: 'children'
+                        },
+                        {
+                            path: 'children',
+                            component: OperatorDataChildren,
+                            meta: { index: 0 }
+                        },
+                        {
+                            path: 'children-admin',
+                            component: OperatorDataChildrenAdmin,
+                            meta: { index: 2 }
+                        },
+                        {
+                            path: 'children-log',
+                            component: OperatorDataChildrenLog,
+                            meta: { index: 1 }
+                        }
+                    ]
                 }
             ]
         },

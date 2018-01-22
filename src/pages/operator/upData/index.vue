@@ -46,7 +46,7 @@ import moment from "moment";
 export default {
   data() {
     return {
-        disabled: false,
+      disabled: false,
       mobile: "",
       code: "",
       showCode: "发送验证码",
@@ -59,27 +59,27 @@ export default {
 
   methods: {
     timeUpdate(time) {
-        if(moment().isBefore(this.time_start)){
-            this.timeValue = timeDiffObj(this.time_start, time)
-            this.showCode= this.timeValue.seconds+' s'
-        }else{
-            this.timer && clearInterval(this.timer)
-            this.showCode='发送验证码'
-            this.disabled=false
-        }
+      if (moment().isBefore(this.time_start)) {
+        this.timeValue = timeDiffObj(this.time_start, time);
+        this.showCode = this.timeValue.seconds + " s";
+      } else {
+        this.timer && clearInterval(this.timer);
+        this.showCode = "发送验证码";
+        this.disabled = false;
+      }
     },
     setTime() {
-        let tel= this.validateTel(this.mobile)
+      let tel = this.validateTel(this.mobile);
 
-        if(!tel.valid) {
-            this.$vux.toast.text(tel.msg, 'middle')
-            return
-        }
-        this.$vux.toast.text('发送成功', 'middle')
-        let time= moment();
-        this.time_start = time + 60000
-        this.disabled=true
-        this.timer = setInterval(this.timeUpdate, 1000, time)
+      if (!tel.valid) {
+        this.$vux.toast.text(tel.msg, "middle");
+        return;
+      }
+      this.$vux.toast.text("发送成功", "middle");
+      let time = moment();
+      this.time_start = time + 60000;
+      this.disabled = true;
+      this.timer = setInterval(this.timeUpdate, 1000, time);
     }
   },
 

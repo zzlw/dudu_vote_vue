@@ -18,9 +18,11 @@ import {
     XNumber,
     XAddress,
     XTextarea,
-    FormPreview
+    FormPreview,
+    Tabbar,
+    TabbarItem,
 } from 'vux'
-import TabBar from 'components/operator/base/TabBar.vue'
+
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
 import BaseDataThree from 'components/operator/base/BaseDataThree.vue'
 import BaseTiele from 'components/operator/base/BaseTiele.vue'
@@ -35,7 +37,6 @@ import CustomButton from 'components/operator/activity/button/CustomButton.vue'
 
 export default {
     install (Vue, options) {
-        Vue.component('base-tab-bar', TabBar)
         Vue.component('base-avatar', BaseAvatar)
         Vue.component('base-data-three', BaseDataThree)
         Vue.component('base-tiele', BaseTiele)
@@ -66,6 +67,10 @@ export default {
         Vue.component('XAddress', XAddress)
         Vue.component('XTextarea', XTextarea)
         Vue.component('FormPreview', FormPreview)
+
+        Vue.component('Tabbar', Tabbar)
+        Vue.component('TabbarItem', TabbarItem)
+
 
 
 
