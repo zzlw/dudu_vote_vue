@@ -7,18 +7,20 @@
         <div class="w100 flex-wrp flex-center size38 color2" :style="{height: rem(800)}">海报编辑中。。</div>
         <base-tiele title="申请入住服务商"/>
         <group label-width="2rem" label-margin-right="2em" label-align="left" gutter="0">
-            <x-input title="平台名称" placeholder="请输入平台名称" required v-model="title" />
-            <x-address title="所在地区" v-model="location" required raw-value :list="addressData" value-text-align="left"></x-address>
-            <x-input title="申请人" placeholder="请输入您的姓名" required v-model="name" />
-            <x-input title="联系方式" placeholder="4-10位数字或字母" required v-model="mobile" :is-type="()=>validateTel(mobile)"/>
-            <x-input title="推荐码" placeholder="4-10位数字或字母" v-model="code" />
+            <x-input title="平台名称" placeholder="请输入平台名称" required v-model="title"/>
+            <x-address title="所在地区" v-model="location" required raw-value :list="addressData"
+                       value-text-align="left"></x-address>
+            <x-input title="申请人" placeholder="请输入您的姓名" required v-model="name"/>
+            <x-input title="联系方式" placeholder="4-10位数字或字母" required v-model="mobile"
+                     :is-type="()=>validateTel(mobile)"/>
+            <x-input title="推荐码" placeholder="4-10位数字或字母" v-model="code"/>
         </group>
         <div class="plr30 ptb20">
             <div class="link-btn-main ptb15 size26 color1" @click="submit()">确认申请</div>
         </div>
         <div class="flex-wrp bg-white pd20">
             <div class="" :style="{width: rem(200),height: rem(200)}">
-                <img width="100%" height="100%" src="~/assets/img/web/ewm.png" class="bg-cover"  />
+                <img width="100%" height="100%" src="~/assets/img/web/ewm.png" class="bg-cover"/>
             </div>
             <div class="flex-wrp flex-cell flex-middle pl30">
                 <div class="size26 color2 ptb10">长按识别二维码快来联系我吧</div>
@@ -46,17 +48,18 @@
 
 <script>
     import api from '@/api'
-    import { ChinaAddressV4Data } from 'vux'
+    import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
+
     export default {
         data () {
             return {
-                src:'',
+                src: '',
                 addressData: ChinaAddressV4Data,
                 title: null,
                 location: ['广东省', '深圳市', '南山区'],
                 name: null,
                 mobile: null,
-                code: null
+                code: null,
             }
         },
         async created () {
@@ -64,18 +67,28 @@
             this.operator = data.data
 
             if (this.operator && this.operator.status === 2) {
-                // this.$router.push('/operator')
+                this.$router.push('/operator')
             }
         },
         methods: {
             async submit () {
-                const {data} = await api.post('operator_join', {
+                let location = value2name(this.location, ChinaAddressV4Data)
+
+                console.log(location)
+
+                let code = this.code
+                let newVar = {
                     title: this.title,
-                    location: this.location,
+                    location: location,
                     name: this.name,
                     mobile: this.mobile,
-                    code: this.code
-                })
+                }
+
+                if (code) {
+                    newVar.code = code
+                }
+
+                const {data} = await api.post('operator_join', newVar)
 
                 alert(data.message)
 
@@ -84,8 +97,8 @@
                 }
 
                 this.$router.push('/operator/join')
-            }
-        }
+            },
+        },
     }
 </script>
 
