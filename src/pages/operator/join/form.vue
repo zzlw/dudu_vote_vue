@@ -46,12 +46,12 @@
 
 <script>
     import api from '@/api'
-    import { ChinaAddressData } from 'vux'
+    import { ChinaAddressV4Data } from 'vux'
     export default {
         data () {
             return {
                 src:'',
-                addressData: ChinaAddressData,
+                addressData: ChinaAddressV4Data,
                 title: null,
                 location: ['广东省', '深圳市', '南山区'],
                 name: null,
