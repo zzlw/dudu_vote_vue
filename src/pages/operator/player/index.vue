@@ -51,58 +51,58 @@ import api from '@/api'
 import { timeDiffArray, timeDiffObj } from '@/utils'
 import moment from 'moment'
 export default {
-    data () {
-        return {
-            list3: [
-                {
-                    title: '全部选手',
-                    number: 3423,
-                },
-                {
-                    title: '未审核',
-                    number: 3423,
-                },
-                {
-                    title: '已审核',
-                    number: 3423,
-                },
-            ],
-            auditor: '1',
-            players: [
-                {
-                    setUpStatus: false,
-                    activityTitle: '今日数据今日数据今日数据今日数据今日数据今日数据今日数据',
-                    activitySrc: '',
-                    activityTo: '/',
-                    activitySetUp: {
-                        cancel: (item) => {
-                            console.log('取消成功', item)
-                        },
-                        edit: '/', // 编辑
-                        _delete: '/', // 删除
-                    },
-                },
-                {
-                    setUpStatus: false,
-                    activityTitle: '今日数据今日数据今日数据今日数据今日数据今日数据今日数据',
-                    activitySrc: '',
-                    activityTo: '/',
-                    activitySetUp: {
-                        cancel: (item) => {
-                            console.log('取消成功', item)
-                        },
-                        edit: '/', // 编辑
-                        _delete: '/', // 删除
-                    },
-                },
-            ],
+  data () {
+    return {
+      list3: [
+        {
+          title: '全部选手',
+          number: 3423
+        },
+        {
+          title: '未审核',
+          number: 3423
+        },
+        {
+          title: '已审核',
+          number: 3423
         }
-    },
-    async created () {},
+      ],
+      auditor: '1',
+      players: [
+        {
+          setUpStatus: false,
+          activityTitle: '今日数据今日数据今日数据今日数据今日数据今日数据今日数据',
+          activitySrc: '',
+          activityTo: '/',
+          activitySetUp: {
+            cancel: (item) => {
+              console.log('取消成功', item)
+            },
+            edit: '/', // 编辑
+            _delete: '/' // 删除
+          }
+        },
+        {
+          setUpStatus: false,
+          activityTitle: '今日数据今日数据今日数据今日数据今日数据今日数据今日数据',
+          activitySrc: '',
+          activityTo: '/',
+          activitySetUp: {
+            cancel: (item) => {
+              console.log('取消成功', item)
+            },
+            edit: '/', // 编辑
+            _delete: '/' // 删除
+          }
+        }
+      ]
+    }
+  },
+  async created () {},
 
-    methods: {
+  methods: {
 
-    },
+  }
 }
 </script>
 

@@ -61,50 +61,50 @@ import { timeDiffArray, timeDiffObj } from '@/utils'
 import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
 import moment from 'moment'
 export default {
-    data () {
-        return {
-            minute: 1,
-            number: 0,
-            addressData: ChinaAddressV4Data,
-            addressList: [],
-            addressValue: [],
-        }
-    },
-    async created () {},
+  data () {
+    return {
+      minute: 1,
+      number: 0,
+      addressData: ChinaAddressV4Data,
+      addressList: [],
+      addressValue: []
+    }
+  },
+  async created () {},
 
-    watch: {
-        addressValue: function (newQuestion, oldQuestion) {
-            let bl = this.addressList.find(item => {
-                return (
-                    (this.getName([item[1]]) == '市辖区'
-                        ? this.getName([item[0]])
-                        : this.getName([item[1]]) == '县'
-                            ? this.getName([item[0]])
-                            : this.getName([item[1]])) ==
+  watch: {
+    addressValue: function (newQuestion, oldQuestion) {
+      let bl = this.addressList.find(item => {
+        return (
+          (this.getName([item[1]]) == '市辖区'
+            ? this.getName([item[0]])
+            : this.getName([item[1]]) == '县'
+              ? this.getName([item[0]])
+              : this.getName([item[1]])) ==
           (this.getName([newQuestion[1]]) == '市辖区'
+            ? this.getName([newQuestion[0]])
+            : this.getName([newQuestion[1]]) == '县'
               ? this.getName([newQuestion[0]])
-              : this.getName([newQuestion[1]]) == '县'
-                  ? this.getName([newQuestion[0]])
-                  : this.getName([newQuestion[1]]))
-                )
-            })
+              : this.getName([newQuestion[1]]))
+        )
+      })
 
-            if (!bl) {
-                this.addressList.push(newQuestion)
-            }
-        },
+      if (!bl) {
+        this.addressList.push(newQuestion)
+      }
+    }
+  },
+
+  computed: {},
+
+  methods: {
+    getName (value) {
+      return value2name(value, ChinaAddressV4Data)
     },
-
-    computed: {},
-
-    methods: {
-        getName (value) {
-            return value2name(value, ChinaAddressV4Data)
-        },
-        addressDelete (index) {
-            this.addressList.splice(index, 1)
-        },
-    },
+    addressDelete (index) {
+      this.addressList.splice(index, 1)
+    }
+  }
 }
 </script>
 

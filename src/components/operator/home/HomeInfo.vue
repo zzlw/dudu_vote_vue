@@ -18,37 +18,37 @@
 
 <script>
 export default {
-    props: {
-        title: {
-            type: String,
-            required: true,
-        },
-        src: {
-            type: String,
-            required: false,
-        },
-        text: {
-            type: String,
-            required: true,
-        },
-        number: {
-            type: [String, Number],
-            required: true,
-        },
+  props: {
+    title: {
+      type: String,
+      required: true
     },
-
-    data () {
-        return {
-            status: false,
-        }
+    src: {
+      type: String,
+      required: false
     },
-
-    mounted () {},
-
-    components: {
+    text: {
+      type: String,
+      required: true
     },
+    number: {
+      type: [String, Number],
+      required: true
+    }
+  },
 
-    methods: {},
+  data () {
+    return {
+      status: false
+    }
+  },
+
+  mounted () {},
+
+  components: {
+  },
+
+  methods: {}
 }
 </script>
 

@@ -16,31 +16,31 @@
 
 <script>
     export default {
-        props: {
-            number: {
-                type: [String, Number],
-                required: true,
-            },
-            src: {
-                type: [String],
-                required: false,
-            },
+      props: {
+        number: {
+          type: [String, Number],
+          required: true
         },
-        data () {
-            return {
-                status: false,
-            }
-        },
+        src: {
+          type: [String],
+          required: false
+        }
+      },
+      data () {
+        return {
+          status: false
+        }
+      },
 
-        mounted () {},
+      mounted () {},
 
-        components: {},
+      components: {},
 
-        methods: {
-            goCreate () {
-                this.$router.push('/operator/activity-create')
-            },
-        },
+      methods: {
+        goCreate () {
+          this.$router.push('/operator/activity-create')
+        }
+      }
     }
 </script>
 

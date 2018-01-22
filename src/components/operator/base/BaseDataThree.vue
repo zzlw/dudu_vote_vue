@@ -9,19 +9,19 @@
 
 <script>
 export default {
-    props: {
+  props: {
     // 检测类型 + 其他验证
-        data: {
-            type: Array,
-            required: true,
-        },
-    },
-    data () {
-        return {
-        }
-    },
-    mounted () {},
-    components: {},
+    data: {
+      type: Array,
+      required: true
+    }
+  },
+  data () {
+    return {
+    }
+  },
+  mounted () {},
+  components: {}
 }
 </script>
 

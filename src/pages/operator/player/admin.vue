@@ -30,17 +30,17 @@ import api from '@/api'
 import { timeDiffArray, timeDiffObj } from '@/utils'
 import moment from 'moment'
 export default {
-    data () {
-        return {
-            auditor: '1',
-            endTime: '',
-        }
-    },
-    async created () {},
+  data () {
+    return {
+      auditor: '1',
+      endTime: ''
+    }
+  },
+  async created () {},
 
-    methods: {
+  methods: {
 
-    },
+  }
 }
 </script>
 

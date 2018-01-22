@@ -51,54 +51,54 @@
     import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
 
     export default {
-        data () {
-            return {
-                src: '',
-                addressData: ChinaAddressV4Data,
-                title: null,
-                location: ['广东省', '深圳市', '南山区'],
-                name: null,
-                mobile: null,
-                code: null,
-            }
-        },
-        async created () {
-            const {data} = await api.get('operator')
-            this.operator = data.data
+      data () {
+        return {
+          src: '',
+          addressData: ChinaAddressV4Data,
+          title: null,
+          location: ['广东省', '深圳市', '南山区'],
+          name: null,
+          mobile: null,
+          code: null
+        }
+      },
+      async created () {
+        const {data} = await api.get('operator')
+        this.operator = data.data
 
-            if (this.operator && this.operator.status === 2) {
-                this.$router.push('/operator')
-            }
-        },
-        methods: {
-            async submit () {
-                let location = value2name(this.location, ChinaAddressV4Data)
+        if (this.operator && this.operator.status === 2) {
+          this.$router.push('/operator')
+        }
+      },
+      methods: {
+        async submit () {
+          let location = value2name(this.location, ChinaAddressV4Data)
 
-                console.log(location)
+          console.log(location)
 
-                let code = this.code
-                let newVar = {
-                    title: this.title,
-                    location: location,
-                    name: this.name,
-                    mobile: this.mobile,
-                }
+          let code = this.code
+          let newVar = {
+            title: this.title,
+            location: location,
+            name: this.name,
+            mobile: this.mobile
+          }
 
-                if (code) {
-                    newVar.code = code
-                }
+          if (code) {
+            newVar.code = code
+          }
 
-                const {data} = await api.post('operator_join', newVar)
+          const {data} = await api.post('operator_join', newVar)
 
-                alert(data.message)
+          alert(data.message)
 
-                if (data.error) {
-                    return
-                }
+          if (data.error) {
+            return
+          }
 
-                this.$router.push('/operator/join')
-            },
-        },
+          this.$router.push('/operator/join')
+        }
+      }
     }
 </script>
 

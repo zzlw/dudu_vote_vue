@@ -117,21 +117,21 @@ import api from '@/api'
 import { timeDiffArray, timeDiffObj } from '@/utils'
 import moment from 'moment'
 export default {
-    data () {
-        return {
-            bgSrc: '',
-            add: {
-                title: '',
-                mobile: '',
-                text: '',
-            },
-        }
-    },
-    async created () {},
+  data () {
+    return {
+      bgSrc: '',
+      add: {
+        title: '',
+        mobile: '',
+        text: ''
+      }
+    }
+  },
+  async created () {},
 
-    methods: {
+  methods: {
 
-    },
+  }
 }
 </script>
 

@@ -8,6 +8,7 @@ import OperatorJoinForm from '@/pages/operator/join/form'
 import Operator from '@/pages/operator/index'
 import OperatorHome from '@/pages/operator/home'
 import OperatorActivityCreate from '@/pages/operator/activity/create'
+import OperatorActivityEdit from '@/pages/operator/activity/edit'
 
 import OperatorUpData from '@/pages/operator/upData'
 import OperatorUpTel from '@/pages/operator/upData/tel'
@@ -69,11 +70,15 @@ let router = new Router({
           component: OperatorUpPass
         },
         {
-          path: 'activity-create',
+          path: 'activity/create', // 活动添加
           component: OperatorActivityCreate
         },
         {
-          path: 'more-setting',
+          path: 'activity/edit/:id', // 活动编辑
+          component: OperatorActivityEdit
+        },
+        {
+          path: 'activity/settings/:id', // 活动设置(更多设置)
           component: OperatorMoreSetting
         },
         {

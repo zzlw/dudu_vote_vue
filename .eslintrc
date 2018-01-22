@@ -1,1 +1,9 @@
 extends: standard
+env:
+    browser: true
+    node: true
+globals:
+    wx: true
+    location: true
+    localStorage: true
+plugins: ['html']

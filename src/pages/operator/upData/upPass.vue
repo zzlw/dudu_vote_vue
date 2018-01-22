@@ -42,49 +42,49 @@
     import api from '@/api'
 
     export default {
-        data () {
-            return {
-                status: false,
-                mobile: '',
-                password: '',
-                showPassword: false,
-            }
+      data () {
+        return {
+          status: false,
+          mobile: '',
+          password: '',
+          showPassword: false
+        }
+      },
+      methods: {
+        async onSubmit () {
+          let text = this.isEmpty([this.validateTel(this.mobile), this.validatePass(this.password)])
+          if (text) {
+            this.$vux.toast.show({
+              width: '8rem',
+              type: 'warn',
+              text
+            })
+            return
+          }
+          const {data} = await api.post('operator_login', {
+            mobile: this.mobile,
+            password: this.password
+          })
+
+          if (data.error) {
+            alert(data.message)
+            return
+          }
+
+          this.$router.push('/operator')
         },
-        methods: {
-            async onSubmit () {
-                let text = this.isEmpty([this.validateTel(this.mobile), this.validatePass(this.password)])
-                if (text) {
-                    this.$vux.toast.show({
-                        width: '8rem',
-                        type: 'warn',
-                        text,
-                    })
-                    return
-                }
-                const {data} = await api.post('operator_login', {
-                    mobile: this.mobile,
-                    password: this.password,
-                })
+        async loginWithWechat () {
+          const {data} = await api.post('operator_login', {
+            'login_type': 'wechat'
+          })
+          if (data.error) {
+            alert(data.message)
+            return
+          }
 
-                if (data.error) {
-                    alert(data.message)
-                    return
-                }
-
-                this.$router.push('/operator')
-            },
-            async loginWithWechat () {
-                const {data} = await api.post('operator_login', {
-                    'login_type': 'wechat',
-                })
-                if (data.error) {
-                    alert(data.message)
-                    return
-                }
-
-                this.$router.push('/operator')
-            },
-        },
+          this.$router.push('/operator')
+        }
+      }
     }
 </script>
 

@@ -68,20 +68,20 @@ import api from '@/api'
 import { timeDiffArray, timeDiffObj } from '@/utils'
 import moment from 'moment'
 export default {
-    data () {
-        return {
-            share: {
-                title: '',
-                viceTitle: '',
-                srcImg: '',
-            },
-        }
-    },
-    async created () {},
+  data () {
+    return {
+      share: {
+        title: '',
+        viceTitle: '',
+        srcImg: ''
+      }
+    }
+  },
+  async created () {},
 
-    methods: {
+  methods: {
 
-    },
+  }
 }
 </script>
 

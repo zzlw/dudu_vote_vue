@@ -7,27 +7,27 @@
 
 <script>
 export default {
-    props: {
-        title: {
-            default: '请输入标题',
-            type: String,
-            required: false,
-        },
-        icon: {
-            type: String,
-            default: 'icon-qushi',
-        },
+  props: {
+    title: {
+      default: '请输入标题',
+      type: String,
+      required: false
     },
-    data () {
-        return {}
-    },
+    icon: {
+      type: String,
+      default: 'icon-qushi'
+    }
+  },
+  data () {
+    return {}
+  },
 
-    mounted () {},
+  mounted () {},
 
-    components: {
-    },
+  components: {
+  },
 
-    methods: {},
+  methods: {}
 }
 </script>
 

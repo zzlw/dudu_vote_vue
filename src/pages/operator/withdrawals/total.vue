@@ -100,14 +100,14 @@
 <script>
 import api from '@/api'
 export default {
-    data () {
-        return {
-            srcImg: '',
-        }
-    },
-    async created () {},
+  data () {
+    return {
+      srcImg: ''
+    }
+  },
+  async created () {},
 
-    methods: {},
+  methods: {}
 }
 </script>
 

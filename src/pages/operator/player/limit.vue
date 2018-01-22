@@ -44,17 +44,17 @@ import api from '@/api'
 import { timeDiffArray, timeDiffObj } from '@/utils'
 import moment from 'moment'
 export default {
-    data () {
-        return {
-            minute: 1,
-            number: 0,
-        }
-    },
-    async created () {},
+  data () {
+    return {
+      minute: 1,
+      number: 0
+    }
+  },
+  async created () {},
 
-    methods: {
+  methods: {
 
-    },
+  }
 }
 </script>
 

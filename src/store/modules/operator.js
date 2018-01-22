@@ -8,7 +8,12 @@ export default {
   state: {
     operator: null
   },
-  getters: {},
+  getters: {
+    operator (state) {
+      console.log(state)
+      return state
+    }
+  },
   mutations: {
     [SAVE_OPERATOR]: (state, payload) => {
       console.log(state)

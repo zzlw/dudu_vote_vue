@@ -42,23 +42,23 @@ import api from '@/api'
 import { timeDiffArray, timeDiffObj } from '@/utils'
 import moment from 'moment'
 export default {
-    data () {
-        return {
-            prize: {
-                title: '',
-                number: 0,
-                ticket: 0,
-                limited: 0,
-                endTime: '',
-                text: '',
-            },
-        }
-    },
-    async created () {},
+  data () {
+    return {
+      prize: {
+        title: '',
+        number: 0,
+        ticket: 0,
+        limited: 0,
+        endTime: '',
+        text: ''
+      }
+    }
+  },
+  async created () {},
 
-    methods: {
+  methods: {
 
-    },
+  }
 }
 </script>
 
