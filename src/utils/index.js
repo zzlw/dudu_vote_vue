@@ -41,6 +41,5 @@ export const localFile = value => {
   const arr = /(http|https):\/\/(file|file2).duduapp.net\/(.*)/.exec(value)
   return `/${arr[2]}/${arr[3]}`
 }
-export {default as http} from './http'
-export {default as wx} from './wx'
+
 export {default as cache} from './cache'

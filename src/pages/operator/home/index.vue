@@ -2,7 +2,7 @@
   <div>
     <div class="bg-deepblue">
       <div class="flex-wrp flex-center ptb60">
-        <div class="size60 color1">{{(+amount).toFixed(2)}}</div>
+        <div class="size60 color1">{{(111).toFixed(2)}}</div>
         <div class="border border-radius5 ptb5 plr20 ml20 color1 size16">立即提现</div>
       </div>
 
@@ -15,8 +15,10 @@
       <div class="plr40 ptb20">
         <home-info :src="infoSrc" :title="operator.name" :text="infoText" :number="operator.recommended_code"/>
       </div>
+
     </div>
     <base-title icon="icon-qushi" title="今日数据" class="border-b"/>
+
     <div class="ptb15 bg-white">
       <base-data-three :data="item" v-for="(item, index) in cateGroup" :key="index" class="ptb5">
         <div slot="number" slot-scope="{ number }" class="size26 color2 lh200">{{(+number)}}</div>
@@ -24,6 +26,7 @@
       </base-data-three>
     </div>
 
+    <!--活动公告-->
     <base-activity-swiper :data="swiperList"/>
 
     <base-title title="我的活动" icon="icon-qushi" class="mt20 border-b"/>
@@ -34,7 +37,7 @@
 
     <base-title title="添加活动" class="border-b"/>
 
-    <base-man-template :src="templateSrc" :number="number"/>
+    <base-man-template :number="89"/>
 
     <divider>我是有底线的</divider>
 
@@ -58,7 +61,6 @@
       </div>
     </x-dialog>
 
-
   </div>
 </template>
 
@@ -71,37 +73,10 @@
     data () {
       return {
         activities: [],
-
-        show2: false,
-        amount: '0',
-
-        // home-info start
-        infoSrc: '11',
-        infoTitle: '王尼玛王尼玛王尼玛',
-        infoText: '个人中心',
-        infoNumber: 'f234dsf',
-
-        // base-activity-list start
-        setUpStatus: false,
-        activityTitle: '今日数据今日数据今日数据今日数据今日数据今日数据今日数据',
-        activityNumber: [0, 0, 0], // 数组顺序：浏览量、礼物数量、访客人数,
-        activitySrc: '',
-        activityTo: '/',
-        activitySetUp: {
-          ewm: () => {
-            // this.show2 = false
-          }, // 二维码
-          edit: '/', // 编辑
-          _delete: '/', // 删除
-          more: '/' // 更多设置
-        },
-
         // base-activity-swiper start
         // to  请按 router 中的 to 使用
         swiperList: [
-          {to: '/operator/login', title: '今日数据今日数'},
-          {to: '/', title: '测试1测试1测试'},
-          {to: '/', title: '王尼玛'}
+          {to: '/', title: '投票活动火热开启中'},
         ],
 
         stats: {
@@ -109,52 +84,44 @@
           total: [
             {
               number: 0,
-              text: '总交易额'
+              text: '总交易额',
             },
             {
               number: 0,
-              text: '总交易额'
+              text: '总交易额',
             },
             {
               number: 0,
-              text: '总交易额'
-            }
+              text: '总交易额',
+            },
           ],
           today: [
             {
               number: 0,
-              text: '总交易额'
+              text: '总交易额',
             },
             {
               number: 0,
-              text: '总交易额'
+              text: '总交易额',
             },
             {
               number: 0,
-              text: '总交易额'
+              text: '总交易额',
             },
             {
               number: 0,
-              text: '总交易额'
+              text: '总交易额',
             },
             {
               number: 0,
-              text: '总交易额'
+              text: '总交易额',
             },
             {
               number: 0,
-              text: '总交易额'
-            }
-          ]
+              text: '总交易额',
+            },
+          ],
         },
-
-        // base-man-template start
-        number: 6666.11,
-        templateSrc: '',
-
-        // x-dialog
-        ewmSrc: '',
-        ewmLink: 'http://www.duduapp.net'
       }
     },
 
@@ -170,8 +137,8 @@
         return chunk(this.stats.today, 3)
       },
       ...mapState('operator', {
-        'operator': 'operator'
-      })
+        'operator': 'operator',
+      }),
     },
 
     components: {},
@@ -183,14 +150,14 @@
             this.$vux.toast.show({
               type: 'success',
               text: `<div class='color13 size16'>复制成功</div>`,
-              position: 'middle'
+              position: 'middle',
             })
           },
           (e) => {
             this.$vux.toast.show({
               type: 'warn',
               text: `<div class='color6 size16'>复制失败</div>`,
-              position: 'middle'
+              position: 'middle',
             })
           }
         )
@@ -202,9 +169,8 @@
       async fetchStatData () {
         const {data} = await api.get('operator_home_statistics_data')
         this.stats = data.data
-      }
-
-    }
+      },
+    },
 
   }
 </script>

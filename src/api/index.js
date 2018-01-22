@@ -15,7 +15,7 @@ const callApi = (action, method, data) => {
     method,
     params: method === 'get' ? data : {},
     data: method !== 'get' ? data : {},
-    withCredentials: true
+    withCredentials: true,
   })
 }
 
@@ -23,12 +23,12 @@ const http = {
   get: (action, data = {}) => callApi(action, 'get', data),
   post: (action, data = {}) => callApi(action, 'post', data),
   put: (action, data = {}) => callApi(action, 'put', data),
-  delete: (action, data = {}) => callApi(action, 'delete', data)
+  delete: (action, data = {}) => callApi(action, 'delete', data),
 }
 
 const apis = {
   async login () {
-  }
+  },
 }
 
 export default Object.assign({}, http, apis)

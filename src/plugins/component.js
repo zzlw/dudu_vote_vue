@@ -2,7 +2,7 @@ import moment from 'moment'
 import VueClipboard from 'vue-clipboard2'
 import {
   Cell, Datetime, Divider, FormPreview, Group, Swiper, SwiperItem, Tab, TabItem, Toast, ToastPlugin, XAddress,
-  XButton, XDialog, XInput, XNumber, XSwitch, XTextarea
+  XButton, XDialog, XInput, XNumber, XSwitch, XTextarea,
 } from 'vux'
 import TabBar from 'components/operator/base/TabBar.vue'
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -66,7 +66,7 @@ export default {
     Vue.prototype.validateEmail = function (value, callback) {
       return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(value) ? {valid: true} : {
         valid: true,
-        msg: '用户名规则：只允许英文字母、数字、下划线、英文句号、以及中划线组成！'
+        msg: '用户名规则：只允许英文字母、数字、下划线、英文句号、以及中划线组成！',
       }
     }
 
@@ -74,7 +74,7 @@ export default {
     Vue.prototype.validatePass = function (value, callback) {
       return /^[a-zA-Z\d_]{4,32}$/.test(value) ? {valid: true} : {
         valid: false,
-        msg: '密码规则：密码不能为空；密码不能小于4位；密码不能大于32位！'
+        msg: '密码规则：密码不能为空；密码不能小于4位；密码不能大于32位！',
       }
     }
 
@@ -101,5 +101,5 @@ export default {
       }
       return texts || false
     }
-  }
+  },
 }

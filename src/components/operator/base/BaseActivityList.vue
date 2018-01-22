@@ -1,6 +1,6 @@
 <template>
-    <div class="pl20 ptb30 flex-wrp flex-between bg-white" @click.stop="$router.push(to)">
-        <div class="" :style="{width: rem(360),height: rem(130)}">
+    <div class="pl20 ptb30 flex-wrp flex-between bg-white">
+        <div class="" :style="{width: rem(360),height: rem(130)}"  @click.stop="$router.push(`/activity/${activity.id}`)">
             <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
                  :style="{backgroundImage:`url(${thumb})`}"/>
         </div>
@@ -45,7 +45,7 @@
             <div class="relative" v-show="setUpStatus">
                 <div class="border border-radius5 overflow-hidden size22 bg-white"
                      :style="{width: '100px', position: 'absolute', top: '2px', right: '0px'}">
-                    <div class="color4 border-b text-center ptb10" @click.stop="show2=true">活动二维码</div>
+                    <div class="color4 border-b text-center ptb10" @click.stop="showDialog = true">活动二维码</div>
                     <div class="color4 border-b text-center ptb10" @click.stop="$router.push(`/operator/activity/edit/${activity.id}`)">
                         编辑
                     </div>
@@ -56,6 +56,22 @@
             </div>
 
         </div>
+
+        <!--二维码-->
+        <x-dialog :show.sync="showDialog" :hide-on-blur="true" :dialog-style="{width: '100%'}">
+          <div class="pt30 pb60 plr30">
+            <div class="color2 size32 flex-wrp flex-middle pb20">活动二维码</div>
+            <div class="flex-wrp flex-middle">
+              <img class="bg-cover block" src="~/assets/img/s.gif"
+                   :style="{width: rem(250), height: rem(250),backgroundImage:`url(${activity.qrcode})`}"/>
+            </div>
+            <div class="size22 color2 flex-wrp flex-middle pd10">长按保存二维码</div>
+
+            <div class="fixed-button h40 flex-wrp flex-center" @click.stop="showDialog = !showDialog">关闭</div>
+          </div>
+        </x-dialog>
+
+
     </div>
 </template>
 
@@ -68,6 +84,7 @@
       },
       data () {
         return {
+          showDialog: false,
           setUpStatus: false,
           status: false
           // icons: ['icon-yanjing', 'icon-liwu', 'icon-renshutongji'],

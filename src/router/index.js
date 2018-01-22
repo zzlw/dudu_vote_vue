@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import Activity from '@/pages/activity'
+import ActivityHome from '@/pages/activity/home/index'
+
 import OperatorLogin from '@/pages/operator/login'
 import OperatorJoin from '@/pages/operator/join'
 import OperatorJoinForm from '@/pages/operator/join/form'
@@ -35,11 +38,24 @@ import OperatorWithdrawalsTotal from '@/pages/operator/withdrawals/Total'
 Vue.use(Router)
 
 let router = new Router({
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  },
   mode: 'history',
   routes: [
     {
       path: '/',
       redirect: '/operator'
+    },
+    {
+      path: '/activity/:id',
+      component: Activity,
+      children: [
+        {
+          path: '',
+          component: ActivityHome
+        }
+      ]
     },
     {
       path: '/operator',
