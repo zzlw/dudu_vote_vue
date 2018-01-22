@@ -36,7 +36,7 @@
           })
         }
 
-        if (store.state.operator.operator === null || store.state.operator.operator.status !== 2) {
+        if (store.state.operator.operator === null || store.state.operator.operator.status !== 1) {
           if (to.path.indexOf('/operator/join') !== 0) {
             return next('/operator/join')
           }

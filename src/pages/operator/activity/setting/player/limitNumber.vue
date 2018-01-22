@@ -56,8 +56,8 @@
 </template>
 
 <script>
-import api from '@/api'
-import { timeDiffArray, timeDiffObj } from '@/utils'
+import api from '@/api/index'
+import { timeDiffArray, timeDiffObj } from '@/utils/index'
 import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
 import moment from 'moment'
 export default {

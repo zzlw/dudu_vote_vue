@@ -29,12 +29,12 @@
     <!--活动公告-->
     <base-activity-swiper :data="swiperList"/>
 
-    <base-title title="我的活动" icon="icon-qushi" class="mt20 border-b"/>
+    <base-title v-if="activities.length>0" title="我的活动" icon="icon-qushi" class="mt20 border-b"/>
 
     <!--我的活动-->
     <base-activity-list v-for="(activity, index) in activities" :key="index" :activity="activity" class="mb20"/>
 
-    <base-title title="添加活动" class="border-b"/>
+    <base-title title="添加活动" class="border-b mt20"/>
 
     <base-man-template :number="89"/>
 

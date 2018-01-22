@@ -46,12 +46,12 @@
                 <div class="border border-radius5 overflow-hidden size22 bg-white"
                      :style="{width: '100px', position: 'absolute', top: '2px', right: '0px'}">
                     <div class="color4 border-b text-center ptb10" @click.stop="showDialog = true">活动二维码</div>
-                    <div class="color4 border-b text-center ptb10" @click.stop="$router.push(`/operator/activity/edit/${activity.id}`)">
+                    <div class="color4 border-b text-center ptb10" @click.stop="$router.push(`/operator/activity/${activity.id}/edit`)">
                         编辑
                     </div>
                     <div class="color4 border-b text-center ptb10">删除
                     </div>
-                    <div class="color4 text-center ptb10" @click.stop="$router.push(`/operator/activity/settings/${activity.id}`)">更多设置</div>
+                    <div class="color4 text-center ptb10" @click.stop="$router.push(`/operator/activity/${activity.id}/settings`)">更多设置</div>
                 </div>
             </div>
 
@@ -70,7 +70,6 @@
             <div class="fixed-button h40 flex-wrp flex-center" @click.stop="showDialog = !showDialog">关闭</div>
           </div>
         </x-dialog>
-
 
     </div>
 </template>

@@ -38,8 +38,8 @@
 </template>
 
 <script>
-import api from '@/api'
-import { timeDiffArray, timeDiffObj } from '@/utils'
+import api from '@/api/index'
+import { timeDiffArray, timeDiffObj } from '@/utils/index'
 import moment from 'moment'
 export default {
   data () {
