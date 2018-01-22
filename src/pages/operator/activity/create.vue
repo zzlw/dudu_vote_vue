@@ -25,8 +25,8 @@
         return {
           activity: {
             swiper: [],
-            title: 'title',
-            contentTitle: 'contentTitle',
+            title: '最美女神投票活动',
+            contentTitle: '活动介绍',
             content: [
               {
                 text: '本活动主要为大家提供娱乐有趣的活动，增加生活情调，享受生活美好，不会存在任何欺骗、诈骗，本平台也不会以任何中奖名义要求转账或者其他欺骗行为。'

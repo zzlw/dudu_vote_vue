@@ -2,7 +2,7 @@
   <div>
     <div class="bg-deepblue">
       <div class="flex-wrp flex-center ptb60">
-        <div class="size60 color1">{{(111).toFixed(2)}}</div>
+        <div class="size60 color1">{{(+operator.balance).toFixed(2)}}</div>
         <div class="border border-radius5 ptb5 plr20 ml20 color1 size16">立即提现</div>
       </div>
 
@@ -13,7 +13,7 @@
       </base-data-three>
 
       <div class="plr40 ptb20">
-        <home-info :src="infoSrc" :title="operator.name" :text="infoText" :number="operator.recommended_code"/>
+        <home-info :src="operator.headimgurl" :title="operator.name" text="个人中心" :number="operator.recommended_code"/>
       </div>
 
     </div>
@@ -33,7 +33,6 @@
 
     <!--我的活动-->
     <base-activity-list v-for="(activity, index) in activities" :key="index" :activity="activity" class="mb20"/>
-
 
     <base-title title="添加活动" class="border-b"/>
 

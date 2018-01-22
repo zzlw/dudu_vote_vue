@@ -10,16 +10,12 @@ export default {
   },
   getters: {
     operator (state) {
-      console.log(state)
       return state
     }
   },
   mutations: {
     [SAVE_OPERATOR]: (state, payload) => {
-      console.log(state)
-      console.log(payload.operator)
       state.operator = payload.operator
-      console.log('saveOperator', payload)
     }
   },
   actions: {}
