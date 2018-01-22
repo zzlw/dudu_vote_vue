@@ -12,10 +12,10 @@ import { Plugin } from './plugins'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    modules: {
-        user,
-        config,
-        operator
-    },
-    plugins: [ Plugin('测试') ]
+  modules: {
+    user,
+    config,
+    operator
+  },
+  plugins: [ Plugin('测试') ]
 })

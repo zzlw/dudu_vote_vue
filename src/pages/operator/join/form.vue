@@ -5,7 +5,7 @@
 <template>
     <div class="pb60">
         <div class="w100 flex-wrp flex-center size38 color2" :style="{height: rem(800)}">海报编辑中。。</div>
-        <base-tiele title="申请入住服务商"/>
+        <base-title title="申请入住服务商"/>
         <group label-width="2rem" label-margin-right="2em" label-align="left" gutter="0">
             <x-input title="平台名称" placeholder="请输入平台名称" required v-model="title"/>
             <x-address title="所在地区" v-model="location" required raw-value :list="addressData"

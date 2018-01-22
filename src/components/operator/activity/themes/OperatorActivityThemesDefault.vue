@@ -120,7 +120,7 @@
             OperatorActivityContentTitle,
             OperatorActivityEditorText,
             OperatorActivityEditorSwiper,
-            OperatorActivityEditorContent
+            OperatorActivityEditorContent,
         },
         name: 'add',
         data () {
@@ -130,20 +130,20 @@
                 data: [
                     {
                         number: 167,
-                        text: '参与选手'
+                        text: '参与选手',
                     },
                     {
                         number: 167,
-                        text: '累计投票'
+                        text: '累计投票',
                     },
                     {
                         number: 167,
-                        text: '访问量'
-                    }
+                        text: '访问量',
+                    },
                 ],
                 buying: {
                     time_start: 1516099695649,
-                    time_end: 1516199695649
+                    time_end: 1516199695649,
                 },
                 srcImg: '',
                 timer: null,
@@ -156,33 +156,33 @@
                         srcImg: '',
                         number: 1,
                         vote: 1,
-                        liwu: 2
+                        liwu: 2,
                     },
                     {
                         srcImg: '',
                         number: 1,
                         vote: 1,
-                        liwu: 2
+                        liwu: 2,
                     },
                     {
                         srcImg: '',
                         number: 1,
                         vote: 1,
-                        liwu: 2
+                        liwu: 2,
                     },
                     {
                         srcImg: '',
                         number: 1,
                         vote: 1,
-                        liwu: 2
+                        liwu: 2,
                     },
                     {
                         srcImg: '',
                         number: 1,
                         vote: 1,
-                        liwu: 2
-                    }
-                ]
+                        liwu: 2,
+                    },
+                ],
             }
         },
         methods: {
@@ -193,7 +193,7 @@
                         : this.buying.time_end,
                     this.now
                 )
-            }
+            },
         },
         mounted () {
             this.timer = setInterval(this.timeUpdate, 1000)
@@ -201,11 +201,11 @@
         computed: {
             cateGroup () {
                 return chunk(this.twoDate, 2)
-            }
+            },
         },
         beforeDestroy () {
             this.timer && clearInterval(this.timer)
-        }
+        },
     }
 </script>
 

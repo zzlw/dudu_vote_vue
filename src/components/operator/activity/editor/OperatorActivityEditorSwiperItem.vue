@@ -22,7 +22,7 @@
         props: [
             'value',
             'preview',
-            'remove'
+            'remove',
         ],
         data () {
             return {}
@@ -31,24 +31,24 @@
             divStyle () {
                 return {
                     'backgroundImage': 'url(' +
-                    (this.value.img || 'http://pic.xshapp.com/201710/056917bb_533_400.jpg') + ')'
+                    (this.value.img || 'http://pic.xshapp.com/201710/056917bb_533_400.jpg') + ')',
                 }
-            }
+            },
         },
         methods: {
             upload () {
                 this.$emit('input', {
                     img: 'https://www.baidu.com/img/bd_logo1.png',
-                    url: this.$refs.url.value
+                    url: this.$refs.url.value,
                 })
             },
             input () {
                 this.$emit('input', {
                     url: this.$refs.url.value,
-                    img: this.$refs.img.value
+                    img: this.$refs.img.value,
                 })
-            }
-        }
+            },
+        },
     }
 </script>
 

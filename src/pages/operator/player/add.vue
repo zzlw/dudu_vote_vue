@@ -113,26 +113,26 @@
 </template>
 
 <script>
-import api from "@/api";
-import { timeDiffArray, timeDiffObj } from "@/utils";
-import moment from "moment";
+import api from '@/api'
+import { timeDiffArray, timeDiffObj } from '@/utils'
+import moment from 'moment'
 export default {
-  data() {
-    return {
-        bgSrc:'',
-        add: {
-            title: '',
-            mobile: '',
-            text: '',
+    data () {
+        return {
+            bgSrc: '',
+            add: {
+                title: '',
+                mobile: '',
+                text: '',
+            },
         }
-    };
-  },
-  async created() {},
+    },
+    async created () {},
 
-  methods: {
+    methods: {
 
-  }
-};
+    },
+}
 </script>
 
 <style lang="scss" scoped>

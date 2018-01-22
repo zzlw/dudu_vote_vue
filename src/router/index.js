@@ -34,102 +34,102 @@ import OperatorWithdrawalsTotal from '@/pages/operator/withdrawals/Total'
 Vue.use(Router)
 
 let router = new Router({
-    mode: 'history',
-    routes: [
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      redirect: '/operator'
+    },
+    {
+      path: '/operator',
+      component: Operator,
+      children: [
         {
-            path: '/',
-            redirect: '/operator'
+          path: '',
+          component: OperatorHome
         },
         {
-            path: '/operator',
-            component: Operator,
-            children: [
-                {
-                    path: '',
-                    component: OperatorHome
-                },
-                {
-                    path: 'join',
-                    component: OperatorJoin
-                },
-                {
-                    path: 'join-form',
-                    component: OperatorJoinForm
-                },
-                {
-                    path: 'up-data',
-                    component: OperatorUpData
-                },
-                {
-                    path: 'up-tel',
-                    component: OperatorUpTel
-                },
-                {
-                    path: 'up-pass',
-                    component: OperatorUpPass
-                },
-                {
-                    path: 'activity-create',
-                    component: OperatorActivityCreate
-                },
-                {
-                    path: 'more-setting',
-                    component: OperatorMoreSetting
-                },
-                {
-                    path: 'prize',
-                    component: OperatorPrize
-                },
-                {
-                    path: 'prize-add',
-                    component: OperatorPrizeAdd
-                },
-                {
-                    path: 'player',
-                    component: OperatorPlayer
-                },
-                {
-                    path: 'player-add',
-                    component: OperatorPlayerAdd
-                },
-                {
-                    path: 'player-admin',
-                    component: OperatorPlayerAdmin
-                },
-                {
-                    path: 'player-limit',
-                    component: OperatorPlayerLimit
-                },
-                {
-                    path: 'player-limit-number',
-                    component: OperatorPlayerLimitNumber
-                },
-                {
-                    path: 'share',
-                    component: OperatorShare
-                },
-                {
-                    path: 'follow',
-                    component: OperatorFollow
-                },
-                {
-                    path: 'withdrawals',
-                    component: OperatorWithdrawals
-                },
-                {
-                    path: 'withdrawals-log',
-                    component: OperatorWithdrawalsLog
-                },
-                {
-                    path: 'withdrawals-total',
-                    component: OperatorWithdrawalsTotal
-                }
-            ]
+          path: 'join',
+          component: OperatorJoin
         },
         {
-            path: '/operator-login',
-            component: OperatorLogin
+          path: 'join-form',
+          component: OperatorJoinForm
+        },
+        {
+          path: 'up-data',
+          component: OperatorUpData
+        },
+        {
+          path: 'up-tel',
+          component: OperatorUpTel
+        },
+        {
+          path: 'up-pass',
+          component: OperatorUpPass
+        },
+        {
+          path: 'activity-create',
+          component: OperatorActivityCreate
+        },
+        {
+          path: 'more-setting',
+          component: OperatorMoreSetting
+        },
+        {
+          path: 'prize',
+          component: OperatorPrize
+        },
+        {
+          path: 'prize-add',
+          component: OperatorPrizeAdd
+        },
+        {
+          path: 'player',
+          component: OperatorPlayer
+        },
+        {
+          path: 'player-add',
+          component: OperatorPlayerAdd
+        },
+        {
+          path: 'player-admin',
+          component: OperatorPlayerAdmin
+        },
+        {
+          path: 'player-limit',
+          component: OperatorPlayerLimit
+        },
+        {
+          path: 'player-limit-number',
+          component: OperatorPlayerLimitNumber
+        },
+        {
+          path: 'share',
+          component: OperatorShare
+        },
+        {
+          path: 'follow',
+          component: OperatorFollow
+        },
+        {
+          path: 'withdrawals',
+          component: OperatorWithdrawals
+        },
+        {
+          path: 'withdrawals-log',
+          component: OperatorWithdrawalsLog
+        },
+        {
+          path: 'withdrawals-total',
+          component: OperatorWithdrawalsTotal
         }
-    ]
+      ]
+    },
+    {
+      path: '/operator-login',
+      component: OperatorLogin
+    }
+  ]
 })
 export default router

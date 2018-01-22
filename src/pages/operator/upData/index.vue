@@ -40,53 +40,53 @@
 </template>
 
 <script>
-import api from "@/api";
-import { timeDiffArray, timeDiffObj } from "@/utils";
-import moment from "moment";
+import api from '@/api'
+import { timeDiffArray, timeDiffObj } from '@/utils'
+import moment from 'moment'
 export default {
-  data() {
-    return {
-        disabled: false,
-      mobile: "",
-      code: "",
-      showCode: "发送验证码",
-      time_start: null,
-      timeValue: null,
-      now: moment()
-    };
-  },
-  async created() {},
-
-  methods: {
-    timeUpdate(time) {
-        if(moment().isBefore(this.time_start)){
-            this.timeValue = timeDiffObj(this.time_start, time)
-            this.showCode= this.timeValue.seconds+' s'
-        }else{
-            this.timer && clearInterval(this.timer)
-            this.showCode='发送验证码'
-            this.disabled=false
+    data () {
+        return {
+            disabled: false,
+            mobile: '',
+            code: '',
+            showCode: '发送验证码',
+            time_start: null,
+            timeValue: null,
+            now: moment(),
         }
     },
-    setTime() {
-        let tel= this.validateTel(this.mobile)
+    async created () {},
 
-        if(!tel.valid) {
-            this.$vux.toast.text(tel.msg, 'middle')
-            return
-        }
-        this.$vux.toast.text('发送成功', 'middle')
-        let time= moment();
-        this.time_start = time + 60000
-        this.disabled=true
-        this.timer = setInterval(this.timeUpdate, 1000, time)
-    }
-  },
+    methods: {
+        timeUpdate (time) {
+            if (moment().isBefore(this.time_start)) {
+                this.timeValue = timeDiffObj(this.time_start, time)
+                this.showCode = this.timeValue.seconds + ' s'
+            } else {
+                this.timer && clearInterval(this.timer)
+                this.showCode = '发送验证码'
+                this.disabled = false
+            }
+        },
+        setTime () {
+            let tel = this.validateTel(this.mobile)
 
-  beforeDestroy() {
-    this.timer && clearInterval(this.timer);
-  }
-};
+            if (!tel.valid) {
+                this.$vux.toast.text(tel.msg, 'middle')
+                return
+            }
+            this.$vux.toast.text('发送成功', 'middle')
+            let time = moment()
+            this.time_start = time + 60000
+            this.disabled = true
+            this.timer = setInterval(this.timeUpdate, 1000, time)
+        },
+    },
+
+    beforeDestroy () {
+        this.timer && clearInterval(this.timer)
+    },
+}
 </script>
 
 <style scoped>

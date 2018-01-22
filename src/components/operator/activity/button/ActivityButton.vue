@@ -22,8 +22,8 @@
         },
         methods: {
         },
-        components:{
-        }
+        components: {
+        },
     }
 </script>
 

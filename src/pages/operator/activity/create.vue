@@ -19,7 +19,7 @@
             ActivityEditorText,
             ActivityEditorSwiper,
             ActivityEditorContent,
-            ActivityThemeDefault
+            ActivityThemeDefault,
         },
         data () {
             return {
@@ -27,18 +27,22 @@
                     swiper: [],
                     title: 'title',
                     contentTitle: 'contentTitle',
-                    content: [],
+                    content: [
+                        {
+                            text: '本活动主要为大家提供娱乐有趣的活动，增加生活情调，享受生活美好，不会存在任何欺骗、诈骗，本平台也不会以任何中奖名义要求转账或者其他欺骗行为。',
+                        },
+                    ],
                     startTime: '',
                     endTime: '',
-                    signUpManner: '',
-                    voteType: '',
+                    signUpManner: 0,
+                    voteType: 0,
                     nextVoteTime: 0,
-                    limitedExchangeCount: 0
-                }
+                    limitedExchangeCount: 0,
+                },
             }
         },
         methods: {
-            publish (activity) {
+            async publish (activity) {
                 const requestData = {
                     'sliders': activity.swiper,
                     'title': activity.title,
@@ -49,15 +53,19 @@
                     'sign_up_manner': activity.signUpManner,
                     'vote_type': activity.voteType,
                     'next_vote_time': activity.nextVoteTime,
-                    'limited_exchange_count': activity.limitedExchangeCount
+                    'limited_exchange_count': activity.limitedExchangeCount,
                 }
-                console.log('requestData', requestData)
 
-                const {data} = api.post('operator_activity_create', requestData)
+                const {data} = await api.post('operator_activity_create', requestData)
 
-                console.log(data)
-            }
-        }
+                alert(data.message)
+
+                if (data.error) {
+                } else {
+                    this.$router.push('/operator')
+                }
+            },
+        },
     }
 </script>
 

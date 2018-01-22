@@ -57,18 +57,18 @@
 </template>
 
 <script>
-import api from "@/api";
+import api from '@/api'
 export default {
-  data() {
-    return {
-      maxAmount: 1876.35,
-      amount: ''
-    };
-  },
-  async created() {},
+    data () {
+        return {
+            maxAmount: 1876.35,
+            amount: '',
+        }
+    },
+    async created () {},
 
-  methods: {}
-};
+    methods: {},
+}
 </script>
 
 <style scoped>

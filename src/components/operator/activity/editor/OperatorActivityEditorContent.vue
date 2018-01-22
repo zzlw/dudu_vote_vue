@@ -62,26 +62,26 @@
     export default {
         components: {
             OperatorActivityEditorContentText,
-            OperatorActivityEditorContentImage
+            OperatorActivityEditorContentImage,
         },
         props: [
             'value',
-            'preview'
+            'preview',
         ],
         data () {
             return {
-                items: this.value
+                items: this.value,
             }
         },
         methods: {
             addText () {
                 this.items.push({
-                    text: '本活动主要为大家提供娱乐有趣的活动，增加生活情调，享受生活美好，不会存在任何欺骗、诈骗，本平台也不会以任何中奖名义要求转账或者其他欺骗行为。'
+                    text: '本活动主要为大家提供娱乐有趣的活动，增加生活情调，享受生活美好，不会存在任何欺骗、诈骗，本平台也不会以任何中奖名义要求转账或者其他欺骗行为。',
                 })
             },
             addImage () {
                 this.items.push({
-                    image: 'http://staticvote.xshwp.com/templates/voteT3/demo/shop.jpg'
+                    image: 'http://staticvote.xshwp.com/templates/voteT3/demo/shop.jpg',
                 })
             },
 
@@ -111,9 +111,9 @@
                 let nextItem = this.items[index + 1]
                 Vue.set(this.items, index + 1, this.items[index])
                 Vue.set(this.items, index, nextItem)
-            }
+            },
 
-        }
+        },
     }
 </script>
 

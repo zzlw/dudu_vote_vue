@@ -9,7 +9,7 @@
         "start": "npm run dev",
         "build": "node build/build.js",
         "lint": "eslint --fix --ext .js,.vue .",
-        "analyz": "NODE_ENV=production npm_config_report=true npm run build"
+        "analyz": "npm run build --report"
     },
     "dependencies": {
         "axios": "^0.17.1",
@@ -76,7 +76,8 @@
         "webpack-dev-middleware": "^1.12.0",
         "webpack-hot-middleware": "^2.18.2",
         "webpack-merge": "^4.1.0",
-        "yaml-loader": "^0.5.0"
+        "yaml-loader": "^0.5.0",
+        "lodash": "latest"
     },
     "engines": {
         "node": ">= 4.0.0",

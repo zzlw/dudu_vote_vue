@@ -79,25 +79,25 @@
 </template>
 
 <script>
-import api from "@/api";
-import { timeDiffArray, timeDiffObj } from "@/utils";
-import moment from "moment";
+import api from '@/api'
+import { timeDiffArray, timeDiffObj } from '@/utils'
+import moment from 'moment'
 export default {
-  data() {
-    return {
-        follow: {
-            title: '',
-            srcImg:'',
-            auditor: '0',
+    data () {
+        return {
+            follow: {
+                title: '',
+                srcImg: '',
+                auditor: '0',
+            },
         }
-    };
-  },
-  async created() {},
+    },
+    async created () {},
 
-  methods: {
+    methods: {
 
-  }
-};
+    },
+}
 </script>
 
 <style lang="scss" scoped>

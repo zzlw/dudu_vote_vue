@@ -23,7 +23,7 @@
             'moveup',
             'movedown',
             'preview',
-            'value'
+            'value',
         ],
         components: {},
         name: 'image-text',
@@ -35,17 +35,17 @@
                 return {
                     'backgroundImage': 'url(' +
                     (this.value.image || 'http://pic.xshapp.com/201710/056917bb_533_400.jpg') + ')',
-                    height:'100%'
+                    height: '100%',
                 }
-            }
+            },
         },
         methods: {
             upload () {
                 this.$emit('input', {
-                    image: 'https://www.baidu.com/img/bd_logo1.png'
+                    image: 'https://www.baidu.com/img/bd_logo1.png',
                 })
-            }
-        }
+            },
+        },
     }
 </script>
 

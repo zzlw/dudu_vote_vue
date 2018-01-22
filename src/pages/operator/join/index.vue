@@ -31,7 +31,7 @@
                     <home-info :src="infoSrc" :title="infoTitle" :text="infoText" :number="infoNumber" />
                 </div>
             </div>
-            <base-tiele icon="icon-qushi" title="今日数据" class="border-b"/>
+            <base-title icon="icon-qushi" title="今日数据" class="border-b"/>
             <div class="ptb15 bg-white">
                 <base-data-three :data="item" v-for="(item, index) in cateGroup" :key="index" class="ptb5" >
                     <div slot="number" slot-scope="{ number }" class="size26 color2 lh200">{{(+number).toFixed(2)}}</div>
@@ -39,7 +39,7 @@
                 </base-data-three>
             </div>
             <base-activity-swiper  :data="swiperList"/>
-            <base-tiele icon="icon-qushi" class="mt20 border-b" title="今日数据"/>
+            <base-title icon="icon-qushi" class="mt20 border-b" title="今日数据"/>
             <base-activity-list :title="activityTitle" :src="activitySrc" :numbers="activityNumber" :to="activityTo" class="mb20" >
                 <template slot="setUp">
                     <div class="border ptb5 plr10 border-radius5 text-center color1 size22 overflow-hidden color13" :style="{'border-color':'#29d6bf'}" @click.stop="setUpStatus=!setUpStatus" >设置</div>
@@ -53,7 +53,7 @@
                     </div>
                 </template>
             </base-activity-list>
-            <base-tiele title="我的活动" class="border-b"/>
+            <base-title title="我的活动" class="border-b"/>
             <base-man-template :src="templateSrc" :number="number" />
             <divider>我是有底线的</divider>
             <x-dialog :show.sync="show2" :hide-on-blur="true" :dialog-style="{width: '100%'}">
@@ -80,133 +80,133 @@
 import chunk from 'lodash/chunk'
 import api from '@/api'
 export default {
-  async created() {
-    const { data } = await api.get("operator");
-    this.operator = data.data;
+    async created () {
+        const { data } = await api.get('operator')
+        this.operator = data.data
 
-    if (this.operator && this.operator.status === 2) {
-    //   this.$router.push("/operator");
-    }
-  },
-  data() {
-    return {
-
-        show3: true,
-
-      operator: null,
-      show2: false,
-      amount: 8888.8888,
-
-      // home-info start
-      infoSrc: "11",
-      infoTitle: "王尼玛王尼玛王尼玛",
-      infoText: "个人中心",
-      infoNumber: "f234dsf",
-
-      // base-activity-list start
-      setUpStatus: false,
-      activityTitle: "今日数据今日数据今日数据今日数据今日数据今日数据今日数据",
-      activityNumber: [888, 6688, 888], // 数组顺序：浏览量、礼物数量、访客人数,
-      activitySrc: "",
-      activityTo: "/",
-      activitySetUp: {
-        ewm: () => {
-          show2 = false;
-        }, // 二维码
-        edit: "/", // 编辑
-        _delete: "/", // 删除
-        more: "/" // 更多设置
-      },
-
-      // base-activity-swiper start
-      // to  请按 router 中的 to 使用
-      swiperList: [
-        { to: "/operator/login", title: "今日数据今日数" },
-        { to: "/", title: "测试1测试1测试" },
-        { to: "/", title: "王尼玛" }
-      ],
-
-      // base-data-three start
-      data: [
-        {
-          number: 167.5222,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
+        if (this.operator && this.operator.status === 2) {
+            //   this.$router.push("/operator");
         }
-      ],
-      twoDate: [
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        },
-        {
-          number: 167.5,
-          text: "总交易额"
-        }
-      ],
-
-      // base-man-template start
-      number: 6666.11,
-      templateSrc: "",
-
-      //x-dialog
-      ewmSrc: "",
-      ewmLink: "http://www.duduapp.net"
-    };
-  },
-  computed: {
-    cateGroup() {
-      return chunk(this.twoDate, 3);
-    }
-  },
-  methods: {
-    async doCopy() {
-      this.$copyText(this.ewmLink).then(
-        e => {
-          this.$vux.toast.show({
-            type: "success",
-            text: `<div class='color13 size16'>复制成功</div>`,
-            position: "middle"
-          });
-        },
-        e => {
-          this.$vux.toast.show({
-            type: "warn",
-            text: `<div class='color6 size16'>复制失败</div>`,
-            position: "middle"
-          });
-        }
-      );
     },
-    async fetchData() {
-      const { data } = await api.get("operator_activities");
-      this.activities = data.data;
-    }
-  }
-};
+    data () {
+        return {
+
+            show3: true,
+
+            operator: null,
+            show2: false,
+            amount: 8888.8888,
+
+            // home-info start
+            infoSrc: '11',
+            infoTitle: '王尼玛王尼玛王尼玛',
+            infoText: '个人中心',
+            infoNumber: 'f234dsf',
+
+            // base-activity-list start
+            setUpStatus: false,
+            activityTitle: '今日数据今日数据今日数据今日数据今日数据今日数据今日数据',
+            activityNumber: [888, 6688, 888], // 数组顺序：浏览量、礼物数量、访客人数,
+            activitySrc: '',
+            activityTo: '/',
+            activitySetUp: {
+                ewm: () => {
+                    show2 = false
+                }, // 二维码
+                edit: '/', // 编辑
+                _delete: '/', // 删除
+                more: '/', // 更多设置
+            },
+
+            // base-activity-swiper start
+            // to  请按 router 中的 to 使用
+            swiperList: [
+                { to: '/operator/login', title: '今日数据今日数' },
+                { to: '/', title: '测试1测试1测试' },
+                { to: '/', title: '王尼玛' },
+            ],
+
+            // base-data-three start
+            data: [
+                {
+                    number: 167.5222,
+                    text: '总交易额',
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额',
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额',
+                },
+            ],
+            twoDate: [
+                {
+                    number: 167.5,
+                    text: '总交易额',
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额',
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额',
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额',
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额',
+                },
+                {
+                    number: 167.5,
+                    text: '总交易额',
+                },
+            ],
+
+            // base-man-template start
+            number: 6666.11,
+            templateSrc: '',
+
+            // x-dialog
+            ewmSrc: '',
+            ewmLink: 'http://www.duduapp.net',
+        }
+    },
+    computed: {
+        cateGroup () {
+            return chunk(this.twoDate, 3)
+        },
+    },
+    methods: {
+        async doCopy () {
+            this.$copyText(this.ewmLink).then(
+                e => {
+                    this.$vux.toast.show({
+                        type: 'success',
+                        text: `<div class='color13 size16'>复制成功</div>`,
+                        position: 'middle',
+                    })
+                },
+                e => {
+                    this.$vux.toast.show({
+                        type: 'warn',
+                        text: `<div class='color6 size16'>复制失败</div>`,
+                        position: 'middle',
+                    })
+                }
+            )
+        },
+        async fetchData () {
+            const { data } = await api.get('operator_activities')
+            this.activities = data.data
+        },
+    },
+}
 </script>
 
 <style scoped>

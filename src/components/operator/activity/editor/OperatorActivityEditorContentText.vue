@@ -32,27 +32,27 @@
             'moveup',
             'movedown',
             'preview',
-            'value'
+            'value',
         ],
         components: {
-            OperatorActivityEditorText
+            OperatorActivityEditorText,
         },
         name: 'image-text',
         data () {
             return {
-                text: this.value.text
+                text: this.value.text,
             }
         },
         watch: {
             text () {
                 this.$emit('input', {
-                    text: this.text
+                    text: this.text,
                 })
             },
             value () {
                 this.text = this.value.text
-            }
-        }
+            },
+        },
     }
 </script>
 

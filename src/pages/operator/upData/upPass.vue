@@ -47,7 +47,7 @@
                 status: false,
                 mobile: '',
                 password: '',
-                showPassword: false
+                showPassword: false,
             }
         },
         methods: {
@@ -57,13 +57,13 @@
                     this.$vux.toast.show({
                         width: '8rem',
                         type: 'warn',
-                        text
+                        text,
                     })
                     return
                 }
                 const {data} = await api.post('operator_login', {
                     mobile: this.mobile,
-                    password: this.password
+                    password: this.password,
                 })
 
                 if (data.error) {
@@ -75,7 +75,7 @@
             },
             async loginWithWechat () {
                 const {data} = await api.post('operator_login', {
-                    'login_type': 'wechat'
+                    'login_type': 'wechat',
                 })
                 if (data.error) {
                     alert(data.message)
@@ -83,8 +83,8 @@
                 }
 
                 this.$router.push('/operator')
-            }
-        }
+            },
+        },
     }
 </script>
 

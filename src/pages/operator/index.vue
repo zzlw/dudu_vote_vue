@@ -32,7 +32,7 @@
 
                 // 已登录, 保存信息
                 store.commit('operator/' + SAVE_OPERATOR, {
-                    operator: data.data
+                    operator: data.data,
                 })
             }
 
@@ -44,6 +44,6 @@
 
             return next()
         },
-        methods: {}
+        methods: {},
     }
 </script>

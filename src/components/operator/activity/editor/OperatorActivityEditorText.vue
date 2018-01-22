@@ -17,18 +17,18 @@
 
 <script>
 export default {
-  props: ["value", "preview"],
-  data() {
-    return {
-      innerText: this.value
-    };
-  },
-  methods: {
-    input() {
-      this.$emit("input", this.$refs.details.innerText);
-    }
-  }
-};
+    props: ['value', 'preview'],
+    data () {
+        return {
+            innerText: this.value,
+        }
+    },
+    methods: {
+        input () {
+            this.$emit('input', this.$refs.details.innerText)
+        },
+    },
+}
 </script>
 
 <style scoped>

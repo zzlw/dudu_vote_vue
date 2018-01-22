@@ -12,13 +12,13 @@
 
 <script>
     export default {
-        props: ['onclick','thatText','thatIcon'],
+        props: ['onclick', 'thatText', 'thatIcon'],
         data () {
             return {}
         },
         computed: {},
         methods: {},
-        components: {}
+        components: {},
     }
 </script>
 

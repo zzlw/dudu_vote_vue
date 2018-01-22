@@ -18,11 +18,11 @@
         computed: {
             ...mapState({
                 config: state => state.config,
-                wx: state => state.wx
+                wx: state => state.wx,
             }),
             showTabBar () {
                 return this.config.navs && this.config.navs.find(n => n.link === this.$route.path)
-            }
+            },
         },
         async mounted () {
             if (isWechat()) {
@@ -46,23 +46,23 @@
         },
         methods: {
             ...mapActions({
-                setConfig: 'wx/setConfig'
+                setConfig: 'wx/setConfig',
             }),
             async initWxConfig (force = '') {
                 const url = `${location.protocol}//${location.hostname}${this.$route.fullPath}`
                 const {data, status} = await http.get('/wxconfig', {
                     url: encodeURIComponent(url),
-                    force
+                    force,
                 })
                 if (status === 200 && data.wxConfig) {
                     console.log('init:wxconfig:' + force + ' ' + url)
                     this.setConfig({
                         url,
-                        config: data.wxConfig
+                        config: data.wxConfig,
                     })
                     wx.setConfig(data.wxConfig)
                 }
-            }
-        }
+            },
+        },
     }
 </script>
