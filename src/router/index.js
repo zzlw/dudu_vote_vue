@@ -2,7 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Activity from '@/pages/activity'
-import ActivityHome from '@/pages/activity/home/index'
+import ActivityHome from '@/pages/activity/home'
+import ActivityMatch from '@/pages/activity/match'
+import ActivityCeshi from '@/pages/activity/ceshi'
+
+
+
 
 import OperatorLogin from '@/pages/operator/login'
 import OperatorJoin from '@/pages/operator/join'
@@ -62,7 +67,22 @@ let router = new Router({
             children: [
                 {
                     path: '',
+                    redirect: 'home'
+                },
+                {
+                    path: 'home',
                     component: ActivityHome,
+                    meta: { index: 0 },
+                },
+                {
+                    path: 'match',
+                    component: ActivityMatch,
+                    meta: { index: 0 },
+                },
+                {
+                    path: 'ceshi',
+                    component: ActivityCeshi,
+                    meta: { index: 1 }
                 },
             ],
         },
