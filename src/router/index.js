@@ -25,6 +25,7 @@ import OperatorActivitySettingFollow from '@/pages/operator/activity/setting/fol
 import OperatorActivitySettingShare from '@/pages/operator/activity/setting/share'
 import OperatorActivitySettingPrize from '@/pages/operator/activity/setting/prize/index'
 import OperatorActivitySettingPrizeAdd from '@/pages/operator/activity/setting/prize/add'
+import OperatorActivitySettingPrizeAddRank from '@/pages/operator/activity/setting/prize/add-rank'
 
 import OperatorActivitySettingPlayer from '@/pages/operator/activity/setting/player'
 import OperatorActivitySettingPlayerAdd from '@/pages/operator/activity/setting/player/add'
@@ -113,6 +114,10 @@ let router = new Router({
             {
               path: 'prize-add',
               component: OperatorActivitySettingPrizeAdd,
+            },
+            {
+              path: 'prize-add-rank',
+              component: OperatorActivitySettingPrizeAddRank,
             },
             {
               path: 'player',

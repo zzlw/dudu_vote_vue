@@ -7,7 +7,7 @@
       :key="index"
     >
 
-      <OperatorActivityEditorSwiperItem
+      <InputSwiperItem
         v-model="items[index]"
         :remove="() => remove(index)"
         :preview="preview"/>
@@ -15,7 +15,7 @@
     </swiper-item>
 
     <swiper-item>
-      <OperatorActivityEditorSwiperItem v-model="newItem" :preview="preview"/>
+      <InputSwiperItem v-model="newItem" :preview="preview"/>
     </swiper-item>
 
   </swiper>
@@ -24,11 +24,11 @@
 </template>
 
 <script>
-  import OperatorActivityEditorSwiperItem from '@/components/input/swiper/InputSwiperItem'
+  import InputSwiperItem from '@/components/input/swiper/InputSwiperItem'
 
   export default {
     components: {
-      OperatorActivityEditorSwiperItem,
+      InputSwiperItem,
     },
     props: ['value', 'preview'],
     data () {
