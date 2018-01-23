@@ -39,25 +39,12 @@
       </base-data-three>
     </div>
     <base-activity-swiper :data="swiperList"/>
-    <base-title icon="icon-qushi" class="mt20 border-b" title="今日数据"/>
-    <base-activity-list :title="activityTitle" :src="activitySrc" :numbers="activityNumber" :to="activityTo"
-                        class="mb20">
-      <template slot="setUp">
-        <div class="border ptb5 plr10 border-radius5 text-center color1 size22 overflow-hidden color13"
-             :style="{'border-color':'#29d6bf'}" @click.stop="setUpStatus=!setUpStatus">设置
-        </div>
-        <div class="relative" v-show="setUpStatus">
-          <div class="border border-radius5 overflow-hidden size22 bg-white"
-               :style="{width: '100px', position: 'absolute', top: '2px', right: '0px'}">
-            <div class="color4 border-b text-center ptb10" @click.stop="show2=true">活动二维码</div>
-            <div class="color4 border-b text-center ptb10" @click.stop="$router.push(activitySetUp.edit)">编辑</div>
-            <div class="color4 border-b text-center ptb10" @click.stop="$router.push(activitySetUp._delete)">删除</div>
-            <div class="color4 text-center ptb10" @click.stop="$router.push(activitySetUp.more)">更多设置</div>
-          </div>
-        </div>
-      </template>
-    </base-activity-list>
-    <base-title title="我的活动" class="border-b"/>
+
+    <!--<base-title v-if="false" icon="icon-qushi" class="mt20 border-b" title="我的活动"/>-->
+    <!--<base-activity-list :activity="{}" class="mb20"/>-->
+
+    <base-title title="添加活动" class="border-b"/>
+
     <base-man-template :src="templateSrc" :number="number"/>
     <divider>我是有底线的</divider>
     <x-dialog :show.sync="show2" :hide-on-blur="true" :dialog-style="{width: '100%'}">
