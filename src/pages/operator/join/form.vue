@@ -5,7 +5,7 @@
 <template>
     <div class="pb60">
         <div class="w100 flex-wrp flex-center size38 color2" :style="{height: rem(800)}">海报编辑中。。</div>
-        <base-tiele title="申请入住服务商"/>
+        <base-title title="申请入住服务商"/>
         <group label-width="2rem" label-margin-right="2em" label-align="left" gutter="0">
             <x-input title="平台名称" placeholder="请输入平台名称" required v-model="title"/>
             <x-address title="所在地区" v-model="location" required raw-value :list="addressData"
@@ -51,54 +51,54 @@
     import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
 
     export default {
-        data () {
-            return {
-                src: '',
-                addressData: ChinaAddressV4Data,
-                title: null,
-                location: ['广东省', '深圳市', '南山区'],
-                name: null,
-                mobile: null,
-                code: null,
-            }
-        },
-        async created () {
-            const {data} = await api.get('operator')
-            this.operator = data.data
+      data () {
+        return {
+          src: '',
+          addressData: ChinaAddressV4Data,
+          title: null,
+          location: ['广东省', '深圳市', '南山区'],
+          name: null,
+          mobile: null,
+          code: null
+        }
+      },
+      async created () {
+        const {data} = await api.get('operator')
+        this.operator = data.data
 
-            if (this.operator && this.operator.status === 2) {
-                this.$router.push('/operator')
-            }
-        },
-        methods: {
-            async submit () {
-                let location = value2name(this.location, ChinaAddressV4Data)
+        if (this.operator && this.operator.status === 1) {
+          this.$router.push('/operator')
+        }
+      },
+      methods: {
+        async submit () {
+          let location = value2name(this.location, ChinaAddressV4Data)
 
-                console.log(location)
+          console.log(location)
 
-                let code = this.code
-                let newVar = {
-                    title: this.title,
-                    location: location,
-                    name: this.name,
-                    mobile: this.mobile,
-                }
+          let code = this.code
+          let newVar = {
+            title: this.title,
+            location: location,
+            name: this.name,
+            mobile: this.mobile
+          }
 
-                if (code) {
-                    newVar.code = code
-                }
+          if (code) {
+            newVar.code = code
+          }
 
-                const {data} = await api.post('operator_join', newVar)
+          const {data} = await api.post('operator_join', newVar)
 
-                alert(data.message)
+          alert(data.message)
 
-                if (data.error) {
-                    return
-                }
+          if (data.error) {
+            return
+          }
 
-                this.$router.push('/operator/join')
-            },
-        },
+          this.$router.push('/operator/join')
+        }
+      }
     }
 </script>
 

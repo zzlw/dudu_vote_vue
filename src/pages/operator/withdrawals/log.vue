@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import api from "@/api";
+import api from '@/api'
 export default {
-  data() {
+  data () {
     return {
       list: [{
         label: '提现到账金额',
@@ -41,12 +41,12 @@ export default {
         label: '提现时间',
         value: '2018-01-02 16：36'
       }]
-    };
+    }
   },
-  async created() {},
+  async created () {},
 
   methods: {}
-};
+}
 </script>
 
 <style scoped>

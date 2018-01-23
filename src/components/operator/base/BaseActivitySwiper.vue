@@ -1,7 +1,7 @@
 <template>
 <div class="mt20 pr30 flex-wrp bg-white">
     <div class="ptb10 flex-wrp flex-middle flex-cell">
-        <div class="border-r color2 size26 pl30 pr20" :style="{'border-color':'rgba(176, 247, 237, 0.9)'}">活动工告</div>
+        <div class="border-r color2 size26 pl30 pr20" :style="{'border-color':'rgba(176, 247, 237, 0.9)'}">活动公告</div>
     </div>
     <div class="pl20" :style="{flex:1}">
         <swiper :height="rem(80)" :show-dots="false" auto loop :duration="1500"  >
@@ -15,25 +15,25 @@
 
 <script>
 export default {
-    props: {
-        data: {
-            type: Array,
-            required: true
-        }
-    },
-    data () {
-        return {
+  props: {
+    data: {
+      type: Array,
+      required: true
+    }
+  },
+  data () {
+    return {
 
-        }
-    },
+    }
+  },
 
-    mounted () {},
+  mounted () {},
 
-    computed: {},
+  computed: {},
 
-    components: {},
+  components: {},
 
-    methods: {}
+  methods: {}
 }
 </script>
 

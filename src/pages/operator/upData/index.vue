@@ -17,12 +17,12 @@
         <group label-width="2rem" label-margin-right="2em" label-align="left">
             <x-input title="手机号码" placeholder="请输入手机号码" type='tel' required v-model="mobile" />
             <x-input
-                    title="验证码"
-                    placeholder="请输入验证码"
-                    type='number'
-                     required v-model="code">
-                    <!-- <div class="bg-29d6bf color1 lh100 border-radius5 size16 ptb10 plr10" slot='right' >发送验证码</div> -->
-                    <x-button
+                title="验证码"
+                placeholder="请输入验证码"
+                type='number'
+                required v-model="code"
+            >
+                <x-button
                     action-type="button"
                     type="primary"
                     mini
@@ -30,7 +30,8 @@
                     :text="`${showCode}`"
                     slot='right'
                     class="bg-29d6bf nbr"
-                    @click.native="setTime"/>
+                    @click.native="setTime"
+                />
             </x-input>
         </group>
         <div class="plr20 ptb50">

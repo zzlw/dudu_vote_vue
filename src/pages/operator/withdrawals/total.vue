@@ -98,17 +98,17 @@
 </template>
 
 <script>
-import api from "@/api";
+import api from '@/api'
 export default {
-  data() {
+  data () {
     return {
-      srcImg:''
-    };
+      srcImg: ''
+    }
   },
-  async created() {},
+  async created () {},
 
   methods: {}
-};
+}
 </script>
 
 <style scoped>

@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <!-- 默认使用 flexible  -->
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <meta name="screen-orientation" content="portrait"/>
-    <!-- <link rel="shortcut icon" href="/src/assets/logo.ico" /> -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="full-screen" content="yes">
-    <meta name="x5-fullscreen" content="true">
-    <title> 投票活动 </title>
-    <!-- css reset -->
-    <!-- <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet"> -->
-    <!-- 一个 css3 动效库 -->
-    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-    <!-- weui -->
-    <!-- <link href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css" rel="stylesheet"> -->
-    <!-- 微信 JSSDK -->
-    <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
-    <!-- weui js -->
-    <!-- <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script> -->
-    <!-- 替换你自己的阿里图标库 -->
-    <script src="//at.alicdn.com/t/font_539448_ndly8x7qxgioogvi.js"></script>
+  <meta charset="utf-8">
+  <!-- 默认使用 flexible  -->
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <meta name="screen-orientation" content="portrait"/>
+  <!-- <link rel="shortcut icon" href="/src/assets/logo.ico" /> -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="full-screen" content="yes">
+  <meta name="x5-fullscreen" content="true">
+  <title> 投票活动 </title>
+  <!-- css reset -->
+  <!-- <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet"> -->
+  <!-- 一个 css3 动效库 -->
+  <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+  <!-- weui -->
+  <!-- <link href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css" rel="stylesheet"> -->
+  <!-- 微信 JSSDK -->
+  <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
+  <!-- weui js -->
+  <!-- <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script> -->
+  <!-- 替换你自己的阿里图标库 -->
+  <script src="//at.alicdn.com/t/font_539448_ndly8x7qxgioogvi.js"></script>
 
-    <script>
-        Window.AppConfig = {
-            id: "Bdp5EGW3qg7q6PYRbvgK", // 当前应用的ID
-            uid: "1", // 微信用户辨识id
-            version: 1, // 当前应用的版本
-            basePath: "http://dev.mp.duduapp.net/h5/Bdp5EGW3qg7q6PYRbvgK", // 当前应用地址 注意后面没有/斜杠
-            assetsPath: "http://dev.mp.duduapp.net/h5/vote", // 当前应用静态资源存放路径 注意后面没有/斜杠
-            wxJsConfig: {
-                // 微信jssdk初始化配置
-            },
+  <script>
+    Window.AppConfig = {
+      debug: true,
+      id: 'LVlrgz4p2j5QbAnv8BGE', // 当前应用的ID
+      uid: '1', // 微信用户辨识id
+      version: 1, // 当前应用的版本
+      basePath: 'http://dudump.test/h5/LVlrgz4p2j5QbAnv8BGE', // 当前应用地址 注意后面没有/斜杠
+      assetsPath: 'http://dudump.test/h5/vote', // 当前应用静态资源存放路径 注意后面没有/斜杠
+      wxJsConfig: {
+        // 微信jssdk初始化配置
+      },
 
-            api: { // 后端api地址列表
-                "visit": "http://domain/api/visit",
-                "share": "http://domain/api/share"
-            },
-            // 上面为固定配置
-            ///下面是其他自定义配置, 根据应用不同配置也不同
-        };
-    </script>
+      api: { // 后端api地址列表
+        'visit': 'http://domain/api/visit',
+        'share': 'http://domain/api/share'
+      },
+      // 上面为固定配置
+      ///下面是其他自定义配置, 根据应用不同配置也不同
+    }
+  </script>
 
 </head>
 <body>

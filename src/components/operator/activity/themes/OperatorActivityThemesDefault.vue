@@ -1,9 +1,5 @@
 <template>
     <div class="">
-        <h3>
-            添加活动-主题-Default
-        </h3>
-
         <!--轮播图编辑器-->
 
         <OperatorActivityEditorSwiper v-model="activity.swiper" :preview="preview"/>
@@ -17,15 +13,15 @@
 
         <!--活动标题-->
 
-        <OperatorActivityEditorText v-model="activity.title" :preview="preview"  class="pr10" >
-            <div slot="icon" class="" :style="{width: rem(40),height: rem(40)}" >
-                <svg class="icon base-menu-icon" aria-hidden="true">
-                    <use :xlink:href="`#icon-yinliang`"></use>
-                </svg>
-            </div>
-        </OperatorActivityEditorText>
+        <div class="flex-wrp flex-align-center flex-between bg-white h100 pt10">
+          <div :style="{width: rem(40),height: rem(40)}" >
+            <svg class="icon base-menu-icon" aria-hidden="true">
+              <use :xlink:href="`#icon-yinliang`"></use>
+            </svg>
+          </div>
 
-
+          <InputText v-model="activity.title" :preview="preview"  class="mr10 w100" />
+        </div>
 
         <div class="flex-wrp flex-middle bg-white pt20" >
             <template v-if="moment().isBefore(buying.time_start)">
@@ -83,11 +79,18 @@
         </div>
 
         <!--内容标题-->
-        <OperatorActivityContentTitle class="bg-white" v-model="activity.contentTitle" :preview="preview"/>
+
+        <div class="flex-wrp flex-center pd10  bg-white">
+          <div class="size16 color2">——</div>
+          <InputText v-model="activity.contentTitle" :preview="preview" class="mlr20 color2 plr10 ptb5 size26"/>
+          <div class="size16 color2">——</div>
+        </div>
 
         <!--内容-->
-        <OperatorActivityEditorContent class="bg-white" v-model="activity.content" :preview="preview"/>
-        <group label-width="3rem" label-margin-right="2em" label-align="left">
+        <InputRichText class="bg-white" v-model="activity.content" :preview="preview"/>
+
+
+        <group v-if="!preview" label-width="3rem" label-margin-right="2em" label-align="left">
             <cell title="基础设置" ></cell>
             <datetime class="color2" v-model="activity.startTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`开始时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
             <datetime class="color2" v-model="activity.endTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`结束时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
@@ -97,6 +100,8 @@
             <x-number title="奖品兑换数量" v-model="activity.limitedExchangeCount" button-style="round" :min="0" :max="5"></x-number>
             <cell :inline-desc="`提示:奖品在发布完成“我的活动“投票设置“奖品管理”进行添加`" ></cell>
         </group>
+
+
         <div class="flex-wrp bg-white">
             <div v-if="!preview" @click="preview=true" :style="{flex:1}" class="text-center color2 ptb20 size26">预览</div>
             <div v-if="preview" @click="preview=false" :style="{flex:1}" class="text-center color2 ptb20 size26">编辑</div>
@@ -106,106 +111,86 @@
 </template>
 
 <script>
-    import OperatorActivityContentTitle from '@/components/operator/activity/editor/OperatorActivityContentTitle'
-    import OperatorActivityEditorText from '@/components/operator/activity/editor/OperatorActivityEditorText'
-    import OperatorActivityEditorSwiper from '@/components/operator/activity/editor/OperatorActivityEditorSwiper'
-    import OperatorActivityEditorContent from '@/components/operator/activity/editor/OperatorActivityEditorContent'
-    import { timeDiffArray, timeDiffObj } from '@/utils'
+    import InputText from '@/components/input/InputText'
+    import OperatorActivityEditorSwiper from '@/components/input/swiper/InputSwiper'
+    import InputRichText from '@/components/input/rich-text/InputRichText'
+    import { timeDiffObj } from '@/utils'
     import moment from 'moment'
     import chunk from 'lodash/chunk'
 
     export default {
-        props: ['activity', 'publish'],
-        components: {
-            OperatorActivityContentTitle,
-            OperatorActivityEditorText,
-            OperatorActivityEditorSwiper,
-            OperatorActivityEditorContent
-        },
-        name: 'add',
-        data () {
-            return {
-                preview: false,
-                // base-data-three start
-                data: [
-                    {
-                        number: 167,
-                        text: '参与选手'
-                    },
-                    {
-                        number: 167,
-                        text: '累计投票'
-                    },
-                    {
-                        number: 167,
-                        text: '访问量'
-                    }
-                ],
-                buying: {
-                    time_start: 1516099695649,
-                    time_end: 1516199695649
-                },
-                srcImg: '',
-                timer: null,
-                timeValue: '',
-                now: moment(),
-                list3: ['最热选手', '排行选手', '最新选手'],
-                demo3: '最热选手',
-                twoDate: [
-                    {
-                        srcImg: '',
-                        number: 1,
-                        vote: 1,
-                        liwu: 2
-                    },
-                    {
-                        srcImg: '',
-                        number: 1,
-                        vote: 1,
-                        liwu: 2
-                    },
-                    {
-                        srcImg: '',
-                        number: 1,
-                        vote: 1,
-                        liwu: 2
-                    },
-                    {
-                        srcImg: '',
-                        number: 1,
-                        vote: 1,
-                        liwu: 2
-                    },
-                    {
-                        srcImg: '',
-                        number: 1,
-                        vote: 1,
-                        liwu: 2
-                    }
-                ]
+      props: ['activity', 'publish'],
+      components: {
+        InputText,
+        OperatorActivityEditorSwiper,
+        InputRichText
+      },
+      name: 'add',
+      data () {
+        return {
+          preview: false,
+          // base-data-three start
+          data: [
+            {
+              number: 167,
+              text: '参与选手'
+            },
+            {
+              number: 167,
+              text: '累计投票'
+            },
+            {
+              number: 167,
+              text: '访问量'
             }
-        },
-        methods: {
-            timeUpdate () {
-                this.timeValue = timeDiffObj(
-                    moment().isBefore(this.buying.time_start)
-                        ? this.buying.time_start
-                        : this.buying.time_end,
-                    this.now
-                )
+          ],
+          buying: {
+            time_start: 1516099695649,
+            time_end: 1516199695649
+          },
+          srcImg: '',
+          timer: null,
+          timeValue: '',
+          now: moment(),
+          list3: ['最热选手', '排行选手', '最新选手'],
+          demo3: '最热选手',
+          twoDate: [
+            {
+              srcImg: '',
+              number: 1,
+              vote: 1,
+              liwu: 2
+            },
+            {
+              srcImg: '',
+              number: 1,
+              vote: 1,
+              liwu: 2
             }
-        },
-        mounted () {
-            this.timer = setInterval(this.timeUpdate, 1000)
-        },
-        computed: {
-            cateGroup () {
-                return chunk(this.twoDate, 2)
-            }
-        },
-        beforeDestroy () {
-            this.timer && clearInterval(this.timer)
+          ]
         }
+      },
+      methods: {
+        timeUpdate () {
+          this.timeValue = timeDiffObj(
+            moment().isBefore(this.buying.time_start)
+              ? this.buying.time_start
+              : this.buying.time_end,
+            this.now
+          )
+        }
+      },
+      mounted () {
+        this.timer = setInterval(this.timeUpdate, 1000)
+      },
+      computed: {
+        cateGroup () {
+          return chunk(this.twoDate, 2)
+        }
+      },
+      beforeDestroy () {
+        this.timer && clearInterval(this.timer)
+      }
     }
 </script>
 
