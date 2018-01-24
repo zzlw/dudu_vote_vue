@@ -17,6 +17,8 @@
 </template>
 
 <script>
+  import { api, wx } from 'h5sdk'
+
   export default {
     props: [
       'remove',
@@ -40,12 +42,31 @@
       },
     },
     methods: {
-      upload () {
-        this.$emit('input', {
-          image: 'https://www.baidu.com/img/bd_logo1.png',
-        })
+      async upload () {
+        try {
+          // 显示
+          this.$vux.toast.show({
+            text: '上传中',
+          })
+          const {localIds} = await wx.chooseImage()
+          const {serverId} = await wx.uploadImage({
+            localId: localIds[0],
+          })
+          const {data} = await api.post('upload', {
+            'server_id': serverId,
+          })
+          this.$emit('input', {
+            image: data.data,
+          })
+          this.$vux.toast.hide()
+        } catch (e) {
+          console.log(e)
+          this.$vux.toast.hide()
+          alert('上传失败, 请重试')
+        }
       },
-    },
+    }
+    ,
   }
 </script>
 

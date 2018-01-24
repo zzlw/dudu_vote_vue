@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import api from '@/api/index'
+import { api } from 'h5sdk'
 import { timeDiffArray, timeDiffObj } from '@/utils/index'
 import moment from 'moment'
 export default {

@@ -70,7 +70,7 @@
 
 <script>
   import chunk from 'lodash/chunk'
-  import api from '@/api'
+  import { api } from 'h5sdk'
 
   export default {
     async created () {

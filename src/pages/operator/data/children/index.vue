@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import api from "@/api";
+import { api } from 'h5sdk';
 import { timeDiffArray, timeDiffObj } from "@/utils";
 import moment from "moment";
 import Echarts from '@/components/operator/echarts'

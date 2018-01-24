@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import api from '@/api'
+    import { api } from 'h5sdk'
     import store from '@/store'
 
     import { SAVE_OPERATOR } from '@/store/modules/operator'

@@ -58,6 +58,7 @@
     data () {
       return {
         prize: {
+          id: 0,
           name: '',
           total_count: 0,
           exchanged_count: 0,
@@ -69,9 +70,24 @@
         },
       }
     },
-    async created () {},
+    async created () {
+      this.fetchData()
+    },
 
     methods: {
+      async fetchData () {
+        const {data} = await api.get('operator_prize', {
+          prize_id: this.$route.params.prize_id,
+        })
+        this.prize.id = this.$route.params.prize_id
+        this.prize.name = data.data.name
+        this.prize.total_count = data.data.total_count
+        this.prize.exchanged_count = data.data.exchanged_count
+        this.prize.limited_exchange_count = data.data.limited_exchange_count
+        this.prize.valid_time_begin = data.data.valid_time_begin
+        this.prize.valid_time_end = data.data.valid_time_end
+        this.prize.details = data.data.details
+      },
       async onSubmit () {
         let tes = this.prize.details.find((item) => {
           return item.image !== undefined
@@ -83,8 +99,7 @@
         }
 
         let requestData = this.prize
-        requestData.id = this.$route.params.activity_id
-        const {data} = await api.post('operator_prize_create', requestData)
+        const {data} = await api.post('operator_prize_update', requestData)
         this.$vux.toast.text(data.message, 'middle')
         if (!data.error) {
           this.$router.back()

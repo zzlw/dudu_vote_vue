@@ -47,7 +47,7 @@
 </template>
 
 <script>
-    import api from '@/api'
+    import { api } from 'h5sdk'
     import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
 
     export default {
