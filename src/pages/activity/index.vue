@@ -3,7 +3,7 @@
 -->
 
 <template>
-  <div class="">
+  <div class="" :style="{paddingBottom: rem(150)}">
     <div class="bg-alpha ptb15" :style="{width: '100%', position: 'fixed', top: 0, left: 0, 'z-index': 999}">
       <div class="flex-wrp flex-between flex-align-center h100 plr50">
         <div class="flex-wrp flex-between flex-align-center">
@@ -32,7 +32,7 @@
         </div>
         <div class="size16" :class="[`${$route.matched[1].meta.index=='0'?'color3':'color5'}`]">主页</div>
       </div>
-      <div class="flex-wrp ptb5 flex-center flex-cell" :style="{flex: 1}" @click="$router.push({path: `/activity/${$route.params.id}/ceshi`})">
+      <div class="flex-wrp ptb5 flex-center flex-cell" :style="{flex: 1}" @click="$router.push({path: `/activity/${$route.params.id}/ranking`})">
         <div class="ptb5" :style="{width: rem(40), height: rem(40)}">
           <svg class="icon base-menu-icon" aria-hidden="true">
             <use :xlink:href="`#icon-paihangbang${$route.matched[1].meta.index=='1'?'-copy':''}`"></use>
@@ -40,7 +40,7 @@
         </div>
         <div class="size16" :class="[`${$route.matched[1].meta.index=='1'?'color3':'color5'}`]">排行榜</div>
       </div>
-      <div class="flex-wrp ptb5 flex-center flex-cell" :style="{flex: 1}" @click="$router.push({path: '/'})">
+      <div class="flex-wrp ptb5 flex-center flex-cell" :style="{flex: 1}" @click="$router.push({path: `/activity/${$route.params.id}/prize`})">
         <div class="ptb5" :style="{width: rem(40), height: rem(40)}">
           <svg class="icon base-menu-icon" aria-hidden="true">
             <use :xlink:href="`#icon-huodong${$route.matched[1].meta.index=='2'?'-copy':''}`"></use>

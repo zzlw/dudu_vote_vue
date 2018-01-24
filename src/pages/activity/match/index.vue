@@ -1,5 +1,5 @@
 <template>
-  <div class="" >
+  <div class="">
     <div class="bg-cover" :style="{height: rem(300),backgroundImage:`url(${srcImg})`}"></div>
     <div class="base-data-three flex-wrp flex-around bg-white ptb15 plr10 border-b" >
         <div :class="['text-center',{'border-r': index!==(data.length-1)}]" v-for="(item, index) in data" :key="index" :style="{flex:1}">
