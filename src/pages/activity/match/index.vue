@@ -52,8 +52,8 @@
 
     <div class="bg-white mt20 plr20 pb15">
       <div class="color2 size22 ptb10">他们刚刚帮TA投票了!</div>
-      <div class="flex-wrp flex-between">
-        <div class="flex-wrp flex-cell flex-center" v-for="(item, index) in list" :key="index">
+      <div class="flex-wrp">
+        <div class="flex-wrp flex-cell flex-center mlr10" v-for="(item, index) in listSix" :key="index">
           <div class="flex-wrp flex-center border-radius overflow-hidden" :style="{width: rem(100), height: rem(100)}">
             <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${item.srcImg})`}" />
           </div>
@@ -212,32 +212,16 @@ export default {
           text: "礼物数"
         }
       ],
-      buying: {
-        time_start: 1519099695649,
-        time_end: 1516199695649
-      }
     };
   },
   methods: {
-    timeUpdate() {
-      this.timeValue = timeDiffObj(
-        moment().isBefore(this.buying.time_start)
-          ? this.buying.time_start
-          : this.buying.time_end,
-        this.now
-      );
-    }
   },
   mounted() {
-    this.timer = setInterval(this.timeUpdate, 1000);
   },
   computed: {
-    cateGroup () {
-      return chunk(this.twoDate, 2)
+    listSix(){
+      return this.list.splice(0,6)
     }
-  },
-  beforeDestroy() {
-    this.timer && clearInterval(this.timer);
   },
   components: {
     InputText
