@@ -17,9 +17,6 @@
 </template>
 
 <script>
-import api from "@/api";
-import { timeDiffArray, timeDiffObj } from "@/utils";
-import moment from "moment";
 export default {
   data() {
     return {

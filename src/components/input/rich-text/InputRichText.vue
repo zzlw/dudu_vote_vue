@@ -74,6 +74,11 @@
         items: this.value,
       }
     },
+    watch: {
+      value () {
+        this.items = this.value
+      }
+    },
     methods: {
       addText () {
         this.items.push({

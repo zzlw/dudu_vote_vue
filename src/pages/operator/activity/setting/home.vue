@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import api from '@/api/index'
+import { api } from 'h5sdk'
 export default {
   data () {
     return {

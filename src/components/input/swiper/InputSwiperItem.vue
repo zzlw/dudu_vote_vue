@@ -14,8 +14,7 @@
 </template>
 
 <script>
-  import api from '@/api/index'
-  import wx from '@/sdk/wx'
+  import { api, wx } from 'h5sdk'
 
   export default {
     props: [

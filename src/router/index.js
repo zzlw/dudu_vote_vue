@@ -34,6 +34,8 @@ import OperatorActivitySettingShare from '@/pages/operator/activity/setting/shar
 import OperatorActivitySettingPrize from '@/pages/operator/activity/setting/prize/index'
 import OperatorActivitySettingPrizeAdd from '@/pages/operator/activity/setting/prize/add'
 import OperatorActivitySettingPrizeAddRank from '@/pages/operator/activity/setting/prize/add-rank'
+import OperatorActivitySettingPrizeEdit from '@/pages/operator/activity/setting/prize/edit'
+import OperatorActivitySettingPrizeEditRank from '@/pages/operator/activity/setting/prize/edit-rank'
 
 import OperatorActivitySettingPlayer from '@/pages/operator/activity/setting/player'
 import OperatorActivitySettingPlayerAdd from '@/pages/operator/activity/setting/player/add'
@@ -50,15 +52,10 @@ import OperatorDataChildren from '@/pages/operator/data/children'
 import OperatorDataChildrenAdmin from '@/pages/operator/data/children/admin'
 import OperatorDataChildrenLog from '@/pages/operator/data/children/log'
 
-
-
 Vue.use(Router)
 
 let router = new Router({
-  scrollBehavior(to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  },
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',
@@ -136,11 +133,11 @@ let router = new Router({
           component: OperatorActivityCreate,
         },
         {
-          path: 'activity/:id/edit', // 活动编辑
+          path: 'activity/:activity_id/edit', // 活动编辑
           component: OperatorActivityEdit,
         },
         {
-          path: 'activity/:id/settings', // 活动设置(更多设置)
+          path: 'activity/:activity_id/settings', // 活动设置(更多设置)
           component: OperatorActivitySetting,
           children: [
             {
@@ -158,6 +155,14 @@ let router = new Router({
             {
               path: 'prize-add-rank',
               component: OperatorActivitySettingPrizeAddRank,
+            },
+            {
+              path: 'prize-edit/:prize_id',
+              component: OperatorActivitySettingPrizeEdit,
+            },
+            {
+              path: 'prize-edit-rank/:prize_id',
+              component: OperatorActivitySettingPrizeEditRank,
             },
             {
               path: 'player',

@@ -9,7 +9,7 @@
 
 <script>
   import ActivityThemeDefault from '@/components/operator/activity/themes/OperatorActivityThemesDefault'
-  import api from '@/api'
+  import { api } from 'h5sdk'
 
   export default {
     components: {
@@ -50,7 +50,7 @@
         }
       },
       async fetchData () {
-        const {data} = await api.post('operator_activity', {id: this.$route.params.id})
+        const {data} = await api.post('operator_activity', {id: this.$route.params.activity_id})
 
         if (data.error) {
           alert(data.message)

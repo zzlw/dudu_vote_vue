@@ -30,7 +30,7 @@
 </template>
 
 <script>
-  import api from '@/api'
+  import { api } from 'h5sdk'
 
   import InputRichText from '@/components/input/rich-text/InputRichText'
 
@@ -42,12 +42,8 @@
       return {
         prize: {
           name: '',
-          total_count: 0,
-          exchanged_count: 0,
-          limited_exchange_count: 0,
-          start_time: '',
-          end_time: '',
           details: [],
+          type: 0,
         },
       }
     },
@@ -55,10 +51,22 @@
 
     methods: {
       async onSubmit () {
+        let tes = this.prize.details.find((item) => {
+          return item.image !== undefined
+        })
+
+        if (tes === undefined) {
+          this.$vux.toast.text('请至少添加一张图片', 'middle')
+          return
+        }
+
         let requestData = this.prize
-        requestData.id = this.$route.params.id
+        requestData.id = this.$route.params.activity_id
         const {data} = await api.post('operator_prize_create', requestData)
-        console.log(data)
+        this.$vux.toast.text(data.message, 'middle')
+        if (!data.error) {
+          this.$router.back()
+        }
       }
     }
   }

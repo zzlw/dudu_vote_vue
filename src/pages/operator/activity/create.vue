@@ -12,7 +12,7 @@
     import ActivityEditorSwiper from '@/components/input/swiper/InputSwiper'
     import ActivityEditorContent from '@/components/input/rich-text/InputRichText'
     import ActivityThemeDefault from '@/components/operator/activity/themes/OperatorActivityThemesDefault'
-    import api from '@/api'
+    import { api } from 'h5sdk'
 
     export default {
       components: {

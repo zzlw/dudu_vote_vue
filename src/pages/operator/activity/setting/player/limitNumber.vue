@@ -19,7 +19,7 @@
             <cell class="">
                 <div slot="icon" class="flex-wrp flex-end" >
                     <div class="size26 color2 pl5 h100">投票城市</div>
-                    <div class="size16 color13 pl5 h100">（已选择3）</div>
+                    <div class="size16 color13 pl5 h100">（已选择{{this.addressList.length}}）</div>
                 </div>
             </cell>
             <cell class="">
@@ -32,7 +32,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="text-center lh100 border-radius5 ptb10 plr15 color2 size26 mlr10 mtb10 relative" :style="{border:'1px solid #ccc'}">
+                    <div  v-if="this.addressList.length < 11" class="text-center lh100 border-radius5 ptb10 plr15 color2 size26 mlr10 mtb10 relative" :style="{border:'1px solid #ccc'}">
                         <div slot="title" >
                             <svg class="icon size38" aria-hidden="true">
                                 <use :xlink:href="`#icon-jia1`"></use>
@@ -50,13 +50,13 @@
             </cell>
         </group>
         <div class="plr20 pt30">
-            <div class="size26 color1 plr30 ptb15 border-radius5 text-center bg-29d6bf" >保存</div>
+            <div @click="onSubmit" class="size26 color1 plr30 ptb15 border-radius5 text-center bg-29d6bf" >保存</div>
         </div>
     </div>
 </template>
 
 <script>
-import api from '@/api/index'
+import { api } from 'h5sdk'
 import { timeDiffArray, timeDiffObj } from '@/utils/index'
 import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
 import moment from 'moment'
@@ -70,7 +70,9 @@ export default {
       addressValue: []
     }
   },
-  async created () {},
+  async created () {
+    this.fetchData()
+  },
 
   watch: {
     addressValue: function (newQuestion, oldQuestion) {
@@ -103,6 +105,25 @@ export default {
     },
     addressDelete (index) {
       this.addressList.splice(index, 1)
+    },
+    async onSubmit () {
+      let activityId = this.$route.params.activity_id
+      const {data} = await api.post('operator_activity_config', {
+        id: activityId,
+        vote_rule_ip: this.addressList
+      })
+
+      this.$vux.toast.show({
+        text: data.message,
+      })
+    },
+    async fetchData () {
+      let activityId = this.$route.params.activity_id
+
+      const {data} = await api.get('operator_activity', {id: activityId})
+
+      this.addressList = data.data.vote_rule_ip
+      console.log(data)
     }
   }
 }

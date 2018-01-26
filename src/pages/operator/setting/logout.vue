@@ -5,7 +5,7 @@
 
 <script>
   import { mapMutations, mapState } from 'vuex'
-  import api from '@/api'
+  import { api } from 'h5sdk'
   import { SAVE_OPERATOR } from '@/store/modules/operator'
 
   export default {
