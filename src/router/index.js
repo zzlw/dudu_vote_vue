@@ -6,6 +6,7 @@ import ActivityHome from '@/pages/activity/home'
 import ActivityMatch from '@/pages/activity/match'
 import ActivityRanking from '@/pages/activity/ranking'
 import ActivityPrize from '@/pages/activity/prize'
+import ActivityPersonal from '@/pages/activity/personal'
 
 
 
@@ -88,6 +89,11 @@ let router = new Router({
           path: 'prize',
           component: ActivityPrize,
           meta: { index: 2 }
+        },
+        {
+          path: 'personal',
+          component: ActivityPersonal,
+          meta: { index: 3 }
         },
       ],
     },

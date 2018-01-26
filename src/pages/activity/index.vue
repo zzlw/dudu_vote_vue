@@ -48,7 +48,7 @@
         </div>
         <div class="size16" :class="[`${$route.matched[1].meta.index=='2'?'color3':'color5'}`]">活动奖品</div>
       </div>
-      <div class="flex-wrp ptb5 flex-center flex-cell" :style="{flex: 1}" @click="$router.push({path: '/'})">
+      <div class="flex-wrp ptb5 flex-center flex-cell" :style="{flex: 1}" @click="$router.push({path: `/activity/${$route.params.id}/personal`})">
         <div class="ptb5" :style="{width: rem(40), height: rem(40)}">
           <svg class="icon base-menu-icon" aria-hidden="true">
             <use :xlink:href="`#icon-geren2-copy${$route.matched[1].meta.index=='3'?'-copy':''}`"></use>
