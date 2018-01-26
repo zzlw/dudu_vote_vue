@@ -1,19 +1,23 @@
 <template>
 
-  <div @click="upload" class="flex-wrp flex-center border-radius10 overflow-hidden mg10" :style="{width:rem(120), height: rem(120),border: '1px solid #8a8a8a'}">
-    <img v-if="image" width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${image})`}" />
-    <div v-else class="" :style="{width:rem(70), height: rem(70)}">
-      <svg class="icon base-menu-icon" aria-hidden="true">
+  <div @click="upload" class="flex-wrp flex-center overflow-hidden">
+    <img v-if="image" width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
+         :style="{backgroundImage:`url(${image})`}"/>
+    <div v-if="!image" class="flex-wrp flex-cell flex-center">
+      <svg :style="{width:rem(70), height: rem(70)}" class="icon base-menu-icon" aria-hidden="true">
         <use :xlink:href="`#icon-jia1`"></use>
       </svg>
+      <div v-if="description" class="size26 color4">{{description}}</div>
     </div>
   </div>
+
 </template>
 
 <script>
-  import {wx, api} from 'h5sdk'
+  import { api, wx } from 'h5sdk'
+
   export default {
-    props: ['value'],
+    props: ['value', 'description'],
     data () {
       return {
         image: this.value,

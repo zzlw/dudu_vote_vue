@@ -1,6 +1,6 @@
 <template>
 
-  <swiper v-model="currentIndex" :height="rem(300)" :show-dots="false">
+  <swiper v-model="currentIndex" :height="rem(300)" :show-dots="showDots">
 
     <swiper-item
       v-for="(item, index) in items"
@@ -30,7 +30,9 @@
     components: {
       InputSwiperItem,
     },
-    props: ['value', 'preview'],
+    props: [
+      'value', 'preview', 'showDots'
+    ],
     data () {
       return {
         currentIndex: 0,
