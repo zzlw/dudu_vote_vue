@@ -13,7 +13,24 @@
       </base-data-three>
 
       <div class="plr40 ptb20">
-        <home-info :src="operator.headimgurl" :title="operator.name" text="个人中心" :number="operator.recommended_code"/>
+
+        <div class="flex-wrp flex-between overflow-hidden bg-alpha"
+             :style="{'border-radius': '50px','border-top-right-radius':'10px','border-bottom-right-radius':'10px'}">
+          <router-link to="/operator/setting" class="flex-wrp">
+            <base-avatar :src="operator.headimgurl" size="small"/>
+            <div class="color1 pl5 flex-wrp flex-cell flex-middle overflow-hidden" :style="{width: rem(150)}">
+              <div class="size22 color1 text-nowrap">{{operator.name}}</div>
+              <div class="size16 color1 text-nowrap">个人中心</div>
+            </div>
+          </router-link>
+          <div class="ptb10 flex-wrp flex-center">
+            <div class="flex-wrp flex-center plr20 border-l">
+              <div class="size22 color1 pr15 text-nowrap">{{`推荐码：${(operator.recommended_code).toUpperCase()}`}}</div>
+              <div class="size16 border border-radius5 ptb5 plr10 bg-grey overflow-hidden lh150 color2 text-nowrap" @click="show_recommended=true">邀请好友</div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -42,21 +59,21 @@
 
 
     <!--二维码-->
-    <x-dialog :show.sync="show2" :hide-on-blur="true" :dialog-style="{width: '100%'}">
+    <x-dialog :show.sync="show_recommended" :hide-on-blur="true" :dialog-style="{width: '100%'}">
       <div class="pt30 pb60 plr30">
         <div class="color2 size32 flex-wrp flex-middle pb20">推广二维码</div>
         <div class="flex-wrp flex-middle">
           <img class="bg-cover block" src="~/assets/img/s.gif"
-               :style="{width: rem(250), height: rem(250),backgroundImage:`url(${ewmSrc})`}"/>
+               :style="{width: rem(250), height: rem(250),backgroundImage:`url(${operator.recommended_qrcode})`}"/>
         </div>
         <div class="size22 color2 flex-wrp flex-middle pd10">长按保存二维码</div>
         <div class="size22 color2 mt30 text-left">推广链接：</div>
-        <div class="size12 color2 text-left break-word">{{ewmLink}}</div>
+        <div class="size12 color2 text-left break-word">{{operator.recommended_link}}</div>
         <div class="flex-wrp flex-middle pt20">
           <div class="link-btn-main" @click="doCopy">复制链接</div>
         </div>
         <div class="size22 color4 flex-wrp flex-middle pt20">复制不成功可长按链接进行选择复制</div>
-        <div class="fixed-button h40 flex-wrp flex-center" @click.stop="show2=!show2">关闭</div>
+        <div class="fixed-button h40 flex-wrp flex-center" @click.stop="show_recommended=false">关闭</div>
       </div>
     </x-dialog>
 
@@ -71,6 +88,7 @@
   export default {
     data () {
       return {
+        show_recommended: false,
         activities: [],
         // base-activity-swiper start
         // to  请按 router 中的 to 使用

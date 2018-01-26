@@ -50,7 +50,7 @@
         }
       },
       async fetchData () {
-        const {data} = await api.post('operator_activity', {id: this.$route.params.id})
+        const {data} = await api.post('operator_activity', {id: this.$route.params.activity_id})
 
         if (data.error) {
           alert(data.message)
