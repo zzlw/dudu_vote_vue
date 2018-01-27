@@ -14,6 +14,7 @@ $color12:#141b73;
 $color13:#29d6bf;
 $color14:#284860;
 $color15:#ff404b;
+$color16:#c0c1c2;
 
 .color0 {
     color: $color0!important;
@@ -56,6 +57,12 @@ $color15:#ff404b;
 }
 .color13 {
     color: $color13!important;
+}
+.color14 {
+    color: $color14!important;
+}
+.color15 {
+    color: $color15!important;
 }
 .bg-none{
     background:none;
@@ -116,6 +123,9 @@ $color15:#ff404b;
 }
 .bg-ff404b{
     background-color: #ff404b!important;
+}
+.bg-c0c1c2{
+    background-color: #c0c1c2!important;
 }
 
 

@@ -4,7 +4,7 @@
 
 <template>
   <div class="" :style="{paddingBottom: rem(150)}">
-    <div class="bg-alpha ptb15" :style="{width: '100%', position: 'fixed', top: 0, left: 0, 'z-index': 999}">
+    <div v-show="follow" class="bg-alpha ptb15" :style="{width: '100%', position: 'fixed', top: 0, left: 0, 'z-index': 999}">
       <div class="flex-wrp flex-between flex-align-center h100 plr50">
         <div class="flex-wrp flex-between flex-align-center">
           <div class="border-radius5 overflow-hidden bg-cover" :style="{width: rem(70),height: rem(70)}">
@@ -14,7 +14,7 @@
         </div>
         <div class="size16 color1 border-radius5 flex-wrp flex-center bg-red overflow-hidden ptb10 plr20">马上关注</div>
       </div>
-      <div class="" :style="{width: rem(50), height: rem(40),'border-bottom-right-radius': rem(50),background: '#5250a0',position: 'fixed', top: 0, left: 0}">
+      <div class="" :style="{width: rem(50), height: rem(40),'border-bottom-right-radius': rem(50),background: '#5250a0',position: 'fixed', top: 0, left: 0}" @click="follow=false">
         <div class="ml5" :style="{width: rem(25), height: rem(25)}">
           <svg class="icon base-menu-icon" aria-hidden="true">
             <use :xlink:href="`#icon-guanbi-copy`"></use>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <router-view></router-view>
-    <div class="that_tabbar w100 bg-white flex-wrp flex-align-center">
+    <div v-show="!$route.meta.notNav" class="that_tabbar w100 bg-white flex-wrp flex-align-center">
       <div class="flex-wrp ptb5 flex-center flex-cell" :style="{flex: 1}" @click="$router.push({path: `/activity/${$route.params.id}/home`})">
         <div class="ptb5" :style="{width: rem(40), height: rem(40)}">
           <svg class="icon base-menu-icon" aria-hidden="true">
@@ -62,6 +62,11 @@
 
 <script>
 export default {
+  data(){
+    return {
+      follow: true,
+    }
+  },
   mounted() {
     console.log(this,111)
   }

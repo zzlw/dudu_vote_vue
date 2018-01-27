@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="bg-cover" :style="{height: rem(300),backgroundColor:`#0ccdb6`}">
+    <div class="" :style="{height: rem(300),backgroundColor:`#0ccdb6`}">
       <div class="flex-wrp flex-cell flex-align-center pt30">
           <base-avatar :src="srcImg" class="bg-white" />
           <div class="color1 size26 pt20">{{`你好哈士奇`}}</div>
