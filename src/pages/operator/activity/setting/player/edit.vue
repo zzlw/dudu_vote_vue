@@ -10,7 +10,7 @@
         <div class="size26 color1 pl5">返回</div>
       </div>
       <div class="color1 size26 text-center" :style="{flex:3}">
-        添加选手
+        编辑选手
       </div>
       <div class="" :style="{flex:1}"></div>
     </div>
@@ -66,16 +66,22 @@
       }
     },
     async created () {
+      this.fetchData()
     },
     methods: {
+      async fetchData () {
+        let id = this.$route.params.player_id
+        const {data} = await api.get('operator_player', {id})
+        this.player.id = id
+        this.player.name = data.data.name
+        this.player.mobile = data.data.mobile
+        this.player.picture = data.data.picture
+        this.player.introduction = data.data.introduction
+      },
       async onSubmit () {
-        let activityId = this.$route.params.activity_id
-
         let requestData = this.player
 
-        requestData.id = activityId
-
-        const {data} = await api.post('operator_player_create', requestData)
+        const {data} = await api.post('operator_player_update', requestData)
 
         this.$vux.toast.show({
           text: data.message,

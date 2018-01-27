@@ -3,7 +3,7 @@
 -->
 
 <template>
-  <div class="" :style="{paddingBottom: rem(150)}">
+  <div class="" :style="{paddingBottom: rem(100)}">
     <div v-show="follow" class="bg-alpha ptb15" :style="{width: '100%', position: 'fixed', top: 0, left: 0, 'z-index': 999}">
       <div class="flex-wrp flex-between flex-align-center h100 plr50">
         <div class="flex-wrp flex-between flex-align-center">

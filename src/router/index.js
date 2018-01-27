@@ -43,6 +43,7 @@ import OperatorActivitySettingPrizeEditRank from '@/pages/operator/activity/sett
 
 import OperatorActivitySettingPlayer from '@/pages/operator/activity/setting/player'
 import OperatorActivitySettingPlayerAdd from '@/pages/operator/activity/setting/player/add'
+import OperatorActivitySettingPlayerEdit from '@/pages/operator/activity/setting/player/edit'
 import OperatorActivitySettingPlayerAdmin from '@/pages/operator/activity/setting/player/admin'
 import OperatorActivitySettingPlayerLimit from '@/pages/operator/activity/setting/player/limit'
 import OperatorActivitySettingPlayerLimitNumber from '@/pages/operator/activity/setting/player/limitNumber'
@@ -195,6 +196,10 @@ let router = new Router({
             {
               path: 'player-add',
               component: OperatorActivitySettingPlayerAdd,
+            },
+            {
+              path: 'player-edit/:player_id',
+              component: OperatorActivitySettingPlayerEdit,
             },
             {
               path: 'player-admin',

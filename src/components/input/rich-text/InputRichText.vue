@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <div v-for="(item, index) in items" :key="index">
+    <div v-if="!preview" v-for="(item, index) in items" :key="index">
 
       <div class="plr10 ptb5" v-if="item.text" :style="{height: rem(300)}">
         <OperatorActivityEditorContentText
@@ -15,7 +15,7 @@
       </div>
 
 
-      <div class="plr10 ptb5" :style="{height: rem(300)}" v-if="item.image">
+      <div class="plr10 ptb5" v-if="item.image" :style="{height: rem(300)}">
         <OperatorActivityEditorContentImage
           v-model="items[index]"
           :preview="preview"
@@ -25,11 +25,24 @@
         />
       </div>
 
-
     </div>
-    <div class="plr10 pt5 pb30">
+
+    <template v-for="(item, index) in items"  v-else>
+
+      <p v-if="item.text" >
+        {{item.text}}
+      </p>
+
+      <p v-if="item.image">
+        <img :src="item.image" alt="">
+      </p>
+
+    </template>
+
+
+    <div v-if="!preview" class="plr10 pt5 pb30">
       <div class="ptb5">
-        <div class="flex-wrp flex-center size22 border border-radius5 ptb15 bg-white" v-if="!preview" @click="addImage">
+        <div class="flex-wrp flex-center size22 border border-radius5 ptb15 bg-white" @click="addImage">
           <div class="flex-wrp flex-center" :style="{height: rem(30),width: rem(40)}">
             <svg class="icon base-menu-icon" aria-hidden="true">
               <use :xlink:href="`#icon-jia1`"></use>
@@ -73,6 +86,24 @@
       return {
         items: this.value,
       }
+    },
+    computed: {
+      textStyle () {
+        if (this.preview) {
+          return {}
+        }
+        return {
+          'minHeight': this.rem('300')
+        }
+      },
+      imageStyle () {
+        if (this.preview) {
+          return {}
+        }
+        return {
+          'minHeight': this.rem('300')
+        }
+      },
     },
     watch: {
       value () {
