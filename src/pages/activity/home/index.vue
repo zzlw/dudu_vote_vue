@@ -63,9 +63,10 @@
       <!--//搜索框-->
       <div class="bg-white ptb20">
         <div class="flex-wrp flex-middle relative plr20">
-          <input class="border border-radius50 plr20 size16 color2 ptb15 w100" :style="{'border-color': '#ddd'}"
+          <input v-model="keyword" class="border border-radius50 plr20 size16 color2 ptb15 w100"
+                 :style="{'border-color': '#ddd'}"
                  type="text" placeholder="请输入编号或者姓名"/>
-          <div class="search-icon">
+          <div class="search-icon" @click="onSearch">
             <svg class="icon base-menu-icon" aria-hidden="true">
               <use :xlink:href="`#icon-icon-`"></use>
             </svg>
@@ -85,12 +86,15 @@
         </tab-item>
       </tab>
 
+
+      <div v-if="playersLoading">加载中</div>
+
       <!--// 选手列表-->
-      <div class="pd5">
+      <div class="pd5" v-else>
         <template v-for="(item, index) in playersChunk">
           <div class="flex-wrp">
 
-            <ActivityPlayer v-for="(player, i2) in item" :player="player" :key="i2"/>
+            <ActivityPlayer @on-click-head="goPlayerIndex" v-for="(player, i2) in item" :player="player" :key="i2"/>
 
             <div class="pd5 flex-wrp flex-middle flex-cell relative" :style="{flex: 1}" v-if="item.length===1"></div>
           </div>
@@ -104,28 +108,6 @@
         <InputRichText v-model="activity.content" :preview="true"/>
       </div>
 
-      <!--投票成功-->
-      <x-dialog :show.sync="show2" :hide-on-blur="true" :dialog-style="{width: '100%'}">
-        <div class="pt30 plr30">
-          <div class="flex-wrp flex-center border-b pb20">
-            <div class="" :style="{width: rem(50), height: rem(50)}">
-              <svg class="icon base-menu-icon" aria-hidden="true">
-                <use :xlink:href="`#icon-chenggong`"></use>
-              </svg>
-            </div>
-            <div class="color2 size32 pl20">推广二维码</div>
-          </div>
-          <div class="color5 size22 ptb50">好友也可以帮忙，一天后还能再投票哦！</div>
-          <div class="ptb15 bg-ff404b size26 color1 border-radius5">给TA送礼物加票</div>
-          <div class="flex-wrp flex-center" @click="show2=false">
-            <div class="guanbi border-radius">
-              <svg class="icon base-menu-icon" aria-hidden="true" :style="{width: rem(52), height: rem(80)}">
-                <use :xlink:href="`#icon-shanchu4-copy`"></use>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </x-dialog>
     </div>
   </div>
 
@@ -143,6 +125,9 @@
   import ActivityPlayer from '@/components/activity/ActivityPlayer'
 
   import { api } from 'h5sdk'
+  import { createNamespacedHelpers } from 'vuex'
+
+  const {mapState} = createNamespacedHelpers('activity')
 
   export default {
     components: {
@@ -153,9 +138,7 @@
     },
     data () {
       return {
-        show2: false,
-        srcImg: '',
-        activity: null,
+        keyword: '',
         preview: true,
         now: moment(),
         timer: null,
@@ -165,18 +148,26 @@
           '排行选手',
           '最新选手',
         ],
-        demo3: '最热选手',
         buying: {
           time_start: 1519099695649,
           time_end: 1516199695649
         },
+        playersLoading: false,
         players: [],
         tabIndex: 0,
       }
     },
+    computed: {
+      ...mapState({
+        'activity': (state) => state.activity.info
+      }),
+      playersChunk () {
+        return chunk(this.players, 2)
+      },
+    },
     methods: {
       switchTab (index) {
-        console.log(111111)
+        this.keyword = ''
         this.tabIndex = index
         this.fetchPlayersData()
       },
@@ -188,28 +179,33 @@
           this.now
         )
       },
-      async fetchData () {
-        const {data} = await api.get('activity', {id: this.$route.params.id})
-        this.activity = data.data
+      goPlayerIndex (player) {
+        this.$router.push(`/activity/${this.activity.id}/player/${player.id}`)
+      },
+      async onSearch () {
+        this.fetchPlayersData()
       },
       async fetchPlayersData () {
-        const {data} = await api.get('activity_players', {
-          activity_id: this.$route.params.id,
-          sort_type : this.tabIndex,
-        })
+        this.playersLoading = true
+        this.players = []
+        let requestData = {
+          activity_id: this.$route.params.activity_id,
+          sort_type: this.tabIndex,
+        }
+        if (this.keyword) {
+          requestData.keyword = this.keyword
+        }
+        const {data} = await api.get('activity_players', requestData)
         this.players = data.data
+        this.playersLoading = false
       },
     },
     mounted () {
       this.timer = setInterval(this.timeUpdate, 1000)
-      this.fetchData()
+      // this.fetchData()
       this.fetchPlayersData()
     },
-    computed: {
-      playersChunk () {
-        return chunk(this.players, 2)
-      },
-    },
+
     beforeDestroy () {
       this.timer && clearInterval(this.timer)
     },

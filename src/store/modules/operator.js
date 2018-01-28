@@ -9,9 +9,6 @@ export default {
     operator: null
   },
   getters: {
-    operator (state) {
-      return state
-    }
   },
   mutations: {
     [SAVE_OPERATOR]: (state, payload) => {

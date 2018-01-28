@@ -59,7 +59,7 @@
         const {data} = await api.get('operator_activity', {id: activityId})
 
         console.log(data)
-        this.is_close_deadline = data.data.is_close_deadline
+        this.is_close_deadline = String(data.data.is_close_deadline)
         this.deadline = data.data.deadline
       }
     }

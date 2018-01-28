@@ -3,7 +3,8 @@ import Router from 'vue-router'
 
 import Activity from '@/pages/activity'
 import ActivityHome from '@/pages/activity/home'
-import ActivityMatch from '@/pages/activity/match'
+import ActivityPlayer from '@/pages/activity/player'
+
 import ActivityRanking from '@/pages/activity/ranking'
 import ActivityPrize from '@/pages/activity/prize'
 import ActivityPersonal from '@/pages/activity/personal'
@@ -67,21 +68,17 @@ let router = new Router({
       redirect: '/operator',
     },
     {
-      path: '/activity/:id',
+      path: '/activity/:activity_id',
       component: Activity,
       children: [
         {
           path: '',
-          redirect: 'home'
-        },
-        {
-          path: 'home',
           component: ActivityHome,
           meta: { index: 0 },
         },
         {
-          path: 'match',
-          component: ActivityMatch,
+          path: 'player/:id',
+          component: ActivityPlayer,
           meta: { index: 0 },
         },
         {

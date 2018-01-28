@@ -49,14 +49,17 @@
     <base-title v-if="activities.length>0" title="我的活动" icon="icon-qushi" class="mt20 border-b"/>
 
     <!--我的活动-->
-    <base-activity-list v-for="(activity, index) in activities" :key="index" :activity="activity" class="mb20"/>
+    <base-activity-list
+      v-for="(activity, index) in activities" :key="index"
+      :activity="activity"
+      @on-delete="onActivityDelete"
+      class="mb20"/>
 
     <base-title title="添加活动" class="border-b mt20"/>
 
     <base-man-template :number="89"/>
 
     <divider>我是有底线的</divider>
-
 
     <!--二维码-->
     <x-dialog :show.sync="show_recommended" :hide-on-blur="true" :dialog-style="{width: '100%'}">
@@ -146,7 +149,7 @@
     },
 
     created () {
-      this.fetchData()
+      this.fetchActivityData()
       this.fetchStatData()
     },
     computed: {
@@ -179,13 +182,24 @@
           }
         )
       },
-      async fetchData () {
+      async fetchActivityData () {
+        this.activities = []
         const {data} = await api.get('operator_activities')
         this.activities = data.data
       },
       async fetchStatData () {
         const {data} = await api.get('operator_home_statistics_data')
         this.stats = data.data
+      },
+      async onActivityDelete (activity) {
+        if (!confirm('确定删除吗?')) {
+          return
+        }
+        const {data} = await api.post('operator_activity_delete', {id: activity.id})
+        this.$vux.toast.show({
+          text: data.message,
+        })
+        this.fetchActivityData()
       },
     },
 

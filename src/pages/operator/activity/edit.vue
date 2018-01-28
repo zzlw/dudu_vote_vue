@@ -65,8 +65,8 @@
         this.activity.content = data.data.content
         this.activity.startTime = data.data.start_time
         this.activity.endTime = data.data.end_time
-        this.activity.signUpManner = data.data.sign_up_manner
-        this.activity.voteType = data.data.vote_type
+        this.activity.signUpManner = String(data.data.sign_up_manner)
+        this.activity.voteType = String(data.data.vote_type)
         this.activity.nextVoteTime = data.data.next_vote_time
         this.activity.limitedExchangeCount = data.data.limited_exchange_count
       },

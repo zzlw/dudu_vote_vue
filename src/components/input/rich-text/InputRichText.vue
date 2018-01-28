@@ -27,16 +27,13 @@
 
     </div>
 
-    <template v-for="(item, index) in items"  v-else>
-
+    <template v-if="preview" v-for="(item, index) in items">
       <p v-if="item.text" >
         {{item.text}}
       </p>
-
       <p v-if="item.image">
         <img :src="item.image" alt="">
       </p>
-
     </template>
 
 
