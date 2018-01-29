@@ -12,7 +12,7 @@
 
 <script>
 import InputText from "@/components/input/InputText";
-import { timeDiffObj } from "@/utils";
+import { timeDiffObj } from "@/utils/index";
 import chunk from 'lodash/chunk'
 import moment from "moment";
 export default {

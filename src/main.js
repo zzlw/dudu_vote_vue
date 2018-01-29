@@ -6,10 +6,12 @@ import Vue from 'vue'
 import router from 'router'
 import store from 'store'
 import plugins from 'plugins/component'
-
+import {wx} from 'h5sdk'
 import App from './App'
 
-// FastClick.attach(document.body)
+wx.setConfig(Window.AppConfig.wxJsConfig)
+
+FastClick.attach(document.body)
 
 Vue.use(plugins)
 

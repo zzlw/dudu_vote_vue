@@ -38,15 +38,17 @@
     methods: {
       async upload () {
         try {
+          const {localIds} = await wx.chooseImage()
+          console.log('wx.chooseImage')
           // 显示
-          this.$vux.toast.show({
-            text: '上传中',
+          this.$vux.loading.show({
+            text: '上传中'
           })
 
-          const {localIds} = await wx.chooseImage()
           const {serverId} = await wx.uploadImage({
             localId: localIds[0],
           })
+          console.log('wx.uploadImage')
           const {data} = await api.post('upload', {
             'server_id': serverId,
           })
@@ -54,9 +56,10 @@
             img: data.data,
             url: this.$refs.url.value,
           })
-          this.$vux.toast.hide()
+          this.$vux.loading.hide()
         } catch (e) {
-          this.$vux.toast.hide()
+          this.$vux.loading.hide()
+          console.log(e)
           alert('上传失败, 请重试')
         }
       },

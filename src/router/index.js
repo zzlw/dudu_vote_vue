@@ -4,18 +4,15 @@ import Router from 'vue-router'
 import Activity from '@/pages/activity'
 import ActivityHome from '@/pages/activity/home'
 import ActivityPlayer from '@/pages/activity/player'
+import ActivityPlayerHome from '@/pages/activity/player/home'
+import ActivityPlayerGift from '@/pages/activity/player/gift'
+import ActivityPlayerCard from '@/pages/activity/player/card'
 
 import ActivityRanking from '@/pages/activity/ranking'
 import ActivityPrize from '@/pages/activity/prize'
 import ActivityPersonal from '@/pages/activity/personal'
 import ActivityEnter from '@/pages/activity/enter'
-import ActivityEnterGift from '@/pages/activity/enter/gift'
-import ActivityExtensionCard from '@/pages/activity/extensionCard'
 import ActivityPrizeExchange from '@/pages/activity/prize/exchange'
-
-
-
-
 
 import OperatorLogin from '@/pages/operator/login'
 import OperatorJoin from '@/pages/operator/join'
@@ -77,45 +74,52 @@ let router = new Router({
           meta: { index: 0 },
         },
         {
-          path: 'player/:id',
+          path: 'player/:player_id',
           component: ActivityPlayer,
-          meta: { index: 0 },
-        },
-        {
-          path: 'ranking',
-          component: ActivityRanking,
-          meta: { index: 1 }
-        },
-        {
-          path: 'prize',
-          component: ActivityPrize,
-          meta: { index: 2 }
-        },
-        {
-          path: 'personal',
-          component: ActivityPersonal,
-          meta: { index: 3 }
-        },
-        {
-          path: 'enter',
-          component: ActivityEnter,
-          meta: { notNav: true }
-        },
-        {
-          path: 'gift',
-          component: ActivityEnterGift,
-          meta: { notNav: true }
-        },
-        {
-          path: 'extension-card',
-          component: ActivityExtensionCard,
-          meta: { notNav: true }
+          children: [
+            { // 选手主页
+              path: '',
+              component: ActivityPlayerHome,
+              meta: { notNav: true },
+            },
+            { // 推广卡
+              path: 'card',
+              component: ActivityPlayerCard,
+              meta: { notNav: true },
+            },
+            { // 赠送礼物
+              path: 'gift',
+              component: ActivityPlayerGift,
+              meta: { notNav: true },
+            },
+          ],
         },
         {
           path: 'prize-exchange',
           component: ActivityPrizeExchange,
-          meta: { notNav: true }
-        }
+          meta: { notNav: true },
+        },
+        {
+          path: 'ranking',
+          component: ActivityRanking,
+          meta: { index: 1 },
+        },
+        {
+          path: 'prize',
+          component: ActivityPrize,
+          meta: { index: 2 },
+        },
+        {
+          path: 'personal',
+          component: ActivityPersonal,
+          meta: { index: 3 },
+        },
+        {
+          path: 'enter', // 报名
+          component: ActivityEnter,
+          meta: { notNav: true },
+        },
+
       ],
     },
     {
@@ -182,7 +186,7 @@ let router = new Router({
               path: 'prize-edit/:prize_id',
               component: OperatorActivitySettingPrizeEdit,
             },
-            {        
+            {
               path: 'prize-edit-rank/:prize_id',
               component: OperatorActivitySettingPrizeEditRank,
             },
@@ -238,25 +242,25 @@ let router = new Router({
           children: [
             {
               path: '',
-              redirect: 'children'
+              redirect: 'children',
             },
             {
               path: 'children',
               component: OperatorDataChildren,
-              meta: { index: 0 }
+              meta: { index: 0 },
             },
             {
               path: 'children-admin',
               component: OperatorDataChildrenAdmin,
-              meta: { index: 2 }
+              meta: { index: 2 },
             },
             {
               path: 'children-log',
               component: OperatorDataChildrenLog,
-              meta: { index: 1 }
-            }
-          ]
-        }
+              meta: { index: 1 },
+            },
+          ],
+        },
       ],
     },
     {
