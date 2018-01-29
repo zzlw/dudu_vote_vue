@@ -94,7 +94,7 @@
           audit_manner: newVal ? '1' : '0',
         }
 
-        const {data} = await api.post('operator_activity_config', requestData)
+        const {data} = await api.post('operator_audit_switch', requestData)
 
         if (data.error) {
           this.audit_manner = oldVal ? '1' : '0'

@@ -1,8 +1,8 @@
 import moment from 'moment'
 import VueClipboard from 'vue-clipboard2'
 import {
-  Cell, Datetime, Divider, FormPreview, Group, Swiper, SwiperItem, Tab, TabItem, Toast, ToastPlugin, XAddress,
-    XButton, XDialog, XInput, XNumber, XSwitch, XTextarea, Tabbar, TabbarItem
+  Cell, Datetime, Divider, FormPreview, Group, Swiper, SwiperItem, Tab, Tabbar, TabbarItem, TabItem, Toast,
+  ToastPlugin, XAddress, XButton, XDialog, XInput, XNumber, XSwitch, XTextarea,
 } from 'vux'
 
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -48,8 +48,8 @@ export default {
     Vue.component('XTextarea', XTextarea)
     Vue.component('FormPreview', FormPreview)
 
-      Vue.component('Tabbar', Tabbar)
-      Vue.component('TabbarItem', TabbarItem)
+    Vue.component('Tabbar', Tabbar)
+    Vue.component('TabbarItem', TabbarItem)
 
     Vue.use(ToastPlugin)
     Vue.use(Toast)
