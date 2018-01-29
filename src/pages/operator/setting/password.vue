@@ -7,7 +7,7 @@
             <use :xlink:href="`#icon-zuojiantou`"></use>
           </svg>
         </div>
-        <div class="size26 color1 pl5">返回</div>
+        <div class="size26 color1 pl5" @click="$router.back()">返回</div>
       </div>
 
       <div class="color1 size26 text-center" :style="{flex:3}">
