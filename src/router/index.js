@@ -27,8 +27,7 @@ import OperatorSetting from '@/pages/operator/setting/index'
 import OperatorSettingMobile from '@/pages/operator/setting/mobile'
 import OperatorSettingPassword from '@/pages/operator/setting/password'
 import OperatorSettingLogout from '@/pages/operator/setting/logout'
-// 活动设置
-import OperatorActivitySetting from '@/pages/operator/activity/setting'
+import OperatorActivity from '@/pages/operator/activity'
 import OperatorActivitySettingHome from '@/pages/operator/activity/setting/home'
 
 import OperatorActivitySettingFollow from '@/pages/operator/activity/setting/follow'
@@ -50,10 +49,11 @@ import OperatorWithdrawals from '@/pages/operator/withdrawals'
 import OperatorWithdrawalsLog from '@/pages/operator/withdrawals/log'
 import OperatorWithdrawalsTotal from '@/pages/operator/withdrawals/Total'
 
-import OperatorData from '@/pages/operator/data'
-import OperatorDataChildren from '@/pages/operator/data/children'
-import OperatorDataChildrenAdmin from '@/pages/operator/data/children/admin'
-import OperatorDataChildrenLog from '@/pages/operator/data/children/log'
+import OperatorData from '@/pages/operator/activity/data'
+import OperatorDataChildren from '@/pages/operator/activity/data/children'
+import OperatorDataChildrenAdmin from '@/pages/operator/activity/data/children/admin'
+import OperatorDataChildrenLog from '@/pages/operator/activity/data/children/log'
+// 活动设置
 
 Vue.use(Router)
 
@@ -71,7 +71,7 @@ let router = new Router({
         {
           path: '',
           component: ActivityHome,
-          meta: { index: 0 },
+          meta: {index: 0},
         },
         {
           path: 'player/:player_id',
@@ -80,44 +80,44 @@ let router = new Router({
             { // 选手主页
               path: '',
               component: ActivityPlayerHome,
-              meta: { notNav: true },
+              meta: {notNav: true},
             },
             { // 推广卡
               path: 'card',
               component: ActivityPlayerCard,
-              meta: { notNav: true },
+              meta: {notNav: true},
             },
             { // 赠送礼物
               path: 'gift',
               component: ActivityPlayerGift,
-              meta: { notNav: true },
+              meta: {notNav: true},
             },
           ],
         },
         {
           path: 'prize-exchange',
           component: ActivityPrizeExchange,
-          meta: { notNav: true },
+          meta: {notNav: true},
         },
         {
           path: 'ranking',
           component: ActivityRanking,
-          meta: { index: 1 },
+          meta: {index: 1},
         },
         {
           path: 'prize',
           component: ActivityPrize,
-          meta: { index: 2 },
+          meta: {index: 2},
         },
         {
           path: 'personal',
           component: ActivityPersonal,
-          meta: { index: 3 },
+          meta: {index: 3},
         },
         {
           path: 'enter', // 报名
           component: ActivityEnter,
-          meta: { notNav: true },
+          meta: {notNav: true},
         },
 
       ],
@@ -163,64 +163,89 @@ let router = new Router({
           component: OperatorActivityEdit,
         },
         {
-          path: 'activity/:activity_id/settings', // 活动设置(更多设置)
-          component: OperatorActivitySetting,
+          path: 'activity/:activity_id', // 活动编辑
+          component: OperatorActivity,
           children: [
             {
-              path: '',
+              path: 'setting',
               component: OperatorActivitySettingHome,
             },
             {
-              path: 'prize',
+              path: 'setting/prize',
               component: OperatorActivitySettingPrize,
             },
             {
-              path: 'prize-add',
+              path: 'setting/prize-add',
               component: OperatorActivitySettingPrizeAdd,
             },
             {
-              path: 'prize-add-rank',
+              path: 'setting/prize-add-rank',
               component: OperatorActivitySettingPrizeAddRank,
             },
             {
-              path: 'prize-edit/:prize_id',
+              path: 'setting/setting/prize-edit/:prize_id',
               component: OperatorActivitySettingPrizeEdit,
             },
             {
-              path: 'prize-edit-rank/:prize_id',
+              path: 'setting/prize-edit-rank/:prize_id',
               component: OperatorActivitySettingPrizeEditRank,
             },
             {
-              path: 'player',
+              path: 'setting/player',
               component: OperatorActivitySettingPlayer,
             },
             {
-              path: 'player-add',
+              path: 'setting/player-add',
               component: OperatorActivitySettingPlayerAdd,
             },
             {
-              path: 'player-edit/:player_id',
+              path: 'setting/player-edit/:player_id',
               component: OperatorActivitySettingPlayerEdit,
             },
             {
-              path: 'player-admin',
+              path: 'setting/player-admin',
               component: OperatorActivitySettingPlayerAdmin,
             },
             {
-              path: 'player-limit',
+              path: 'setting/player-limit',
               component: OperatorActivitySettingPlayerLimit,
             },
             {
-              path: 'player-limit-number',
+              path: 'setting/player-limit-number',
               component: OperatorActivitySettingPlayerLimitNumber,
             },
             {
-              path: 'share',
+              path: 'setting/share',
               component: OperatorActivitySettingShare,
             },
             {
-              path: 'follow',
+              path: 'setting/follow',
               component: OperatorActivitySettingFollow,
+            },
+            {
+              path: 'data',
+              component: OperatorData,
+              children: [
+                {
+                  path: '',
+                  redirect: 'children',
+                },
+                {
+                  path: 'children',
+                  component: OperatorDataChildren,
+                  meta: {index: 0},
+                },
+                {
+                  path: 'children-admin',
+                  component: OperatorDataChildrenAdmin,
+                  meta: {index: 2},
+                },
+                {
+                  path: 'children-log',
+                  component: OperatorDataChildrenLog,
+                  meta: {index: 1},
+                },
+              ],
             },
           ],
         },
@@ -235,31 +260,6 @@ let router = new Router({
         {
           path: 'withdrawals-total',
           component: OperatorWithdrawalsTotal,
-        },
-        {
-          path: 'data',
-          component: OperatorData,
-          children: [
-            {
-              path: '',
-              redirect: 'children',
-            },
-            {
-              path: 'children',
-              component: OperatorDataChildren,
-              meta: { index: 0 },
-            },
-            {
-              path: 'children-admin',
-              component: OperatorDataChildrenAdmin,
-              meta: { index: 2 },
-            },
-            {
-              path: 'children-log',
-              component: OperatorDataChildrenLog,
-              meta: { index: 1 },
-            },
-          ],
         },
       ],
     },
