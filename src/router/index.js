@@ -159,67 +159,67 @@ let router = new Router({
           component: OperatorActivityCreate,
         },
         {
-          path: 'activity/:activity_id/edit', // 活动编辑
-          component: OperatorActivityEdit,
-        },
-        {
           path: 'activity/:activity_id', // 活动编辑
           component: OperatorActivity,
           children: [
             {
-              path: 'setting',
+              path: 'edit', // 活动编辑
+              component: OperatorActivityEdit,
+            },
+            {
+              path: 'settings',
               component: OperatorActivitySettingHome,
             },
             {
-              path: 'setting/prize',
+              path: 'settings/prize',
               component: OperatorActivitySettingPrize,
             },
             {
-              path: 'setting/prize-add',
+              path: 'settings/prize-add',
               component: OperatorActivitySettingPrizeAdd,
             },
             {
-              path: 'setting/prize-add-rank',
+              path: 'settings/prize-add-rank',
               component: OperatorActivitySettingPrizeAddRank,
             },
             {
-              path: 'setting/setting/prize-edit/:prize_id',
+              path: 'settings/prize-edit/:prize_id',
               component: OperatorActivitySettingPrizeEdit,
             },
             {
-              path: 'setting/prize-edit-rank/:prize_id',
+              path: 'settings/prize-edit-rank/:prize_id',
               component: OperatorActivitySettingPrizeEditRank,
             },
             {
-              path: 'setting/player',
+              path: 'settings/player',
               component: OperatorActivitySettingPlayer,
             },
             {
-              path: 'setting/player-add',
+              path: 'settings/player-add',
               component: OperatorActivitySettingPlayerAdd,
             },
             {
-              path: 'setting/player-edit/:player_id',
+              path: 'settings/player-edit/:player_id',
               component: OperatorActivitySettingPlayerEdit,
             },
             {
-              path: 'setting/player-admin',
+              path: 'settings/player-admin',
               component: OperatorActivitySettingPlayerAdmin,
             },
             {
-              path: 'setting/player-limit',
+              path: 'settings/player-limit',
               component: OperatorActivitySettingPlayerLimit,
             },
             {
-              path: 'setting/player-limit-number',
+              path: 'settings/player-limit-number',
               component: OperatorActivitySettingPlayerLimitNumber,
             },
             {
-              path: 'setting/share',
+              path: 'settings/share',
               component: OperatorActivitySettingShare,
             },
             {
-              path: 'setting/follow',
+              path: 'settings/follow',
               component: OperatorActivitySettingFollow,
             },
             {

@@ -6,13 +6,10 @@
 </template>
 
 <script>
-  const IEcharts = require.ensure([], function (require) {
-    require('vue-echarts-v3/src/full.js')
-  })
+  import IEcharts from 'vue-echarts-v3/src/full.js'
 
-  // import IEcharts from 'vue-echarts-v3/src/full.js'
+  // const symbolSize = 20
 
-  const symbolSize = 20
   let data = [
     ['07-10', 9100],
     ['07-11', 9200],

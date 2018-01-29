@@ -14,7 +14,7 @@
       </div>
       <div class="" :style="{flex:1}"></div>
     </div>
-    <base-tiele title="今日数据" class="border-b"/>
+    <base-title title="今日数据" class="border-b"/>
     <div class="plr10 ptb5 bg-white">
       <div class="flex-wrp flex-around">
         <div class="size26 color2">
@@ -35,7 +35,7 @@
       <div class="color1 size34">总营业额</div>
       <div class="color1 size34">1230.56元</div>
     </div>
-    <base-tiele title="今日数据" class="border-b mt20"/>
+    <base-title title="今日数据" class="border-b mt20"/>
     <div class="pd20 echarts bg-white">
       <Echarts/>
     </div>
