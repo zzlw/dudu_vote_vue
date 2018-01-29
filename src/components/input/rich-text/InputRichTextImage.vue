@@ -44,11 +44,13 @@
     methods: {
       async upload () {
         try {
-          // 显示
-          this.$vux.toast.show({
-            text: '上传中',
-          })
           const {localIds} = await wx.chooseImage()
+
+          // 显示
+          this.$vux.loading.show({
+            text: '上传中'
+          })
+
           const {serverId} = await wx.uploadImage({
             localId: localIds[0],
           })
@@ -58,10 +60,10 @@
           this.$emit('input', {
             image: data.data,
           })
-          this.$vux.toast.hide()
+          this.$vux.loading.hide()
         } catch (e) {
           console.log(e)
-          this.$vux.toast.hide()
+          this.$vux.loading.hide()
           alert('上传失败, 请重试')
         }
       },

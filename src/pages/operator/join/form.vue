@@ -5,7 +5,7 @@
 <template>
     <div class="pb60">
         <div class="w100 flex-wrp flex-center size38 color2">
-          <img width="100%" src="~/assets/img/web/2.png" class="bg-cover"/>
+          <img width="100%" src="~/assets/img/web/1.png" class="bg-cover"/>
         </div>
         <base-title title="申请入住服务商"/>
         <group label-width="2rem" label-margin-right="2em" label-align="left" gutter="0">

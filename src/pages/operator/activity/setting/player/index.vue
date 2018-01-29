@@ -90,7 +90,7 @@
         let activityId = this.$route.params.activity_id
 
         let requestData = {
-          id: activityId,
+          activity_id: activityId,
           audit_manner: newVal ? '1' : '0',
         }
 
