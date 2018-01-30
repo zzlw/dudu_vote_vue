@@ -4,19 +4,16 @@
 </template>
 
 <script>
-  import { mapMutations, mapState } from 'vuex'
-  import { api } from 'h5sdk'
-  import { SAVE_OPERATOR } from '@/store/modules/operator'
+  import { createNamespacedHelpers } from 'vuex'
+
+  const {mapState, mapActions} = createNamespacedHelpers('operator')
 
   export default {
     data () {
       return {}
     },
     async created () {
-      await api.post('operator_logout')
-      this.saveOp({
-        operator: null
-      })
+      await this.logout()
       this.$router.push('/operator-login')
     },
     computed: {
@@ -25,12 +22,9 @@
       }),
     },
     methods: {
-      ...mapMutations({
-        'saveOp': 'operator/' + SAVE_OPERATOR,
-      }),
-      logout () {
-        console.log('logout')
-      },
+      ...mapActions([
+        'logout',
+      ]),
     },
   }
 </script>

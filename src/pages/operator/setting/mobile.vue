@@ -43,8 +43,9 @@
   import { api } from 'h5sdk'
   import { timeDiffObj } from '@/utils'
   import moment from 'moment'
-  import { mapState, mapMutations } from 'vuex'
-  import { SAVE_OPERATOR } from '@/store/modules/operator'
+  import { createNamespacedHelpers } from 'vuex'
+
+  const {mapState, mapActions} = createNamespacedHelpers('operator')
 
   export default {
     data () {
@@ -60,14 +61,14 @@
     },
     async created () {},
     computed: {
-      ...mapState('operator', {
-        'operator': 'operator',
+      ...mapState({
+        'operator': state => state.operator.info,
       }),
     },
     methods: {
-      ...mapMutations({
-        'saveOp': 'operator/' + SAVE_OPERATOR,
-      }),
+      ...mapActions([
+        'fetchOperator',
+      ]),
       timeUpdate (time) {
         if (moment().isBefore(this.time_start)) {
           this.timeValue = timeDiffObj(this.time_start, time)
@@ -119,11 +120,7 @@
           text: '操作成功',
         })
 
-        this.saveOp({
-          operator: Object.assign({}, this.operator, {
-            mobile: this.mobile
-          })
-        })
+        this.fetchOperator()
 
         setTimeout(function () {
           that.$router.back()

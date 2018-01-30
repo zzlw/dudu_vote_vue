@@ -18,16 +18,12 @@
       props: {
         number: {
           type: [String, Number],
-          required: true
+          required: true,
         },
-        src: {
-          type: [String],
-          required: false
-        }
       },
       data () {
         return {
-          status: false
+          status: false,
         }
       },
 
@@ -38,8 +34,8 @@
       methods: {
         goCreate () {
           this.$router.push('/operator/activity/create?theme=default')
-        }
-      }
+        },
+      },
     }
 </script>
 
