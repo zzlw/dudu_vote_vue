@@ -19,7 +19,7 @@
       </div>
 
 
-      <div class="flex-wrp flex-cell flex-align-center">
+      <div v-if="top3[0]" class="flex-wrp flex-cell flex-align-center">
         <div class="rankingNo1 flex-wrp flex-cell flex-align-center overflow-hidden"
              :style="{width: rem(204), height: rem(171)}">
           <div class="border-radius mt10 overflow-hidden"
@@ -35,7 +35,7 @@
         <div class="color4 pt10">{{top3[0].gain_votes}}票</div>
       </div>
 
-      <div class="flex-wrp flex-cell flex-align-center">
+      <div v-if="top3[2]" class="flex-wrp flex-cell flex-align-center">
         <div class="border-radius overflow-hidden"
              :style="{width: rem(120), height: rem(120), border: '4px solid #cdc0b2'}">
           <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
