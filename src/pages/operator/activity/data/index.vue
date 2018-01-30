@@ -1,5 +1,5 @@
 <template>
-  <div class="pb60">
+  <div class="pb60" style="width: 100%; height: 100%;">
     <router-view></router-view>
     <tabbar v-model="$route.meta.index" :style="{ position: 'fixed' }" class="bg-284860">
       <tabbar-item class="border-r" :link="{path:'children', replace: true}">
@@ -15,36 +15,3 @@
   </div>
 
 </template>
-
-<script>
-  export default {
-    data () {
-      return {
-        index: 1,
-        list3: [
-          {
-            title: '全部选手',
-            number: 3423,
-          },
-          {
-            title: '未审核',
-            number: 3423,
-          },
-          {
-            title: '已审核',
-            number: 3423,
-          },
-        ],
-      }
-    },
-    async created () {
-      console.log(this)
-    },
-
-    methods: {},
-  }
-</script>
-
-<style lang="scss" scoped>
-
-</style>
