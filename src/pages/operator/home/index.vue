@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="bg-deepblue">
+    <div class="_bg-images">
       <div class="flex-wrp flex-center ptb60">
         <div class="size60 color1">{{(+operator.balance).toFixed(2)}}</div>
-        <div class="border border-radius5 ptb5 plr20 ml20 color1 size16">立即提现</div>
+        <div class="border border-radius5 ptb5 plr20 ml20 color1 size16" @click="$router.push('/operator/withdrawals')">立即提现</div>
       </div>
 
       <base-data-three :data="stats.total">
@@ -165,7 +165,7 @@
 
     methods: {
       async doCopy () {
-        this.$copyText(this.ewmLink).then(
+        this.$copyText(this.operator.recommended_link).then(
           (e) => {
             this.$vux.toast.show({
               type: 'success',
@@ -207,6 +207,8 @@
 </script>
 
 <style lang="scss" scoped>
-
+._bg-images{
+  background: url(~assets/img/web/adf12adf_02.jpg) no-repeat center / cover;
+}
 </style>
 

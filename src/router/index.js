@@ -1,58 +1,66 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Activity from '@/pages/activity'
-import ActivityHome from '@/pages/activity/home'
-import ActivityPlayer from '@/pages/activity/player'
-import ActivityPlayerHome from '@/pages/activity/player/home'
-import ActivityPlayerGift from '@/pages/activity/player/gift'
-import ActivityPlayerCard from '@/pages/activity/player/card'
 
-import ActivityRanking from '@/pages/activity/ranking'
-import ActivityPrize from '@/pages/activity/prize'
-import ActivityPersonal from '@/pages/activity/personal'
-import ActivityEnter from '@/pages/activity/enter'
-import ActivityPrizeExchange from '@/pages/activity/prize/exchange'
+const Activity = r => require.ensure([], () => r(require('@/pages/activity')), 'Activity')
+const ActivityHome = r => require.ensure([], () => r(require('@/pages/activity/home')), 'ActivityHome')
+const ActivityPlayer = r => require.ensure([], () => r(require('@/pages/activity/player')), 'ActivityPlayer')
+const ActivityPlayerHome = r => require.ensure([], () => r(require('@/pages/activity/player/home')), 'ActivityPlayerHome')
+const ActivityPlayerGift = r => require.ensure([], () => r(require('@/pages/activity/player/gift')), 'ActivityPlayerGift')
+const ActivityPlayerCard = r => require.ensure([], () => r(require('@/pages/activity/player/card')), 'ActivityPlayerCard')
 
-import OperatorLogin from '@/pages/operator/login'
-import OperatorJoin from '@/pages/operator/join'
-import OperatorJoinForm from '@/pages/operator/join/form'
 
-import Operator from '@/pages/operator/index'
-import OperatorHome from '@/pages/operator/home'
-import OperatorActivityCreate from '@/pages/operator/activity/create'
-import OperatorActivityEdit from '@/pages/operator/activity/edit'
+const ActivityRanking = r => require.ensure([], () => r(require('@/pages/activity/ranking')), 'ActivityRanking')
+const ActivityPrize = r => require.ensure([], () => r(require('@/pages/activity/prize')), 'ActivityPrize')
+const ActivityPersonal = r => require.ensure([], () => r(require('@/pages/activity/personal')), 'ActivityPersonal')
+const ActivityEnter = r => require.ensure([], () => r(require('@/pages/activity/enter')), 'ActivityEnter')
+const ActivityPrizeExchange = r => require.ensure([], () => r(require('@/pages/activity/prize/exchange')), 'ActivityPrizeExchange')
 
-import OperatorSetting from '@/pages/operator/setting/index'
-import OperatorSettingMobile from '@/pages/operator/setting/mobile'
-import OperatorSettingPassword from '@/pages/operator/setting/password'
-import OperatorSettingLogout from '@/pages/operator/setting/logout'
-import OperatorActivity from '@/pages/operator/activity'
-import OperatorActivitySettingHome from '@/pages/operator/activity/setting/home'
 
-import OperatorActivitySettingFollow from '@/pages/operator/activity/setting/follow'
-import OperatorActivitySettingShare from '@/pages/operator/activity/setting/share'
-import OperatorActivitySettingPrize from '@/pages/operator/activity/setting/prize/index'
-import OperatorActivitySettingPrizeAdd from '@/pages/operator/activity/setting/prize/add'
-import OperatorActivitySettingPrizeAddRank from '@/pages/operator/activity/setting/prize/add-rank'
-import OperatorActivitySettingPrizeEdit from '@/pages/operator/activity/setting/prize/edit'
-import OperatorActivitySettingPrizeEditRank from '@/pages/operator/activity/setting/prize/edit-rank'
+const OperatorLogin = r => require.ensure([], () => r(require('@/pages/operator/login')), 'OperatorLogin')
+const OperatorJoin = r => require.ensure([], () => r(require('@/pages/operator/join')), 'OperatorJoin')
+const OperatorJoinForm = r => require.ensure([], () => r(require('@/pages/operator/join/form')), 'OperatorJoinForm')
 
-import OperatorActivitySettingPlayer from '@/pages/operator/activity/setting/player'
-import OperatorActivitySettingPlayerAdd from '@/pages/operator/activity/setting/player/add'
-import OperatorActivitySettingPlayerEdit from '@/pages/operator/activity/setting/player/edit'
-import OperatorActivitySettingPlayerAdmin from '@/pages/operator/activity/setting/player/admin'
-import OperatorActivitySettingPlayerLimit from '@/pages/operator/activity/setting/player/limit'
-import OperatorActivitySettingPlayerLimitNumber from '@/pages/operator/activity/setting/player/limitNumber'
 
-import OperatorWithdrawals from '@/pages/operator/withdrawals'
-import OperatorWithdrawalsLog from '@/pages/operator/withdrawals/log'
-import OperatorWithdrawalsTotal from '@/pages/operator/withdrawals/Total'
+const Operator = r => require.ensure([], () => r(require('@/pages/operator/index')), 'Operator')
+const OperatorHome = r => require.ensure([], () => r(require('@/pages/operator/home')), 'OperatorHome')
+const OperatorActivityCreate = r => require.ensure([], () => r(require('@/pages/operator/activity/create')), 'OperatorActivityCreate')
+const OperatorActivityEdit = r => require.ensure([], () => r(require('@/pages/operator/activity/edit')), 'OperatorActivityEdit')
 
-import OperatorData from '@/pages/operator/activity/data'
-import OperatorDataChildren from '@/pages/operator/activity/data/children'
-import OperatorDataChildrenAdmin from '@/pages/operator/activity/data/children/admin'
-import OperatorDataChildrenLog from '@/pages/operator/activity/data/children/log'
+const OperatorSetting = r => require.ensure([], () => r(require('@/pages/operator/setting/index')), 'OperatorSetting')
+const OperatorSettingMobile = r => require.ensure([], () => r(require('@/pages/operator/setting/mobile')), 'OperatorSettingMobile')
+const OperatorSettingPassword = r => require.ensure([], () => r(require('@/pages/operator/setting/password')), 'OperatorSettingPassword')
+const OperatorSettingLogout = r => require.ensure([], () => r(require('@/pages/operator/setting/logout')), 'OperatorSettingLogout')
+const OperatorActivity = r => require.ensure([], () => r(require('@/pages/operator/activity')), 'OperatorActivity')
+const OperatorActivitySettingHome = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/home')), 'OperatorActivitySettingHome')
+
+
+const OperatorActivitySettingFollow = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/follow')), 'OperatorActivitySettingFollow')
+const OperatorActivitySettingShare = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/share')), 'OperatorActivitySettingShare')
+const OperatorActivitySettingPrize = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/prize/index')), 'OperatorActivitySettingPrize')
+const OperatorActivitySettingPrizeAdd = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/prize/add')), 'OperatorActivitySettingPrizeAdd')
+const OperatorActivitySettingPrizeAddRank = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/prize/add-rank')), 'OperatorActivitySettingPrizeAddRank')
+const OperatorActivitySettingPrizeEdit = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/prize/edit')), 'OperatorActivitySettingPrizeEdit')
+const OperatorActivitySettingPrizeEditRank = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/prize/edit-rank')), 'OperatorActivitySettingPrizeEditRank')
+
+
+const OperatorActivitySettingPlayer = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/player')), 'OperatorActivitySettingPlayer')
+const OperatorActivitySettingPlayerAdd = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/player/add')), 'OperatorActivitySettingPlayerAdd')
+const OperatorActivitySettingPlayerEdit = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/player/edit')), 'OperatorActivitySettingPlayerEdit')
+const OperatorActivitySettingPlayerAdmin = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/player/admin')), 'OperatorActivitySettingPlayerAdmin')
+const OperatorActivitySettingPlayerLimit = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/player/limit')), 'OperatorActivitySettingPlayerLimit')
+const OperatorActivitySettingPlayerLimitNumber = r => require.ensure([], () => r(require('@/pages/operator/activity/setting/player/limitNumber')), 'OperatorActivitySettingPlayerLimitNumber')
+
+
+const OperatorWithdrawals = r => require.ensure([], () => r(require('@/pages/operator/withdrawals')), 'OperatorWithdrawals')
+const OperatorWithdrawalsLog = r => require.ensure([], () => r(require('@/pages/operator/withdrawals/log')), 'OperatorWithdrawalsLog')
+const OperatorWithdrawalsTotal = r => require.ensure([], () => r(require('@/pages/operator/withdrawals/Total')), 'OperatorWithdrawalsTotal')
+
+const OperatorData = r => require.ensure([], () => r(require('@/pages/operator/activity/data')), 'OperatorData')
+const OperatorDataChildren = r => require.ensure([], () => r(require('@/pages/operator/activity/data/children')), 'OperatorDataChildren')
+const OperatorDataChildrenAdmin = r => require.ensure([], () => r(require('@/pages/operator/activity/data/children/admin')), 'OperatorDataChildrenAdmin')
+const OperatorDataChildrenLog = r => require.ensure([], () => r(require('@/pages/operator/activity/data/children/log')), 'OperatorDataChildrenLog')
+
 // 活动设置
 
 Vue.use(Router)

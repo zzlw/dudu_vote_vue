@@ -15,7 +15,7 @@
             <div class=""  :style="{flex:1}"></div>
         </div>
         <group label-width="4em" label-margin-right="2em" label-align="left">
-            <cell title="提现金额" is-link value-align="right" value="提现记录" gutter=".3rem" link='/'></cell>
+            <cell title="提现金额" is-link value-align="right" value="提现记录" gutter=".3rem" link='/operator/withdrawals-log'></cell>
              <cell>
                 <div slot="icon" class="ptb15 flex-wrp flex-align-center flex-between" >
                     <div class="flex-wrp flex-align-center">

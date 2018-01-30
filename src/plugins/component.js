@@ -2,7 +2,7 @@ import moment from 'moment'
 import VueClipboard from 'vue-clipboard2'
 import {
   Cell, Datetime, Divider, FormPreview, Group, Swiper, SwiperItem, Tab, Tabbar, TabbarItem, TabItem, Toast,
-  ToastPlugin, XAddress, XButton, XDialog, XInput, XNumber, XSwitch, XTextarea,LoadingPlugin,
+  ToastPlugin, XAddress, XButton, XDialog, XInput, XNumber, XSwitch, XTextarea, LoadingPlugin, ConfirmPlugin
 } from 'vux'
 
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -53,6 +53,7 @@ export default {
 
     Vue.use(ToastPlugin)
     Vue.use(LoadingPlugin)
+    Vue.use(ConfirmPlugin)
     // Vue.use(Toast)
 
     // 复制到剪切板

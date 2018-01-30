@@ -1,10 +1,10 @@
 <template>
   <div class="pl20 ptb30 flex-wrp flex-between bg-white">
-    <div class="" :style="{width: rem(360),height: rem(130)}" @click.stop="$router.push(`/activity/${activity.id}`)">
+    <div class="" :style="{width: rem(170),height: rem(130)}" @click.stop="$router.push(`/activity/${activity.id}`)">
       <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
            :style="{backgroundImage:`url(${thumb})`}"/>
     </div>
-    <div class="plr20 border-r flex-wrp flex-cell flex-between">
+    <div class="plr20 border-r flex-wrp flex-cell flex-between" :style="{flex: 1}">
       <div class="title size26 color5 text-nowrap-three">{{activity.title}}</div>
       <div class="flex-wrp">
         <div class="flex-wrp pr10 flex-center">
@@ -38,8 +38,8 @@
       <!--<slot name="setUp" :v-show="setUpStatus"/>-->
       <!--<slot/>-->
 
-      <div class="border ptb5 plr10 border-radius5 text-center color1 size22 overflow-hidden color13"
-           :style="{'border-color':'#29d6bf'}" @click.stop="setUpStatus=!setUpStatus">设置
+      <div class="ptb5 plr10 border-radius5 text-center size22 overflow-hidden color13"
+           :style="{'border':'1px solid #29d6bf !important'}" @click.stop="setUpStatus=!setUpStatus">设<br>置
       </div>
 
       <div class="relative" v-show="setUpStatus">
@@ -106,7 +106,18 @@
 
     methods: {
       async onDelete () {
-        this.$emit('on-delete', this.activity)
+        let that= this;
+        this.$vux.confirm.show({
+          // 组件除show外的属性
+          title: '删除',
+          content: '确定要删除吗？',
+          onCancel () {
+          },
+          onConfirm () {
+            that.$emit('on-delete', that.activity)
+          }
+        })
+
       },
     }
   }
