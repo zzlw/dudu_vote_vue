@@ -6,7 +6,7 @@
     </div>
     <div class="plr20 border-r flex-wrp flex-cell flex-between" :style="{flex: 1}">
       <div class="title size26 color5 text-nowrap-three">{{activity.title}}</div>
-      <div class="flex-wrp">
+      <div @click="goDataBoard" class="flex-wrp">
         <div class="flex-wrp pr10 flex-center">
           <div :style="{width: rem(30),height: rem(30)}" class="mr5">
             <svg class="icon base-menu-icon" aria-hidden="true">
@@ -106,7 +106,7 @@
 
     methods: {
       async onDelete () {
-        let that= this;
+        let that = this
         this.$vux.confirm.show({
           // 组件除show外的属性
           title: '删除',
@@ -117,8 +117,10 @@
             that.$emit('on-delete', that.activity)
           }
         })
-
       },
+      goDataBoard () {
+        this.$router.push(`/operator/activity/${this.activity.id}/data/children`)
+      }
     }
   }
 </script>

@@ -1,33 +1,8 @@
 <template>
   <div class="">
-    <InputSwiper  :style="{height: rem(300)}" v-model="activity.sliders" :preview="true" :show-dots="true"/>
+    <InputSwiper :style="{height: rem(300)}" v-model="activity.sliders" :preview="true" :show-dots="true"/>
 
-    <div v-if="prizes.encourage_prizes" v-for="prize in prizes.encourage_prizes" class="plr20 bg-white">
-      <div class="color2 size26 text-center ptb20 mt15">— 活动鼓励奖 —</div>
-      <div class="flex-wrp flex-between flex-align-center pb15">
-        <div class="color5 size26">{{prize.name}}</div>
-        <div class="color1 size22 border-radius5 bg-ff404b plr15 ptb10">{{prize.exchanged_count}}礼物票兑换</div>
-      </div>
-      <!-- <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${srcImg})`}" /> -->
-      <!--<div class="color4 size26 flex-wrp flex-center bg-ddd" :style="{height: rem(300)}">后台编辑图片</div>-->
-      <!--<div class="color4 size26 flex-wrp flex-center ptb15">后台编辑文字</div>-->
-
-      <InputRichText class="color4 size26  ptb15" v-model="prize.details" :preview="true" />
-
-    </div>
-
-    <div v-if="prizes.ranking_prizes" v-for="prize in prizes.ranking_prizes" class="plr20 bg-white">
-      <div class="color2 size26 text-center ptb20 mt15">— 活动排名奖 —</div>
-      <div class="flex-wrp flex-between flex-align-center pb15">
-        <div class="color5 size26">{{prize.name}}</div>
-      </div>
-      <!-- <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${srcImg})`}" /> -->
-      <!--<div class="color4 size26 flex-wrp flex-center bg-ddd" :style="{height: rem(300)}">后台编辑图片</div>-->
-      <!--<div class="color4 size26 flex-wrp flex-center ptb15">后台编辑文字</div>-->
-
-      <InputRichText class="color4 size26  ptb15" v-model="prize.details" :preview="true" />
-
-    </div>
+    <ActivityPrizes v-if="info" :prizes="info"/>
 
     <div class="plr20 bg-white">
       <div class="color2 size26 text-center ptb20 mt15">— 活动介绍 —</div>
@@ -40,41 +15,37 @@
 </template>
 
 <script>
-  import { api } from 'h5sdk'
   import InputRichText from '@/components/input/rich-text/InputRichText'
   import InputSwiper from '@/components/input/swiper/InputSwiper'
+  import ActivityPrizes from '@/components/activity/ActivityPrizes'
   import { createNamespacedHelpers } from 'vuex'
 
-  const {mapState} = createNamespacedHelpers('activity')
+  const {mapState, mapActions} = createNamespacedHelpers('activity')
 
   export default {
     components: {
       InputRichText,
       InputSwiper,
+      ActivityPrizes,
     },
     data () {
-      return {
-        prizes: {
-        },
-      }
+      return {}
     },
     computed: {
       ...mapState({
         activity: (state) => state.activity.info,
+        info: (state) => state.prizes.info,
+        prizes: (state) => state.prizes,
       }),
     },
     methods: {
-      async fetchData () {
-        const {data} = await api.get('activity_prizes', {activity_id: this.$route.params.activity_id})
-        this.prizes = data.data
-      },
+      ...mapActions([
+        'fetchActivityPrizes',
+      ]),
     },
     mounted () {
-      this.fetchData()
+      this.fetchActivityPrizes(this.activity.id)
     },
-    beforeDestroy () {
-    },
-
   }
 </script>
 

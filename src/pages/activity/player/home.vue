@@ -67,7 +67,10 @@
           </router-link>
         </div>
         <div class="plr20 ptb10">
-          <div class="bg-ff404b color1 size26 text-center border-radius5 ptb15">生成海报</div>
+          <router-link :to="`/activity/${activity.id}/player/${player.id}/card`">
+            <div class="bg-ff404b color1 size26 text-center border-radius5 ptb15">生成海报</div>
+          </router-link>
+
         </div>
       </div>
 
@@ -111,59 +114,23 @@
         <div class="size16 color5 ptb10 text-center bg-white">没有更多了</div>
       </div>
 
-
       <div class="plr20 bg-white">
         <div class="color2 size26 text-center ptb20 mt15">— 活动介绍 —</div>
-        <!-- <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${srcImg})`}" /> -->
-        <!--<div class="color4 size26 flex-wrp flex-center bg-ddd" :style="{height: rem(300)}">后台编辑图片</div>-->
         <div class="color4 size26 flex-wrp flex-center ptb15">
-
           <InputRichText v-model="activity.content" :preview="true"/>
-
-
         </div>
       </div>
 
+      <ActivityPrizes :prizes="prizes"/>
 
-      <!--<div class="plr20 bg-white">-->
-      <!--<div class="color2 size26 text-center ptb20 mt15">— 活动鼓励奖 —</div>-->
-      <!--<div class="flex-wrp flex-between flex-align-center pb15">-->
-      <!--<div class="color5 size26">精美礼物</div>-->
-      <!--<div class="color1 size22 border-radius5 bg-ff404b plr15 ptb10">10礼物票兑换</div>-->
-      <!--</div>-->
-      <!--&lt;!&ndash; <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${srcImg})`}" /> &ndash;&gt;-->
-      <!--<div class="color4 size26 flex-wrp flex-center bg-ddd" :style="{height: rem(300)}">后台编辑图片</div>-->
-      <!--<div class="color4 size26 flex-wrp flex-center ptb15">后台编辑文字</div>-->
-      <!--</div>-->
-
-
-      <div v-if="prizes.encourage_prizes" v-for="prize in prizes.encourage_prizes" class="plr20 bg-white">
-        <div class="color2 size26 text-center ptb20 mt15">— 活动鼓励奖 —</div>
-        <div class="flex-wrp flex-between flex-align-center pb15">
-          <div class="color5 size26">{{prize.name}}</div>
-          <div class="color1 size22 border-radius5 bg-ff404b plr15 ptb10">{{prize.exchanged_count}}礼物票兑换</div>
+      <div class="w100 fixedBottomLink bg-alpha">
+        <div class="plr60 ptb20 flex-wrp flex-between">
+          <div @click="clickVote" class="ptb10 size26 plr40 color1 border-radius5" :style="{backgroundColor: '#ff404b'}">给Ta投票</div>
+          <router-link :to="`/activity/${activity.id}/player/${player.id}/gift`">
+            <div class="ptb10 size26 plr40 color1 border-radius5" :style="{backgroundColor: '#ff404b'}">赠送礼物</div>
+          </router-link>
         </div>
-        <!-- <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${srcImg})`}" /> -->
-        <!--<div class="color4 size26 flex-wrp flex-center bg-ddd" :style="{height: rem(300)}">后台编辑图片</div>-->
-        <!--<div class="color4 size26 flex-wrp flex-center ptb15">后台编辑文字</div>-->
-
-        <InputRichText class="color4 size26  ptb15" v-model="prize.details" :preview="true"/>
-
       </div>
-
-      <div v-if="prizes.ranking_prizes" v-for="prize in prizes.ranking_prizes" class="plr20 bg-white">
-        <div class="color2 size26 text-center ptb20 mt15">— 活动排名奖 —</div>
-        <div class="flex-wrp flex-between flex-align-center pb15">
-          <div class="color5 size26">{{prize.name}}</div>
-        </div>
-        <!-- <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${srcImg})`}" /> -->
-        <!--<div class="color4 size26 flex-wrp flex-center bg-ddd" :style="{height: rem(300)}">后台编辑图片</div>-->
-        <!--<div class="color4 size26 flex-wrp flex-center ptb15">后台编辑文字</div>-->
-
-        <InputRichText class="color4 size26  ptb15" v-model="prize.details" :preview="true"/>
-
-      </div>
-
 
       <!--投票成功-->
       <x-dialog :show.sync="showDialog" :hide-on-blur="true" :dialog-style="{width: '100%'}">
@@ -197,6 +164,7 @@
   import InputText from '@/components/input/InputText'
   import InputSwiper from '@/components/input/swiper/InputSwiper'
   import InputRichText from '@/components/input/rich-text/InputRichText'
+  import ActivityPrizes from '@/components/activity/ActivityPrizes'
   import moment from 'moment'
   import { api } from 'h5sdk'
 
@@ -208,10 +176,10 @@
       InputText,
       InputSwiper,
       InputRichText,
+      ActivityPrizes,
     },
     data () {
       return {
-        prizes: {},
         showDialog: false,
         list: [
           {
@@ -308,16 +276,13 @@
       ...mapState({
         'activity': (state) => state.activity.info,
         'player': (state) => state.player.info,
+        'prizes': (state) => state.prizes.info,
       }),
       listSix () {
         return this.list.splice(0, 6)
       },
     },
     methods: {
-      async fetchPrizesData () {
-        const {data} = await api.get('activity_prizes', {activity_id: this.activity.id})
-        this.prizes = data.data
-      },
       async clickVote () { // 投普通票
         const {data} = await api.get('activity_voting', {
           player_id: this.player.id,
@@ -332,13 +297,16 @@
       },
     },
     mounted () {
-      this.fetchPrizesData()
     },
 
   }
 </script>
 
 <style lang="scss" scoped>
+  .fixedBottomLink {
+    position: fixed;
+    bottom: 0px;
+  }
   .search-icon {
     width: 40px;
     height: 40px;

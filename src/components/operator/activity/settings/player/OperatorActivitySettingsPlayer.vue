@@ -19,6 +19,7 @@
       :key="index"
       v-for="(player, index) in players"
       @on-edit="playerEdit"
+      @on-pass="playerPass"
       @on-check="playerCheck"
       @on-uncheck="playerUnCheck"
       @on-delete="playerDelete"
@@ -84,6 +85,19 @@
           this.fetchPlayersData()
         }
       },
+      async playerPass (player) {
+        if (!confirm('确定不通过该选手吗')) {
+          return
+        }
+        const {data} = await api.get('operator_player_audit', {id: player.id, status: 2})
+
+        this.$vux.toast.show({
+          text: data.message,
+        })
+        if (!data.error) {
+          this.fetchPlayersData()
+        }
+      },
       async playerCheck (player) {
         if (!confirm('确定审核该选手吗')) {
           return
@@ -101,7 +115,7 @@
         if (!confirm('确定取消审核该选手吗')) {
           return
         }
-        const {data} = await api.get('operator_player_audit', {id: player.id, status: 2})
+        const {data} = await api.get('operator_player_audit', {id: player.id, status: 0})
 
         this.$vux.toast.show({
           text: data.message,

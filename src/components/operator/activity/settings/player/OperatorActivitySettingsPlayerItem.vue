@@ -21,12 +21,20 @@
         <div class="border border-radius5 overflow-hidden size22 bg-white"
              :style="{width: '100px', position: 'absolute', top: '2px', right: '0px'}">
 
-          <div v-if="Number(player.status) === 1" class="color4 border-b text-center ptb10"
-               @click.stop="emit('uncheck')">取消审核
-          </div>
-          <div v-if="Number(player.status) !== 1" class="color4 border-b text-center ptb10" @click.stop="emit('check')">
-            审核通过
-          </div>
+          <template v-if="Number(player.status) === 0">
+            <div class="color4 border-b text-center ptb10" @click.stop="emit('ok')">
+              审核通过
+            </div>
+            <div class="color4 border-b text-center ptb10" @click.stop="emit('pass')">
+              审核不通过
+            </div>
+          </template>
+
+          <template v-else>
+            <div class="color4 border-b text-center ptb10" @click.stop="emit('uncheck')">
+              取消审核
+            </div>
+          </template>
 
           <div class="color4 border-b text-center ptb10" @click.stop="emit('edit')">编辑</div>
           <div class="color4 border-b text-center ptb10" @click.stop="emit('delete')">删除</div>
@@ -46,7 +54,7 @@
         colors: {
           0: 'color3',
           1: 'color4',
-          2: 'color5',
+          2: 'color3',
         },
         statuses: {
           0: '未审核',

@@ -5,6 +5,10 @@ export const types = {
   FETCH_ACTIVITY_SUCCESS: 'FETCH_ACTIVITY_SUCCESS',
   FETCH_ACTIVITY_FAILURE: 'FETCH_ACTIVITY_FAILURE',
 
+  FETCH_PRIZES_REQUEST: 'FETCH_PRIZES_REQUEST',
+  FETCH_PRIZES_SUCCESS: 'FETCH_PRIZES_SUCCESS',
+  FETCH_PRIZES_FAILURE: 'FETCH_PRIZES_FAILURE',
+
   FETCH_PLAYER_REQUEST: 'FETCH_PLAYER_REQUEST',
   FETCH_PLAYER_SUCCESS: 'FETCH_PLAYER_SUCCESS',
   FETCH_PLAYER_FAILURE: 'FETCH_PLAYER_FAILURE',
@@ -13,6 +17,10 @@ export const types = {
   FETCH_GIFTS_SUCCESS: 'FETCH_GIFTS_SUCCESS',
   FETCH_GIFTS_FAILURE: 'FETCH_GIFTS_FAILURE',
 
+  FETCH_PERSONAL_REQUEST: 'FETCH_PERSONAL_REQUEST',
+  FETCH_PERSONAL_SUCCESS: 'FETCH_PERSONAL_SUCCESS',
+  FETCH_PERSONAL_FAILURE: 'FETCH_PERSONAL_FAILURE',
+
 }
 
 export default {
@@ -20,22 +28,32 @@ export default {
   state: {
     activity: {
       info: null,
-      laoding: false,
+      loading: false,
+      error: null,
+      activityId: null,
+    },
+    prizes: {
+      info: null,
+      loading: false,
       error: null,
     },
     player: {
       info: null,
-      laoding: false,
+      loading: false,
       error: null,
     },
     gifts: {
       info: null,
-      laoding: false,
+      loading: false,
+      error: null,
+    },
+    personal: {
+      info: null,
+      loading: false,
       error: null,
     },
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
     // 活动
     [types.FETCH_ACTIVITY_REQUEST] (state, payload) {
@@ -48,6 +66,20 @@ export default {
     [types.FETCH_ACTIVITY_FAILURE] (state, error) {
       state.activity.loading = false
       state.activity.error = error
+    },
+
+    // 礼物
+    [types.FETCH_PRIZES_REQUEST] (state, payload) {
+      state.prizes.loading = true
+    },
+    [types.FETCH_PRIZES_SUCCESS] (state, payload) {
+      state.prizes.loading = false
+      state.prizes.info = payload.prizes
+      state.prizes.activityId = payload.activityId
+    },
+    [types.FETCH_PRIZES_FAILURE] (state, error) {
+      state.prizes.loading = false
+      state.prizes.error = error
     },
 
     // 选手
@@ -76,6 +108,19 @@ export default {
       state.gifts.error = error
     },
 
+    // 个人中心
+    [types.FETCH_PERSONAL_REQUEST] (state) {
+      state.personal.loading = true
+    },
+    [types.FETCH_PERSONAL_SUCCESS] (state, personal) {
+      state.personal.loading = false
+      state.personal.info = personal
+    },
+    [types.FETCH_PERSONAL_FAILURE] (state, error) {
+      state.personal.loading = false
+      state.personal.error = error
+    },
+
   },
   actions: {
     async fetchActivity ({commit, state}, id) {
@@ -87,6 +132,24 @@ export default {
         commit(types.FETCH_ACTIVITY_FAILURE, data.message)
       } else {
         commit(types.FETCH_ACTIVITY_SUCCESS, data.data)
+      }
+    },
+    async fetchActivityPrizes ({commit, state}, id) {
+      if (Number(state.prizes.activityId) === Number(id)) {
+        return
+      }
+
+      commit(types.FETCH_PRIZES_REQUEST)
+
+      const {data} = await api.get('activity_prizes', {activity_id: id})
+
+      if (data.error) {
+        commit(types.FETCH_PRIZES_FAILURE, data.message)
+      } else {
+        commit(types.FETCH_PRIZES_SUCCESS, {
+          prizes: data.data,
+          activityId: id,
+        })
       }
     },
     async fetchPlayer ({commit, state}, id) {
@@ -117,6 +180,19 @@ export default {
         commit(types.FETCH_GIFTS_FAILURE, data.message)
       } else {
         commit(types.FETCH_GIFTS_SUCCESS, data.data)
+      }
+    },
+    async fetchPersonal ({commit, state}, activityId) {
+      commit(types.FETCH_PERSONAL_REQUEST)
+
+      const {data} = await api.get('activity_personal', {
+        'activity_id': activityId,
+      })
+
+      if (data.error) {
+        commit(types.FETCH_PERSONAL_FAILURE, data.message)
+      } else {
+        commit(types.FETCH_PERSONAL_SUCCESS, data.data)
       }
     },
   },
