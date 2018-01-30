@@ -26,7 +26,9 @@
           <div class="ptb10 flex-wrp flex-center">
             <div class="flex-wrp flex-center plr20 border-l">
               <div class="size22 color1 pr15 text-nowrap">{{`推荐码：${(operator.recommended_code).toUpperCase()}`}}</div>
-              <div class="size16 border border-radius5 ptb5 plr10 bg-grey overflow-hidden lh150 color2 text-nowrap" @click="show_recommended=true">邀请好友</div>
+              <div class="size16 border border-radius5 ptb5 plr10 bg-grey overflow-hidden lh150 color2 text-nowrap"
+                   @click="show_recommended=true">邀请好友
+              </div>
             </div>
           </div>
         </div>
@@ -157,7 +159,7 @@
         return chunk(this.stats.today, 3)
       },
       ...mapState('operator', {
-        'operator': 'operator',
+        'operator': state => state.operator.info,
       }),
     },
 

@@ -42,7 +42,9 @@
 <script>
   import { api } from 'h5sdk'
 
-  import { mapState } from 'vuex'
+  import { createNamespacedHelpers } from 'vuex'
+
+  const {mapState} = createNamespacedHelpers('operator')
 
   export default {
     data () {
@@ -54,8 +56,8 @@
       }
     },
     computed: {
-      ...mapState('operator', {
-        'operator': 'operator',
+      ...mapState({
+        'operator': state => state.operator.info,
       }),
     },
     methods: {

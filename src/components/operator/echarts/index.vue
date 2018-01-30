@@ -10,6 +10,104 @@
 
   // const symbolSize = 20
 
+  let data2 = [
+    {
+      'hour': '01',
+      'pv': 11,
+      'ip': 10,
+    },
+    {
+      'hour': '02',
+      'pv': 16,
+      'ip': 8,
+    },
+    {
+      'hour': '03',
+      'pv': 12,
+      'ip': 8,
+    },
+    {
+      'hour': '04',
+      'pv': 13,
+      'ip': 11,
+    },
+    {
+      'hour': '05',
+      'pv': 12,
+      'ip': 7,
+    },
+    {
+      'hour': '06',
+      'pv': 15,
+      'ip': 8,
+    },
+    {
+      'hour': '07',
+      'pv': 17,
+      'ip': 12,
+    },
+    {
+      'hour': '08',
+      'pv': 14,
+      'ip': 12,
+    },
+    {
+      'hour': '09',
+      'pv': 19,
+      'ip': 14,
+    },
+    {
+      'hour': '10',
+      'pv': 11,
+      'ip': 8,
+    },
+    {
+      'hour': '11',
+      'pv': 15,
+      'ip': 11,
+    },
+    {
+      'hour': '12',
+      'pv': 22,
+      'ip': 12,
+    },
+    {
+      'hour': '13',
+      'pv': 12,
+      'ip': 7,
+    },
+    {
+      'hour': '14',
+      'pv': 10,
+      'ip': 9,
+    },
+    {
+      'hour': '15',
+      'pv': 14,
+      'ip': 9,
+    },
+    {
+      'hour': '16',
+      'pv': 14,
+      'ip': 11,
+    },
+    {
+      'hour': '17',
+      'pv': 13,
+      'ip': 8,
+    },
+    {
+      'hour': '18',
+      'pv': 17,
+      'ip': 10,
+    },
+    {
+      'hour': '19',
+      'pv': 49,
+      'ip': 49,
+    }
+  ]
+
   let data = [
     ['07-10', 9100],
     ['07-11', 9200],
@@ -34,8 +132,10 @@
   var valueList = data.map(function (item) {
     return item[1]
   })
+
   export default {
     name: 'Demo01',
+    props: ['cells'],
     components: {
       IEcharts,
     },

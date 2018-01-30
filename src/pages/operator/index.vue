@@ -3,47 +3,30 @@
 -->
 
 <template>
-    <router-view></router-view>
+  <router-view></router-view>
 </template>
 
 <script>
-    import { api } from 'h5sdk'
-    import store from '@/store'
+  import store from '@/store'
 
-    import { SAVE_OPERATOR } from '@/store/modules/operator'
+  export default {
+    async beforeRouteEnter (to, from, next) {
+      await store.dispatch('operator/fetchOperator')
 
-    export default {
-      data () {
-        return {}
-      },
-      async beforeRouteEnter (to, from, next) {
-        if (store.state.operator.operator === null) {
-          const {data} = await api.get('operator')
+      const operator = store.state.operator.operator
 
-          if (data.error && data.error_code === 403) {
-            // 未登陆
-            return next('/operator-login')
-          }
+      if (operator.errorCode === 403) {
+        // 未登陆
+        return next('/operator-login')
+      }
 
-          if (data.error) {
-            // 错误信息
-            alert(data.message)
-          }
-
-          // 已登录, 保存信息
-          store.commit('operator/' + SAVE_OPERATOR, {
-            operator: data.data
-          })
+      if (operator.info === null || operator.info.status !== 1) {
+        if (to.path.indexOf('/operator/join') !== 0) {
+          return next('/operator/join')
         }
+      }
 
-        if (store.state.operator.operator === null || store.state.operator.operator.status !== 1) {
-          if (to.path.indexOf('/operator/join') !== 0) {
-            return next('/operator/join')
-          }
-        }
-
-        return next()
-      },
-      methods: {}
-    }
+      return next()
+    },
+  }
 </script>
