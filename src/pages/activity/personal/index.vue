@@ -56,7 +56,7 @@
 
 
     <group label-width="2rem" label-margin-right="2em" label-align="left" gutter=".32rem">
-      <cell title="我的奖品" is-link value-align="right" link="/operator/setting/bind-mobile"/>
+      <cell title="我的奖品" is-link value-align="right" link="prize-exchange"/>
     </group>
 
     <group label-width="2rem" label-margin-right="2em" label-align="left" gutter=".32rem">

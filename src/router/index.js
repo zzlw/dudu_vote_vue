@@ -12,7 +12,7 @@ const ActivityRanking = r => require.ensure([], () => r(require('@/pages/activit
 const ActivityPrize = r => require.ensure([], () => r(require('@/pages/activity/prize')), 'Activity')
 const ActivityPersonal = r => require.ensure([], () => r(require('@/pages/activity/personal')), 'Activity')
 const ActivityEnter = r => require.ensure([], () => r(require('@/pages/activity/enter')), 'Activity')
-const ActivityPrizeExchange = r => require.ensure([], () => r(require('@/pages/activity/prize/exchange')), 'Activity')
+const ActivityPrizeExchange = r => require.ensure([], () => r(require('@/pages/activity/personal/exchange')), 'Activity')
 
 const OperatorLogin = r => require.ensure([], () => r(require('@/pages/operator/login')), 'OperatorLogin')
 const OperatorJoin = r => require.ensure([], () => r(require('@/pages/operator/join')), 'OperatorJoin')

@@ -76,15 +76,15 @@
 
       <div class="bg-white mt20 plr20 pb15">
         <div class="color2 size22 ptb10">他们刚刚帮TA投票了!</div>
-        <div class="flex-wrp">
-          <div class="flex-wrp flex-cell flex-center mlr10" v-for="(item, index) in listSix" :key="index">
+        <div v-if="events" class="flex-wrp">
+          <div class="flex-wrp flex-cell flex-center mlr10" v-for="(item, index) in events.ordinary_vote" :key="index">
             <div class="flex-wrp flex-center border-radius overflow-hidden"
                  :style="{width: rem(100), height: rem(100)}">
               <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-                   :style="{backgroundImage:`url(${item.srcImg})`}"/>
+                   :style="{backgroundImage:`url(${item.headimgurl})`}"/>
             </div>
-            <div class="color4 size16 text-center text-nowrap-one">{{item.title}}</div>
-            <div class="color4 size16 text-center text-nowrap-one">{{item.time}}</div>
+            <div class="color4 size16 text-center text-nowrap-one">{{item.nickname}}</div>
+            <div class="color4 size16 text-center text-nowrap-one">{{item.created_at}}</div>
           </div>
         </div>
       </div>
@@ -92,24 +92,23 @@
       <div class="color2 size26 text-center bg-white ptb20">— 收到的礼物 —</div>
 
       <div class="border-t">
-        <div class="flex-wrp flex-between flex-align-center plr20 ptb15 bg-white border-b"
-             v-for="(item, index) in listInfo" :key="index">
+        <div v-if="events" class="flex-wrp flex-between flex-align-center plr20 ptb15 bg-white border-b"
+             v-for="(item, index) in events.gift_vote" :key="index">
           <div class="flex-wrp flex-between">
             <div class="flex-wrp flex-center border-radius overflow-hidden" :style="{width: rem(50), height: rem(50)}">
               <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-                   :style="{backgroundImage:`url(${item.srcImg})`}"/>
+                   :style="{backgroundImage:`url(${item.headimgurl})`}"/>
             </div>
             <div class="flex-wrp flex-between flex-align-center pl15">
-              <div class="color5 size22">{{`${item.title}`}}赠送</div>
+              <div class="color5 size22">{{`${item.nickname}`}}赠送</div>
               <div class="plr10" :style="{width: rem(40), height: rem(50)}">
-                <svg class="icon base-menu-icon" aria-hidden="true">
-                  <use :xlink:href="`#icon-liwu1`"></use>
-                </svg>
+                <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
+                     :style="{backgroundImage:`url(${item.gift_img})`}"/>
               </div>
-              <div class="color5 size22">票+122</div>
+              <div class="color5 size22">票+{{item.votes}}</div>
             </div>
           </div>
-          <div class="color5 size16">{{item.time}}</div>
+          <div class="color5 size16">{{item.created_at}}</div>
         </div>
         <div class="size16 color5 ptb10 text-center bg-white">没有更多了</div>
       </div>
@@ -125,7 +124,9 @@
 
       <div class="w100 fixedBottomLink bg-alpha">
         <div class="plr60 ptb20 flex-wrp flex-between">
-          <div @click="clickVote" class="ptb10 size26 plr40 color1 border-radius5" :style="{backgroundColor: '#ff404b'}">给Ta投票</div>
+          <div @click="clickVote" class="ptb10 size26 plr40 color1 border-radius5"
+               :style="{backgroundColor: '#ff404b'}">给Ta投票
+          </div>
           <router-link :to="`/activity/${activity.id}/player/${player.id}/gift`">
             <div class="ptb10 size26 plr40 color1 border-radius5" :style="{backgroundColor: '#ff404b'}">赠送礼物</div>
           </router-link>
@@ -169,6 +170,7 @@
   import { api } from 'h5sdk'
 
   import { createNamespacedHelpers } from 'vuex'
+
   const {mapState} = createNamespacedHelpers('activity')
 
   export default {
@@ -181,6 +183,7 @@
     data () {
       return {
         showDialog: false,
+        events: null,
         list: [
           {
             srcImg: '',
@@ -283,6 +286,12 @@
       },
     },
     methods: {
+      async fetchEvents () {
+        const {data} = await api.get('activity_player_events', {
+          player_id: this.player.id,
+        })
+        this.events = data.data
+      },
       async clickVote () { // 投普通票
         const {data} = await api.get('activity_voting', {
           player_id: this.player.id,
@@ -297,6 +306,7 @@
       },
     },
     mounted () {
+      this.fetchEvents()
     },
 
   }
@@ -307,6 +317,7 @@
     position: fixed;
     bottom: 0px;
   }
+
   .search-icon {
     width: 40px;
     height: 40px;
