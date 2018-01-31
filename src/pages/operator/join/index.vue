@@ -51,6 +51,7 @@
 </template>
 
 <script>
+  import chunk from 'lodash/chunk'
   import { createNamespacedHelpers } from 'vuex'
 
   const {mapState, mapActions} = createNamespacedHelpers('operator')
@@ -66,6 +67,11 @@
     data () {
       return {
         showDialog: true,
+        // base-activity-swiper start
+        // to  请按 router 中的 to 使用
+        swiperList: [
+          {to: '/', title: '今日数据'},
+        ],
         data: [
           {
             number: 0,
@@ -112,6 +118,9 @@
       ...mapState({
         'operator': state => state.operator.info,
       }),
+      cateGroup () {
+        return chunk(this.twoDate, 3)
+      },
     },
     methods: {
       ...mapActions([
