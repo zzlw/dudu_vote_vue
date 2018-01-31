@@ -56,7 +56,7 @@
       async fetchData () {
         this.loading = true
         const {data} = await api.get('operator_activity_aggregate_data', {
-          'activity_id': this.$route.params.activity_id
+          'activity_id': this.$route.params.activity_id,
         })
         this.data = data.data
         this.loading = false

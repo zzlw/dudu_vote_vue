@@ -152,11 +152,11 @@
 
     created () {
       this.fetchActivityData()
-      this.fetchStatData()
+      // this.fetchStatData()
     },
     computed: {
       cateGroup () {
-        return chunk(this.stats.today, 3)
+        return chunk(this.operator.today_stats, 3)
       },
       ...mapState('operator', {
         'operator': state => state.operator.info,
@@ -189,10 +189,10 @@
         const {data} = await api.get('operator_activities')
         this.activities = data.data
       },
-      async fetchStatData () {
-        const {data} = await api.get('operator_home_statistics_data')
-        this.stats = data.data
-      },
+      // async fetchStatData () {
+      //   const {data} = await api.get('operator_home_statistics_data')
+      //   this.stats = data.data
+      // },
       async onActivityDelete (activity) {
         if (!confirm('确定删除吗?')) {
           return
