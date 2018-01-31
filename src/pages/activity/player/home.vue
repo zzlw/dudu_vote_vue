@@ -183,7 +183,10 @@
     data () {
       return {
         showDialog: false,
-        events: null,
+        events: {
+          'gift_vote': [],
+          'ordinary_vote': [],
+        },
         list: [
           {
             srcImg: '',

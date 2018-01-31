@@ -46,10 +46,10 @@
         <div class="flex-wrp flex-cell flex-center mlr10" v-for="(item, index) in listSix" :key="index">
           <div class="flex-wrp flex-center border-radius overflow-hidden" :style="{width: rem(100), height: rem(100)}">
             <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-                 :style="{backgroundImage:`url(${item.srcImg})`}"/>
+                 :style="{backgroundImage:`url(${item.image})`}"/>
           </div>
-          <div class="color4 size16 text-center text-nowrap-one">{{item.title}}</div>
-          <div class="color4 size16 text-center text-nowrap-one">{{item.time}}</div>
+          <div class="color4 size16 text-center text-nowrap-one">{{item.name}}</div>
+          <div class="color4 size16 text-center text-nowrap-one">{{item.sum}}</div>
         </div>
       </div>
     </div>
@@ -80,8 +80,8 @@
 </template>
 
 <script>
-  import { createNamespacedHelpers } from 'vuex'
   import ActivityPrizes from '@/components/activity/ActivityPrizes'
+  import { createNamespacedHelpers } from 'vuex'
 
   const {mapActions, mapState} = createNamespacedHelpers('activity')
 
@@ -146,7 +146,11 @@
         return `我是1号，我叫吴秀波，正在参加寻找最美老板娘活动开 始了，赢取1000元大礼包！点击链接帮我投票吧！`
       },
       listSix () {
-        return this.list.splice(0, 6)
+        if (this.info) {
+          return this.info.aggregate_gifts.splice(0, 6)
+        } else {
+          return []
+        }
       },
       ...mapState({
         'info': state => state.personal.info,

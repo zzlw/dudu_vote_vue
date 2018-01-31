@@ -20,7 +20,7 @@
       v-for="(player, index) in players"
       @on-edit="playerEdit"
       @on-pass="playerPass"
-      @on-check="playerCheck"
+      @on-ok="playerOk"
       @on-uncheck="playerUnCheck"
       @on-delete="playerDelete"
     />
@@ -98,7 +98,7 @@
           this.fetchPlayersData()
         }
       },
-      async playerCheck (player) {
+      async playerOk (player) {
         if (!confirm('确定审核该选手吗')) {
           return
         }
