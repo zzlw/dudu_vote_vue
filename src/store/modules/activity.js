@@ -61,7 +61,9 @@ export default {
     },
     [types.FETCH_ACTIVITY_SUCCESS] (state, activity) {
       state.activity.loading = false
+
       state.activity.info = activity
+      console.log(state.activity.info, 111)
     },
     [types.FETCH_ACTIVITY_FAILURE] (state, error) {
       state.activity.loading = false

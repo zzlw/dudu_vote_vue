@@ -1,6 +1,6 @@
 <template>
     <div class="pb60">
-        <div class="head flex-wrp flex-between bg-284860 plr20 ptb20">
+        <!-- <div class="head flex-wrp flex-between bg-284860 plr20 ptb20">
             <div class="flex-wrp flex-align-center" :style="{flex:1}">
                 <div class="leftIcon" :style="{width: rem(40), height: rem(40)}">
                     <svg class="icon base-menu-icon" aria-hidden="true">
@@ -13,7 +13,8 @@
                 提现
             </div>
             <div class=""  :style="{flex:1}"></div>
-        </div>
+        </div> -->
+        <base-navigation title="提现"></base-navigation>
         <group label-width="4em" label-margin-right="2em" label-align="left">
             <cell title="提现金额" is-link value-align="right" value="提现记录" gutter=".3rem" link='/operator/withdrawals-log'></cell>
              <cell>

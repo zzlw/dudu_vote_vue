@@ -1,21 +1,7 @@
 <template>
   <div style="width: 100%; height: 100%;">
     <div v-if="data" class="pb60">
-
-      <div class="head flex-wrp flex-between bg-284860 plr20 ptb20">
-        <div class="flex-wrp flex-align-center" :style="{flex:1}">
-          <div class="leftIcon" :style="{width: rem(40), height: rem(40)}">
-            <svg class="icon base-menu-icon" aria-hidden="true">
-              <use :xlink:href="`#icon-zuojiantou`"></use>
-            </svg>
-          </div>
-          <div class="size26 color1 pl5" @click="$router.back()">返回</div>
-        </div>
-        <div class="color1 size26 text-center" :style="{flex:3}">
-          综合数据
-        </div>
-        <div class="" :style="{flex:1}"></div>
-      </div>
+      <base-navigation title="综合数据"></base-navigation>
 
       <base-title title="今日数据" class="border-b"/>
       <div class="plr10 ptb5 bg-white">

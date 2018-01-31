@@ -51,7 +51,7 @@ const webpackConfig = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-              include: [resolve('src'), resolve('test'), resolve('node_modules/_vue-echarts-v3@1.0.19@vue-echarts-v3/src'), resolve('node_modules/_h5sdk@1.0.0@h5sdk/sdk')]
+                include: [resolve('src'), resolve('test'), resolve('node_modules/_vue-echarts-v3@1.0.19@vue-echarts-v3/src'), resolve('node_modules/_h5sdk@1.0.0@h5sdk/sdk')]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

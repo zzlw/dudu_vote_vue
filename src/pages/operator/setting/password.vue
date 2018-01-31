@@ -1,20 +1,7 @@
 <template>
   <div>
-    <div class="head flex-wrp flex-between bg-284860 plr20 ptb20">
-      <div class="flex-wrp flex-align-center" :style="{flex:1}">
-        <div class="leftIcon" :style="{width: rem(40), height: rem(40)}">
-          <svg class="icon base-menu-icon" aria-hidden="true">
-            <use :xlink:href="`#icon-zuojiantou`"></use>
-          </svg>
-        </div>
-        <div class="size26 color1 pl5" @click="$router.back()">返回</div>
-      </div>
 
-      <div class="color1 size26 text-center" :style="{flex:3}">
-        修改资料
-      </div>
-      <div class="" :style="{flex:1}"></div>
-    </div>
+    <base-navigation title="修改资料"></base-navigation>
     <group label-width="2rem" label-margin-right="2em" label-align="left">
       <x-input title="手机号码" placeholder="请输入手机号" disabled :value="operator.mobile"/>
 

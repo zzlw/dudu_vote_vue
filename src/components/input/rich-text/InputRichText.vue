@@ -28,10 +28,10 @@
     </div>
 
     <template v-if="preview" v-for="(item, index) in items">
-      <p v-if="item.text" class="plr15 ptb10" >
+      <p v-if="item.text" class="plr15 ptb10" :key="index">
         {{item.text}}
       </p>
-      <p v-if="item.image" class="">
+      <p v-if="item.image" class="" :key="index">
         <img :src="item.image" alt="">
       </p>
     </template>

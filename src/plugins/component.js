@@ -11,6 +11,7 @@ import BaseTitle from 'components/operator/base/BaseTitle.vue'
 import BaseActivityList from 'components/operator/base/BaseActivityList.vue'
 import BaseManTemplate from 'components/operator/base/BaseManTemplate.vue'
 import BaseActivitySwiper from 'components/operator/base/BaseActivitySwiper.vue'
+import BaseNavigation from 'components/operator/base/BaseNavigation.vue'
 
 import HomeInfo from 'components/operator/home/HomeInfo.vue'
 
@@ -25,6 +26,7 @@ export default {
     Vue.component('base-activity-list', BaseActivityList)
     Vue.component('base-man-template', BaseManTemplate)
     Vue.component('base-activity-swiper', BaseActivitySwiper)
+    Vue.component('base-navigation', BaseNavigation)
 
     Vue.component('home-info', HomeInfo)
 
