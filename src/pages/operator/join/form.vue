@@ -50,11 +50,12 @@
 
 <script>
   import { api } from 'h5sdk'
-  import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
-
+  import { Value2nameFilter as value2name } from 'vux'
   import { createNamespacedHelpers } from 'vuex'
 
   const {mapState, mapActions} = createNamespacedHelpers('operator')
+
+  const ChinaAddressV4Data = () => import(/* webpackChunkName: "ChinaAddressV4Data" */ 'vux/src/datas/china_address_v4')
 
   export default {
     data () {
