@@ -14,47 +14,54 @@ const ActivityPersonal = () => import(/* webpackChunkName: "Activity" */ '@/page
 const ActivityEnter = () => import(/* webpackChunkName: "Activity" */ '@/pages/activity/enter')
 const ActivityPrizeExchange = () => import(/* webpackChunkName: "Activity" */ '@/pages/activity/personal/exchange')
 
-const OperatorLogin = () => import(/* webpackChunkName: "OperatorLogin" */ '@/pages/operator/login')
-const OperatorJoin = () => import(/* webpackChunkName: "OperatorJoin" */ '@/pages/operator/join')
-const OperatorJoinForm = () => import(/* webpackChunkName: "OperatorJoinForm" */ '@/pages/operator/join/form')
+// 不需要登录的界面php
+const OperatorLogin = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/login')
+const OperatorJoin = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/join')
+const OperatorJoinForm = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/join/form')
 
+// 运营商主页
 const Operator = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/index')
-const OperatorHome = () => import(/* webpackChunkName: "OperatorHome" */ '@/pages/operator/home')
-const OperatorActivityCreate = () => import(/* webpackChunkName: "OperatorActivityCreate" */ '@/pages/operator/activity/create')
-const OperatorActivityEdit = () => import(/* webpackChunkName: "OperatorActivityEdit" */ '@/pages/operator/activity/edit')
+const OperatorHome = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/home')
 
+// 运营商设置相关
 const OperatorSetting = () => import(/* webpackChunkName: "OperatorSetting" */ '@/pages/operator/setting/index')
-const OperatorSettingMobile = () => import(/* webpackChunkName: "OperatorSettingMobile" */ '@/pages/operator/setting/mobile')
-const OperatorSettingPassword = () => import(/* webpackChunkName: "OperatorSettingPassword" */ '@/pages/operator/setting/password')
-const OperatorSettingLogout = () => import(/* webpackChunkName: "OperatorSettingLogout" */ '@/pages/operator/setting/logout')
+const OperatorSettingMobile = () => import(/* webpackChunkName: "OperatorSetting" */ '@/pages/operator/setting/mobile')
+const OperatorSettingPassword = () => import(/* webpackChunkName: "OperatorSetting" */ '@/pages/operator/setting/password')
+const OperatorSettingLogout = () => import(/* webpackChunkName: "OperatorSetting" */ '@/pages/operator/setting/logout')
+
+// 活动配置相关
 const OperatorActivity = () => import(/* webpackChunkName: "OperatorActivity" */ '@/pages/operator/activity')
-const OperatorActivitySettingHome = () => import(/* webpackChunkName: "OperatorActivitySettingHome" */ '@/pages/operator/activity/setting/home')
 
-const OperatorActivitySettingFollow = () => import(/* webpackChunkName: "OperatorActivitySettingFollow" */ '@/pages/operator/activity/setting/follow')
-const OperatorActivitySettingShare = () => import(/* webpackChunkName: "OperatorActivitySettingShare" */ '@/pages/operator/activity/setting/share')
-const OperatorActivitySettingPrize = () => import(/* webpackChunkName: "OperatorActivitySettingPrize" */ '@/pages/operator/activity/setting/prize/index')
-const OperatorActivitySettingPrizeAdd = () => import(/* webpackChunkName: "OperatorActivitySettingPrizeAdd" */ '@/pages/operator/activity/setting/prize/add')
-const OperatorActivitySettingPrizeAddRank = () => import(/* webpackChunkName: "OperatorActivitySettingPrizeAddRank" */ '@/pages/operator/activity/setting/prize/add-rank')
-const OperatorActivitySettingPrizeEdit = () => import(/* webpackChunkName: "OperatorActivitySettingPrizeEdit" */ '@/pages/operator/activity/setting/prize/edit')
-const OperatorActivitySettingPrizeEditRank = () => import(/* webpackChunkName: "OperatorActivitySettingPrizeEditRank" */ '@/pages/operator/activity/setting/prize/edit-rank')
+const OperatorActivityCreate = () => import(/* webpackChunkName: "OperatorActivity" */ '@/pages/operator/activity/create')
+const OperatorActivityEdit = () => import(/* webpackChunkName: "OperatorActivity" */ '@/pages/operator/activity/edit')
 
-const OperatorActivitySettingPlayer = () => import(/* webpackChunkName: "OperatorActivitySettingPlayer" */ '@/pages/operator/activity/setting/player')
-const OperatorActivitySettingPlayerAdd = () => import(/* webpackChunkName: "OperatorActivitySettingPlayerAdd" */ '@/pages/operator/activity/setting/player/add')
-const OperatorActivitySettingPlayerEdit = () => import(/* webpackChunkName: "OperatorActivitySettingPlayerEdit" */ '@/pages/operator/activity/setting/player/edit')
-const OperatorActivitySettingPlayerAdmin = () => import(/* webpackChunkName: "OperatorActivitySettingPlayerAdmin" */ '@/pages/operator/activity/setting/player/admin')
-const OperatorActivitySettingPlayerLimit = () => import(/* webpackChunkName: "OperatorActivitySettingPlayerLimit" */ '@/pages/operator/activity/setting/player/limit')
-const OperatorActivitySettingPlayerLimitNumber = () => import(/* webpackChunkName: "OperatorActivitySettingPlayerLimitNumber" */ '@/pages/operator/activity/setting/player/limitNumber')
+const OperatorActivitySettingHome = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/home')
 
+const OperatorActivitySettingFollow = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/follow')
+const OperatorActivitySettingShare = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/share')
+const OperatorActivitySettingPrize = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/prize/index')
+const OperatorActivitySettingPrizeAdd = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/prize/add')
+const OperatorActivitySettingPrizeAddRank = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/prize/add-rank')
+const OperatorActivitySettingPrizeEdit = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/prize/edit')
+const OperatorActivitySettingPrizeEditRank = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/prize/edit-rank')
+
+const OperatorActivitySettingPlayer = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player')
+const OperatorActivitySettingPlayerAdd = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/add')
+const OperatorActivitySettingPlayerEdit = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/edit')
+const OperatorActivitySettingPlayerAdmin = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/admin')
+const OperatorActivitySettingPlayerLimit = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/limit')
+const OperatorActivitySettingPlayerLimitNumber = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/limitNumber')
+
+// 活动数据统计
+const OperatorActivityData = () => import(/* webpackChunkName: "OperatorActivityData" */ '@/pages/operator/activity/data')
+const OperatorActivityDataChildren = () => import(/* webpackChunkName: "OperatorActivityData" */ '@/pages/operator/activity/data/children')
+const OperatorActivityDataChildrenAdmin = () => import(/* webpackChunkName: "OperatorActivityData" */ '@/pages/operator/activity/data/children/admin')
+const OperatorActivityDataChildrenLog = () => import(/* webpackChunkName: "OperatorActivityData" */ '@/pages/operator/activity/data/children/log')
+
+// 提现
 const OperatorWithdrawals = () => import(/* webpackChunkName: "OperatorWithdrawals" */ '@/pages/operator/withdrawals')
-const OperatorWithdrawalsLog = () => import(/* webpackChunkName: "OperatorWithdrawalsLog" */ '@/pages/operator/withdrawals/log')
-const OperatorWithdrawalsTotal = () => import(/* webpackChunkName: "OperatorWithdrawalsTotal" */ '@/pages/operator/withdrawals/Total')
-
-const OperatorData = () => import(/* webpackChunkName: "OperatorData" */ '@/pages/operator/activity/data')
-const OperatorDataChildren = () => import(/* webpackChunkName: "OperatorDataChildren" */ '@/pages/operator/activity/data/children')
-const OperatorDataChildrenAdmin = () => import(/* webpackChunkName: "OperatorDataChildrenAdmin" */ '@/pages/operator/activity/data/children/admin')
-const OperatorDataChildrenLog = () => import(/* webpackChunkName: "OperatorDataChildrenLog" */ '@/pages/operator/activity/data/children/log')
-
-// 活动设置
+const OperatorWithdrawalsLog = () => import(/* webpackChunkName: "OperatorWithdrawals" */ '@/pages/operator/withdrawals/log')
+const OperatorWithdrawalsTotal = () => import(/* webpackChunkName: "OperatorWithdrawals" */ '@/pages/operator/withdrawals/Total')
 
 Vue.use(Router)
 
@@ -225,7 +232,7 @@ let router = new Router({
             },
             {
               path: 'data',
-              component: OperatorData,
+              component: OperatorActivityData,
               children: [
                 {
                   path: '',
@@ -233,17 +240,17 @@ let router = new Router({
                 },
                 {
                   path: 'children',
-                  component: OperatorDataChildren,
+                  component: OperatorActivityDataChildren,
                   meta: {index: 0},
                 },
                 {
                   path: 'children-admin',
-                  component: OperatorDataChildrenAdmin,
+                  component: OperatorActivityDataChildrenAdmin,
                   meta: {index: 2},
                 },
                 {
                   path: 'children-log',
-                  component: OperatorDataChildrenLog,
+                  component: OperatorActivityDataChildrenLog,
                   meta: {index: 1},
                 },
               ],
