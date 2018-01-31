@@ -1,4 +1,5 @@
 extends: standard
+parser: "babel-eslint"
 env:
     browser: true
     node: true
@@ -9,4 +10,5 @@ globals:
 plugins: ['html']
 
 rules:
+    strict: 0
     comma-dangle: [1, "always-multiline"]
