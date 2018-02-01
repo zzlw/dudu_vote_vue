@@ -9,7 +9,7 @@
       <base-data-three :data="stats.total">
         <div slot="number" slot-scope="{ number }" class="bold size26 color1 lh200">{{(+number)}}
         </div>
-        <div slot="title" slot-scope="{ title }" class="size22 color4">{{title}}</div>
+        <div slot="title" slot-scope="{ title }" class="size22 color16">{{title}}</div>
       </base-data-three>
 
       <div class="plr40 ptb20">
