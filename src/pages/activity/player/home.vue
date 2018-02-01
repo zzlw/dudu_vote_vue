@@ -43,7 +43,7 @@
                 <use :xlink:href="`#icon-xiajiang`"></use>
               </svg>
             </div>
-            <div class="color5 size16 pl10">前一名差：{{player.last_gap}}</div>
+            <div class="color5 size16 pl10">后一名差：{{player.last_gap}}</div>
           </div>
         </div>
       </div>
