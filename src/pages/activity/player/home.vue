@@ -166,7 +166,6 @@
   import InputSwiper from '@/components/input/swiper/InputSwiper'
   import InputRichText from '@/components/input/rich-text/InputRichText'
   import ActivityPrizes from '@/components/activity/ActivityPrizes'
-  import moment from 'moment'
   import { api } from 'h5sdk'
 
   import { createNamespacedHelpers } from 'vuex'
@@ -187,77 +186,9 @@
           'gift_vote': [],
           'ordinary_vote': [],
         },
-        list: [
-          {
-            srcImg: '',
-            title: '你好哈士奇',
-            time: '10-21 08:54'
-          },
-          {
-            srcImg: '',
-            title: '你好哈士奇',
-            time: '10-21 08:54'
-          },
-          {
-            srcImg: '',
-            title: '你好哈士奇',
-            time: '10-21 08:54'
-          },
-          {
-            srcImg: '',
-            title: '你好哈士奇',
-            time: '10-21 08:54'
-          },
-          {
-            srcImg: '',
-            title: '你好哈士奇',
-            time: '10-21 08:54'
-          }
-        ],
-        listInfo: [
-          {
-            srcImg: '',
-            title: 'Angelababy',
-            time: '10-21 08:54'
-          },
-          {
-            srcImg: '',
-            title: 'Angelababy',
-            time: '10-21 08:54'
-          }
-        ],
-        show2: true,
-        srcImg: '',
-        preview: true,
-        now: moment(),
         timer: null,
         timeValue: '',
-        twoDate: [
-          {
-            srcImg: '',
-            number: 1,
-            vote: 1,
-            liwu: 2
-          },
-          {
-            srcImg: '',
-            number: 1,
-            vote: 1,
-            liwu: 2
-          },
-          {
-            srcImg: '',
-            number: 1,
-            vote: 1,
-            liwu: 2
-          },
-          {
-            srcImg: '',
-            number: 1,
-            vote: 1,
-            liwu: 2
-          }
-        ],
+
         data: [
           {
             number: 167,

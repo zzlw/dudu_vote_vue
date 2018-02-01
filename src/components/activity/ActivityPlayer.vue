@@ -11,7 +11,7 @@
       <div v-if="player.rank === 1" class="numberIcon no1"></div>
       <div v-else-if="player.rank === 2" class="numberIcon no2"></div>
       <div v-else-if="player.rank === 3" class="numberIcon no3"></div>
-      <div else class="numberText ptb10 plr10 color1 size16">第{{player.rank}}名</div>
+      <div class="numberText ptb10 plr10 color1 size16"  v-else>第{{player.rank}}名</div>
 
     </div>
 

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import {analytics} from 'h5sdk'
 
 const Activity = () => import(/* webpackChunkName: "Activity" */ '@/pages/activity')
 const ActivityHome = () => import(/* webpackChunkName: "Activity" */ '@/pages/activity/home')
@@ -277,4 +278,9 @@ let router = new Router({
     },
   ],
 })
+
+router.afterEach((to, from) => {
+  analytics.pv(to.fullPath)
+})
+
 export default router
