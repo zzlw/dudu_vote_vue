@@ -49,24 +49,20 @@
       </div>
 
     </div>
-    <div class="border-t">
-
-      <div class="flex-wrp flex-between flex-align-center plr50 ptb15 bg-white border-b"
+    <div>
+      <div class="flex-wrp flex-between flex-align-center plr50 ptb15 bg-white border-b" :class="[{'border-t':!index}]"
            v-for="(item, index) in players" :key="index">
-
         <div class="flex-wrp flex-between flex-align-center">
           <div class="color5 size26">NO.{{item.rank}}</div>
-          <div class="plr30 flex-wrp flex-center border-radius overflow-hidden"
-               :style="{width: rem(90), height: rem(90)}">
+          <div class="mlr30 flex-wrp flex-center border-radius overflow-hidden"
+               :style="{width: rem(80), height: rem(80)}">
             <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
                  :style="{backgroundImage:`url(${item.picture})`}"/>
           </div>
           <div class="color5 size26">{{item.name}}</div>
         </div>
         <div class="color5 size26">{{item.gain_votes}}票</div>
-
       </div>
-
     </div>
   </div>
 </template>

@@ -8,15 +8,15 @@
 
       <div class="base-data-three flex-wrp flex-around bg-white ptb10 border-b">
 
-        <div class="text-center plr60 border-r">
+        <div class="text-center plr60 border-r" :style="{flex: 1}">
           <div class="bold size26 color5 lh150">{{activity.player_count}}</div>
           <div class="size22 color5 lh150">参与选手</div>
         </div>
-        <div class="text-center plr60 border-r">
+        <div class="text-center plr60 border-r" :style="{flex: 1}">
           <div class="bold size26 color5 lh150">{{activity.vote_count}}</div>
           <div class="size22 color5 lh150">累计投票</div>
         </div>
-        <div class="text-center plr60 border-r">
+        <div class="text-center plr60" :style="{flex: 1}">
           <div class="bold size26 color5 lh150">{{activity.pv}}</div>
           <div class="size22 color5 lh150">访问量</div>
         </div>
@@ -24,14 +24,14 @@
       </div>
 
       <!--// 活动标题-->
-      <div class="flex-wrp flex-align-center flex-between bg-white h100 pt10">
+      <div class="flex-wrp flex-align-center flex-between bg-white h100 pt20 pb20">
         <div :style="{width: rem(40),height: rem(40)}">
           <svg class="icon base-menu-icon" aria-hidden="true">
             <use :xlink:href="`#icon-yinliang`"></use>
           </svg>
         </div>
         <!--// 活动标题-->
-        <InputText v-model="activity.title" :preview="preview" class="mr10 w100 nbr  pt10 pb20"/>
+        <InputText v-model="activity.title" :preview="preview" class="mr10 w100 nbr"/>
       </div>
 
       <!--计时器-->

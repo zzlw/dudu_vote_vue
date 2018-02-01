@@ -13,7 +13,7 @@
           </div>
           <div class="size16 color1 ml20">关注公众好了解更多！</div>
         </div>
-        <div class="size16 color1 border-radius5 flex-wrp flex-center bg-red overflow-hidden ptb10 plr20">马上关注</div>
+        <div class="size16 color1 border-radius5 flex-wrp flex-center bg-red overflow-hidden ptb10 plr20"  @click.stop="showDialog = true">马上关注</div>
       </div>
       <div class=""
            @click="follow=false"
@@ -67,6 +67,19 @@
         <div class="size16" :class="[`${$route.matched[1].meta.index=='3'?'color3':'color5'}`]">个人中心</div>
       </div>
     </div>
+    <!--二维码-->
+    <x-dialog :show.sync="showDialog" :hide-on-blur="true" :dialog-style="{width: '100%'}">
+      <div class="pt30 pb60 plr30">
+        <div class="color2 size32 flex-wrp flex-middle pb20">二维码</div>
+        <div class="flex-wrp flex-middle">
+          <img class="bg-cover block" src="~/assets/img/s.gif"
+               :style="{width: rem(250), height: rem(250),backgroundImage:`url(${activity.qrcode})`}"/>
+        </div>
+        <div class="size22 color2 flex-wrp flex-middle pd10">长按识别二维码</div>
+
+        <div class="fixed-button h40 flex-wrp flex-center" @click.stop="showDialog = !showDialog">关闭</div>
+      </div>
+    </x-dialog>
   </div>
 </template>
 
@@ -79,6 +92,7 @@
     data () {
       return {
         follow: true,
+        showDialog: false,
       }
     },
     computed: {
