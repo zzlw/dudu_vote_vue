@@ -36,7 +36,7 @@
 
       <!--计时器-->
       <div class="flex-wrp flex-middle bg-white pt10 pb20">
-        <template v-if="activity&&activity.deadline&&moment().isAfter(activity.deadline)">
+        <template v-if="activity&&activity.deadline&&moment().isBefore(activity.deadline)">
           <div class="color2 size16">距离开始</div>
           <div class="mlr5 color1 size16 plr10 border-radius5 bg-deepblue">{{timeValue&&timeValue.days}}</div>
           <div class="color2 size16">天</div>
@@ -47,7 +47,7 @@
           <div class="mlr5 color1 size16 plr10 border-radius5 bg-deepblue">{{timeValue&&timeValue.seconds}}</div>
           <div class="color2 size16">秒</div>
         </template>
-        <template v-else-if="activity&&!activity.deadline&&moment().isBefore(activity.end_time)">
+        <template v-else-if="(activity&&!activity.deadline)||moment().isAfter(activity.deadline)">
           <div class="color2 size16">距离结束</div>
           <div class="mlr5 color1 size16 plr10 border-radius5 bg-deepblue">{{timeValue&&timeValue.days}}</div>
           <div class="color2 size16">天</div>
@@ -174,7 +174,7 @@
       timeUpdate () {
         if(!this.activity) return
         this.timeValue = timeDiffObj(
-          this.activity.deadline&&moment().isAfter(this.activity.deadline)
+          this.activity.deadline&&moment().isBefore(this.activity.deadline)
             ? this.activity.deadline
             : this.activity.end_time,
           this.now
