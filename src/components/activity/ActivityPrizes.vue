@@ -4,7 +4,7 @@
       <div class="color2 size26 text-center ptb20 mt15">— 活动鼓励奖 —</div>
       <div class="flex-wrp flex-between flex-align-center pb15">
         <div class="color5 size26">{{prize.name}}</div>
-        <div class="color1 size22 border-radius5 bg-ff404b plr15 ptb10">{{prize.exchanged_count}}礼物票兑换</div>
+        <div class="color1 size22 border-radius5 bg-ff404b plr15 ptb10">{{prize.price}}礼物票兑换</div>
       </div>
       <InputRichText class="color4 size26  ptb15" v-model="prize.details" :preview="true" />
     </div>

@@ -6,13 +6,13 @@
 </template>
 
 <script>
-  import IEcharts from 'vue-echarts-v3/src/lite.js';
-  import 'echarts/lib/chart/line';
-  import 'echarts/lib/component/legend';
-  import 'echarts/lib/component/tooltip';
-  import 'echarts/lib/component/dataZoom';
-  import 'echarts/lib/component/grid';
-  import 'echarts/lib/component/title';
+  import IEcharts from 'vue-echarts-v3/src/lite.js'
+  import 'echarts/lib/chart/line'
+  import 'echarts/lib/component/legend'
+  import 'echarts/lib/component/tooltip'
+  import 'echarts/lib/component/dataZoom'
+  import 'echarts/lib/component/grid'
+  import 'echarts/lib/component/title'
 
   // let data2 = [
   //   {
@@ -112,25 +112,21 @@
   //   }
   // ]
 
-
-
-  let dateList=(data2)=>{
+  let dateList = (data2) => {
     return data2.map(function (item) {
       return item.hour
     })
   }
 
-  let valueList=(data2,type)=>{
+  let valueList = (data2, type) => {
     return data2.map(function (item) {
-      if(type=='pv'){
+      if (type === 'pv') {
         return item.pv
-      }else{
+      } else {
         return item.ip
       }
     })
   }
-
-
 
   export default {
     name: 'Demo01',
@@ -146,11 +142,11 @@
         bar: {},
       }
     },
-    mounted (){
+    mounted () {
     },
     methods: {
       onReady (instance, echarts) {
-        let _dateList= dateList(this.cells);
+        let _dateList = dateList(this.cells)
         const that = this
         that.ins = instance
         that.echarts = echarts
@@ -166,13 +162,13 @@
             },
           },
           tooltip: {
-              trigger: 'axis',
-              axisPointer: {
-                  type: 'cross'
-              }
+            trigger: 'axis',
+            axisPointer: {
+              type: 'cross',
+            },
           },
           legend: {
-            data: ['PV', 'IP']
+            data: ['PV', 'IP'],
           },
           grid: {
             left: '2%',
@@ -183,7 +179,7 @@
           xAxis: {
             data: _dateList,
             axisLabel: {
-              interval:0,
+              interval: 0,
               inside: false,
               textStyle: {
                 interval: 0,
@@ -215,8 +211,8 @@
           dataZoom: [
             {
               type: 'inside',
-              startValue: _dateList[_dateList.length>=5?_dateList.length-5:_dateList.length],
-              endValue: _dateList[_dateList.length>=1?_dateList.length-1:0],
+              startValue: _dateList[_dateList.length >= 5 ? _dateList.length - 5 : _dateList.length],
+              endValue: _dateList[_dateList.length >= 1 ? _dateList.length - 1 : 0],
             },
           ],
           series: [
@@ -237,7 +233,7 @@
                 },
               },
               barWidth: 20,
-              data: valueList(that.cells, 'pv')
+              data: valueList(that.cells, 'pv'),
             },
             {
               name: 'IP',

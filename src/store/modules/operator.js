@@ -23,11 +23,15 @@ export default {
   mutations: {
     // 活动
     [types.FETCH_OPERATOR_REQUEST] (state, payload) {
+      state.operator.info = null
+      state.operator.error = null
+      state.operator.errorCode = 0
       state.operator.loading = true
     },
     [types.FETCH_OPERATOR_SUCCESS] (state, operator) {
       state.operator.loading = false
       state.operator.info = operator
+
     },
     [types.FETCH_OPERATOR_FAILURE] (state, payload) {
       state.operator.loading = false
