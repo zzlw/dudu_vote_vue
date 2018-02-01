@@ -59,7 +59,9 @@
 
       <div class="ptb30 bg-white">
         <div class="plr20 ptb10">
-          <div @click="clickVote" class="bg-ff404b color1 size26 text-center border-radius5 ptb15">投Ta一票</div>
+          <ActivityPlayerVoting :player="player" @on-voting="onVoting">
+            <div class="bg-ff404b color1 size26 text-center border-radius5 ptb15">投Ta一票</div>
+          </ActivityPlayerVoting>
         </div>
         <div class="plr20 ptb10">
           <router-link :to="`/activity/${activity.id}/player/${player.id}/gift`">
@@ -124,37 +126,20 @@
 
       <div class="w100 fixedBottomLink bg-alpha">
         <div class="plr60 ptb20 flex-wrp flex-between">
-          <div @click="clickVote" class="ptb10 size26 plr40 color1 border-radius5"
-               :style="{backgroundColor: '#ff404b'}">给Ta投票
-          </div>
+
+          <ActivityPlayerVoting :player="player" @on-voting="onVoting">
+            <div class="ptb10 size26 plr40 color1 border-radius5"
+                 :style="{backgroundColor: '#ff404b'}">给Ta投票
+            </div>
+          </ActivityPlayerVoting>
+
           <router-link :to="`/activity/${activity.id}/player/${player.id}/gift`">
             <div class="ptb10 size26 plr40 color1 border-radius5" :style="{backgroundColor: '#ff404b'}">赠送礼物</div>
           </router-link>
         </div>
       </div>
 
-      <!--投票成功-->
-      <x-dialog :show.sync="showDialog" :hide-on-blur="true" :dialog-style="{width: '100%'}">
-        <div class="pt30 plr30">
-          <div class="flex-wrp flex-center border-b pb20">
-            <div class="" :style="{width: rem(50), height: rem(50)}">
-              <svg class="icon base-menu-icon" aria-hidden="true">
-                <use :xlink:href="`#icon-chenggong`"></use>
-              </svg>
-            </div>
-            <div class="color2 size32 pl20">投票成功</div>
-          </div>
-          <div class="color5 size22 ptb50">好友也可以帮忙，一天后还能再投票哦！</div>
-          <div class="ptb15 bg-ff404b size26 color1 border-radius5">给TA送礼物加票</div>
-          <div class="flex-wrp flex-center" @click="showDialog=false">
-            <div class="guanbi border-radius">
-              <svg class="icon base-menu-icon" aria-hidden="true" :style="{width: rem(52), height: rem(80)}">
-                <use :xlink:href="`#icon-shanchu4-copy`"></use>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </x-dialog>
+
 
 
     </div>
@@ -166,6 +151,7 @@
   import InputSwiper from '@/components/input/swiper/InputSwiper'
   import InputRichText from '@/components/input/rich-text/InputRichText'
   import ActivityPrizes from '@/components/activity/ActivityPrizes'
+  import ActivityPlayerVoting from '@/components/activity/ActivityPlayerVoting'
   import { api } from 'h5sdk'
 
   import { createNamespacedHelpers } from 'vuex'
@@ -178,6 +164,7 @@
       InputSwiper,
       InputRichText,
       ActivityPrizes,
+      ActivityPlayerVoting,
     },
     data () {
       return {
@@ -220,23 +207,14 @@
       },
     },
     methods: {
+      onVoting (votes) {
+        this.player.gain_votes += votes
+      },
       async fetchEvents () {
         const {data} = await api.get('activity_player_events', {
           player_id: this.player.id,
         })
         this.events = data.data
-      },
-      async clickVote () { // 投普通票
-        const {data} = await api.get('activity_voting', {
-          player_id: this.player.id,
-        })
-
-        if (data.error) {
-          alert(data.message)
-        } else {
-          this.player.gain_votes += 1
-          this.showDialog = true
-        }
       },
     },
     mounted () {

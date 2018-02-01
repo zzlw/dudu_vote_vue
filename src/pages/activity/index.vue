@@ -9,7 +9,7 @@
       <div class="flex-wrp flex-between flex-align-center h100 plr50">
         <div class="flex-wrp flex-between flex-align-center">
           <div class="border-radius5 overflow-hidden bg-cover" :style="{width: rem(70),height: rem(70)}">
-            <img src="~/assets/img/web/logo.png" width="100%" height="100%"/>
+            <img :src="activity.info&&activity.info.subscribe_config.logo" width="100%" height="100%"/>
           </div>
           <div class="size16 color1 ml20">关注公众好了解更多！</div>
         </div>
@@ -73,7 +73,7 @@
         <div class="color2 size32 flex-wrp flex-middle pb20">二维码</div>
         <div class="flex-wrp flex-middle">
           <img class="bg-cover block" src="~/assets/img/s.gif"
-               :style="{width: rem(250), height: rem(250),backgroundImage:`url(${activity.qrcode})`}"/>
+               :style="{width: rem(250), height: rem(250),backgroundImage:`url(${activity.info&&activity.info.subscribe_config.qrcode})`}"/>
         </div>
         <div class="size22 color2 flex-wrp flex-middle pd10">长按识别二维码</div>
 

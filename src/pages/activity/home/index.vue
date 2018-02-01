@@ -202,6 +202,7 @@
       },
     },
     mounted () {
+      this.timeUpdate()
       this.timer = setInterval(this.timeUpdate, 1000)
       // this.fetchData()
       this.fetchPlayersData()
