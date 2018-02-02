@@ -2,7 +2,7 @@
   <div class="pb60">
 
     <base-navigation title="报名截止时间"></base-navigation>
-    <group label-width="3.7rem" label-margin-right="2em" label-align="left">
+    <group label-align="left">
       <datetime title="报名截止时间" class="color2" v-model="deadline" format="YYYY-MM-DD HH:mm"
                 :minute-list="['00', '15', '30', '45']" year-row="{value}年" month-row="{value}月" day-row="{value}日"
                 hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>

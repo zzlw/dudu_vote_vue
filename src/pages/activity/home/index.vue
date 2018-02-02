@@ -8,15 +8,15 @@
 
       <div class="base-data-three flex-wrp flex-around bg-white ptb10 border-b">
 
-        <div class="text-center plr60 border-r" :style="{flex: 1}">
+        <div class="text-center border-r" :style="{flex: 1}">
           <div class="bold size26 color5 lh150">{{activity.player_count}}</div>
           <div class="size22 color5 lh150">参与选手</div>
         </div>
-        <div class="text-center plr60 border-r" :style="{flex: 1}">
+        <div class="text-center border-r" :style="{flex: 1}">
           <div class="bold size26 color5 lh150">{{activity.vote_count}}</div>
           <div class="size22 color5 lh150">累计投票</div>
         </div>
-        <div class="text-center plr60" :style="{flex: 1}">
+        <div class="text-center" :style="{flex: 1}">
           <div class="bold size26 color5 lh150">{{activity.pv}}</div>
           <div class="size22 color5 lh150">访问量</div>
         </div>
@@ -63,7 +63,7 @@
       <!--//搜索框-->
       <div class="bg-white ptb20">
         <div class="flex-wrp flex-middle relative plr20">
-          <input v-model="keyword" class="border border-radius50 plr20 size16 color2 ptb15 w100"
+          <input v-model="keyword" class="border bg-white border-radius50 plr20 size16 color2 ptb15 w100 outline"
                  :style="{'border-color': '#ddd'}"
                  type="text" placeholder="请输入编号或者姓名"/>
           <div class="search-icon" @click="onSearch">

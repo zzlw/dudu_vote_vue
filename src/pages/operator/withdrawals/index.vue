@@ -42,7 +42,7 @@
     <div class="size16 color4 plr30">提现到账时间：腾讯微信支付到账为T+3，即申请提现后次日起第三个工作日到账（节假日和周末顺延）</div>
 
     <div class="size16 color5 plr30 text-center pt60"><span>提现规则</span><br/>提现问题咨询：duud6688&nbsp;&nbsp;&nbsp;&nbsp;电话：<a
-      class="" href="tel:0371-65740333">0371-65740333</a></div>
+      class="" href="tel:0371-65740333">0371-65740333<span class="color13">(立即拨打)</span></a></div>
   </div>
 </template>
 

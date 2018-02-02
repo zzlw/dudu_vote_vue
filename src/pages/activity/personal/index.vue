@@ -55,11 +55,11 @@
     </div>
 
 
-    <group label-width="2rem" label-margin-right="2em" label-align="left" gutter=".32rem">
+    <group label-width="2.5rem" label-margin-right="2em" label-align="left" gutter=".32rem">
       <cell title="我的奖品" is-link value-align="right" link="prize-exchange"/>
     </group>
 
-    <group label-width="2rem" label-margin-right="2em" label-align="left" gutter=".32rem">
+    <group label-width="2.5rem" label-margin-right="2em" label-align="left" gutter=".32rem">
       <cell title="我的奖品" value="生成海报" is-link value-align="right"
             :link="`/activity/${activity.id}/player/${info.id}/card`"/>
       <cell>

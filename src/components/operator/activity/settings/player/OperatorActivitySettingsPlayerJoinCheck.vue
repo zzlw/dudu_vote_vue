@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <group label-width="2rem" label-margin-right="2em" label-align="left">
+    <group label-width="2.5rem" label-margin-right="2em" label-align="left">
       <x-switch
         class="color2"
         title="报名审核"
