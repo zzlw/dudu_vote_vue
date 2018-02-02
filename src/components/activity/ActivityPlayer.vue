@@ -11,7 +11,7 @@
       <div v-if="player.rank === 1" class="numberIcon no1"></div>
       <div v-else-if="player.rank === 2" class="numberIcon no2"></div>
       <div v-else-if="player.rank === 3" class="numberIcon no3"></div>
-      <div class="numberText ptb10 plr10 color1 size16"  v-else>第{{player.rank}}名</div>
+      <div class="numberText ptb10 plr10 color1 size16" v-else>第{{player.rank}}名</div>
 
     </div>
 
@@ -21,41 +21,26 @@
         <div class="size16 color3">{{`${player.gain_votes}票`}}</div>
         <div class="size16 color3">{{`${player.gift_count}礼物`}}</div>
       </div>
-      <div @click="clickVote" class="voteTiele border border-radius bg-white color3 ptb25 plr20 size26"
-           :style="{'border-color': '#ff4622!important'}">投票
-      </div>
+
+      <ActivityPlayerVoting :player="player" @on-voting="onVoting">
+        <div class="voteTiele border border-radius bg-white color3 ptb25 plr20 size26"
+             :style="{'border-color': '#ff4622!important'}">投票
+        </div>
+      </ActivityPlayerVoting>
+
     </div>
 
-    <!--投票成功-->
-    <x-dialog :show.sync="showDialog" :hide-on-blur="true" :dialog-style="{width: '100%'}">
-      <div class="pt30 plr30">
-        <div class="flex-wrp flex-center border-b pb20">
-          <div class="" :style="{width: rem(50), height: rem(50)}">
-            <svg class="icon base-menu-icon" aria-hidden="true">
-              <use :xlink:href="`#icon-chenggong`"></use>
-            </svg>
-          </div>
-          <div class="color2 size32 pl20">投票成功</div>
-        </div>
-        <div class="color5 size22 ptb50">好友也可以帮忙，一天后还能再投票哦！</div>
-        <div class="ptb15 bg-ff404b size26 color1 border-radius5">给TA送礼物加票</div>
-        <div class="flex-wrp flex-center" @click="showDialog=false">
-          <div class="guanbi border-radius">
-            <svg class="icon base-menu-icon" aria-hidden="true" :style="{width: rem(52), height: rem(80)}">
-              <use :xlink:href="`#icon-shanchu4-copy`"></use>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </x-dialog>
 
   </div>
 </template>
 
 <script>
-  import { api } from 'h5sdk'
+  import ActivityPlayerVoting from '@/components/activity/ActivityPlayerVoting'
 
   export default {
+    components: {
+      ActivityPlayerVoting,
+    },
     props: [
       'player',
     ],
@@ -69,17 +54,8 @@
       goPlayerIndex () {
         this.$emit('on-click-head', this.player)
       },
-      async clickVote () {
-        const {data} = await api.get('activity_voting', {
-          player_id: this.player.id,
-        })
-
-        if (data.error) {
-          alert(data.message)
-        } else {
-          this.player.gain_votes += 1
-          this.showDialog = true
-        }
+      async onVoting () {
+        this.player.gain_votes += 1
       }
     }
   }

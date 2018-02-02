@@ -14,6 +14,7 @@
       </div>
       <div class="" :style="{flex:1}"></div>
     </div>
+
     <div class="bg-white" :style="{height: rem(300)}">
       <div class="flex-wrp flex-cell flex-align-center pt30">
         <base-avatar :src="player.picture" class="bg-white"/>
