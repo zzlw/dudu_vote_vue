@@ -56,11 +56,13 @@
           //     type: 'success',
           //     text: 'Loading'
           // })
+          this.$store.dispatch('loading')
 
           const {data} = await api.post('operator_login', {
             mobile: this.mobile,
             password: this.password,
           })
+          this.$store.dispatch('loaded')
 
           if (data.error) {
             alert(data.message)
@@ -70,9 +72,12 @@
           this.$router.push('/operator')
         },
         async loginWithWechat () {
+          this.$store.dispatch('loading')
           const {data} = await api.post('operator_login', {
             'login_type': 'wechat',
           })
+          this.$store.dispatch('loaded')
+
           if (data.error) {
             alert(data.message)
             return

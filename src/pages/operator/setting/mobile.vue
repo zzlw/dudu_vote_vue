@@ -74,10 +74,11 @@
           this.$vux.toast.text(tel.msg, 'middle')
           return
         }
-
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_send_captcha', {
           mobile: this.mobile,
         })
+        this.$store.dispatch('loaded')
 
         if (data.error) {
           this.$vux.toast.text(data.message, 'middle')
@@ -92,10 +93,12 @@
       },
       async onSubmit () {
         const that = this
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_modify_mobile', {
           mobile: this.mobile,
           captcha: this.code,
         })
+        this.$store.dispatch('loaded')
 
         if (data.error) {
           this.$vux.toast.text(data.message, 'middle')

@@ -81,7 +81,9 @@
         let activityId = this.activity.id
         let requestData = this.player
         requestData.activity_id = activityId
+        this.$store.dispatch('loading')
         const {data} = await api.post('activity_sign_in', requestData)
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,

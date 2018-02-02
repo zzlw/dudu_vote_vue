@@ -17,6 +17,9 @@
 
 <script>
   import { api } from 'h5sdk'
+  import { createNamespacedHelpers } from 'vuex'
+
+  const {mapState, mapActions} = createNamespacedHelpers('operator')
 
   export default {
     data () {
@@ -25,30 +28,37 @@
         deadline: ''
       }
     },
+    computed: {
+      ...mapState({
+        'activity': state => state.activity.info,
+      }),
+    },
     async created () {
       this.fetchData()
     },
     methods: {
+      ...mapActions({
+        'reloadActivity': 'reloadActivity',
+      }),
       async onSubmit () {
         let activityId = this.$route.params.activity_id
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_activity_config', {
           id: activityId,
           is_close_deadline: this.is_close_deadline,
           deadline: this.deadline,
         })
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,
         })
+        await this.reloadActivity()
+        this.fetchData()
       },
       async fetchData () {
-        let activityId = this.$route.params.activity_id
-
-        const {data} = await api.get('operator_activity', {id: activityId})
-
-        console.log(data)
-        this.is_close_deadline = String(data.data.is_close_deadline)
-        this.deadline = data.data.deadline
+        this.is_close_deadline = String(this.activity.is_close_deadline)
+        this.deadline = this.activity.deadline
       }
     }
   }

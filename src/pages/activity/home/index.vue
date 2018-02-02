@@ -86,11 +86,8 @@
         </tab-item>
       </tab>
 
-
-      <div v-if="playersLoading">加载中</div>
-
       <!--// 选手列表-->
-      <div class="pd5" v-else>
+      <div class="pd5">
         <template v-for="(item, index) in playersChunk">
           <div class="flex-wrp">
 
@@ -152,7 +149,6 @@
           time_start: 1519099695649,
           time_end: 1516199695649
         },
-        playersLoading: false,
         players: [],
         tabIndex: 0,
       }
@@ -187,7 +183,6 @@
         this.fetchPlayersData()
       },
       async fetchPlayersData () {
-        this.playersLoading = true
         this.players = []
         let requestData = {
           activity_id: this.$route.params.activity_id,
@@ -196,9 +191,12 @@
         if (this.keyword) {
           requestData.keyword = this.keyword
         }
+
+        this.$store.dispatch('loading')
         const {data} = await api.get('activity_players', requestData)
+        this.$store.dispatch('loaded')
+
         this.players = data.data
-        this.playersLoading = false
       },
     },
     mounted () {

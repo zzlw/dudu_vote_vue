@@ -12,12 +12,12 @@ let router = new Router({
 })
 
 router.beforeEach(function (to, from, next) {
-  store.dispatch('loading', {isLoading: true})
+  store.dispatch('loading')
   next()
 })
 
 router.afterEach((to, from) => {
-  store.dispatch('loaded', {isLoading: false})
+  store.dispatch('loaded')
   analytics.pv(to.fullPath)
 })
 

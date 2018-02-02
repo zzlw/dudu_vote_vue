@@ -59,9 +59,11 @@
           })
           return
         }
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_modify_password', {
           password: this.password,
         })
+        this.$store.dispatch('loaded')
 
         if (data.error) {
           alert(data.message)

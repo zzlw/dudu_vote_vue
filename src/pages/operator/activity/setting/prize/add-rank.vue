@@ -50,7 +50,9 @@
 
         let requestData = this.prize
         requestData.id = this.$route.params.activity_id
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_prize_create', requestData)
+        this.$store.dispatch('loaded')
         this.$vux.toast.text(data.message, 'middle')
         if (!data.error) {
           this.$router.back()

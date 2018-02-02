@@ -42,8 +42,9 @@
           <div class="color2 size26"></div>
           <div class="flex-wrp">
             <div class="size26 color13 plr30 ptb5 border-radius5 mr20" :style="{border:'1px solid #29d6bf'}"
-            @click="onClickDelete(prize)"
-            >删除</div>
+                 @click="onClickDelete(prize)"
+            >删除
+            </div>
             <div class="size26 color13 plr30 ptb5 border-radius5" @click="onClickEdit(prize)"
                  :style="{border:'1px solid #29d6bf'}">修改
             </div>
@@ -57,6 +58,9 @@
 
 <script>
   import { api } from 'h5sdk'
+  import { createNamespacedHelpers } from 'vuex'
+
+  const {mapState} = createNamespacedHelpers('operator')
 
   export default {
     data () {
@@ -65,15 +69,23 @@
         prizes: [],
       }
     },
+    computed: {
+      ...mapState({
+        'activity': state => state.activity.info,
+      }),
+    },
     async created () {
       this.fetchData()
     },
 
     methods: {
       async fetchData () {
-        let requestData = {}
-        requestData.activity_id = this.$route.params.activity_id
-        const {data} = await api.get('operator_prizes', requestData)
+        this.$store.dispatch('loading')
+        const {data} = await api.get('operator_prizes', {
+          activity_id: this.activity.id,
+        })
+        this.$store.dispatch('loaded')
+
         this.prizes = data.data
       },
       getPrizeImage (prize) {
@@ -88,9 +100,11 @@
         }
       },
       async onClickDelete (prize) {
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_prize_delete', {
-          prize_id: prize.id
+          prize_id: prize.id,
         })
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.text(data.message, 'middle')
         if (!data.error) {
@@ -103,8 +117,8 @@
         } else {
           this.$router.push('prize-edit-rank/' + prize.id)
         }
-      }
-    }
+      },
+    },
   }
 </script>
 

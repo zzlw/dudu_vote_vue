@@ -58,7 +58,10 @@
     methods: {
       async fetchData () {
         let id = this.$route.params.player_id
+        this.$store.dispatch('loading')
         const {data} = await api.get('operator_player', {id})
+        this.$store.dispatch('loaded')
+
         this.player.id = id
         this.player.name = data.data.name
         this.player.mobile = data.data.mobile
@@ -67,8 +70,9 @@
       },
       async onSubmit () {
         let requestData = this.player
-
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_player_update', requestData)
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,

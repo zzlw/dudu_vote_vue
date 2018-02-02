@@ -100,7 +100,9 @@
           newVar.code = code
         }
 
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_join', newVar)
+        this.$store.dispatch('loaded')
 
         alert(data.message)
 
