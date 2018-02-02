@@ -1,19 +1,6 @@
 <template>
   <div class="">
-    <div class="head flex-wrp flex-between bg-284860 plr20 ptb20">
-      <div class="flex-wrp flex-align-center" :style="{flex:1}">
-        <div class="leftIcon" :style="{width: rem(40), height: rem(40)}">
-          <svg class="icon base-menu-icon" aria-hidden="true">
-            <use :xlink:href="`#icon-zuojiantou`"></use>
-          </svg>
-        </div>
-        <div class="size26 color1 pl5">返回</div>
-      </div>
-      <div class="color1 size26 text-center" :style="{flex:3}">
-        正在给{{player.name}}赠送礼物
-      </div>
-      <div class="" :style="{flex:1}"></div>
-    </div>
+    <base-navigation :title="`正在给${player.name}赠送礼物`"></base-navigation>
 
     <div class="bg-white" :style="{height: rem(300)}">
       <div class="flex-wrp flex-cell flex-align-center pt30">
@@ -37,7 +24,7 @@
           </div>
 
           <div class="size22 flex-wrp flex-center pb10">
-            <span class="color4">{{t.name}}</span>
+            <span class="color4">{{t.name}}&nbsp;&nbsp;</span>
             <span class="color15">{{t.price}}金币</span>
           </div>
 

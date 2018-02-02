@@ -30,13 +30,14 @@
     </div>
     <div v-for="prize in prizes" class="pd20">
 
-      <div class="border-radius5 bg-white overflow-hidden relative">
-        <div class="bg-ddd" :style="{height: rem(300)}">
+      <div class="border-radius5 bg-white overflow-hidden">
+        <div class="bg-ddd relative" :style="{height: rem(300)}">
           <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
                :style="{backgroundImage:`url(${getPrizeImage(prize)})`}"/>
           <div class="numberImg border border-radius50 bg-alpha color1 plr30 size16 ptb5">
             {{prize.type===0?`排名奖`:'鼓励奖'}}
           </div>
+          <div class="numberText bg-alpha color1 plr15 size22 ptb5 ">{{prize}}</div>
         </div>
         <div class="flex-wrp flex-align-center flex-between plr30 ptb20">
           <div class="color2 size26"></div>
@@ -113,5 +114,11 @@
     position: absolute;
     top: 20px;
     right: 20px;
+  }
+  .numberText{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 </style>
