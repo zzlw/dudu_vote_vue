@@ -34,7 +34,7 @@
             <cell is-link value-align="right" link='settings/player-add'>
                 <div slot="icon" class="flex-wrp flex-align-center" >
                     <div class="leftIcon" :style="{width: rem(36), height: rem(36)}"></div>
-                    <div class="size26 color2 pl5 h100">添选选手</div>
+                    <div class="size26 color2 pl5 h100">添加选手</div>
                 </div>
             </cell>
         </group>

@@ -7,6 +7,7 @@
       </div>
     </div>
     <div class="pt40 color15 size26 text-center">长按保存图片,推荐给好友</div>
+    <img width="100%" height="100%" :src="player.card_url" class="bg-cover img-fixed-ewm"/>
   </div>
 </template>
 
@@ -29,5 +30,13 @@
 </script>
 
 <style lang="scss" scoped>
+.img-fixed-ewm{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
 </style>
 

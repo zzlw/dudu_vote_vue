@@ -1,6 +1,6 @@
 <template>
   <div class="pb60">
-    <base-navigation title="票数限制"></base-navigation>
+    <base-navigation title="IP限制"></base-navigation>
     <group label-width="3.7rem" label-margin-right="2em" label-align="left" gutter='.2rem'>
       <cell class="">
         <div slot="icon" class="flex-wrp flex-end">

@@ -6,7 +6,7 @@
       <button-upload :upload="upload" v-if="!preview"/>
       <button-custom v-if="!preview && remove" :onclick="remove" thatText="删除" thatIcon="icon-guanbi"/>
     </div>
-    <input v-if="!preview" class="w100 bg-alpha pd10 color1 size16" :style="{border:'none'}" ref="url" type="text"
+    <input v-if="!preview" class="w100 bg-alpha pd10 color1 size16 outline nbr border-radius0" ref="url" type="text"
            placeholder="跳转链接（以http://开头）" @change="input" :value="value.url">
 
   </div>

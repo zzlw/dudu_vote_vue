@@ -33,9 +33,7 @@
           <div class="size20 color15 lh100">{{t.votes}}票</div>
 
           <div class="flex-wrp flex-center ptb10 plr20">
-            <div class="plr10" :style="{width: rem(96), height: rem(96)}">
               <base-avatar :src="t.image" class="bg-white"/>
-            </div>
           </div>
 
           <div class="size22 flex-wrp flex-center pb10">

@@ -9,8 +9,8 @@
     </div>
 
     <group label-width="2.6rem" label-margin-right="2em" label-align="left" gutter="0">
-      <x-input title="姓名:" placeholder="请输入活动" required v-model="player.name"/>
-      <x-input title="联系方式:" placeholder="请输入活动" type='tel' required v-model="player.mobile"/>
+      <x-input title="姓名:" placeholder="请输入姓名" required v-model="player.name"/>
+      <x-input title="联系方式:" placeholder="请输入联系方式" type='tel' required v-model="player.mobile"/>
 
       <cell title="封面图片:"/>
 

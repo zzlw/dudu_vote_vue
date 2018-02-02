@@ -9,7 +9,7 @@
         <div slot="icon" class="ptb15 flex-wrp flex-align-center flex-between">
           <div class="flex-wrp flex-align-center">
             <div class="color2 size60">￥</div>
-            <input class="size26 color2 pl5 h100" v-model="amount" :placeholder="`可提现金额${maxAmount}元`" title=""/>
+            <input class="size26 color2 pl5 h100 nbr outline" type="number" v-model="amount" :placeholder="`可提现金额${maxAmount}元`" title=""/>
           </div>
         </div>
         <div class="size26 color2 pl5 h100 color13">全部提现</div>

@@ -5,9 +5,9 @@
 
     <group label-width="2.1rem" label-margin-right="2em" label-align="left" gutter=".3rem">
       <x-input title="奖品名称:" placeholder="请输入奖品名称" required v-model="prize.name"/>
-      <x-number title="奖品数量:" v-model="prize.total_count" button-style="round" :min="1"></x-number>
-      <x-number title="兑换票数:" v-model="prize.price" button-style="round" :min="1"></x-number>
-      <x-number title="限兑数量:" v-model="prize.limited_exchange_count" button-style="round" :min="1"></x-number>
+      <x-number title="奖品数量:" v-model="prize.total_count" button-style="round" :min="0" fillable></x-number>
+      <x-number title="兑换票数:" v-model="prize.price" button-style="round" :min="0" fillable></x-number>
+      <x-number title="限兑数量:" v-model="prize.limited_exchange_count" button-style="round" :min="0" fillable></x-number>
 
       <cell title="奖品有效期" value=""></cell>
 

@@ -64,12 +64,12 @@
       <div class="pt30 pb60 plr30">
         <div class="color2 size32 flex-wrp flex-middle pb20">活动二维码</div>
         <div class="flex-wrp flex-middle">
-          <img class="bg-cover block" src="~/assets/img/s.gif"
-               :style="{width: rem(250), height: rem(250),backgroundImage:`url(${activity.qrcode})`}"/>
+          <img class="bg-cover block" :src="activity.qrcode"
+               :style="{width: rem(250), height: rem(250)}"/>
         </div>
         <div class="size22 color2 flex-wrp flex-middle pd10">长按保存二维码</div>
 
-        <div class="fixed-button h40 flex-wrp flex-center" @click.stop="showDialog = !showDialog">关闭</div>
+        <div class="fixed-button h60 flex-wrp flex-center" @click.stop="showDialog = !showDialog">关闭</div>
       </div>
     </x-dialog>
 

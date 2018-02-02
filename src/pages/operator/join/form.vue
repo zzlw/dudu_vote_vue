@@ -15,7 +15,7 @@
       <x-input title="申请人" placeholder="请输入您的姓名" required v-model="name"/>
       <x-input title="联系方式" placeholder="4-10位数字或字母" required v-model="mobile"
                :is-type="()=>validateTel(mobile)"/>
-      <x-input title="推荐码" placeholder="4-10位数字或字母" v-model="code"/>
+      <x-input title="推荐码" inline-desc="没有可不填，非必填项" placeholder="4-10位数字或字母" v-model="code"/>
     </group>
     <div class="plr30 ptb20">
       <div class="link-btn-main ptb15 size26 color1" @click="submit()">确认申请</div>

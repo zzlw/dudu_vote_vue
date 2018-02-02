@@ -99,7 +99,7 @@
         }
       },
       async playerOk (player) {
-        if (!confirm('确定审核该选手吗')) {
+        if (!confirm('确定审核通过吗')) {
           return
         }
         const {data} = await api.get('operator_player_audit', {id: player.id, status: 1})

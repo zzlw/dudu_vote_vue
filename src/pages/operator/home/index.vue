@@ -78,7 +78,7 @@
           <div class="link-btn-main" @click="doCopy">复制链接</div>
         </div>
         <div class="size22 color4 flex-wrp flex-middle pt20">复制不成功可长按链接进行选择复制</div>
-        <div class="fixed-button h40 flex-wrp flex-center" @click.stop="show_recommended=false">关闭</div>
+        <div class="fixed-button h60 flex-wrp flex-center" @click.stop="show_recommended=false">关闭</div>
       </div>
     </x-dialog>
 

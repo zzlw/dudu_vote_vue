@@ -12,10 +12,10 @@
             </cell>
             <cell class="">
                 <div slot="icon" class="flex-wrp flex-align-center" >
-                    <input v-model="minute" class="bg-white border-radius5 pd10 color2 size26" :style="{border:'1px solid #ccc', width: rem(120)}"/>
+                    <input v-model="minute" type="number" class="bg-white border-radius5 pd10 color2 size26 outline nbr" :style="{border:'1px solid #ccc', width: rem(120)}"/>
                     <div class="plr20">分钟</div>
                     <div class="pr20">最多</div>
-                    <input v-model="number" class="bg-white border-radius5 pd10 color2 size26" :style="{border:'1px solid #ccc', width: rem(180)}"/>
+                    <input v-model="number" type="number" class="bg-white border-radius5 pd10 color2 size26 outline nbr" :style="{border:'1px solid #ccc', width: rem(180)}"/>
                     <div class="pl20">票</div>
                 </div>
             </cell>
