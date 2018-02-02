@@ -67,7 +67,9 @@
           'player_id': this.player.id,
           'gift_id': gift.id,
         }
+        this.$store.dispatch('loading')
         const {data} = await api.post('activity_gift_voting', requestData)
+        this.$store.dispatch('loaded')
 
         if (data.error) {
           alert(data.message)

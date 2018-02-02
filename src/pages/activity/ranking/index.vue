@@ -99,10 +99,12 @@
     methods: {
       async fetchPlayersData () {
         this.players = []
+        this.$store.dispatch('loading')
         const {data} = await api.get('activity_players', {
           activity_id: this.$route.params.activity_id,
           sort_type: 1,
         })
+        this.$store.dispatch('loaded')
 
         this.top3 = data.data.slice(0, 3)
         this.players = data.data.slice(3)

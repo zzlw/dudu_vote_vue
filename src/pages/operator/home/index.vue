@@ -186,7 +186,9 @@
       },
       async fetchActivityData () {
         this.activities = []
+        this.$store.dispatch('loading')
         const {data} = await api.get('operator_activities')
+        this.$store.dispatch('loaded')
         this.activities = data.data
       },
       // async fetchStatData () {
@@ -197,7 +199,9 @@
         if (!confirm('确定删除吗?')) {
           return
         }
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_activity_delete', {id: activity.id})
+        this.$store.dispatch('loaded')
         this.$vux.toast.show({
           text: data.message,
         })

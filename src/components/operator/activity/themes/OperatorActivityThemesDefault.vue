@@ -2,7 +2,7 @@
     <div class="">
         <!--轮播图编辑器-->
 
-        <OperatorActivityEditorSwiper v-model="activity.swiper" :preview="preview"/>
+        <OperatorActivityEditorSwiper v-model="activity.sliders" :preview="preview"/>
 
         <div class="base-data-three flex-wrp flex-around bg-white ptb10 border-b" >
             <div :class="['text-center plr60',{'border-l': index==1,'border-r': index==1}]" v-for="(item, index) in data" :key="index">
@@ -82,7 +82,7 @@
 
         <div class="flex-wrp flex-center pd10  bg-white">
           <div class="size16 color2">——</div>
-          <InputText v-model="activity.contentTitle" :preview="preview" class="mlr20 color2 plr10 ptb5 size26"/>
+          <InputText v-model="activity.content_title" :preview="preview" class="mlr20 color2 plr10 ptb5 size26"/>
           <div class="size16 color2">——</div>
         </div>
 
@@ -92,12 +92,12 @@
 
         <group v-if="!preview" label-width="3rem" label-margin-right="2em" label-align="left">
             <cell title="基础设置" ></cell>
-            <datetime class="color2" v-model="activity.startTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`开始时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
-            <datetime class="color2" v-model="activity.endTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`结束时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
-            <x-switch class="color2" :title="`开始报名`" inline-desc="用户是否可以自主报名" :value-map="['0', '1']" v-model="activity.signUpManner"></x-switch>
-            <x-switch class="color2" :title="`投票类型`" inline-desc="一票制还是多票制（亮点为多票制）一票制：设置时间内只有一票；多票制：设置时间内对每个选手" :value-map="['0', '1']" v-model="activity.voteType"></x-switch>
-            <x-number title="多久重新投票" inline-desc="单位（小时）" v-model="activity.nextVoteTime" button-style="round" :min="0" fillable></x-number>
-            <x-number title="奖品兑换数量" v-model="activity.limitedExchangeCount" button-style="round" :min="0" fillable></x-number>
+            <datetime class="color2" v-model="activity.start_time" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`开始时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
+            <datetime class="color2" v-model="activity.end_time" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`结束时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
+            <x-switch class="color2" :title="`开始报名`" inline-desc="用户是否可以自主报名" :value-map="['0', '1']" v-model="activity.sign_up_manner"></x-switch>
+            <x-switch class="color2" :title="`投票类型`" inline-desc="一票制还是多票制（亮点为多票制）一票制：设置时间内只有一票；多票制：设置时间内对每个选手" :value-map="['0', '1']" v-model="activity.vote_type"></x-switch>
+            <x-number title="多久重新投票" inline-desc="单位（小时）" v-model="activity.next_vote_time" button-style="round" :min="0" fillable></x-number>
+            <x-number title="奖品兑换数量" v-model="activity.limited_exchange_count" button-style="round" :min="0" fillable></x-number>
             <cell :inline-desc="`提示:奖品在发布完成“我的活动“投票设置“奖品管理”进行添加`" ></cell>
         </group>
 
@@ -123,7 +123,7 @@
       components: {
         InputText,
         OperatorActivityEditorSwiper,
-        InputRichText
+        InputRichText,
       },
       name: 'add',
       data () {
@@ -133,20 +133,20 @@
           data: [
             {
               number: 167,
-              text: '参与选手'
+              text: '参与选手',
             },
             {
               number: 167,
-              text: '累计投票'
+              text: '累计投票',
             },
             {
               number: 167,
-              text: '访问量'
-            }
+              text: '访问量',
+            },
           ],
           buying: {
             time_start: 1519099695649,
-            time_end: 1516199695649
+            time_end: 1516199695649,
           },
           srcImg: '',
           timer: null,
@@ -159,15 +159,15 @@
               srcImg: '',
               number: 1,
               vote: 1,
-              liwu: 2
+              liwu: 2,
             },
             {
               srcImg: '',
               number: 1,
               vote: 1,
-              liwu: 2
-            }
-          ]
+              liwu: 2,
+            },
+          ],
         }
       },
       methods: {
@@ -178,7 +178,7 @@
               : this.buying.time_end,
             this.now
           )
-        }
+        },
       },
       mounted () {
         this.timer = setInterval(this.timeUpdate, 1000)
@@ -186,11 +186,11 @@
       computed: {
         cateGroup () {
           return chunk(this.twoDate, 2)
-        }
+        },
       },
       beforeDestroy () {
         this.timer && clearInterval(this.timer)
-      }
+      },
     }
 </script>
 

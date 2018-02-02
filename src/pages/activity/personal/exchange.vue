@@ -80,7 +80,6 @@
           },
         ],
         prizes: [],
-        loading: false,
         tabIndex: 0,
       }
     },
@@ -106,22 +105,23 @@
         this.fetchData()
       },
       async fetchData () {
-        this.loading = true
         this.prizes = []
+        this.$store.dispatch('loading')
         const {data} = await api.get('activity_personal_prizes', {
           activity_id: this.activity.id,
           status: this.tabIndex,
         })
+        this.$store.dispatch('loading')
+
         this.prizes = data.data
-        this.loading = false
       },
       async exchange (prize) {
-        this.loading = true
+        this.$store.dispatch('loading')
         const {data} = await api.get('activity_personal_prize_exchange', {
           activity_id: this.activity.id,
           prize_id: prize.id,
         })
-        this.loading = false
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,

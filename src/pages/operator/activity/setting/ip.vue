@@ -51,6 +51,9 @@
 <script>
   import { api } from 'h5sdk'
   import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
+  import { createNamespacedHelpers } from 'vuex'
+
+  const {mapState, mapActions} = createNamespacedHelpers('operator')
 
   export default {
     data () {
@@ -59,8 +62,13 @@
         number: 0,
         addressData: ChinaAddressV4Data,
         addressList: [],
-        addressValue: []
+        addressValue: [],
       }
+    },
+    computed: {
+      ...mapState({
+        'activity': state => state.activity.info,
+      }),
     },
     async created () {
       this.fetchData()
@@ -86,12 +94,13 @@
         if (!bl) {
           this.addressList.push(newQuestion)
         }
-      }
+      },
     },
 
-    computed: {},
-
     methods: {
+      ...mapActions({
+        'reloadActivity': 'reloadActivity',
+      }),
       getName (value) {
         return value2name(value, ChinaAddressV4Data)
       },
@@ -100,24 +109,23 @@
       },
       async onSubmit () {
         let activityId = this.$route.params.activity_id
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_activity_config', {
           id: activityId,
-          vote_rule_ip: this.addressList
+          vote_rule_ip: this.addressList,
         })
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,
         })
+        await this.reloadActivity()
+        this.fetchData()
       },
       async fetchData () {
-        let activityId = this.$route.params.activity_id
-
-        const {data} = await api.get('operator_activity', {id: activityId})
-
-        this.addressList = data.data.vote_rule_ip
-        console.log(data)
-      }
-    }
+        this.addressList = this.activity.vote_rule_ip
+      },
+    },
   }
 </script>
 

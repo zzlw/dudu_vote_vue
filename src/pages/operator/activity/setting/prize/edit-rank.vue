@@ -41,9 +41,12 @@
 
     methods: {
       async fetchData () {
+        this.$store.dispatch('loading')
         const {data} = await api.get('operator_prize', {
           prize_id: this.$route.params.prize_id,
         })
+        this.$store.dispatch('loaded')
+
         this.prize.id = this.$route.params.prize_id
         this.prize.name = data.data.name
         this.prize.details = data.data.details
@@ -59,7 +62,10 @@
         }
 
         let requestData = this.prize
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_prize_update', requestData)
+        this.$store.dispatch('loaded')
+
         this.$vux.toast.text(data.message, 'middle')
         if (!data.error) {
           this.$router.back()

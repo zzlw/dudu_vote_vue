@@ -176,10 +176,10 @@
     data () {
       return {
         showDialog: false,
-        events: {
-          gift_vote: [],
-          ordinary_vote: [],
-        },
+        // events: {
+        //   gift_vote: [],
+        //   ordinary_vote: [],
+        // },
         timer: null,
         timeValue: '',
 
@@ -220,15 +220,18 @@
       onVoting (votes) {
         this.player.gain_votes += votes
       },
-      async fetchEvents () {
-        const {data} = await api.get('activity_player_events', {
-          player_id: this.player.id
-        })
-        this.events = data.data
-      }
+      // async fetchEvents () {
+      //   this.$store.dispatch('loading')
+      //   const {data} = await api.get('activity_player_events', {
+      //     player_id: this.player.id
+      //   })
+      //   this.$store.dispatch('loaded')
+      //
+      //   this.events = data.data
+      // }
     },
     mounted () {
-      this.fetchEvents()
+      // this.fetchEvents()
     }
   }
 </script>

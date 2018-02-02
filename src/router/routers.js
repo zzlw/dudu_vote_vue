@@ -34,7 +34,7 @@ const OperatorActivityEdit = () => import(/* webpackChunkName: "OperatorActivity
 
 const OperatorActivitySettingHome = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/home')
 
-const OperatorActivitySettingFollow = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/follow')
+const OperatorActivitySettingFollow = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/subscribe')
 const OperatorActivitySettingShare = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/share')
 const OperatorActivitySettingPrize = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/prize/index')
 const OperatorActivitySettingPrizeAdd = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/prize/add')
@@ -45,9 +45,9 @@ const OperatorActivitySettingPrizeEditRank = () => import(/* webpackChunkName: "
 const OperatorActivitySettingPlayer = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player')
 const OperatorActivitySettingPlayerAdd = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/add')
 const OperatorActivitySettingPlayerEdit = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/edit')
-const OperatorActivitySettingPlayerAdmin = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/admin')
-const OperatorActivitySettingPlayerLimit = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/limit')
-const OperatorActivitySettingPlayerLimitNumber = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/player/limitNumber')
+const OperatorActivitySettingPlayerAdmin = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/deadline')
+const OperatorActivitySettingPlayerLimit = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/limit')
+const OperatorActivitySettingPlayerLimitNumber = () => import(/* webpackChunkName: "OperatorActivitySetting" */ '@/pages/operator/activity/setting/ip')
 
 // 活动数据统计
 const OperatorActivityData = () => import(/* webpackChunkName: "OperatorActivityData" */ '@/pages/operator/activity/data')

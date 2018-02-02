@@ -28,7 +28,7 @@
     </div>
 
     <template v-if="preview" v-for="(item, index) in items">
-      <p v-if="item.text" class="plr15 ptb10" :key="index">
+      <p v-if="item.text" :key="index">
         {{item.text}}
       </p>
       <p v-if="item.image" class="" :key="index">

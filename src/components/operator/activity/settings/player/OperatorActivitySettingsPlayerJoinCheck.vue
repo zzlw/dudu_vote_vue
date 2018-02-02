@@ -36,8 +36,9 @@
           activity_id: this.activityId,
           audit_manner: newVal ? '1' : '0',
         }
-
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_audit_switch', requestData)
+        this.$store.dispatch('loaded')
 
         if (data.error) {
           this.audit_manner = oldVal ? '1' : '0'
@@ -50,7 +51,10 @@
         })
       },
       async fetchActivityData () {
+        this.$store.dispatch('loading')
         const {data} = await api.get('operator_activity', {id: this.activityId})
+        this.$store.dispatch('loaded')
+
         this.audit_manner = String(data.data.audit_manner)
       },
     },

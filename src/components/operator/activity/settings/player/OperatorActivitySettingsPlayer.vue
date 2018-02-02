@@ -69,14 +69,18 @@
       },
       async fetchPlayersData () {
         this.players = []
+        this.$store.dispatch('loading')
         const {data} = await api.get('operator_players', {id: this.activityId, status: this.tabIndex})
+        this.$store.dispatch('loaded')
         this.players = data.data
       },
       async playerDelete (player) {
         if (!confirm('确定删除该选手吗')) {
           return
         }
+        this.$store.dispatch('loading')
         const {data} = await api.get('operator_player_delete', {id: player.id})
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,
@@ -89,7 +93,9 @@
         if (!confirm('确定不通过该选手吗')) {
           return
         }
+        this.$store.dispatch('loading')
         const {data} = await api.get('operator_player_audit', {id: player.id, status: 2})
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,
@@ -102,7 +108,9 @@
         if (!confirm('确定审核通过吗')) {
           return
         }
+        this.$store.dispatch('loading')
         const {data} = await api.get('operator_player_audit', {id: player.id, status: 1})
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,
@@ -115,7 +123,9 @@
         if (!confirm('确定取消审核该选手吗')) {
           return
         }
+        this.$store.dispatch('loading')
         const {data} = await api.get('operator_player_audit', {id: player.id, status: 0})
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,

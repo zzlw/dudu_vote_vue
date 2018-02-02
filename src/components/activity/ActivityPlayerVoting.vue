@@ -53,9 +53,11 @@
     },
     methods: {
       async clickVote () { // 投普通票
+        this.$store.dispatch('loading')
         const {data} = await api.get('activity_voting', {
           player_id: this.player.id,
         })
+        this.$store.dispatch('loaded')
         if (data.error) {
           alert(data.message)
         } else {

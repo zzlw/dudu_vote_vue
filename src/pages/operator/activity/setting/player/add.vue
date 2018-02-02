@@ -63,7 +63,9 @@
 
         requestData.id = activityId
 
+        this.$store.dispatch('loading')
         const {data} = await api.post('operator_player_create', requestData)
+        this.$store.dispatch('loaded')
 
         this.$vux.toast.show({
           text: data.message,
