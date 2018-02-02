@@ -77,7 +77,6 @@
   import { api } from 'h5sdk'
   import InputSwiper from '@/components/input/swiper/InputSwiper'
   import { createNamespacedHelpers } from 'vuex'
-  import activity from '@/store/modules/activity'
 
   const {mapState} = createNamespacedHelpers('activity')
 

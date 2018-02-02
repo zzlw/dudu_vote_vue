@@ -49,7 +49,7 @@
                  :style="{backgroundImage:`url(${item.image})`}"/>
           </div>
           <div class="color4 size16 text-center text-nowrap-one">{{item.name}}</div>
-          <div class="color4 size16 text-center text-nowrap-one">{{item.sum}}</div>
+          <div class="color4 size16 text-center text-nowrap-one">{{item.sum}}个</div>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
     </group>
 
     <group label-width="2.5rem" label-margin-right="2em" label-align="left" gutter=".32rem">
-      <cell title="我的奖品" value="生成海报" is-link value-align="right"
+      <cell title="分享宣传" value="生成海报" is-link value-align="right"
             :link="`/activity/${activity.id}/player/${info.id}/card`"/>
       <cell>
         <div class="color4 size22 lh200 text-left inline-block">{{publicity}}
