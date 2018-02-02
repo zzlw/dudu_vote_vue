@@ -78,19 +78,19 @@
 
       <div class="bg-white mt20 plr20 pb15">
         <div class="color2 size22 ptb10">他们刚刚帮TA投票了!</div>
-        <div v-if="events">
-          <swiper :height="rem(170)" :show-dots="false" loop :duration="1500"  >
-              <swiper-item v-for="(item, index) in cateGroup" :key="index" class="flex-wrp" >
-                <div class="flex-wrp flex-cell flex-center mlr10" :style="{flex: 1}" v-for="(t, i) in item" :key="i">
-                  <div class="flex-wrp flex-center border-radius overflow-hidden"
-                      :style="{width: rem(90), height: rem(90)}">
-                    <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-                        :style="{backgroundImage:`url(${t.headimgurl})`}"/>
-                  </div>
-                  <div class="color4 size16 text-center text-nowrap-one">{{t.nickname}}</div>
-                  <div class="color4 size16 text-center text-nowrap-one">{{t.created_at}}</div>
+        <div v-if="player.events">
+          <swiper :height="rem(170)" :show-dots="false" loop :duration="1500">
+            <swiper-item v-for="(item, index) in cateGroup" :key="index" class="flex-wrp">
+              <div class="flex-wrp flex-cell flex-center mlr10" :style="{flex: 1}" v-for="(t, i) in item" :key="i">
+                <div class="flex-wrp flex-center border-radius overflow-hidden"
+                     :style="{width: rem(90), height: rem(90)}">
+                  <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
+                       :style="{backgroundImage:`url(${t.headimgurl})`}"/>
                 </div>
-              </swiper-item>
+                <div class="color4 size16 text-center text-nowrap-one">{{t.nickname}}</div>
+                <div class="color4 size16 text-center text-nowrap-one">{{t.created_at}}</div>
+              </div>
+            </swiper-item>
           </swiper>
         </div>
       </div>
@@ -98,8 +98,12 @@
       <div class="color2 size26 text-center bg-white ptb20">— 收到的礼物 —</div>
 
       <div class="border-t">
-        <div v-if="events" class="flex-wrp flex-between flex-align-center plr20 ptb15 bg-white border-b"
-             v-for="(item, index) in events.gift_vote" :key="index">
+        <div
+             v-if="player.events"
+             v-for="(item, index) in player.events.gift_vote"
+             :key="index"
+             class="flex-wrp flex-between flex-align-center plr20 ptb15 bg-white border-b"
+        >
           <div class="flex-wrp flex-between">
             <div class="flex-wrp flex-center border-radius overflow-hidden" :style="{width: rem(50), height: rem(50)}">
               <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
@@ -144,148 +148,146 @@
       </div>
 
 
-
-
     </div>
   </div>
 </template>
 
 <script>
-import InputText from "@/components/input/InputText";
-import InputSwiper from "@/components/input/swiper/InputSwiper";
-import InputRichText from "@/components/input/rich-text/InputRichText";
-import ActivityPrizes from "@/components/activity/ActivityPrizes";
-import ActivityPlayerVoting from "@/components/activity/ActivityPlayerVoting";
-import { api } from "h5sdk";
-import chunk from "lodash/chunk";
+  import InputText from '@/components/input/InputText'
+  import InputSwiper from '@/components/input/swiper/InputSwiper'
+  import InputRichText from '@/components/input/rich-text/InputRichText'
+  import ActivityPrizes from '@/components/activity/ActivityPrizes'
+  import ActivityPlayerVoting from '@/components/activity/ActivityPlayerVoting'
+  import { api } from 'h5sdk'
+  import chunk from 'lodash/chunk'
 
-import { createNamespacedHelpers } from "vuex";
+  import { createNamespacedHelpers } from 'vuex'
 
-const { mapState } = createNamespacedHelpers("activity");
+  const {mapState} = createNamespacedHelpers('activity')
 
-export default {
-  components: {
-    InputText,
-    InputSwiper,
-    InputRichText,
-    ActivityPrizes,
-    ActivityPlayerVoting
-  },
-  data() {
-    return {
-      showDialog: false,
-      events: {
-        gift_vote: [],
-        ordinary_vote: [],
+  export default {
+    components: {
+      InputText,
+      InputSwiper,
+      InputRichText,
+      ActivityPrizes,
+      ActivityPlayerVoting
+    },
+    data () {
+      return {
+        showDialog: false,
+        events: {
+          gift_vote: [],
+          ordinary_vote: [],
+        },
+        timer: null,
+        timeValue: '',
+
+        data: [
+          {
+            number: 167,
+            text: '总票数'
+          },
+          {
+            number: 167,
+            text: '转发量'
+          },
+          {
+            number: 167,
+            text: '浏览量'
+          },
+          {
+            number: 167,
+            text: '礼物数'
+          }
+        ]
+      }
+    },
+    computed: {
+      ...mapState({
+        activity: state => state.activity.info,
+        player: state => state.player.info,
+        prizes: state => state.prizes.info
+      }),
+      listSix () {
+        return this.list.splice(0, 6)
       },
-      timer: null,
-      timeValue: "",
-
-      data: [
-        {
-          number: 167,
-          text: "总票数"
-        },
-        {
-          number: 167,
-          text: "转发量"
-        },
-        {
-          number: 167,
-          text: "浏览量"
-        },
-        {
-          number: 167,
-          text: "礼物数"
-        }
-      ]
-    };
-  },
-  computed: {
-    ...mapState({
-      activity: state => state.activity.info,
-      player: state => state.player.info,
-      prizes: state => state.prizes.info
-    }),
-    listSix() {
-      return this.list.splice(0, 6);
+      cateGroup () {
+        return chunk(this.player.events.ordinary_vote, 5)
+      }
     },
-    cateGroup() {
-      return chunk(this.events.ordinary_vote, 5);
-    }
-  },
-  methods: {
-    onVoting(votes) {
-      this.player.gain_votes += votes;
+    methods: {
+      onVoting (votes) {
+        this.player.gain_votes += votes
+      },
+      async fetchEvents () {
+        const {data} = await api.get('activity_player_events', {
+          player_id: this.player.id
+        })
+        this.events = data.data
+      }
     },
-    async fetchEvents() {
-      const { data } = await api.get("activity_player_events", {
-        player_id: this.player.id
-      });
-      this.events = data.data;
+    mounted () {
+      this.fetchEvents()
     }
-  },
-  mounted() {
-    this.fetchEvents();
   }
-};
 </script>
 
 <style lang="scss" scoped>
-.fixedBottomLink {
-  position: fixed;
-  bottom: 0px;
-}
-
-.search-icon {
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  right: 36px;
-  top: 10px;
-}
-
-.numberImg {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.voteTiele {
-  position: absolute;
-  right: 20px;
-  bottom: 70px;
-}
-
-.numberIcon {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 55px;
-  height: 70px;
-  &.no1 {
-    background: url(~assets/img/web/no1.png) no-repeat center / cover;
+  .fixedBottomLink {
+    position: fixed;
+    bottom: 0px;
   }
-  &.no2 {
-    background: url(~assets/img/web/logo_no2.png) no-repeat center / cover;
-  }
-  &.no3 {
-    background: url(~assets/img/web/logo_no3.png) no-repeat center / cover;
-  }
-}
 
-.numberText {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
+  .search-icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 36px;
+    top: 10px;
+  }
 
-.guanbi {
-  // position: absolute;
-  // top: -10px;
-  // right: -10px;
-  padding: 10px 20px;
-  // z-index: 999;
-}
+  .numberImg {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .voteTiele {
+    position: absolute;
+    right: 20px;
+    bottom: 70px;
+  }
+
+  .numberIcon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 55px;
+    height: 70px;
+    &.no1 {
+      background: url(~assets/img/web/no1.png) no-repeat center / cover;
+    }
+    &.no2 {
+      background: url(~assets/img/web/logo_no2.png) no-repeat center / cover;
+    }
+    &.no3 {
+      background: url(~assets/img/web/logo_no3.png) no-repeat center / cover;
+    }
+  }
+
+  .numberText {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .guanbi {
+    // position: absolute;
+    // top: -10px;
+    // right: -10px;
+    padding: 10px 20px;
+    // z-index: 999;
+  }
 </style>
 
