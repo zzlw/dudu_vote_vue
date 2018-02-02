@@ -10,12 +10,25 @@ import { Plugin } from './plugins'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+let store = new Vuex.Store({
   modules: {
     user,
     config,
     operator,
     activity,
   },
-  plugins: [Plugin('测试')]
+  plugins: [Plugin('测试')],
 })
+
+store.registerModule('vux', { // 名字自己定义
+  state: {
+    isLoading: false,
+  },
+  mutations: {
+    updateLoadingStatus (state, payload) {
+      state.isLoading = payload.isLoading
+    },
+  },
+})
+
+export default store
