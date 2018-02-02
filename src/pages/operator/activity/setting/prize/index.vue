@@ -37,7 +37,7 @@
           <div class="numberImg border border-radius50 bg-alpha color1 plr30 size16 ptb5">
             {{prize.type===0?`排名奖`:'鼓励奖'}}
           </div>
-          <div class="numberText bg-alpha color1 plr15 size22 ptb5 ">{{prize}}</div>
+          <div class="numberText bg-alpha color1 plr15 size22 ptb5 ">{{prize.name}}</div>
         </div>
         <div class="flex-wrp flex-align-center flex-between plr30 ptb20">
           <div class="color2 size26"></div>

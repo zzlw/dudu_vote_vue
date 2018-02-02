@@ -5,47 +5,53 @@
 
     <div class="flex-wrp flex-between flex-end plr40 bg-white ptb30">
 
-      <div v-if="top3[1]" class="flex-wrp flex-cell flex-align-center">
-        <div class="border-radius overflow-hidden"
-             :style="{width: rem(120), height: rem(120), border: '4px solid #a2b7c6'}">
-          <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-               :style="{backgroundImage:`url(${top3[1].picture})`}"/>
-        </div>
-        <div class="size26 color2 pt25 pb10">{{top3[1].name}}</div>
-        <div class="size26 color1 plr20"
-             :style="{backgroundColor:'#a2b7c6','border-radius': rem(20)+' 0 '+rem(20)+ ' 0 '}">NO.2
-        </div>
-        <div class="color4 pt10">{{top3[1].gain_votes}}票</div>
-      </div>
-
-
-      <div v-if="top3[0]" class="flex-wrp flex-cell flex-align-center">
-        <div class="rankingNo1 flex-wrp flex-cell flex-align-center overflow-hidden"
-             :style="{width: rem(204), height: rem(171)}">
-          <div class="border-radius mt10 overflow-hidden"
-               :style="{width: rem(140), height: rem(140), border: '4px solid #dcb691'}">
+      <div class="flex-wrp flex-cell flex-align-center">
+        <template v-if="top3[1]">
+          <div class="border-radius overflow-hidden"
+              :style="{width: rem(120), height: rem(120), border: '4px solid #a2b7c6'}">
             <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-                 :style="{backgroundImage:`url(${top3[0].picture})`}"/>
+                :style="{backgroundImage:`url(${top3[1].picture})`}"/>
           </div>
-        </div>
-        <div class="size26 color2 pt25 pb10">{{top3[0].name}}</div>
-        <div class="size26 color1 plr20"
-             :style="{backgroundColor:'#dcb691','border-radius': rem(20)+' 0 '+rem(20)+ ' 0 '}">NO.1
-        </div>
-        <div class="color4 pt10">{{top3[0].gain_votes}}票</div>
+          <div class="size26 color2 pt25 pb10">{{top3[1].name}}</div>
+          <div class="size26 color1 plr20"
+              :style="{backgroundColor:'#a2b7c6','border-radius': rem(20)+' 0 '+rem(20)+ ' 0 '}">NO.2
+          </div>
+          <div class="color4 pt10">{{top3[1].gain_votes}}票</div>
+        </template>
       </div>
 
-      <div v-if="top3[2]" class="flex-wrp flex-cell flex-align-center">
-        <div class="border-radius overflow-hidden"
-             :style="{width: rem(120), height: rem(120), border: '4px solid #cdc0b2'}">
-          <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-               :style="{backgroundImage:`url(${top3[2].picture})`}"/>
-        </div>
-        <div class="size26 color2 pt25 pb10">{{top3[2].name}}</div>
-        <div class="size26 color1 plr20"
-             :style="{backgroundColor:'#cdc0b2','border-radius': rem(20)+' 0 '+rem(20)+ ' 0 '}">NO.3
-        </div>
-        <div class="color4 pt10">{{top3[2].gain_votes}}票</div>
+
+      <div class="flex-wrp flex-cell flex-align-center">
+        <template v-if="top3[0]">
+          <div class="rankingNo1 flex-wrp flex-cell flex-align-center overflow-hidden"
+              :style="{width: rem(204), height: rem(171)}">
+            <div class="border-radius mt10 overflow-hidden"
+                :style="{width: rem(140), height: rem(140), border: '4px solid #dcb691'}">
+              <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
+                  :style="{backgroundImage:`url(${top3[0].picture})`}"/>
+            </div>
+          </div>
+          <div class="size26 color2 pt25 pb10">{{top3[0].name}}</div>
+          <div class="size26 color1 plr20"
+              :style="{backgroundColor:'#dcb691','border-radius': rem(20)+' 0 '+rem(20)+ ' 0 '}">NO.1
+          </div>
+          <div class="color4 pt10">{{top3[0].gain_votes}}票</div>
+        </template>
+      </div>
+
+      <div class="flex-wrp flex-cell flex-align-center">
+        <template v-if="top3[2]">
+          <div class="border-radius overflow-hidden"
+              :style="{width: rem(120), height: rem(120), border: '4px solid #cdc0b2'}">
+            <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
+                :style="{backgroundImage:`url(${top3[2].picture})`}"/>
+          </div>
+          <div class="size26 color2 pt25 pb10">{{top3[2].name}}</div>
+          <div class="size26 color1 plr20"
+              :style="{backgroundColor:'#cdc0b2','border-radius': rem(20)+' 0 '+rem(20)+ ' 0 '}">NO.3
+          </div>
+          <div class="color4 pt10">{{top3[2].gain_votes}}票</div>
+        </template>
       </div>
 
     </div>

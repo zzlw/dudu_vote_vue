@@ -143,6 +143,7 @@
       }
     },
     mounted () {
+      console.log(this.cells,111)
     },
     methods: {
       onReady (instance, echarts) {
@@ -205,8 +206,11 @@
             axisLabel: {
               textStyle: {
                 color: '#999',
-              },
+              }
             },
+            axisPointer: {
+                snap: true
+            }
           },
           dataZoom: [
             {
