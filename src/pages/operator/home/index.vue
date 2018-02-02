@@ -68,8 +68,8 @@
       <div class="pt30 pb60 plr30">
         <div class="color2 size32 flex-wrp flex-middle pb20">推广二维码</div>
         <div class="flex-wrp flex-middle">
-          <img class="bg-cover block" src="~/assets/img/s.gif"
-               :style="{width: rem(250), height: rem(250),backgroundImage:`url(${operator.recommended_qrcode})`}"/>
+          <img class="bg-cover block" :src="operator.recommended_qrcode"
+               :style="{width: rem(250), height: rem(250)}"/>
         </div>
         <div class="size22 color2 flex-wrp flex-middle pd10">长按保存二维码</div>
         <div class="size22 color2 mt30 text-left">推广链接：</div>
@@ -77,7 +77,7 @@
         <div class="flex-wrp flex-middle pt20">
           <div class="link-btn-main" @click="doCopy">复制链接</div>
         </div>
-        <div class="size22 color4 flex-wrp flex-middle pt20">复制不成功可长按链接进行选择复制</div>
+        <div class="size22 color4 flex-wrp flex-middle ptb20">复制不成功可长按链接进行选择复制</div>
         <div class="fixed-button h60 flex-wrp flex-center" @click.stop="show_recommended=false">关闭</div>
       </div>
     </x-dialog>

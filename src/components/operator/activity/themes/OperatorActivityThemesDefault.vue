@@ -102,7 +102,7 @@
         </group>
 
 
-        <div class="flex-wrp bg-white">
+        <div class="flex-wrp bg-white" :class="[{'border-t':preview}]">
             <div v-if="!preview" @click="preview=true" :style="{flex:1}" class="text-center color2 ptb20 size26">预览</div>
             <div v-if="preview" @click="preview=false" :style="{flex:1}" class="text-center color2 ptb20 size26">编辑</div>
             <div @click="publish(activity)" :style="{flex:1}" class="text-center color2 ptb20 size26">发布</div>
