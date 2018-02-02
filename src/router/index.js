@@ -12,13 +12,12 @@ let router = new Router({
 })
 
 router.beforeEach(function (to, from, next) {
-  store.commit('updateLoadingStatus', {isLoading: true})
+  store.dispatch('loading', {isLoading: true})
   next()
 })
 
 router.afterEach((to, from) => {
-  store.commit('updateLoadingStatus', {isLoading: false})
-
+  store.dispatch('loaded', {isLoading: false})
   analytics.pv(to.fullPath)
 })
 
