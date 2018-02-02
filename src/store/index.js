@@ -23,10 +23,32 @@ let store = new Vuex.Store({
 store.registerModule('vux', { // 名字自己定义
   state: {
     isLoading: false,
+    begin: null,
   },
   mutations: {
     updateLoadingStatus (state, payload) {
       state.isLoading = payload.isLoading
+      state.begin = payload.begin
+    },
+  },
+  actions: {
+    loading ({state, commit}) {
+      commit('updateLoadingStatus', {
+        isLoading: true,
+        begin: (new Date()).getTime(),
+      })
+    },
+    loaded ({state, commit}) {
+      let payload = {
+        isLoading: false,
+        begin: null,
+      }
+      let time = (new Date()).getTime()
+      if (state.begin + 500 <= time) {
+        commit('updateLoadingStatus', payload)
+      } else {
+        setTimeout(() => commit('updateLoadingStatus', payload), state.begin + 500 - time)
+      }
     },
   },
 })
