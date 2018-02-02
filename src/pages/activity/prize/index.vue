@@ -45,6 +45,7 @@
     },
     mounted () {
       this.fetchActivityPrizes(this.activity.id)
+      this.pv(this.activity.operator_id, this.activity.id, 0)
     },
   }
 </script>

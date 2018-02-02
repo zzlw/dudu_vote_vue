@@ -73,7 +73,9 @@
       }),
     },
     async created () {},
-
+    mount () {
+      this.pv(this.activity.operator_id, this.activity.id, 0)
+    },
     methods: {
       async onSubmit () {
         let activityId = this.activity.id

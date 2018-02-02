@@ -50,9 +50,7 @@
 
 <script>
   import { api } from 'h5sdk'
-  import { Value2nameFilter as value2name } from 'vux'
-
-  const ChinaAddressV4Data = () => import(/* webpackChunkName: "ChinaAddressV4Data" */ 'vux/src/datas/china_address_v4')
+  import { ChinaAddressV4Data, Value2nameFilter as value2name } from 'vux'
 
   export default {
     data () {

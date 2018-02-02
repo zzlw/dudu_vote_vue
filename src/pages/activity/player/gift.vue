@@ -91,6 +91,7 @@
     },
     mounted () {
       this.fetchGifts()
+      this.pv(this.activity.operator_id, this.activity.id, this.player.id)
     },
     components: {},
   }

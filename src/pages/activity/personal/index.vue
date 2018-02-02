@@ -166,6 +166,8 @@
         this.$router.replace(`/activity/${this.activity.id}/enter`)
       }
       await this.fetchActivityPrizes(this.activity.id)
+
+      this.pv(this.activity.operator_id, this.activity.id, 0)
     },
     methods: {
       ...mapActions({

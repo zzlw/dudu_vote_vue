@@ -26,6 +26,9 @@
         'prizes': (state) => state.prizes.info,
       }),
     },
+    mounted () {
+      this.pv(this.activity.operator_id, this.activity.id, this.player.id)
+    },
   }
 </script>
 

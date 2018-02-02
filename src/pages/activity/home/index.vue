@@ -172,9 +172,9 @@
         this.fetchPlayersData()
       },
       timeUpdate () {
-        if(!this.activity) return
+        if (!this.activity) return
         this.timeValue = timeDiffObj(
-          this.activity.deadline&&moment().isBefore(this.activity.deadline)
+          this.activity.deadline && moment().isBefore(this.activity.deadline)
             ? this.activity.deadline
             : this.activity.end_time,
           this.now
@@ -206,6 +206,7 @@
       this.timer = setInterval(this.timeUpdate, 1000)
       // this.fetchData()
       this.fetchPlayersData()
+      this.pv(this.activity.operator_id, this.activity.id, 0)
     },
 
     beforeDestroy () {

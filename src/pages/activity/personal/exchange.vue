@@ -31,7 +31,8 @@
       <div class="flex-wrp flex-center flex-between">
         <div class="color4 size22">有效期：{{item.valid_time_end}}</div>
 
-        <div @click="exchange(item)" v-if="item.status === 1" class="size22 border-radius5 ptb5 text-center bg-29d6bf color1"
+        <div @click="exchange(item)" v-if="item.status === 1"
+             class="size22 border-radius5 ptb5 text-center bg-29d6bf color1"
              :style="{width: rem(100)}">
           兑换
         </div>
@@ -93,7 +94,9 @@
     async created () {
       this.fetchData()
     },
-
+    mounted () {
+      this.pv(this.activity.operator_id, this.activity.id, 0)
+    },
     methods: {
       switchTab (index) {
         if (index === this.tabIndex) {

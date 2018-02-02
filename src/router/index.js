@@ -18,7 +18,7 @@ const ActivityPrizeExchange = () => import(/* webpackChunkName: "Activity" */ '@
 // 不需要登录的界面php
 const OperatorLogin = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/login')
 const OperatorJoin = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/join')
-const OperatorJoinForm = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/join/form')
+const OperatorJoinForm = () => import(/* webpackChunkName: "OperatorJoin" */ '@/pages/operator/join/form')
 
 // 运营商主页
 const Operator = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/index')

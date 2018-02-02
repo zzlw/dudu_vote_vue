@@ -1,8 +1,8 @@
 import moment from 'moment'
 import VueClipboard from 'vue-clipboard2'
 import {
-  Cell, Datetime, Divider, FormPreview, Group, Swiper, SwiperItem, Tab, Tabbar, TabbarItem, TabItem, Toast,
-  ToastPlugin, XAddress, XButton, XDialog, XInput, XNumber, XSwitch, XTextarea, LoadingPlugin, ConfirmPlugin
+  Cell, ConfirmPlugin, Datetime, Divider, FormPreview, Group, LoadingPlugin, Swiper, SwiperItem, Tab, Tabbar,
+  TabbarItem, TabItem, ToastPlugin, XAddress, XButton, XDialog, XInput, XNumber, XSwitch, XTextarea
 } from 'vux'
 
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -17,6 +17,8 @@ import HomeInfo from 'components/operator/home/HomeInfo.vue'
 
 import ButtonUpload from 'components/button/ButtonUpload.vue'
 import ButtonCustom from 'components/button/ButtonCustom.vue'
+
+import {api} from 'h5sdk'
 
 export default {
   install (Vue, options) {
@@ -62,6 +64,17 @@ export default {
     Vue.use(VueClipboard)
 
     Vue.prototype.moment = moment
+    Vue.prototype.pv = function (oid, aid, pid) {
+      try {
+        api.get('activity_pv', {
+          'operator_id': oid,
+          'activity_id': aid,
+          'player_id': pid,
+        })
+      } catch (e) {
+        console.log(e)
+      }
+    }
 
     Vue.prototype.rem = function (size) {
       return size / 640 * 10 + 'rem'
