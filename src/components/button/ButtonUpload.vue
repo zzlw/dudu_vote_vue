@@ -7,7 +7,7 @@
       </svg>
     </div>
     <div class="flex-wrp flex-middle color1 size16">上传图片</div>
-    <div class="flex-wrp flex-middle color1 size16">(1000*6000PX)</div>
+    <div class="flex-wrp flex-middle color1 size16">比例（9:16）</div>
   </div>
 
 </template>
