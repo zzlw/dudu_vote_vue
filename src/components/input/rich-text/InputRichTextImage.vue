@@ -1,5 +1,5 @@
 <template>
-  <div class="content-text swiper-item flex-wrp flex-between flex-cell" :style="divStyle">
+  <div class="content-text swiper-item flex-wrp flex-between flex-cell bg-cover" :style="divStyle">
     <!-- <div class="" >
         轮播图Item
     </div> -->

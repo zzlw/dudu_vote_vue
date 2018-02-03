@@ -75,64 +75,94 @@
         this.players = data.data
       },
       async playerDelete (player) {
-        if (!confirm('确定删除该选手吗')) {
-          return
-        }
-        this.$store.dispatch('loading')
-        const {data} = await api.get('operator_player_delete', {id: player.id})
-        this.$store.dispatch('loaded')
+        let that = this
+        this.$vux.confirm.show({
+          // 组件除show外的属性
+          title: '审核',
+          content: '确定删除该选手吗？',
+          onCancel () {
+          },
+          async onConfirm () {
+            that.$store.dispatch('loading')
+            const {data} = await api.get('operator_player_delete', {id: player.id})
+            that.$store.dispatch('loaded')
 
-        this.$vux.toast.show({
-          text: data.message,
+            that.$vux.toast.show({
+              text: data.message,
+            })
+            if (!data.error) {
+              that.fetchPlayersData()
+            }
+          }
         })
-        if (!data.error) {
-          this.fetchPlayersData()
-        }
       },
       async playerPass (player) {
-        if (!confirm('确定不通过该选手吗')) {
-          return
-        }
-        this.$store.dispatch('loading')
-        const {data} = await api.get('operator_player_audit', {id: player.id, status: 2})
-        this.$store.dispatch('loaded')
+        let that = this
+        this.$vux.confirm.show({
+          // 组件除show外的属性
+          title: '审核',
+          content: '确定审核不通过该选手吗？',
+          onCancel () {
+          },
+          async onConfirm () {
+            that.$store.dispatch('loading')
+            const {data} = await api.get('operator_player_audit', {id: player.id, status: 2})
+            that.$store.dispatch('loaded')
 
-        this.$vux.toast.show({
-          text: data.message,
+            that.$vux.toast.show({
+              text: data.message,
+            })
+            if (!data.error) {
+              that.fetchPlayersData()
+            }
+          }
         })
-        if (!data.error) {
-          this.fetchPlayersData()
-        }
       },
       async playerOk (player) {
-        if (!confirm('确定审核通过吗')) {
-          return
-        }
-        this.$store.dispatch('loading')
-        const {data} = await api.get('operator_player_audit', {id: player.id, status: 1})
-        this.$store.dispatch('loaded')
 
-        this.$vux.toast.show({
-          text: data.message,
+        let that = this
+        this.$vux.confirm.show({
+          // 组件除show外的属性
+          title: '审核',
+          content: '确定审核通过吗？',
+          onCancel () {
+          },
+          async onConfirm () {
+            that.$store.dispatch('loading')
+            const {data} = await api.get('operator_player_audit', {id: player.id, status: 1})
+            that.$store.dispatch('loaded')
+
+            that.$vux.toast.show({
+              text: data.message,
+            })
+            if (!data.error) {
+              that.fetchPlayersData()
+            }
+          }
         })
-        if (!data.error) {
-          this.fetchPlayersData()
-        }
+
       },
       async playerUnCheck (player) {
-        if (!confirm('确定取消审核该选手吗')) {
-          return
-        }
-        this.$store.dispatch('loading')
-        const {data} = await api.get('operator_player_audit', {id: player.id, status: 0})
-        this.$store.dispatch('loaded')
+        let that = this
+        this.$vux.confirm.show({
+          // 组件除show外的属性
+          title: '审核',
+          content: '确定取消审核该选手吗？',
+          onCancel () {
+          },
+          async onConfirm () {
+            that.$store.dispatch('loading')
+            const {data} = await api.get('operator_player_audit', {id: player.id, status: 0})
+            that.$store.dispatch('loaded')
 
-        this.$vux.toast.show({
-          text: data.message,
+            that.$vux.toast.show({
+              text: data.message,
+            })
+            if (!data.error) {
+              that.fetchPlayersData()
+            }
+          }
         })
-        if (!data.error) {
-          this.fetchPlayersData()
-        }
       },
       async playerEdit (player) {
         this.$router.push('player-edit/' + player.id)

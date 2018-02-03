@@ -11,12 +11,12 @@
       </cell>
       <cell class="">
         <div slot="icon" class="flex-wrp flex-align-center">
-          <input v-model="minute" type="number" class="bg-white border-radius5 pd10 color2 size26 outline nbr"
+          <x-input v-model="minute" type="number" @on-change="(e)=>thatOnChange(e,'minute')" class="_xInput text-center bg-white border-radius5 pd10 color2 size26 outline border"
                  :style="{border:'1px solid #ccc', width: rem(120)}"/>
-          <div class="plr20">分钟</div>
+          <div class="pl20">分钟</div>
           <div class="pr20">最多</div>
-          <input v-model="number" type="number" class="bg-white border-radius5 pd10 color2 size26 outline nbr"
-                 :style="{border:'1px solid #ccc', width: rem(180)}"/>
+          <x-input v-model="number" type="number" @on-change="(e)=>thatOnChange(e,'number')" class="_xInput text-center bg-white border-radius5 pd10 color2 size26 outline border"
+                 :style="{border:'1px solid #ccc', width: rem(120)}"/>
           <div class="pl20">票</div>
         </div>
       </cell>
@@ -53,6 +53,9 @@
       ...mapActions({
         'reloadActivity': 'reloadActivity',
       }),
+      thatOnChange(e,item){
+        this[item]=Math.abs(parseInt(this[item]))
+      },
       async onSubmit () {
         this.$store.dispatch('loading')
         const {data} = await api.post('operator_activity_config', {
@@ -77,4 +80,9 @@
 </script>
 
 <style lang="scss" scoped>
+._xInput{
+  &::before{
+    display: none;
+  }
+}
 </style>
