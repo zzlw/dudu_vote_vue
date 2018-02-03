@@ -1,5 +1,5 @@
 <template>
-  <div v-if="player" class="">
+  <div v-if="player" class="relative pb60">
     <div class="bg-white ptb40 color2 size26 text-center">我的推广卡</div>
     <div class="pt20 plr40 flex-wrp flex-center">
       <div class="" :style="{width: rem(600)}">
@@ -34,7 +34,7 @@
 
 <style lang="scss" scoped>
 .img-fixed-ewm{
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;

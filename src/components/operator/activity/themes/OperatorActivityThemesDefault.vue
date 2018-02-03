@@ -90,14 +90,14 @@
         <InputRichText class="bg-white" v-model="activity.content" :preview="preview"/>
 
 
-        <group v-if="!preview" label-width="3rem" label-margin-right="2em" label-align="left">
+        <group v-if="!preview"  label-align="left">
             <cell title="基础设置" ></cell>
             <datetime class="color2" v-model="activity.start_time" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`开始时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
             <datetime class="color2" v-model="activity.end_time" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']"  :title="`结束时间`" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
             <x-switch class="color2" :title="`开始报名`" inline-desc="用户是否可以自主报名" :value-map="['0', '1']" v-model="activity.sign_up_manner"></x-switch>
             <x-switch class="color2" :title="`投票类型`" inline-desc="一票制还是多票制（亮点为多票制）一票制：设置时间内只有一票；多票制：设置时间内对每个选手" :value-map="['0', '1']" v-model="activity.vote_type"></x-switch>
-            <x-number title="多久重新投票" inline-desc="单位（小时）" v-model="activity.next_vote_time" button-style="round" :min="0" fillable></x-number>
-            <x-number title="奖品兑换数量" v-model="activity.limited_exchange_count" button-style="round" :min="0" fillable></x-number>
+            <x-number title="多久重新投票（小时）" v-model="activity.next_vote_time" button-style="round" :min="0" :max="24" fillable></x-number>
+            <x-number title="奖品兑换数量（个）" v-model="activity.limited_exchange_count" button-style="round" :min="0" fillable></x-number>
             <cell :inline-desc="`提示:奖品在发布完成“我的活动“投票设置“奖品管理”进行添加`" ></cell>
         </group>
 

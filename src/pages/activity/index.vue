@@ -3,7 +3,7 @@
 -->
 
 <template>
-  <div class="" :style="{paddingBottom: rem(100)}">
+  <div class="" :style="{paddingBottom: $route.meta.notNav?0:rem(100)}">
     <div v-show="follow&&activity.info&&activity.info.subscribe_config.is_show" class="bg-alpha ptb15"
          :style="{width: '100%', position: 'fixed', top: 0, left: 0, 'z-index': 999}">
       <div class="flex-wrp flex-between flex-align-center h100 plr50">

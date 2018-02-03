@@ -26,9 +26,9 @@
         <div class="color1 size26 pt20">{{info.name}}</div>
       </div>
       <div class="flex-wrp flex-between plr30 pt15">
-        <div class="color1 size22">今日票数:{{info.today_votes}}</div>
-        <div class="color1 size22">编号:{{info.id}}</div>
-        <div class="color1 size22">今日礼物:{{info.today_gifts}}</div>
+        <div class="color1 size22">今日票数: {{info.today_votes}}</div>
+        <div class="color1 size22">编号: {{info.id}}</div>
+        <div class="color1 size22">今日礼物: {{info.today_gifts}}</div>
       </div>
     </div>
     <div class="base-data-three flex-wrp flex-around bg-white ptb15 plr10 border-b">
