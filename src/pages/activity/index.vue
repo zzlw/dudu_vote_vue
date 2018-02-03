@@ -77,7 +77,7 @@
         </div>
         <div class="size22 color2 flex-wrp flex-middle pd10">长按识别二维码</div>
 
-        <div class="fixed-button h40 flex-wrp flex-center" @click.stop="showDialog = !showDialog">关闭</div>
+        <div class="fixed-button h60 flex-wrp flex-center" @click.stop="showDialog = !showDialog">关闭</div>
       </div>
     </x-dialog>
   </div>

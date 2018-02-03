@@ -1,6 +1,6 @@
 <template>
 
-  <div class="swiper-item flex-wrp flex-between flex-cell h100 " :class="{editing: !preview}" :style="divStyle">
+  <div class="swiper-item flex-wrp flex-between flex-cell h100 bg-cover" :class="{editing: !preview}" :style="divStyle">
 
     <div class="flex-wrp flex-between" :style="{height: rem(156)}">
       <button-upload :upload="upload" v-if="!preview"/>

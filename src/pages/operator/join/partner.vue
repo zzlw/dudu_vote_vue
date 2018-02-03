@@ -11,7 +11,7 @@
     <base-title title="热门投票案例" class="mt20"/>
     <div class="flex-wrp bg-white flex-between border-t plr15 ptb20">
       <div class="flex-wrp" :style="{flex:1}">
-        <div class="border" :style="{width: rem(170)}">
+        <div class="" :style="{width: rem(170)}">
           <img v-if="src" width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover" :style="{backgroundImage:`url(${src})`}" />
         </div>
         <div class="flex-wrp flex-cell flex-between pl15" :style="{flex:1}">

@@ -25,7 +25,6 @@
             <base-avatar icon="icon-weixin" class="bg-white" size="large"/>
         </div>
         <div class="flex-wrp flex-middle pt10 size32 color2">微信登录</div>
-        <divider>我是有底线的</divider>
     </div>
 </template>
 

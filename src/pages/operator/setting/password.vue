@@ -1,11 +1,11 @@
 <template>
   <div>
 
-    <base-navigation title="修改资料"></base-navigation>
+    <base-navigation title="修改登录密码"></base-navigation>
     <group label-width="2rem" label-margin-right="2em" label-align="left">
       <x-input title="手机号码" placeholder="请输入手机号" disabled :value="operator.mobile"/>
 
-      <x-input title="密码" placeholder="4-32位数字或字母"
+      <x-input title="密码" placeholder="6-32位数字或字母"
                :type="showPassword?'text':'password'"
                required v-model="password"
                :is-type="()=>validatePass(this.password)">
@@ -22,7 +22,6 @@
     <div class="plr20 ptb50">
       <div class="link-btn-main size26 ptb15" @click="onSubmit">确认修改</div>
     </div>
-    <divider>我是有底线的</divider>
   </div>
 </template>
 

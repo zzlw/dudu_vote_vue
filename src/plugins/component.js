@@ -93,7 +93,7 @@ export default {
     Vue.prototype.validatePass = function (value, callback) {
       return /^[a-zA-Z\d_]{4,32}$/.test(value) ? {valid: true} : {
         valid: false,
-        msg: '密码规则：密码不能为空；密码不能小于4位；密码不能大于32位！',
+        msg: '密码规则：密码不能为空；密码不能小于6位；密码不能大于32位！',
       }
     }
 

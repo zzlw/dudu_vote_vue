@@ -3,7 +3,7 @@
 
     <base-navigation title="提现记录"/>
 
-    <group v-for="item in items">
+    <group v-for="(item, index) in items" :key="index">
       <form-preview
         header-label="<span class=color2>提现金额</span>"
         :header-value="`<span class=color13>${item.fee}</span>`"
