@@ -52,10 +52,11 @@
         {{activity.title}}
       </div>
 
-      <div class="pd20 bg-white" :style="{height: rem(300)}">
-        <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-             :style="{backgroundImage:`url(${player.picture})`}"/>
+      <div class="pd20 bg-white size26 color5">
+        <InputRichText v-model="player.introduction" :preview="true" />
       </div>
+
+
 
       <div class="ptb30 bg-white">
         <div class="plr20 ptb10">
@@ -158,7 +159,6 @@
   import InputRichText from '@/components/input/rich-text/InputRichText'
   import ActivityPrizes from '@/components/activity/ActivityPrizes'
   import ActivityPlayerVoting from '@/components/activity/ActivityPlayerVoting'
-  import { api } from 'h5sdk'
   import chunk from 'lodash/chunk'
 
   import { createNamespacedHelpers } from 'vuex'

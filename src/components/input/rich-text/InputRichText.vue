@@ -3,7 +3,7 @@
   <div>
     <div v-if="!preview" v-for="(item, index) in items" :key="index">
 
-      <div class="plr10 ptb5" v-if="item.text" :style="{height: rem(300)}">
+      <div class="plr10 ptb5" v-if="item.text !== undefined" :style="{height: rem(300)}">
         <OperatorActivityEditorContentText
 
           v-model="items[index]"
@@ -15,7 +15,7 @@
       </div>
 
 
-      <div class="plr10 ptb5" v-if="item.image" :style="{height: rem(300)}">
+      <div class="plr10 ptb5" v-if="item.image !== undefined" :style="{height: rem(300)}">
         <OperatorActivityEditorContentImage
           v-model="items[index]"
           :preview="preview"

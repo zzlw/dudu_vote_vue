@@ -2,10 +2,7 @@
   <div class="pb60">
     <base-navigation title="编辑选手"></base-navigation>
 
-    <div class="w100" :style="{height: rem(300)}">
-      <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-           :style="{backgroundImage:`url(${bgSrc})`}"/>
-    </div>
+    <OperatorActivityEditorSwiper v-model="activity.sliders" :preview="true"/>
 
     <group label-width="2.6rem" label-margin-right="2em" label-align="left" gutter="0">
       <x-input title="姓名:" placeholder="请输入活动" required v-model="player.name"/>
@@ -35,11 +32,17 @@
   import {api} from 'h5sdk'
   import InputRichText from '@/components/input/rich-text/InputRichText'
   import InputImage from '@/components/input/InputImage'
+  import OperatorActivityEditorSwiper from '@/components/input/swiper/InputSwiper'
+
+  import { createNamespacedHelpers } from 'vuex'
+
+  const {mapState} = createNamespacedHelpers('operator')
 
   export default {
     components: {
       InputRichText,
       InputImage,
+      OperatorActivityEditorSwiper,
     },
     data () {
       return {
@@ -51,6 +54,11 @@
           introduction: [],
         },
       }
+    },
+    computed: {
+      ...mapState({
+        'activity': state => state.activity.info,
+      }),
     },
     async created () {
       this.fetchData()

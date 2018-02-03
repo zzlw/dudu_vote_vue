@@ -3,10 +3,12 @@
     <div class="_bg-images">
       <div class="flex-wrp flex-center ptb60">
         <div class="size60 color1">{{(+operator.balance).toFixed(2)}}</div>
-        <div class="border border-radius5 ptb5 plr20 ml20 color1 size16" @click="$router.push('/operator/withdrawals')">立即提现</div>
+        <div class="border border-radius5 ptb5 plr20 ml20 color1 size16" @click="$router.push('/operator/withdrawals')">
+          立即提现
+        </div>
       </div>
 
-      <base-data-three :data="stats.total">
+      <base-data-three :data="operator.total_stats">
         <div slot="number" slot-scope="{ number }" class="bold size26 color1 lh200">{{(+number)}}
         </div>
         <div slot="title" slot-scope="{ title }" class="size22 color16">{{title}}</div>
@@ -95,55 +97,9 @@
       return {
         show_recommended: false,
         activities: [],
-        // base-activity-swiper start
-        // to  请按 router 中的 to 使用
         swiperList: [
           {to: '/', title: '投票活动火热开启中'},
         ],
-
-        stats: {
-          // base-data-three start
-          total: [
-            {
-              number: 0,
-              text: '总交易额',
-            },
-            {
-              number: 0,
-              text: '总交易额',
-            },
-            {
-              number: 0,
-              text: '总交易额',
-            },
-          ],
-          today: [
-            {
-              number: 0,
-              text: '总交易额',
-            },
-            {
-              number: 0,
-              text: '总交易额',
-            },
-            {
-              number: 0,
-              text: '总交易额',
-            },
-            {
-              number: 0,
-              text: '总交易额',
-            },
-            {
-              number: 0,
-              text: '总交易额',
-            },
-            {
-              number: 0,
-              text: '总交易额',
-            },
-          ],
-        },
       }
     },
 
@@ -213,8 +169,8 @@
 </script>
 
 <style lang="scss" scoped>
-._bg-images{
-  background: url(~assets/img/web/adf12adf_02.jpg) no-repeat center / cover;
-}
+  ._bg-images {
+    background: url(~assets/img/web/adf12adf_02.jpg) no-repeat center / cover;
+  }
 </style>
 
