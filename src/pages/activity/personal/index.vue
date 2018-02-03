@@ -42,16 +42,18 @@
 
     <div class="bg-white mt20 plr20 pb15">
       <div class="color2 size22 ptb10">收到的礼物</div>
-      <div class="flex-wrp">
-        <div class="flex-wrp flex-cell flex-center mlr10" v-for="(item, index) in listSix" :key="index">
-          <div class="flex-wrp flex-center border-radius overflow-hidden" :style="{width: rem(100), height: rem(100)}">
-            <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-                 :style="{backgroundImage:`url(${item.image})`}"/>
+      <swiper :height="rem(170)" :show-dots="false" loop :duration="1500">
+        <swiper-item v-for="(item, index) in cateGroup" :key="index" class="flex-wrp">
+          <div class="flex-wrp flex-cell flex-center mlr10" v-for="(t, i) in item" :key="i" :style="{flex:1}">
+            <div class="flex-wrp flex-center border-radius overflow-hidden mtb10" :style="{width: rem(80), height: rem(80)}">
+              <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
+                  :style="{backgroundImage:`url(${t.image})`}"/>
+            </div>
+            <div class="color4 size16 text-center text-nowrap-one">{{t.name}}</div>
+            <div class="color4 size16 text-center text-nowrap-one">{{t.sum}}个</div>
           </div>
-          <div class="color4 size16 text-center text-nowrap-one">{{item.name}}</div>
-          <div class="color4 size16 text-center text-nowrap-one">{{item.sum}}个</div>
-        </div>
-      </div>
+        </swiper-item>
+      </swiper>
     </div>
 
 
@@ -82,7 +84,7 @@
 <script>
   import ActivityPrizes from '@/components/activity/ActivityPrizes'
   import { createNamespacedHelpers } from 'vuex'
-
+  import chunk from 'lodash/chunk'
   const {mapActions, mapState} = createNamespacedHelpers('activity')
 
   export default {
@@ -151,6 +153,9 @@
         } else {
           return []
         }
+      },
+      cateGroup () {
+        return chunk(this.info.aggregate_gifts, 5)
       },
       ...mapState({
         'info': state => state.personal.info,

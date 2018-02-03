@@ -20,7 +20,7 @@
           <div class="pl20">票</div>
         </div>
       </cell>
-      <cell class="" inline-desc='温馨提示：选择设置报名表截止时间则表示报名截止时间前不能投票，不设置报名截止时间则表示可以边报名边投票'></cell>
+      <cell class="" inline-desc='提示：设置1分钟最多30票，则表示每一名选手1分钟内最多能被30个好友投票'></cell>
     </group>
     <div class="plr20 pt30">
       <div @click="onSubmit" class="size26 color1 plr30 ptb15 border-radius5 text-center bg-29d6bf">保存</div>

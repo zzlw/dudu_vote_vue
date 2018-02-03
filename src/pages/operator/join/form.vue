@@ -4,6 +4,7 @@
 
 <template>
   <div class="pb60">
+    <base-navigation :title="`推荐`"></base-navigation>
     <div class="w100 flex-wrp flex-center size38 color2">
       <img width="100%" src="~/assets/img/web/1.png" class="bg-cover"/>
     </div>

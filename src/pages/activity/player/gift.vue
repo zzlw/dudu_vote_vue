@@ -15,12 +15,12 @@
     </div>
 
     <div class="ptb10">
-      <div class="flex-wrp flex-wrap plr10" v-for="(item, index) in cateGroup" :key="index">
+      <div class="flex-wrp plr10" v-for="(item, index) in cateGroup" :key="index">
         <div class="pd15 border-radius5 bg-white mg10" v-for="(t, i) in item" :key="i" :style="{flex: 1}">
           <div class="size20 color15 lh100">{{t.votes}}票</div>
 
-          <div class="flex-wrp flex-center ptb10 plr20">
-              <base-avatar :src="t.image" class="bg-white"/>
+          <div class="flex-wrp flex-center ptb10">
+                <img v-if="t.image" src="~/assets/img/s.gif" class="bg-cover" :style="{width: rem(60), height: rem(60), backgroundImage:`url(${t.image})`}" />
           </div>
 
           <div class="size22 flex-wrp flex-center pb10">

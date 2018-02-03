@@ -15,6 +15,7 @@ const ActivityPrizeExchange = () => import(/* webpackChunkName: "Activity" */ '@
 const OperatorLogin = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/login')
 const OperatorJoin = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/join')
 const OperatorJoinForm = () => import(/* webpackChunkName: "OperatorJoin" */ '@/pages/operator/join/form')
+const OperatorJoinPartner = () => import(/* webpackChunkName: "OperatorJoin" */ '@/pages/operator/join/partner')
 
 // 运营商主页
 const Operator = () => import(/* webpackChunkName: "Operator" */ '@/pages/operator/index')
@@ -138,6 +139,10 @@ const routers = [
       {
         path: 'join-form',
         component: OperatorJoinForm,
+      },
+      {
+        path: 'join-partner',
+        component: OperatorJoinPartner,
       },
       {
         path: 'setting/change-password',
