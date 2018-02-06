@@ -90,7 +90,7 @@
           return {}
         }
         return {
-          'minHeight': this.rem('300')
+          'minHeight': this.rem('300'),
         }
       },
       imageStyle () {
@@ -98,14 +98,14 @@
           return {}
         }
         return {
-          'minHeight': this.rem('300')
+          'minHeight': this.rem('300'),
         }
       },
     },
     watch: {
       value () {
         this.items = this.value
-      }
+      },
     },
     methods: {
       addText () {

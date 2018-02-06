@@ -70,7 +70,7 @@
               onShow () {
               },
               onHide () {
-              }
+              },
             })
             return
           }
@@ -91,7 +91,7 @@
               onShow () {
               },
               onHide () {
-              }
+              },
             })
             return
           }

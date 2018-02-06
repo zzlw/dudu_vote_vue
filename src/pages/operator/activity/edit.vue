@@ -39,7 +39,7 @@
         this.$store.dispatch('loaded', 0)
 
         if (data.error) {
-          this.$vux.toast.show({text: data.message,})
+          this.$vux.toast.show({text: data.message})
         } else {
           this.$vux.toast.show({
             text: data.message,

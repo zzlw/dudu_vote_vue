@@ -2,7 +2,7 @@ import moment from 'moment'
 import VueClipboard from 'vue-clipboard2'
 import {
   Cell, ConfirmPlugin, Datetime, Divider, FormPreview, Group, LoadingPlugin, Swiper, SwiperItem, Tab, Tabbar,
-  TabbarItem, TabItem, ToastPlugin, XAddress, XButton, XDialog, XInput, XNumber, XSwitch, XTextarea, AlertPlugin
+  TabbarItem, TabItem, ToastPlugin, XAddress, XButton, XDialog, XInput, XNumber, XSwitch, XTextarea, AlertPlugin,
 } from 'vux'
 
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -54,7 +54,6 @@ export default {
 
     Vue.component('Tabbar', Tabbar)
     Vue.component('TabbarItem', TabbarItem)
-
 
     Vue.use(ToastPlugin)
     Vue.use(LoadingPlugin)
@@ -124,7 +123,7 @@ export default {
     }
 
     Vue.directive('back-top', {
-      inserted(el, binding) {
+      inserted (el, binding) {
         let e = binding.arg || 'click'
         el.addEventListener(e, () => {
           var top = document.body.scrollTop
@@ -137,7 +136,7 @@ export default {
             document.documentElement.scrollTop = document.body.scrollTop = top
           }, 20)
         })
-      }
+      },
     })
   },
 }

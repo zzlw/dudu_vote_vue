@@ -92,7 +92,7 @@
     },
     computed: {
       ...mapState({
-        activity: (state) => state.activity.info
+        activity: (state) => state.activity.info,
       }),
     },
     methods: {

@@ -34,7 +34,7 @@
 
   export default {
     components: {
-      InputImage
+      InputImage,
     },
     data () {
       return {
@@ -42,8 +42,8 @@
           guide_language: '',
           logo: '',
           qrcode: '',
-          is_show: '0'
-        }
+          is_show: '0',
+        },
       }
     },
     computed: {
@@ -71,7 +71,7 @@
         this.$store.dispatch('loading')
         const {data} = await api.post('operator_activity_config', {
           id: activityId,
-          subscribe_config: this.subscribe_config
+          subscribe_config: this.subscribe_config,
         })
         this.$store.dispatch('loaded')
 
@@ -81,7 +81,7 @@
         await this.reloadActivity()
         this.fetchData()
       },
-    }
+    },
   }
 </script>
 

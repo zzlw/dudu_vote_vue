@@ -80,14 +80,14 @@
   export default {
     props: {
       activity: {
-        require: true
-      }
+        require: true,
+      },
     },
     data () {
       return {
         showDialog: false,
         setUpStatus: false,
-        status: false
+        status: false,
         // icons: ['icon-yanjing', 'icon-liwu', 'icon-renshutongji'],
       }
     },
@@ -98,7 +98,7 @@
           return this.activity.sliders[0].img
         }
         return ''
-      }
+      },
     },
     mounted () {},
 
@@ -115,13 +115,13 @@
           },
           onConfirm () {
             that.$emit('on-delete', that.activity)
-          }
+          },
         })
       },
       goDataBoard () {
         this.$router.push(`/operator/activity/${this.activity.id}/data/children`)
-      }
-    }
+      },
+    },
   }
 </script>
 

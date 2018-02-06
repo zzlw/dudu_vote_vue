@@ -71,7 +71,7 @@
             onShow () {
             },
             onHide () {
-            }
+            },
           })
           return
         }

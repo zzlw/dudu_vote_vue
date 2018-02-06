@@ -13,5 +13,5 @@ export default {
   apiHost,
   apiUrl: '',
   base: '',
-  mode
+  mode,
 }

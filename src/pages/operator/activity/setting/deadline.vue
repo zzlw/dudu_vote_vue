@@ -26,7 +26,7 @@
     data () {
       return {
         is_close_deadline: '1',
-        deadline: ''
+        deadline: '',
       }
     },
     computed: {
@@ -60,8 +60,8 @@
       async fetchData () {
         this.is_close_deadline = String(this.activity.is_close_deadline)
         this.deadline = this.activity.deadline
-      }
-    }
+      },
+    },
   }
 </script>
 

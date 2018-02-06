@@ -66,8 +66,8 @@
     methods: {
       emit (type) {
         this.$emit('on-' + type, this.player)
-      }
-    }
+      },
+    },
   }
 </script>
 

@@ -147,7 +147,7 @@
         ],
         buying: {
           time_start: 1519099695649,
-          time_end: 1516199695649
+          time_end: 1516199695649,
         },
         players: [],
         tabIndex: 0,
@@ -155,7 +155,7 @@
     },
     computed: {
       ...mapState({
-        'activity': (state) => state.activity.info
+        'activity': (state) => state.activity.info,
       }),
       playersChunk () {
         return chunk(this.players, 2)

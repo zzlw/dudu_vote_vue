@@ -11,9 +11,9 @@
           <div class="border-radius5 overflow-hidden bg-cover" :style="{width: rem(70),height: rem(70)}">
             <img :src="activity.info&&activity.info.subscribe_config.logo" width="100%" height="100%"/>
           </div>
-          <div class="size16 color1 ml20">关注公众好了解更多！</div>
+          <div class="size22 color1 ml20">关注公众好了解更多！</div>
         </div>
-        <div class="size16 color1 border-radius5 flex-wrp flex-center bg-red overflow-hidden ptb10 plr20"  @click.stop="showDialog = true">马上关注</div>
+        <div class="size22 color1 border-radius5 flex-wrp flex-center bg-red overflow-hidden ptb10 plr20"  @click.stop="showDialog = true">马上关注</div>
       </div>
       <div class=""
            @click="follow=false"

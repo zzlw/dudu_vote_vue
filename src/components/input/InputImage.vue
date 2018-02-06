@@ -49,7 +49,7 @@
             onShow () {
             },
             onHide () {
-            }
+            },
           })
         } finally {
           this.$vux.loading.hide()

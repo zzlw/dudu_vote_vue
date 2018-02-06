@@ -93,7 +93,7 @@
             if (!data.error) {
               that.fetchPlayersData()
             }
-          }
+          },
         })
       },
       async playerPass (player) {
@@ -115,11 +115,10 @@
             if (!data.error) {
               that.fetchPlayersData()
             }
-          }
+          },
         })
       },
       async playerOk (player) {
-
         let that = this
         this.$vux.confirm.show({
           // 组件除show外的属性
@@ -138,9 +137,8 @@
             if (!data.error) {
               that.fetchPlayersData()
             }
-          }
+          },
         })
-
       },
       async playerUnCheck (player) {
         let that = this
@@ -161,7 +159,7 @@
             if (!data.error) {
               that.fetchPlayersData()
             }
-          }
+          },
         })
       },
       async playerEdit (player) {

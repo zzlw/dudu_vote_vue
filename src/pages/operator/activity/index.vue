@@ -23,7 +23,7 @@
     },
     methods: {
       ...mapActions({
-        'fetchActivity': 'fetchActivity'
+        'fetchActivity': 'fetchActivity',
       }),
     },
   }

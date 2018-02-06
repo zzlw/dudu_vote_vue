@@ -60,7 +60,7 @@
     },
     methods: {
       ...mapActions([
-        'fetchGifts'
+        'fetchGifts',
       ]),
       async onClickVoting (gift) {
         let requestData = {
@@ -78,12 +78,12 @@
             onShow () {
             },
             onHide () {
-            }
+            },
           })
         } else {
           location.href = data.data.payment_url
         }
-      }
+      },
     },
     mounted () {
       this.fetchGifts()

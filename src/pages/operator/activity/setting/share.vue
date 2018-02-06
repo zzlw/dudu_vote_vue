@@ -29,7 +29,7 @@
 
   export default {
     components: {
-      InputImage
+      InputImage,
     },
     data () {
       return {
@@ -58,7 +58,7 @@
         this.$store.dispatch('loading')
         const {data} = await api.post('operator_activity_config', {
           id: activityId,
-          share_config: this.share
+          share_config: this.share,
         })
         this.$store.dispatch('loaded')
 

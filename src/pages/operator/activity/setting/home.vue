@@ -105,13 +105,13 @@
 export default {
   data () {
     return {
-      mobile: 1111111111
+      mobile: 1111111111,
     }
   },
   async created () {},
 
   methods: {
-  }
+  },
 }
 </script>
 

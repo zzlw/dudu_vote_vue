@@ -42,7 +42,7 @@
           console.log('wx.chooseImage')
           // 显示
           this.$vux.loading.show({
-            text: '上传中'
+            text: '上传中',
           })
 
           const {serverId} = await wx.uploadImage({
@@ -65,7 +65,7 @@
             onShow () {
             },
             onHide () {
-            }
+            },
           })
         }
       },

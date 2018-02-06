@@ -21,24 +21,24 @@ Vue.filter('date_obj', value => {
   if (date.isSame(cdate, 'day')) {
     return {
       first_time: '',
-      secend_time: date.format('HH:mm')
+      secend_time: date.format('HH:mm'),
     }
   }
   if (date.isSame(cdate, 'year')) {
     return {
       first_time: date.format('MM-DD'),
-      secend_time: date.format('HH:mm')
+      secend_time: date.format('HH:mm'),
     }
   }
   if (date.isSame(cdate.subtract(1, 'years'), 'year')) {
     return {
       first_time: '去年',
-      secend_time: date.format('MM-DD')
+      secend_time: date.format('MM-DD'),
     }
   }
   return {
     first_time: date.format('E'),
-    secend_time: date.format('MM-DD')
+    secend_time: date.format('MM-DD'),
   }
 })
 Vue.filter('distance_format', value => {

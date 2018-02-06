@@ -70,7 +70,7 @@
     },
     computed: {
       ...mapState({
-        'operator': state => state.operator.info
+        'operator': state => state.operator.info,
       }),
     },
     async created () {
@@ -94,7 +94,7 @@
           title: this.title,
           location: location,
           name: this.name,
-          mobile: this.mobile
+          mobile: this.mobile,
         }
 
         if (code) {
@@ -111,7 +111,7 @@
           onShow () {
           },
           onHide () {
-          }
+          },
         })
 
         if (data.error) {
@@ -119,8 +119,8 @@
         }
 
         this.$router.push('/operator/join')
-      }
-    }
+      },
+    },
   }
 </script>
 

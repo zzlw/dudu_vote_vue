@@ -11,12 +11,12 @@ export default {
     title: {
       default: '请输入标题',
       type: String,
-      required: false
+      required: false,
     },
     icon: {
       type: String,
-      default: 'icon-qushi'
-    }
+      default: 'icon-qushi',
+    },
   },
   data () {
     return {}
@@ -27,7 +27,7 @@ export default {
   components: {
   },
 
-  methods: {}
+  methods: {},
 }
 </script>
 

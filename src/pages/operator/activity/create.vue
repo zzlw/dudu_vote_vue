@@ -53,7 +53,7 @@
           onShow () {
           },
           onHide () {
-          }
+          },
         })
 
         if (data.error) {

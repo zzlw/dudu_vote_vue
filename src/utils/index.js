@@ -33,7 +33,7 @@ export const timeDiffObj = (dist, source = moment()) => {
     days: Math.floor(diff / (24 * 3600 * 1000)), // 日
     hours: Math.floor(leave1 / (3600 * 1000)) < 10 ? '0' + Math.floor(leave1 / (3600 * 1000)) : Math.floor(leave1 / (3600 * 1000)), // 小时
     minutes: Math.floor(leave2 / (60 * 1000)) < 10 ? '0' + Math.floor(leave2 / (60 * 1000)) : Math.floor(leave2 / (60 * 1000)), // 分
-    seconds: Math.floor(leave3 / 1000) < 10 ? '0' + Math.floor(leave3 / 1000) : Math.floor(leave3 / 1000)
+    seconds: Math.floor(leave3 / 1000) < 10 ? '0' + Math.floor(leave3 / 1000) : Math.floor(leave3 / 1000),
   }
   return dateDiff
 }

@@ -22,25 +22,25 @@
     props: {
       title: {
         type: String,
-        required: true
+        required: true,
       },
       src: {
         type: String,
-        required: false
+        required: false,
       },
       text: {
         type: String,
-        required: true
+        required: true,
       },
       number: {
         type: [String, Number],
-        required: true
-      }
+        required: true,
+      },
     },
 
     data () {
       return {
-        status: false
+        status: false,
       }
     },
 
@@ -51,8 +51,8 @@
     methods: {
       toCenter () {
         this.$router.push('/operator/setting')
-      }
-    }
+      },
+    },
   }
 </script>
 

@@ -66,7 +66,7 @@
     },
     components: {
       Echarts,
-    }
+    },
   }
 </script>
 
@@ -80,7 +80,7 @@
     right: 0;
     width: 30px;
     height: 30px;
-    opacity: .5;
+    opacity: .8;
     border: 1px solid #00d8c0;
   }
 </style>

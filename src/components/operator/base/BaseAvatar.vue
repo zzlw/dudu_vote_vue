@@ -17,7 +17,7 @@ export default {
       required: false,
       validator: function (value) {
         return /^circle|square$/.test(value)
-      }
+      },
     },
     // 检测类型 + 其他验证
     size: {
@@ -26,22 +26,22 @@ export default {
       required: false,
       validator: function (value) {
         return /^large|small|smallsmall|default$/.test(value)
-      }
+      },
     },
     icon: {
       type: String,
-      required: false
+      required: false,
     },
     src: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   data () {
     return {}
   },
   mounted () {},
-  components: {}
+  components: {},
 }
 </script>
 

@@ -38,7 +38,7 @@
     data () {
       return {
         minute: 1,
-        number: 0
+        number: 0,
       }
     },
     computed: {
@@ -54,11 +54,10 @@
         'reloadActivity': 'reloadActivity',
       }),
       async onSubmit () {
-        if( parseInt(this.minute, 10) !== this.minute || parseInt(this.number, 10) !== this.number || this.minute <= 0 || this.number <= 0 ){
-
+        if (parseInt(this.minute, 10) !== this.minute || parseInt(this.number, 10) !== this.number || this.minute <= 0 || this.number <= 0) {
           this.$vux.toast.show({
             width: this.rem(300),
-            type:'warn',
+            type: 'warn',
             text: '设置时间和票数均不能小于0，且不能为空，且必须为整数！',
           })
           return
@@ -66,7 +65,7 @@
         this.$store.dispatch('loading')
         const {data} = await api.post('operator_activity_config', {
           id: this.activity.id,
-          vote_rule_ticket: this.minute + ':' + this.number
+          vote_rule_ticket: this.minute + ':' + this.number,
         })
         this.$store.dispatch('loaded')
 
@@ -78,10 +77,10 @@
       },
       async fetchData () {
         const splits = this.activity.vote_rule_ticket.split(':')
-        this.minute = splits[0]&&splits[0]!==splits[0] ? splits[0] : 1
+        this.minute = splits[0] && splits[0] !== splits[0] ? splits[0] : 1
         this.number = splits[1] ? parseInt(splits[1]) : 0
-      }
-    }
+      },
+    },
   }
 </script>
 

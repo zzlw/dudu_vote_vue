@@ -20,8 +20,8 @@ export default {
   props: {
     data: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   data () {
     return {
@@ -35,7 +35,7 @@ export default {
 
   components: {},
 
-  methods: {}
+  methods: {},
 }
 </script>
 

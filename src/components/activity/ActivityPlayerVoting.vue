@@ -66,7 +66,7 @@
             onShow () {
             },
             onHide () {
-            }
+            },
           })
         } else {
           this.showDialog = true

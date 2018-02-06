@@ -86,7 +86,7 @@
           text: data.message,
         })
       },
-    }
+    },
   }
 </script>
 

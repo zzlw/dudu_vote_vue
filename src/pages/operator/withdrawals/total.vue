@@ -90,12 +90,12 @@ import { api } from 'h5sdk'
 export default {
   data () {
     return {
-      srcImg: ''
+      srcImg: '',
     }
   },
   async created () {},
 
-  methods: {}
+  methods: {},
 }
 </script>
 

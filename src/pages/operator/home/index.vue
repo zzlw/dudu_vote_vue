@@ -106,7 +106,6 @@
     mounted () {
     },
     created () {
-
       this.fetchActivityData()
       // this.fetchStatData()
     },

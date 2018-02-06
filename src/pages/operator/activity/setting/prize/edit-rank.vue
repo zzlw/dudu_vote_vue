@@ -24,7 +24,7 @@
 
   export default {
     components: {
-      InputRichText
+      InputRichText,
     },
     data () {
       return {
@@ -70,8 +70,8 @@
         if (!data.error) {
           this.$router.back()
         }
-      }
-    }
+      },
+    },
   }
 </script>
 

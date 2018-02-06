@@ -31,7 +31,7 @@
       InputSwiperItem,
     },
     props: [
-      'value', 'preview', 'showDots'
+      'value', 'preview', 'showDots',
     ],
     data () {
       return {

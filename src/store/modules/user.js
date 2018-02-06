@@ -9,18 +9,18 @@ export default {
   // 继承父模块的命名空间
   state: {},
   getters: {
-    profile () { } // -> getters['account/profile']
+    profile () { }, // -> getters['account/profile']
   },
   actions: {
     async getMusic ({ commit, state }) {
       commit(GET_USER)
-    }
+    },
   },
   [GET_USER] (state) {
     state.isMusic = {
       show: false,
-      play: false
+      play: false,
     }
-  }
+  },
 
 }

@@ -56,8 +56,8 @@
       },
       async onVoting () {
         this.player.gain_votes += 1
-      }
-    }
+      },
+    },
   }
 </script>
 

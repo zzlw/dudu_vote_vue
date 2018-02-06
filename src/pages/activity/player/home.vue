@@ -171,7 +171,7 @@
       InputSwiper,
       InputRichText,
       ActivityPrizes,
-      ActivityPlayerVoting
+      ActivityPlayerVoting,
     },
     data () {
       return {
@@ -186,35 +186,35 @@
         data: [
           {
             number: 167,
-            text: '总票数'
+            text: '总票数',
           },
           {
             number: 167,
-            text: '转发量'
+            text: '转发量',
           },
           {
             number: 167,
-            text: '浏览量'
+            text: '浏览量',
           },
           {
             number: 167,
-            text: '礼物数'
-          }
-        ]
+            text: '礼物数',
+          },
+        ],
       }
     },
     computed: {
       ...mapState({
         activity: state => state.activity.info,
         player: state => state.player.info,
-        prizes: state => state.prizes.info
+        prizes: state => state.prizes.info,
       }),
       listSix () {
         return this.list.splice(0, 6)
       },
       cateGroup () {
         return chunk(this.player.events.ordinary_vote, 5)
-      }
+      },
     },
     methods: {
       onVoting (votes) {
@@ -232,7 +232,7 @@
     },
     mounted () {
       // this.fetchEvents()
-    }
+    },
   }
 </script>
 

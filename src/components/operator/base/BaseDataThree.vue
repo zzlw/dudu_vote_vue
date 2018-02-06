@@ -13,15 +13,15 @@ export default {
     // 检测类型 + 其他验证
     data: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   data () {
     return {
     }
   },
   mounted () {},
-  components: {}
+  components: {},
 }
 </script>
 

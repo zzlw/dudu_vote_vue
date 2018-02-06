@@ -22,14 +22,14 @@
     props: {
       title: {
         type: String,
-        required: true
-      }
+        required: true,
+      },
     },
     computed: {
     },
     async mounted () {
     },
     methods: {
-    }
+    },
   }
 </script>
