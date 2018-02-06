@@ -29,10 +29,6 @@
         <Echarts :cells="data.today.data" />
       </div>
     </div>
-
-    <div v-if="!data" style="width: 100%; height: 100%; line-height: 100%">
-      加载中
-    </div>
   </div>
 </template>
 

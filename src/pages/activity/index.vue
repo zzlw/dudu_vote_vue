@@ -26,7 +26,6 @@
       </div>
     </div>
 
-    <div v-if="!activity.info">加载中</div>
     <router-view v-if="activity.info"></router-view>
 
     <div v-show="!$route.meta.notNav" class="that_tabbar w100 bg-white flex-wrp flex-align-center">
