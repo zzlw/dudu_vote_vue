@@ -1,5 +1,5 @@
 <template>
-  <span @click="clickVote">
+  <span @click.stop="clickVote">
       <slot></slot>
     <!--投票成功-->
       <x-dialog :show.sync="showDialog" :hide-on-blur="true" :dialog-style="{width: '100%'}">
@@ -14,9 +14,10 @@
           </div>
           <div class="color5 size22 ptb50">好友也可以帮忙，一天后还能再投票哦！</div>
 
-          <router-link :to="`/activity/${activity.info.id}/player/${player.id}/gift`">
-          <div class="ptb15 bg-ff404b size26 color1 border-radius5">给TA送礼物加票</div>
-          </router-link>
+          <div
+            @click.stop="$router.push(`/activity/${activity.info.id}/player/${player.id}/gift`)"
+            class="ptb15 bg-ff404b size26 color1 border-radius5"
+          >给TA送礼物加票</div>
 
           <div class="flex-wrp flex-center" @click.stop="showDialog=false">
             <div class="guanbi border-radius">

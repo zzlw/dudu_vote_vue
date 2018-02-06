@@ -51,7 +51,7 @@
   import { createNamespacedHelpers } from 'vuex'
   import { api } from 'h5sdk'
 
-  const {mapState} = createNamespacedHelpers('operator')
+  const {mapState, mapActions} = createNamespacedHelpers('operator')
 
   export default {
     data () {
@@ -68,24 +68,28 @@
     async created () {},
 
     methods: {
+      ...mapActions({
+        'fetchOperator': 'fetchOperator',
+      }),
       async onSubmit () {
         const that = this
         this.$store.dispatch('loading')
         const {data} = await api.post('operator_withdraw', {
           fee: this.amount,
         })
+        this.fetchOperator()
         this.$store.dispatch('loaded', 0)
 
         if (data.error) {
           this.$vux.toast.show({
-            text: data.message
+            text: data.message,
           })
         } else {
           this.$vux.toast.show({
             text: data.message,
             onHide: () => {
               that.$router.push('withdrawals-log')
-            }
+            },
           })
         }
 
