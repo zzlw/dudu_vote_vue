@@ -77,8 +77,8 @@
       },
       async fetchData () {
         const splits = this.activity.vote_rule_ticket.split(':')
-        this.minute = splits[0] && splits[0] !== splits[0] ? splits[0] : 1
-        this.number = splits[1] ? parseInt(splits[1]) : 0
+        this.minute = splits[0] && splits[0] !== splits[0] ? parseInt(splits[0]) : 1
+        this.number = splits[1] && splits[1] !== splits[1] ? parseInt(splits[1]) : 0
       },
     },
   }
