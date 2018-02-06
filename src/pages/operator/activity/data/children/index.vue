@@ -77,7 +77,7 @@
   .backTop{
     position: fixed;
     bottom: 120px;
-    right: 0;
+    right: 10px;
     width: 30px;
     height: 30px;
     opacity: .8;
