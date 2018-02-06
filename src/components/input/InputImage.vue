@@ -43,7 +43,14 @@
           })
           this.$emit('input', data.data)
         } catch (e) {
-          alert('上传失败, 请重试')
+          this.$vux.alert.show({
+            title: '提示',
+            content: '上传失败, 请重试',
+            onShow () {
+            },
+            onHide () {
+            }
+          })
         } finally {
           this.$vux.loading.hide()
         }

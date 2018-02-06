@@ -31,7 +31,7 @@
       <p v-if="item.text" :key="index">
         {{item.text}}
       </p>
-      <p v-if="item.image" class="" :key="index">
+      <p v-if="item.image" class="pb10" :key="index">
         <img :src="item.image" alt="">
       </p>
     </template>

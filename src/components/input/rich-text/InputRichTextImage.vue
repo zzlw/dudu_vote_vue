@@ -64,7 +64,14 @@
         } catch (e) {
           console.log(e)
           this.$vux.loading.hide()
-          alert('上传失败, 请重试')
+          this.$vux.alert.show({
+            title: '提示',
+            content: '上传失败, 请重试',
+            onShow () {
+            },
+            onHide () {
+            }
+          })
         }
       },
     }

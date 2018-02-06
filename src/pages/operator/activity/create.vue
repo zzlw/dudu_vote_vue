@@ -47,7 +47,14 @@
         const {data} = await api.post('operator_activity_create', activity)
         this.$store.dispatch('loaded')
 
-        alert(data.message)
+        this.$vux.alert.show({
+          title: '提示',
+          content: data.message,
+          onShow () {
+          },
+          onHide () {
+          }
+        })
 
         if (data.error) {
         } else {

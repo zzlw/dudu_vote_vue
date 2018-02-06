@@ -2,7 +2,7 @@ import moment from 'moment'
 import VueClipboard from 'vue-clipboard2'
 import {
   Cell, ConfirmPlugin, Datetime, Divider, FormPreview, Group, LoadingPlugin, Swiper, SwiperItem, Tab, Tabbar,
-  TabbarItem, TabItem, ToastPlugin, XAddress, XButton, XDialog, XInput, XNumber, XSwitch, XTextarea
+  TabbarItem, TabItem, ToastPlugin, XAddress, XButton, XDialog, XInput, XNumber, XSwitch, XTextarea, AlertPlugin
 } from 'vux'
 
 import BaseAvatar from 'components/operator/base/BaseAvatar.vue'
@@ -55,9 +55,11 @@ export default {
     Vue.component('Tabbar', Tabbar)
     Vue.component('TabbarItem', TabbarItem)
 
+
     Vue.use(ToastPlugin)
     Vue.use(LoadingPlugin)
     Vue.use(ConfirmPlugin)
+    Vue.use(AlertPlugin)
     // Vue.use(Toast)
 
     // 复制到剪切板

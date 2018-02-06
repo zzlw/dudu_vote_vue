@@ -11,11 +11,11 @@
       </cell>
       <cell class="">
         <div slot="icon" class="flex-wrp flex-align-center">
-          <x-input v-model="minute" type="number" @on-change="(e)=>thatOnChange(e,'minute')" class="_xInput text-center bg-white border-radius5 pd10 color2 size26 outline border"
+          <x-input v-model="minute" type="text"  class="_xInput text-center bg-white border-radius5 pd10 color2 size26 outline border"
                  :style="{border:'1px solid #ccc', width: rem(120)}"/>
           <div class="pl20">分钟</div>
           <div class="pr20">最多</div>
-          <x-input v-model="number" type="number" @on-change="(e)=>thatOnChange(e,'number')" class="_xInput text-center bg-white border-radius5 pd10 color2 size26 outline border"
+          <x-input v-model="number" type="text"  class="_xInput text-center bg-white border-radius5 pd10 color2 size26 outline border"
                  :style="{border:'1px solid #ccc', width: rem(120)}"/>
           <div class="pl20">票</div>
         </div>
@@ -53,10 +53,16 @@
       ...mapActions({
         'reloadActivity': 'reloadActivity',
       }),
-      thatOnChange(e,item){
-        this[item]=Math.abs(parseInt(this[item]))
-      },
       async onSubmit () {
+        if( parseInt(this.minute, 10) !== this.minute || parseInt(this.number, 10) !== this.number || this.minute <= 0 || this.number <= 0 ){
+
+          this.$vux.toast.show({
+            width: this.rem(300),
+            type:'warn',
+            text: '设置时间和票数均不能小于0，且不能为空，且必须为整数！',
+          })
+          return
+        }
         this.$store.dispatch('loading')
         const {data} = await api.post('operator_activity_config', {
           id: this.activity.id,
@@ -72,8 +78,8 @@
       },
       async fetchData () {
         const splits = this.activity.vote_rule_ticket.split(':')
-        this.minute = splits[0] ? splits[0] : 1
-        this.number = splits[1] ? splits[1] : 0
+        this.minute = splits[0]&&splits[0]!==splits[0] ? splits[0] : 1
+        this.number = splits[1] ? parseInt(splits[1]) : 0
       }
     }
   }

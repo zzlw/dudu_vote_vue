@@ -64,7 +64,14 @@
           this.$store.dispatch('loaded')
 
           if (data.error) {
-            alert(data.message)
+            this.$vux.alert.show({
+              title: '提示',
+              content: data.message,
+              onShow () {
+              },
+              onHide () {
+              }
+            })
             return
           }
 
@@ -78,7 +85,14 @@
           this.$store.dispatch('loaded')
 
           if (data.error) {
-            alert(data.message)
+            this.$vux.alert.show({
+              title: '提示',
+              content: data.message,
+              onShow () {
+              },
+              onHide () {
+              }
+            })
             return
           }
 
