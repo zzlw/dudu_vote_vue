@@ -28,6 +28,11 @@
       <div class="pd20 echarts bg-white">
         <Echarts :cells="data.today.data" />
       </div>
+      <div class="backTop border-radius10 pd10" v-back-top >
+        <svg class="icon base-menu-icon" aria-hidden="true">
+          <use xlink:href="#icon-tubiao102"></use>
+        </svg>
+      </div>
     </div>
 
     <div v-if="!data" style="width: 100%; height: 100%; line-height: 100%">
@@ -72,5 +77,14 @@
 <style lang="scss" scoped>
   .echarts {
     height: 700px;
+  }
+  .backTop{
+    position: fixed;
+    bottom: 120px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    opacity: .5;
+    border: 1px solid #00d8c0;
   }
 </style>

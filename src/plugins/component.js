@@ -123,15 +123,20 @@ export default {
       return texts || false
     }
 
-    Vue.directive('numberOnly', {
-      bind: function () {
-        this.handler = function () {
-          this.el.value = this.el.value.replace(/\D+/, '')
-        }.bind(this)
-        this.el.addEventListener('input', this.handler)
-      },
-      unbind: function () {
-        this.el.removeEventListener('input', this.handler)
+    Vue.directive('back-top', {
+      inserted(el, binding) {
+        let e = binding.arg || 'click'
+        el.addEventListener(e, () => {
+          var top = document.body.scrollTop
+          var timer = setInterval(() => {
+            top -= 50
+            if (top <= 0) {
+              top = 0
+              clearInterval(timer)
+            }
+            document.documentElement.scrollTop = document.body.scrollTop = top
+          }, 20)
+        })
       }
     })
   },
