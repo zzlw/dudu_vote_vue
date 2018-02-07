@@ -42,15 +42,17 @@
 
     <div class="bg-white mt20 plr20 pb15">
       <div class="color2 size22 ptb10">收到的礼物</div>
-      <swiper :height="rem(170)" :show-dots="false" loop :duration="1500">
+      <swiper :height="rem(170)" :show-dots="false" loop :duration="500">
         <swiper-item v-for="(item, index) in cateGroup" :key="index" class="flex-wrp">
-          <div class="flex-wrp flex-cell flex-center mlr10" v-for="(t, i) in item" :key="i" :style="{flex:1}">
-            <div class="flex-wrp flex-center border-radius overflow-hidden mtb10" :style="{width: rem(80), height: rem(80)}">
-              <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-                  :style="{backgroundImage:`url(${t.image})`}"/>
-            </div>
-            <div class="color4 size16 text-center text-nowrap-one">{{t.name}}</div>
-            <div class="color4 size16 text-center text-nowrap-one">{{t.sum}}个</div>
+          <div class="flex-wrp flex-cell flex-center mlr10" v-for="(t,i) in 5" :key="i" :style="{flex:1}">
+            <template v-if="item[i]">
+              <div class="flex-wrp flex-center border-radius overflow-hidden mtb10" :style="{width: rem(80), height: rem(80)}">
+                <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
+                    :style="{backgroundImage:`url(${item[i].image})`}"/>
+              </div>
+              <div class="color4 size16 text-center text-nowrap-one">{{item[i].name}}</div>
+              <div class="color4 size16 text-center text-nowrap-one">{{item[i].sum}}个</div>
+            </template>
           </div>
         </swiper-item>
       </swiper>

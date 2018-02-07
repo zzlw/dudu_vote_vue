@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="pl20" :style="{flex:1}">
-        <swiper :height="rem(80)" :show-dots="false" auto loop :duration="1500"  >
+        <swiper :height="rem(80)" :show-dots="false" auto loop :duration="500"  >
             <swiper-item v-for="(item, index) in data" :key="index" class="flex-wrp flex-middle flex-cell" >
                 <div class="size26 color2 text-nowrap" @click="$router.push(item.to)">{{item.title}}</div>
             </swiper-item>

@@ -80,16 +80,18 @@
       <div class="bg-white mt20 plr20 pb15">
         <div class="color2 size22 ptb10">他们刚刚帮TA投票了!</div>
         <div v-if="player.events">
-          <swiper :height="rem(170)" :show-dots="false" loop :duration="1500">
+          <swiper :height="rem(170)" :show-dots="false" loop :duration="500">
             <swiper-item v-for="(item, index) in cateGroup" :key="index" class="flex-wrp">
-              <div class="flex-wrp flex-cell flex-center mlr10" :style="{flex: 1}" v-for="(t, i) in item" :key="i">
-                <div class="flex-wrp flex-center border-radius overflow-hidden"
-                     :style="{width: rem(90), height: rem(90)}">
-                  <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
-                       :style="{backgroundImage:`url(${t.headimgurl})`}"/>
-                </div>
-                <div class="color4 size16 text-center text-nowrap-one">{{t.nickname}}</div>
-                <div class="color4 size16 text-center text-nowrap-one">{{t.created_at}}</div>
+              <div class="flex-wrp flex-cell flex-center mlr10" :style="{flex: 1}" v-for="(t, i) in 5" :key="i">
+                <template v-if="item[i]">
+                  <div class="flex-wrp flex-center border-radius overflow-hidden"
+                      :style="{width: rem(90), height: rem(90)}">
+                    <img width="100%" height="100%" src="~/assets/img/s.gif" class="bg-cover"
+                        :style="{backgroundImage:`url(${i.headimgurl})`}"/>
+                  </div>
+                  <div class="color4 size16 text-center text-nowrap-one">{{i.nickname}}</div>
+                  <div class="color4 size16 text-center text-nowrap-one">{{i.created_at}}</div>
+                </template>
               </div>
             </swiper-item>
           </swiper>
