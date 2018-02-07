@@ -54,8 +54,7 @@
         'reloadActivity': 'reloadActivity',
       }),
       async onSubmit () {
-        console.log(this.minute,this.number,parseInt(this.minute, 10) != this.minute)
-        if (parseInt(this.minute, 10) != this.minute || parseInt(this.number, 10) != this.number || this.minute <= 0 || this.number <= 0) {
+        if ( isNaN(this.minute) || isNaN(this.number) ||this.minute < 0 || this.number < 0) {
           this.$vux.toast.show({
             width: this.rem(300),
             type: 'warn',
@@ -78,8 +77,8 @@
       },
       async fetchData () {
         const splits = this.activity.vote_rule_ticket.split(':')
-        this.minute = splits[0] && splits[0] === splits[0] ? parseInt(splits[0]) : 1
-        this.number = splits[1] && splits[1] === splits[1] ? parseInt(splits[1]) : 0
+        this.minute = splits[0] ? splits[0] : 1
+        this.number = splits[1] ? splits[1]: 0
       },
     },
   }
